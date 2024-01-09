@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>dru24</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="Cartzilla - Bootstrap E-commerce Template">
+    <meta name="keywords" content="bootstrap, shop, e-commerce, market, modern, responsive,  business, mobile, bootstrap, html5, css3, js, gallery, slider, touch, creative, clean">
+    <meta name="author" content="Createx Studio">
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Vendor Styles including: Font Icons, Plugins, etc.-->
+    <link rel="stylesheet" media="screen" href="vendor/simplebar/dist/simplebar.min.css"/>
+    <link rel="stylesheet" media="screen" href="vendor/tiny-slider/dist/tiny-slider.css"/>
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="css/theme.min.css">
+  </head>
+  
+  <!-- Body-->
+  <body class="bg-secondary">
+    <!-- 헤더 시작 -->
+    <header class="bg-dark shadow-sm navbar-sticky">
+        <div class="navbar navbar-expand-lg navbar-dark">
+          <div class="container"><a class="navbar-brand d-none d-sm-block flex-shrink-0 me-4 order-lg-1" href="main.html"><img src="imgs/LogoE_r.png" width="142" alt=""></a>
+            <!-- Toolbar-->
+            <div class="navbar-toolbar d-flex align-items-center order-lg-3">
+              <a class="navbar-tool d-none d-lg-flex" href="dashboard-favorites.html"><span class="navbar-tool-tooltip">나의 구급함</span><div class="navbar-tool-icon-box"><i class="navbar-tool-icon ci-basket-alt"></i></div></a>
+              <a class="navbar-tool d-none d-lg-flex" href="dashboard-favorites.html"><span class="navbar-tool-tooltip">즐겨찾기</span><div class="navbar-tool-icon-box"><i class="navbar-tool-icon ci-heart"></i></div></a>
+              <div class="navbar-tool dropdown ms-2"><a class="" href="dashboard-sales.html"><img src="imgs/account/donga_logo.png" height="32" width="32" alt="보령제약"></a><a class="navbar-tool-text ms-n1" href="dashboard-sales.html"><small>동아제약</small>기업 회원</a>
+                <div class="dropdown-menu dropdown-menu-end">
+                  <div style="min-width: 14rem;">
+                    <h6 class="dropdown-header">계정 정보</h6><a class="dropdown-item d-flex align-items-center" href="dashboard-settings.html"><i class="ci-settings opacity-60 me-2"></i>마이 페이지</a><a class="dropdown-item d-flex align-items-center" href="dashboard-purchases.html"><i class="ci-basket opacity-60 me-2"></i>구매 하기</a><a class="dropdown-item d-flex align-items-center" href="dashboard-favorites.html"><i class="ci-heart opacity-60 me-2"></i>장바구니<span class="fs-xs text-muted ms-auto">4</span></a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item d-flex align-items-center" href="account-signin.html"><i class="ci-sign-out opacity-60 me-2"></i>Sign Out</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="collapse navbar-collapse me-auto order-lg-2" id="navbarCollapse">
+              <!-- Primary menu-->
+              <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="Main.html">Home</a></li>
+                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">약 상세검색</a></li>
+                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">약국 찾기</a></li>
+                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">의약품 정보</a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">약물 백과</a></li>
+                    <li><a class="dropdown-item" href="about.html">안정성</a></li>
+                    <li><a class="dropdown-item" href="contacts.html">유통</a></li>
+                    <li><a class="dropdown-item" href="#">안전사용</a></li>
+                    <li class="dropdown"><a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown">복용 정보</a>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="404-simple.html">그림 복약정보</a></li>
+                        <li><a class="dropdown-item" href="404-illustration.html">복약정보</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">Community</a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Expert answer</a></li>
+                    <li class="dropdown"><a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown">후기</a>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="404-simple.html">의약품 후기</a></li>
+                        <li><a class="dropdown-item" href="404-illustration.html">약국 후기</a></li>
+                      </ul>
+                    </li>
+                    <li><a class="dropdown-item" href="#">질문과 답변</a></li>
+                    <li><a class="dropdown-item" href="#">고객센터</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">Newsroom</a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">관련 뉴스</a></li>
+                    <li><a class="dropdown-item" href="#">동영상</a></li>
+                    <li><a class="dropdown-item" href="#">일상 정보</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    </header>
+    <!-- 헤더 끝 -->
+    
+    <!-- Sidebar menu-->
+    <aside class="offcanvas offcanvas-expand w-100 border-end zindex-lg-5 pt-lg-5" id="sideNav" style="max-width: 21.875rem;">
+      <div class="pt-2 d-none d-lg-block"></div>
+      <ul class="nav nav-tabs nav-justified mt-4 mt-lg-5 mb-0" role="tablist" style="min-height: 3rem;">
+        <li class="nav-item"><a href="#menu" data-bs-toggle="tab" role="tab">Menu</a></li>
+        <li class="nav-item d-lg-none"><a class="nav-link fs-sm" href="#" data-bs-dismiss="offcanvas" role="tab"><i class="ci-close fs-xs me-2"></i>Close</a></li>
+      </ul>
+      <div class="offcanvas-body px-0 pt-3 pb-0" data-simplebar>
+        <div class="tab-content">
+            
+          <!-- Menu-->
+          <div id="menu" role="tabpanel">
+            <div class="widget widget-categories">
+              <div class="accordion" id="shop-menu">
+                <!-- 임상시험 정보-->
+                <div class="accordion-item border-bottom">
+                  <h3 class="accordion-header px-grid-gutter">
+                    <button class="accordion-button collapsed py-3" type="button" data-bs-toggle="collapse" data-bs-target="#home" aria-expanded="false" aria-controls="home">임상시험정보</button>
+                  </h3>
+                  <div class="collapse" id="home" data-bs-parent="#shop-menu">
+                    <div class="px-grid-gutter pt-1 pb-4">
+                      <div class="widget widget-links">
+                        <ul class="widget-list">
+                          <li class="widget-list-item"><a class="widget-list-link" href="#">임상시험이란</a></li>
+                          <li class="widget-list-item"><a class="widget-list-link" href="#">임상시험 창여</a></li>
+                          <li class="widget-list-item"><a class="widget-list-link" href="#">임상시험 관련 용어</a></li>
+                          <li class="widget-list-item"><a class="widget-list-link" href="#">임상시험 정보</a></li>
+                          <li class="widget-list-item"><a class="widget-list-link" href="#">임상시험 정보</a></li>
+                          <li class="widget-list-item"><a class="widget-list-link" href="#">임상시험 자료실</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- 약물유전 정보-->
+                <div class="accordion-item border-bottom">
+                  <h3 class="accordion-header px-grid-gutter">
+                    <button class="accordion-button collapsed py-3" type="button" data-bs-toggle="collapse" data-bs-target="#shop" aria-expanded="false" aria-controls="shop">약물유전 정보</button>
+                  </h3>
+                  <div class="collapse" id="shop" data-bs-parent="#shop-menu">
+                    <div class="px-grid-gutter pt-1 pb-4">
+                      <div class="widget widget-links">
+                        <ul class="widget-list">
+                            <ul class="widget-list pt-1">
+                              <li class="widget-list-item"><a class="widget-list-link" href="#">업체정보</a></li>
+                              <li class="widget-list-item"><a class="widget-list-link" href="#">도매상 정보</a></li>
+                              <li class="widget-list-item"><a class="widget-list-link" href="#">의약품 등 정보검색</a></li>
+                              <li class="widget-list-item"><a class="widget-list-link" href="#">의약품(dur)정보</a></li>
+                              <li class="widget-list-item"><a class="widget-list-link" href="#">의약품 등 심사결과 정보</a></li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- 품목갱신 정보-->
+                <div class="accordion-item border-bottom">
+                  <h3 class="accordion-header px-grid-gutter">
+                    <button class="accordion-button collapsed py-3" type="button" data-bs-toggle="collapse" data-bs-target="#account" aria-expanded="false" aria-controls="account">품목갱신 정보</button>
+                  </h3>
+                  <div class="collapse" id="account" data-bs-parent="#shop-menu">
+                    <div class="px-grid-gutter pt-1 pb-4">
+                      <div class="widget widget-links">
+                        <ul class="widget-list">
+                            <ul class="widget-list pt-1">
+                              <li class="widget-list-item"><a class="widget-list-link" href="#">의약품 품목 갱신 제도란</a></li>
+                              <li class="widget-list-item"><a class="widget-list-link" href="#">품목유효기간조회</a></li>
+                            </ul>
+                          </li>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 국내외 의약품특허정보-->
+                <div class="accordion-item border-bottom">
+                  <h3 class="accordion-header px-grid-gutter">
+                    <button class="accordion-button collapsed py-3" type="button" data-bs-toggle="collapse" data-bs-target="#pages" aria-expanded="false" aria-controls="pages">국내외 의약품특허정보</button>
+                  </h3>
+                  <div class="collapse" id="pages" data-bs-parent="#shop-menu">
+                    <div class="px-grid-gutter pt-1 pb-4">
+                      <div class="widget widget-links">
+                        <ul class="widget-list">
+                          <li class="widget-list-item"><a class="widget-list-link" href="#">의약품 특허정보</a></li>
+                          <li class="widget-list-item"><a class="widget-list-link" href="#">해외특허정보</a></li>
+                          <li class="widget-list-item"><a class="widget-list-link" href="#">심판현황</a></li>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- 대한민국 약전-->
+                <div class="accordion-item border-bottom">
+                  <h3 class="accordion-header px-grid-gutter">
+                    <button class="accordion-button collapsed py-3" type="button" data-bs-toggle="collapse" data-bs-target="#blog" aria-expanded="false" aria-controls="blog">대한민국 약전</button>
+                  </h3>
+                  <div class="collapse" id="blog" data-bs-parent="#shop-menu">
+                    <div class="px-grid-gutter pt-1 pb-4">
+                      <div class="widget widget-links">
+                        <ul class="widget-list">
+                            <ul class="widget-list pt-1">
+                              <li class="widget-list-item"><a class="widget-list-link" href="#">대한민국 약전이란</a></li>
+                              <li class="widget-list-item"><a class="widget-list-link" href="#">최신 개정정보</a></li>
+                              <li class="widget-list-item"><a class="widget-list-link" href="#">통합검색</a></li>
+                              <li class="widget-list-item"><a class="widget-list-link" href="#">일반정보</a></li>
+                            </ul>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 의약품 식별표시-->
+                <div class="accordion-item border-bottom">
+                  <h3 class="accordion-header px-grid-gutter">
+                    <button class="accordion-button collapsed py-3" type="button" data-bs-toggle="collapse" data-bs-target="#docs" aria-expanded="false" aria-controls="docs">의약품 식별표시</button>
+                  </h3>
+                  <div class="collapse" id="docs" data-bs-parent="#shop-menu">
+                    <div class="px-grid-gutter pt-1 pb-4">
+                      <div class="widget widget-links">
+                        <ul class="widget-list">
+                          <li class="widget-list-item"><a class="widget-list-link" href="#">식별표시</a></li>
+                          <li class="widget-list-item"><a class="widget-list-link" href="#">식별표시 Q&A</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- 이미지 삽입-->
+    <main class="offcanvas-enabled" style="padding-top: 0em;">
+      <section class="ps-lg-4 pe-lg-3 pt-4">
+        <div class="px-3 pt-2">
+          <section class="tns-carousel mb-3 mb-md-5">
+            <div class="tns-carousel-inner" data-carousel-options="{&quot;items&quot;: 1, &quot;mode&quot;: &quot;gallery&quot;, &quot;nav&quot;: false, &quot;responsive&quot;: {&quot;0&quot;: {&quot;nav&quot;: true, &quot;controls&quot;: false}, &quot;576&quot;: {&quot;nav&quot;: false, &quot;controls&quot;: true}}}">
+              <!-- 이미지 1-->
+              <div>
+                <div class="rounded-3 px-md-5 text-center text-xl-start" style="background-color: #59c879;">
+                  <div class="d-xl-flex justify-content-between align-items-center px-4 px-sm-5 mx-auto" style="max-width: 1226px;">
+                    <div class="py-5 me-xl-4 mx-auto mx-xl-0" style="max-width: 490px;">
+                      <h3 class="text-light pb-3">Health is a happy mother.</h3>
+                      <p class="text-light pb-4">질병은 천 개나 있지만 건강은 하나밖에 없다.</p>
+                    </div>
+                    <div><img src="img/dur_1.jpg" alt="Image"></div>
+                  </div>
+                </div>
+              </div>
+              <!-- 이미지 2-->
+              <div>
+                <div class="rounded-3 px-md-5 text-center text-xl-start" style="background-color: #1a6fb0;">
+                  <div class="d-xl-flex justify-content-between align-items-center px-4 px-sm-5 mx-auto" style="max-width: 1226px;">
+                    <div class="py-5 me-xl-4 mx-auto mx-xl-0" style="max-width: 490px;">
+                      <h3 class="h1 text-light">Health is the greatest wealth.</h3>
+                      <p class="text-light pb-4">공짜로 처방전을 써 주는 의사의 충고는 듣지 마라.</p>
+                    </div>
+                    <div><img src="img/dur_2.jpg" alt="Image"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 컨텐츠 구간-->
+          <h3>의약품(DUR)정보</h3>
+          <hr wjdth = "100%" color="red">
+          
+          
+          
+          
+          <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+          <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+      <!-- 푸터 시작-->
+      <footer class="footer bg-dark pt-5">
+        <div class="px-lg-3 pt-2 pb-4">
+          <div class="mx-auto px-3" style="max-width: 80rem;">
+            <div class="row">
+              <div class="col-xl-2 col-lg-3 col-sm-4 pb-2 mb-4">
+                <div class="mt-n1"><a class="d-inline-block align-middle" href="#"><img class="" src="images/logo-drug24.png" width="117" alt="Cartzilla"></a><span class="d-inline-block align-middle h2 fw-bold text-white mb-0">DRUG24</span></div><br>
+                <span class="d-inline-block align-middle h5 fw-bold text-white mb-0">About us</span><br>
+                <p class="fs-sm text-white opacity-70 pb-1">DRUG24는 약 24,000개의 의약품 정보를 제공합니다.<br>오남용 없이 안전하게 복용하세요</p>
+               <h6 class="d-inline-block pe-3 me-3 border-end border-light"><span class="text-primary">5,478 </span><span class="fw-normal text-white">Products</span></h6>
+               <h6 class="d-inline-block pe-3 me-3 border-end border-light"><span class="text-primary">521 </span><span class="fw-normal text-white">Pharmacy</span></h6>
+                <h6 class="d-inline-block me-3"><span class="text-primary">17 </span><span class="fw-normal text-white">Pharmacist</span></h6>
+              </div>
+
+              <div class="col-7 d-none d-md-block">
+                <div class="widget widget-links widget-light pb-2 mb-4">
+                  <h3 class="widget-title text-light">Categories</h3>
+                  <ul class="widget-list">
+                    <li class="widget-list-item"><a class="widget-list-link" href="#">Drug Search</a></li>
+                    <li class="widget-list-item"><a class="widget-list-link" href="#">Pharmacy Search</a></li>
+                    <li class="widget-list-item"><a class="widget-list-link" href="#">Medicine Info</a></li>
+                    <li class="widget-list-item"><a class="widget-list-link" href="#">My Page</a></li>
+                    <li class="widget-list-item"><a class="widget-list-link" href="#">Newsroom</a></li>
+                    <li class="widget-list-item"><a class="widget-list-link" href="#">Shopping Mall</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-sm-2 ">
+                <div class="widget widget-links widget-light pb-2 mb-4">
+                  <h3 class="widget-title text-light">For members</h3>
+                  <ul class="widget-list">
+                    <li class="widget-list-item"><a class="widget-list-link" href="#">My First Aid Kit</a></li>
+                    <li class="widget-list-item"><a class="widget-list-link" href="#">Pharmacy Reviews</a></li>
+                    <li class="widget-list-item"><a class="widget-list-link" href="#">Medicine Reaviews</a></li>
+                    <li class="widget-list-item"><a class="widget-list-link" href="#">Expert Answer</a></li>
+                    <li class="widget-list-item"><a class="widget-list-link" href="#">Help center</a></li>
+                    <li class="widget-list-item"><a class="widget-list-link" href="#">Notice</a></li>
+                  </ul>
+                </div>
+      </footer>
+    </main>
+    <!-- Back To Top Button--><a class="btn-scroll-top" href="#top" data-scroll data-fixed-element><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon ci-arrow-up">   </i></a>
+    <!-- Vendor scrits: js libraries and plugins-->
+    <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/simplebar/dist/simplebar.min.js"></script>
+    <script src="vendor/tiny-slider/dist/min/tiny-slider.js"></script>
+    <script src="vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <!-- Main theme script-->
+    <script src="js/theme.min.js"></script>
+  </body>
+</html>
