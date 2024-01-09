@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>DRUG24</title>
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Vendor Styles including: Font Icons, Plugins, etc.-->
+    <link rel="stylesheet" media="screen" href="vendor/simplebar/dist/simplebar.min.css"/>
+    <link rel="stylesheet" media="screen" href="vendor/tiny-slider/dist/tiny-slider.css"/>
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="css/theme.min.css">
+  </head>
+  <!-- Body-->
+  <body>
+    <main class="page-wrapper">
+      <!-- 헤더 시작 -->
+      <header class="bg-dark shadow-sm navbar-sticky">
+        <div class="navbar navbar-expand-lg navbar-dark">
+          <div class="container"><a class="navbar-brand d-none d-sm-block flex-shrink-0 me-4 order-lg-1" href="main.html"><img src="imgs/LogoE_r.png" width="142" alt=""></a>
+            <!-- Toolbar-->
+            <div class="navbar-toolbar d-flex align-items-center order-lg-3">
+              <a class="navbar-tool d-none d-lg-flex" href="dashboard-favorites.html"><span class="navbar-tool-tooltip">나의 구급함</span><div class="navbar-tool-icon-box"><i class="navbar-tool-icon ci-basket-alt"></i></div></a>
+              <a class="navbar-tool d-none d-lg-flex" href="dashboard-favorites.html"><span class="navbar-tool-tooltip">즐겨찾기</span><div class="navbar-tool-icon-box"><i class="navbar-tool-icon ci-heart"></i></div></a>
+              <div class="navbar-tool dropdown ms-2"><a class="" href="dashboard-sales.html"><img src="imgs/account/donga_logo.png" height="32" width="32" alt="보령제약"></a><a class="navbar-tool-text ms-n1" href="dashboard-sales.html"><small>동아제약</small>기업 회원</a>
+                <div class="dropdown-menu dropdown-menu-end">
+                  <div style="min-width: 14rem;">
+                    <h6 class="dropdown-header">계정 정보</h6><a class="dropdown-item d-flex align-items-center" href="dashboard-settings.html"><i class="ci-settings opacity-60 me-2"></i>마이 페이지</a><a class="dropdown-item d-flex align-items-center" href="dashboard-purchases.html"><i class="ci-basket opacity-60 me-2"></i>구매 하기</a><a class="dropdown-item d-flex align-items-center" href="dashboard-favorites.html"><i class="ci-heart opacity-60 me-2"></i>장바구니<span class="fs-xs text-muted ms-auto">4</span></a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item d-flex align-items-center" href="account-signin.html"><i class="ci-sign-out opacity-60 me-2"></i>Sign Out</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="collapse navbar-collapse me-auto order-lg-2" id="navbarCollapse">
+              <!-- Primary menu-->
+              <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="Main.html">Home</a></li>
+                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">의약품 정보</a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">약 상세검색</a></li>
+                    <li><a class="dropdown-item" href="#">복약 정보</a></li>
+                    <li><a class="dropdown-item" href="#">안전성 서한</a></li>
+                    <li class="dropdown-item" href="#">안전 사용</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">약국 찾기</a></li>
+                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">의약품 쇼핑몰</a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">증상별 추천 아이템</a></li>
+                    <li><a class="dropdown-item" href="#">테마별 추천 아이템</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">Community</a>
+                  <ul class="dropdown-menu">
+                    <li class="dropdown"><a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown">후기</a>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="404-simple.html">의약품 후기</a></li>
+                        <li><a class="dropdown-item" href="404-illustration.html">약국 후기</a></li>
+                      </ul>
+                    </li>
+                    <li><a class="dropdown-item" href="#">질문과 답변</a></li>
+                    <li><a class="dropdown-item" href="#">고객센터</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">Newsroom</a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">관련 뉴스</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- 헤더 끝 -->
+      <!-- 배너 시작 Hero section -->
+      <section class="container bg-position-top-center bg-repeat-0 py-5" style="background-image: url(imgs/hero/c.png);">
+        <div class="pb-lg-5 mb-lg-3">
+          <div class="">
+            <div class="row mb-4 mb-sm-5">
+              <div class="col-lg-7 col-md-9 text-center text-sm-start">
+                <h1 class="text-black lh-base">For Special Moments<br>새해 기프트 패키지 만나보세요!</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- 배너 끝 Hero selction -->
+      <!-- Category 건기식-->
+      <section class="container pt-lg-3 mb-4 mb-sm-5">
+        <div class="row">
+          <!-- Banner with controls-->
+          <div class="col-md-6">
+            <div class="d-flex flex-column h-100 overflow-hidden rounded-3" style="background-color: #f6f8fb;">
+              <div class="d-flex justify-content-between px-grid-gutter py-grid-gutter">
+                <div>
+                  <h3 class="mb-1">건강기능식품</h3><a class="fs-md" href="#">구매하러 가기<i class="ci-arrow-right fs-xs align-middle ms-1"></i></a>
+                </div>
+              </div><a class="d-none d-md-block mt-auto" href="shop-grid-ls.html"><img class="d-block w-100" src="imgs/home/cat-lg02.jpg" alt="건강기능식품"></a>
+            </div>
+          </div>
+          <!-- Product grid -->
+          <div class="col-md-6 pt-4 pt-md-0">
+            <!-- item-->
+            <div class="row mx-n2">
+              <div class="col-lg-6 col-12 px-2 mb-4">
+                <div class="card product-card card-static">
+                  <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="ci-heart"></i></button><a class="card-img-top d-block overflow-hidden" href="shop-single-v1.html"><img src="imgs/products/theme/ortho.png" alt="orthomol"></a>
+                  <div class="card-body py-2"><a class="product-meta d-block fs-xs pb-1" href="#">Multi vitamin</a>
+                    <h3 class="product-title fs-sm"><a href="shop-single-v1.html">오쏘몰 바이탈 M (7일분)</a></h3>
+                    <div class="d-flex justify-content-between">
+                      <div class="product-price"><span class="text-accent">44,000원</span></div>
+                      <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-half active"></i><i class="star-rating-icon ci-star"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-12 px-2 mb-4">
+                <div class="card product-card card-static">
+                  <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="ci-heart"></i></button><a class="card-img-top d-block overflow-hidden" href="shop-single-v1.html"><img src="imgs/products/theme/minimax.png" alt="minimax"></a>
+                  <div class="card-body py-2"><a class="product-meta d-block fs-xs pb-1" href="#">눈 건강기능식품</a>
+                    <h3 class="product-title fs-sm"><a href="shop-single-v1.html">미니막스 랩 눈 솔루션 블루베리맛</a></h3>
+                    <div class="d-flex justify-content-between">
+                      <div class="product-price"><span class="text-accent">45,000원</span></div>
+                      <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-12 px-2 mb-4">
+                <div class="card product-card card-static">
+                  <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="ci-heart"></i></button><a class="card-img-top d-block overflow-hidden" href="shop-single-v1.html"><img src="imgs/products/theme/vitagran.png" alt="vitagran"></a>
+                  <div class="card-body py-2"><a class="product-meta d-block fs-xs pb-1" href="#">Vitamin C</a>
+                    <h3 class="product-title fs-sm"><a href="shop-single-v1.html">비타그란 비타민C 20포</a></h3>
+                    <div class="d-flex justify-content-between">
+                      <div class="product-price"><span class="text-accent">60,000원</span></div>
+                      <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-12 px-2 mb-4">
+                <div class="card product-card card-static">
+                  <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="ci-heart"></i></button><a class="card-img-top d-block overflow-hidden" href="shop-single-v1.html"><img src="imgs/products/theme/lactovibe.png" alt="lactovibe"></a>
+                  <div class="card-body py-2"><a class="product-meta d-block fs-xs pb-1" href="#">장 유산균</a>
+                    <h3 class="product-title fs-sm"><a href="shop-single-v1.html">락토바이브 패밀리 (2g x 30포)</a></h3>
+                    <div class="d-flex justify-content-between">
+                      <div class="product-price"><span class="text-accent">19,000원</span></div>
+                      <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-half active"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>      
+        </div>
+      </section>
+      <!-- Category 구강용품-->
+      <section class="container pt-lg-4 mb-4 mb-sm-5">
+        <div class="row">
+          <!-- Banner with controls-->
+          <div class="col-md-5 order-md-2">
+            <div class="d-flex flex-column h-100 overflow-hidden rounded-3" style="background-color: #f6f8fb;">
+              <div class="d-flex justify-content-between px-grid-gutter py-grid-gutter">
+                <div class="order-md-2">
+                  <h3 class="mb-1">구강 용품</h3><a class="fs-md" href="shop-grid-ls.html">구매하러 가기<i class="ci-arrow-right fs-xs align-middle ms-1"></i></a>
+                </div>
+              </div><a class="d-none d-md-block mt-auto" href="shop-grid-ls.html"><img class="d-block w-100" src="imgs/home/cat-lg01.jpg" alt="구강용품"></a>
+            </div>
+          </div>
+          <!-- Product grid -->
+          <div class="col-md-7 pt-4 pt-md-0 order-md-1">
+            <!-- Carousel item-->
+            <div class="row mx-n2">
+              <div class="col-lg-6 col-12 px-2 mb-4">
+                <div class="card product-card card-static">
+                  <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="ci-heart"></i></button><a class="card-img-top d-block overflow-hidden" href="shop-single-v1.html"><img src="imgs/products/theme/jordantoothbrush.png" alt="toothbrush"></a>
+                  <div class="card-body py-2"><a class="product-meta d-block fs-xs pb-1" href="#">칫솔</a>
+                    <h3 class="product-title fs-sm"><a href="shop-single-v1.html">조르단 타겟 센스티브(8입)</a></h3>
+                    <div class="d-flex justify-content-between">
+                      <div class="product-price"><span class="text-accent">24,000원</span></div>
+                      <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-12 px-2 mb-4">
+                <div class="card product-card card-static">
+                  <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="ci-heart"></i></button><a class="card-img-top d-block overflow-hidden" href="shop-single-v1.html"><img src="imgs/products/theme/gumguard.png" alt="gumguard"></a>
+                  <div class="card-body py-2"><a class="product-meta d-block fs-xs pb-1" href="#">잇몸 케어</a>
+                    <h3 class="product-title fs-sm"><a href="shop-single-v1.html">검가드 오리지널 + 치약</a></h3>
+                    <div class="d-flex justify-content-between">
+                      <div class="product-price"><span class="text-accent">33,000원</span></div>
+                      <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-half active"></i><i class="star-rating-icon ci-star"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-12 px-2 mb-4">
+                <div class="card product-card card-static">
+                  <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="ci-heart"></i></button><a class="card-img-top d-block overflow-hidden" href="shop-single-v1.html"><img src="imgs/products/theme/gagreen.png" alt="gagreen"></a>
+                  <div class="card-body py-2"><a class="product-meta d-block fs-xs pb-1" href="#">구강 케어</a>
+                    <h3 class="product-title fs-sm"><a href="shop-single-v1.html">가그린 가족 세트</a></h3>
+                    <div class="d-flex justify-content-between">
+                      <div class="product-price"><span class="text-accent">14,900원</span></div>
+                      <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-12 px-2 mb-4">
+                <div class="card product-card card-static">
+                  <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="ci-heart"></i></button><a class="card-img-top d-block overflow-hidden" href="shop-single-v1.html"><img src="imgs/products/theme/jordantoothpaste.png" alt="solea"></a>
+                  <div class="card-body py-2"><a class="product-meta d-block fs-xs pb-1" href="#">우리아이 첫 치약</a>
+                    <h3 class="product-title fs-sm"><a href="shop-single-v1.html">조르단 포도향 치약 75g(2입)</a></h3>
+                    <div class="d-flex justify-content-between">
+                      <div class="product-price"><span class="text-accent">9,000원</span></div>
+                      <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Category 위생기타 -->
+      <section class="container pt-lg-4 mb-4 mb-md-5">
+        <div class="row">
+          <!-- Banner with controls-->
+          <div class="col-md-5">
+            <div class="d-flex flex-column h-100 overflow-hidden rounded-3" style="background-color: #f6f8fb;">
+              <div class="d-flex justify-content-between px-grid-gutter py-grid-gutter">
+                <div>
+                  <h3 class="mb-1">위생/기타</h3><a class="fs-md" href="shop-grid-ls.html">구매하러 가기<i class="ci-arrow-right fs-xs align-middle ms-1"></i></a>
+                </div>
+              </div><a class="d-none d-md-block mt-auto" href="shop-grid-ls.html"><img class="d-block w-100" src="img/home/categories/cat-lg03.jpg" alt="For Kids"></a>
+            </div>
+          </div>
+          <!-- Product grid (carousel)-->
+          <div class="col-md-7 pt-4 pt-md-0">
+            <!-- Carousel item-->
+            <div class="row mx-n2">
+              <div class="col-lg-6 col-12 px-2 mb-4">
+                <div class="card product-card card-static">
+                  <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="ci-heart"></i></button><a class="card-img-top d-block overflow-hidden" href="shop-single-v1.html"><img src="imgs/products/theme/solea.png" alt="solea"></a>
+                  <div class="card-body py-2"><a class="product-meta d-block fs-xs pb-1" href="#">핸드워시</a>
+                    <h3 class="product-title fs-sm"><a href="shop-single-v1.html">솔리아 핸드새니타이저 510ml</a></h3>
+                    <div class="d-flex justify-content-between">
+                      <div class="product-price"><span class="text-accent">19,900원</span></div>
+                      <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-12 px-2 mb-4">
+                <div class="card product-card card-static">
+                  <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="ci-heart"></i></button><a class="card-img-top d-block overflow-hidden" href="shop-single-v1.html"><img src="imgs/products/theme/skinguard.png" alt="skinguard"></a>
+                  <div class="card-body py-2"><a class="product-meta d-block fs-xs pb-1" href="#">스킨가드</a>
+                    <h3 class="product-title fs-sm"><a href="shop-single-v1.html">스킨가드 플러스 블랙</a></h3>
+                    <div class="d-flex justify-content-between">
+                      <div class="product-price"><span class="text-accent">4,000원</small></span></div>
+                      <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-half active"></i><i class="star-rating-icon ci-star"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-12 px-2 mb-4">
+                <div class="card product-card card-static">
+                  <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="ci-heart"></i></button><a class="card-img-top d-block overflow-hidden" href="shop-single-v1.html"><img src="imgs/products/theme/extend.png" alt="extend"></a>
+                  <div class="card-body py-2"><a class="product-meta d-block fs-xs pb-1" href="#">스테로이드</a>
+                    <h3 class="product-title fs-sm"><a href="shop-single-v1.html">엑스텐드 BCAA 이탈리안 블러드 오렌지</a></h3>
+                    <div class="d-flex justify-content-between">
+                      <div class="product-price"><span class="text-accent">$17.<small>99</small></span></div>
+                      <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-12 px-2 mb-4">
+                <div class="card product-card card-static">
+                  <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="ci-heart"></i></button><a class="card-img-top d-block overflow-hidden" href="shop-single-v1.html"><img src="imgs/products/theme/fillidus.png" alt="fillidus"></a>
+                  <div class="card-body py-2"><a class="product-meta d-block fs-xs pb-1" href="#">멘즈케어</a>
+                    <h3 class="product-title fs-sm"><a href="shop-single-v1.html">필리더스 퍼펙트 클린 멘즈 클렌져</a></h3>
+                    <div class="d-flex justify-content-between">
+                      <div class="product-price"><span class="text-accent">24,900원</span></div>
+                      <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-half active"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- 푸터 시작-->
+    <footer class="footer bg-dark pt-5">
+        <div class="container pt-2 pb-3">
+          <div class="row">
+            <div class="col-md-6 text-center text-md-start mb-4">
+              <div class="text-nowrap mb-3"><a class="d-inline-block align-middle mt-n2 me-2" href="#"><img class="d-block" src="imgs/LogoE_r.png" width="117" alt="Cartzilla"></a><span class="d-inline-block align-middle h5 fw-bold text-white mb-0">DRUG24</span></div>
+              <span class="d-inline-block align-middle h5 fw-bold text-white mb-0">About us</span><br>
+              <p class="fs-sm text-white opacity-70 pb-1">DRUG24는 약 24,000개의 의약품 정보를 제공합니다.<br>오남용 없이 안전하게 복용하세요</p>
+              <h6 class="d-inline-block pe-3 me-3 border-end border-light"><span class="text-primary">5,478 </span><span class="fw-normal text-white">Products</span></h6>
+              <h6 class="d-inline-block pe-3 me-3 border-end border-light"><span class="text-primary">521 </span><span class="fw-normal text-white">Pharmacy</span></h6>
+              <h6 class="d-inline-block me-3"><span class="text-primary">17 </span><span class="fw-normal text-white">Pharmacist</span></h6>
+              <div class="widget mt-4 text-md-nowrap text-center text-md-start"><a class="btn-social bs-light bs-twitter me-2 mb-2" href="#"><i class="ci-twitter"></i></a><a class="btn-social bs-light bs-facebook me-2 mb-2" href="#"><i class="ci-facebook"></i></a><a class="btn-social bs-light bs-dribbble me-2 mb-2" href="#"><i class="ci-dribbble"></i></a><a class="btn-social bs-light bs-behance me-2 mb-2" href="#"><i class="ci-behance"></i></a><a class="btn-social bs-light bs-pinterest me-2 mb-2" href="#"><i class="ci-pinterest"></i></a></div>
+            </div>
+            <div class="col-md-3 d-none d-md-block text-center text-md-start mb-4">
+              <div class="widget widget-links widget-light pb-2">
+                <h3 class="widget-title text-light">Categories</h3>
+                <ul class="widget-list">
+                  <li class="widget-list-item"><a class="widget-list-link" href="#">Drug Search</a></li>
+                  <li class="widget-list-item"><a class="widget-list-link" href="#">Pharmacy Search</a></li>
+                  <li class="widget-list-item"><a class="widget-list-link" href="#">Medicine Info</a></li>
+                  <li class="widget-list-item"><a class="widget-list-link" href="#">Newsroom</a></li>
+                  <li class="widget-list-item"><a class="widget-list-link" href="#">Shopping Mall</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-3 d-none d-md-block text-center text-md-start mb-4">
+              <div class="widget widget-links widget-light pb-2">
+                <h3 class="widget-title text-light">For members</h3>
+                <ul class="widget-list">
+                  <li class="widget-list-item"><a class="widget-list-link" href="#">My First Aid Kit</a></li>
+                  <li class="widget-list-item"><a class="widget-list-link" href="#">My Page</a></li>
+                  <li class="widget-list-item"><a class="widget-list-link" href="#">Pharmacy Reviews</a></li>
+                  <li class="widget-list-item"><a class="widget-list-link" href="#">Medicine Reaviews</a></li>
+                  <li class="widget-list-item"><a class="widget-list-link" href="#">Notice</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- 푸터 끝 -->
+      <!-- Back To Top Button--><a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon ci-arrow-up">   </i></a>
+      <!-- Vendor scrits: js libraries and plugins-->
+      <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="vendor/simplebar/dist/simplebar.min.js"></script>
+      <script src="vendor/tiny-slider/dist/min/tiny-slider.js"></script>
+      <script src="vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+      <!-- Main theme script-->
+      <script src="js/theme.min.js"></script>
+    </body>
+  </html>
