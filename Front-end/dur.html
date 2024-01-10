@@ -83,237 +83,178 @@
     </header>
     <!-- 헤더 끝 -->
     
-    <!-- Sidebar menu-->
-    <aside class="offcanvas offcanvas-expand w-100 border-end zindex-lg-5 pt-lg-5" id="sideNav" style="max-width: 21.875rem;">
-      <div class="pt-2 d-none d-lg-block"></div>
-      <ul class="nav nav-tabs nav-justified mt-4 mt-lg-5 mb-0" role="tablist" style="min-height: 3rem;">
-        <li class="nav-item"><a href="#menu" data-bs-toggle="tab" role="tab">Menu</a></li>
-        <li class="nav-item d-lg-none"><a class="nav-link fs-sm" href="#" data-bs-dismiss="offcanvas" role="tab"><i class="ci-close fs-xs me-2"></i>Close</a></li>
-      </ul>
-      <div class="offcanvas-body px-0 pt-3 pb-0" data-simplebar>
-        <div class="tab-content">
-            
-          <!-- Menu-->
-          <div id="menu" role="tabpanel">
-            <div class="widget widget-categories">
-              <div class="accordion" id="shop-menu">
-                <!-- 임상시험 정보-->
-                <div class="accordion-item border-bottom">
-                  <h3 class="accordion-header px-grid-gutter">
-                    <button class="accordion-button collapsed py-3" type="button" data-bs-toggle="collapse" data-bs-target="#home" aria-expanded="false" aria-controls="home">임상시험정보</button>
-                  </h3>
-                  <div class="collapse" id="home" data-bs-parent="#shop-menu">
-                    <div class="px-grid-gutter pt-1 pb-4">
-                      <div class="widget widget-links">
-                        <ul class="widget-list">
-                          <li class="widget-list-item"><a class="widget-list-link" href="#">임상시험이란</a></li>
-                          <li class="widget-list-item"><a class="widget-list-link" href="#">임상시험 창여</a></li>
-                          <li class="widget-list-item"><a class="widget-list-link" href="#">임상시험 관련 용어</a></li>
-                          <li class="widget-list-item"><a class="widget-list-link" href="#">임상시험 정보</a></li>
-                          <li class="widget-list-item"><a class="widget-list-link" href="#">임상시험 정보</a></li>
-                          <li class="widget-list-item"><a class="widget-list-link" href="#">임상시험 자료실</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- 약물유전 정보-->
-                <div class="accordion-item border-bottom">
-                  <h3 class="accordion-header px-grid-gutter">
-                    <button class="accordion-button collapsed py-3" type="button" data-bs-toggle="collapse" data-bs-target="#shop" aria-expanded="false" aria-controls="shop">약물유전 정보</button>
-                  </h3>
-                  <div class="collapse" id="shop" data-bs-parent="#shop-menu">
-                    <div class="px-grid-gutter pt-1 pb-4">
-                      <div class="widget widget-links">
-                        <ul class="widget-list">
-                            <ul class="widget-list pt-1">
-                              <li class="widget-list-item"><a class="widget-list-link" href="#">업체정보</a></li>
-                              <li class="widget-list-item"><a class="widget-list-link" href="#">도매상 정보</a></li>
-                              <li class="widget-list-item"><a class="widget-list-link" href="#">의약품 등 정보검색</a></li>
-                              <li class="widget-list-item"><a class="widget-list-link" href="#">의약품(dur)정보</a></li>
-                              <li class="widget-list-item"><a class="widget-list-link" href="#">의약품 등 심사결과 정보</a></li>
-                            </ul>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                <!-- 품목갱신 정보-->
-                <div class="accordion-item border-bottom">
-                  <h3 class="accordion-header px-grid-gutter">
-                    <button class="accordion-button collapsed py-3" type="button" data-bs-toggle="collapse" data-bs-target="#account" aria-expanded="false" aria-controls="account">품목갱신 정보</button>
-                  </h3>
-                  <div class="collapse" id="account" data-bs-parent="#shop-menu">
-                    <div class="px-grid-gutter pt-1 pb-4">
-                      <div class="widget widget-links">
-                        <ul class="widget-list">
-                            <ul class="widget-list pt-1">
-                              <li class="widget-list-item"><a class="widget-list-link" href="#">의약품 품목 갱신 제도란</a></li>
-                              <li class="widget-list-item"><a class="widget-list-link" href="#">품목유효기간조회</a></li>
-                            </ul>
-                          </li>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- 국내외 의약품특허정보-->
-                <div class="accordion-item border-bottom">
-                  <h3 class="accordion-header px-grid-gutter">
-                    <button class="accordion-button collapsed py-3" type="button" data-bs-toggle="collapse" data-bs-target="#pages" aria-expanded="false" aria-controls="pages">국내외 의약품특허정보</button>
-                  </h3>
-                  <div class="collapse" id="pages" data-bs-parent="#shop-menu">
-                    <div class="px-grid-gutter pt-1 pb-4">
-                      <div class="widget widget-links">
-                        <ul class="widget-list">
-                          <li class="widget-list-item"><a class="widget-list-link" href="#">의약품 특허정보</a></li>
-                          <li class="widget-list-item"><a class="widget-list-link" href="#">해외특허정보</a></li>
-                          <li class="widget-list-item"><a class="widget-list-link" href="#">심판현황</a></li>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                <!-- 대한민국 약전-->
-                <div class="accordion-item border-bottom">
-                  <h3 class="accordion-header px-grid-gutter">
-                    <button class="accordion-button collapsed py-3" type="button" data-bs-toggle="collapse" data-bs-target="#blog" aria-expanded="false" aria-controls="blog">대한민국 약전</button>
-                  </h3>
-                  <div class="collapse" id="blog" data-bs-parent="#shop-menu">
-                    <div class="px-grid-gutter pt-1 pb-4">
-                      <div class="widget widget-links">
-                        <ul class="widget-list">
-                            <ul class="widget-list pt-1">
-                              <li class="widget-list-item"><a class="widget-list-link" href="#">대한민국 약전이란</a></li>
-                              <li class="widget-list-item"><a class="widget-list-link" href="#">최신 개정정보</a></li>
-                              <li class="widget-list-item"><a class="widget-list-link" href="#">통합검색</a></li>
-                              <li class="widget-list-item"><a class="widget-list-link" href="#">일반정보</a></li>
-                            </ul>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- 의약품 식별표시-->
-                <div class="accordion-item border-bottom">
-                  <h3 class="accordion-header px-grid-gutter">
-                    <button class="accordion-button collapsed py-3" type="button" data-bs-toggle="collapse" data-bs-target="#docs" aria-expanded="false" aria-controls="docs">의약품 식별표시</button>
-                  </h3>
-                  <div class="collapse" id="docs" data-bs-parent="#shop-menu">
-                    <div class="px-grid-gutter pt-1 pb-4">
-                      <div class="widget widget-links">
-                        <ul class="widget-list">
-                          <li class="widget-list-item"><a class="widget-list-link" href="#">식별표시</a></li>
-                          <li class="widget-list-item"><a class="widget-list-link" href="#">식별표시 Q&A</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+    <!-- 컨텐츠 구간-->
+    <!-- 주의 사항 메세지-->
+    <main class="offcanvas-enabled" >
+      <section class="setCenter pt-5" style="padding-top: 0em;">
+          <h1 style="color: blue;">의약품(DUR)정보</h1>
+          <hr wjdth = "100%" color="red">
+          <br>
+          </section>
+          
+          <style>
+            .container{
+              font-family: arial;
+              margin: 10px;
+              width: auto;
+            }
+          </style>
+        <section class="container">
+          <div class="shadow-none bg-success">
+            <div class="container">
+              <ol class="breadcrumb flex-lg-nowrap ">
+              <li class="breadcrumb-item">
+              <i class="ci-announcement text-primary"></i>
+                  <p class="round">약사에게 병용 금기 등 의약품 안전성 관련 정보를 사전에 제공하여 약물이 적절하게 사용될 수 있도록 합니다. 제품명 또는 성분명을 검색하여 원하는 제품을 선택한 뒤 검색하면 해당
+                  DUR 정보를 확인할 수 있습니다.
+                  의약품안전사용서비스(DUR, Drug Utilization Review)는 건강보험심사평가원에서 제공하는 약물사용 점검 서비스입니다. 의약품을 처방하거나 조제 시 의사 및 약사에게 병용
+                  금기 등 의약품 안전성 관련 정보를 사전에 제공하여 약물이 적절하게 사용될 수 있도록 합니다. 제품명 또는 성분명을 검색하여 원하는 제품을 선택한 뒤 거맥하면 해당 DUR 정보를 확인할 
+                  수 있습니다.</p>
+                </li>
+                </ol>
             </div>
           </div>
         </div>
+      </section>
+
+
+         <!-- 검색 창-->
+         <div class="container">
+            <nav class="navbar navbar-light">
+              <input class="form-control rounded-start mr-sm-2" type="search" placeholder="제품명">
+              <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+            </nav>
+          </div>
+
+          <br><br><br><br><br>
+
+          <style>
+            .font{
+              color: blueviolet;
+            }
+          </style>
+          
+        <!-- 검색 결과 -->
+      <div class="font">
+        <h3 class="font">검색 결과</h3>
       </div>
-    </aside>
 
-    <!-- 이미지 삽입-->
-    <main class="offcanvas-enabled" style="padding-top: 0em;">
-      <section class="ps-lg-4 pe-lg-3 pt-4">
-        <div class="px-3 pt-2">
-          <section class="tns-carousel mb-3 mb-md-5">
-            <div class="tns-carousel-inner" data-carousel-options="{&quot;items&quot;: 1, &quot;mode&quot;: &quot;gallery&quot;, &quot;nav&quot;: false, &quot;responsive&quot;: {&quot;0&quot;: {&quot;nav&quot;: true, &quot;controls&quot;: false}, &quot;576&quot;: {&quot;nav&quot;: false, &quot;controls&quot;: true}}}">
-              <!-- 이미지 1-->
-              <div>
-                <div class="rounded-3 px-md-5 text-center text-xl-start" style="background-color: #59c879;">
-                  <div class="d-xl-flex justify-content-between align-items-center px-4 px-sm-5 mx-auto" style="max-width: 1226px;">
-                    <div class="py-5 me-xl-4 mx-auto mx-xl-0" style="max-width: 490px;">
-                      <h3 class="text-light pb-3">Health is a happy mother.</h3>
-                      <p class="text-light pb-4">질병은 천 개나 있지만 건강은 하나밖에 없다.</p>
-                    </div>
-                    <div><img src="img/dur_1.jpg" alt="Image"></div>
-                  </div>
-                </div>
-              </div>
-              <!-- 이미지 2-->
-              <div>
-                <div class="rounded-3 px-md-5 text-center text-xl-start" style="background-color: #1a6fb0;">
-                  <div class="d-xl-flex justify-content-between align-items-center px-4 px-sm-5 mx-auto" style="max-width: 1226px;">
-                    <div class="py-5 me-xl-4 mx-auto mx-xl-0" style="max-width: 490px;">
-                      <h3 class="h1 text-light">Health is the greatest wealth.</h3>
-                      <p class="text-light pb-4">공짜로 처방전을 써 주는 의사의 충고는 듣지 마라.</p>
-                    </div>
-                    <div><img src="img/dur_2.jpg" alt="Image"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+       <div class="container bg-danger-subtle">
+         <div class="col border "><mark>병용금기(0) : </mark>두 가지 이상의 유효성분을 함께 사용하는 경우 치료효과의 변화 또는 심각한 부작용 발생 등의 우려가 있어 동시에 사용하지 않아야 하는 유효성분의 조합</div>
+         <div class="col border "><mark>연령금기(0) :  </mark>소아, 노인 등 특정한 연령대의 환자가 사용함에 있어 안전성이 확보되지 않았거나 심각한 부작용 발생 등의 우려가 있어 사용하지 않아야 하는 유효성분</div>
+         <div class="col border "><mark>임부금기(0) : </mark>태아에게 매우 심각한 위해성(태아기형 또는 태아독성 등)을 유발하거나 유발할 가능성이 높아 임부에게 사용하는 것이 권장되지 않는 유효성분</div>
+         <div class="col border "><mark>노인주의(0) : </mark>노인에서 부작용 발생 빈도 증가 등의 우려가 있어 사용 시 주의가 필요한 유효성분</div>
+         <div class="col border "><mark>용량주의(1) : </mark>1일 최대투어량을 초과하여 복용할 경우 부작용이 우려되는 약물</div>
+         <div class="col border "><mark>투여기간 주의(0) : </mark>특정 투여기간을 초과하여 투여 시 효과의 증가는 기대하기 어렵고 부작용 발생 가능성이 높아져 1회 최대 투여기간에 대한 주의가 필요한 유효성분</div>
+      </div>
+       <hr><br>
+       <br><br>
 
-          <!-- 컨텐츠 구간-->
-          <h3>의약품(DUR)정보</h3>
-          <hr wjdth = "100%" color="red">
+       <!-- 제품 표 -->
+       <div>
+        <style>
+          table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: 100%;
+            border: 1px solid #ddd;
+          }
           
+          th, td {
+            text-align: left;
+            padding: 16px;
+          }
           
+          tr:nth-child(even) {
+            background-color: #f2f2f2;
+          }
+          </style>
+          </head>
+          <body>
+          
+        <!-- 제품 주의 사항 -->
+        <style>
+          .precautions {
+            margin: 10px;
+            width: 50%;
+          }
+        </style>
+          <h3 class="font">제품 주의 사항</h3>
+          
+          <table class="precautions">
+            <tr>
+              <th><strong>제품명</strong></th>
+              <th>무멘스타이렐놀정</th>
+            </tr>
+            <tr>
+              <td><strong>최대투어량</strong></td>
+              <td>아세트아미노펜 3,000 파이브롬 150m</td>
+            </tr>
+            <tr>
+              <td><strong>제한 연령</strong></td>
+              <td>12세</td>
+            </tr>
+            <tr>
+              <td><strong>투여기간</strong></td>
+              <td>성인 하루 1회 2캡슐, 아이 1캡슐</td>
+            </tr>
+          </table>
+          </body>
+          </html>
+          
+      </div>
+
+
+        
+         
+  
+
+  
+        </main>
           
           
           <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
           <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
-      <!-- 푸터 시작-->
-      <footer class="footer bg-dark pt-5">
-        <div class="px-lg-3 pt-2 pb-4">
-          <div class="mx-auto px-3" style="max-width: 80rem;">
-            <div class="row">
-              <div class="col-xl-2 col-lg-3 col-sm-4 pb-2 mb-4">
-                <div class="mt-n1"><a class="d-inline-block align-middle" href="#"><img class="" src="images/logo-drug24.png" width="117" alt="Cartzilla"></a><span class="d-inline-block align-middle h2 fw-bold text-white mb-0">DRUG24</span></div><br>
-                <span class="d-inline-block align-middle h5 fw-bold text-white mb-0">About us</span><br>
-                <p class="fs-sm text-white opacity-70 pb-1">DRUG24는 약 24,000개의 의약품 정보를 제공합니다.<br>오남용 없이 안전하게 복용하세요</p>
-               <h6 class="d-inline-block pe-3 me-3 border-end border-light"><span class="text-primary">5,478 </span><span class="fw-normal text-white">Products</span></h6>
-               <h6 class="d-inline-block pe-3 me-3 border-end border-light"><span class="text-primary">521 </span><span class="fw-normal text-white">Pharmacy</span></h6>
-                <h6 class="d-inline-block me-3"><span class="text-primary">17 </span><span class="fw-normal text-white">Pharmacist</span></h6>
-              </div>
-
-              <div class="col-7 d-none d-md-block">
-                <div class="widget widget-links widget-light pb-2 mb-4">
-                  <h3 class="widget-title text-light">Categories</h3>
-                  <ul class="widget-list">
-                    <li class="widget-list-item"><a class="widget-list-link" href="#">Drug Search</a></li>
-                    <li class="widget-list-item"><a class="widget-list-link" href="#">Pharmacy Search</a></li>
-                    <li class="widget-list-item"><a class="widget-list-link" href="#">Medicine Info</a></li>
-                    <li class="widget-list-item"><a class="widget-list-link" href="#">My Page</a></li>
-                    <li class="widget-list-item"><a class="widget-list-link" href="#">Newsroom</a></li>
-                    <li class="widget-list-item"><a class="widget-list-link" href="#">Shopping Mall</a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-sm-2 ">
-                <div class="widget widget-links widget-light pb-2 mb-4">
-                  <h3 class="widget-title text-light">For members</h3>
-                  <ul class="widget-list">
-                    <li class="widget-list-item"><a class="widget-list-link" href="#">My First Aid Kit</a></li>
-                    <li class="widget-list-item"><a class="widget-list-link" href="#">Pharmacy Reviews</a></li>
-                    <li class="widget-list-item"><a class="widget-list-link" href="#">Medicine Reaviews</a></li>
-                    <li class="widget-list-item"><a class="widget-list-link" href="#">Expert Answer</a></li>
-                    <li class="widget-list-item"><a class="widget-list-link" href="#">Help center</a></li>
-                    <li class="widget-list-item"><a class="widget-list-link" href="#">Notice</a></li>
-                  </ul>
-                </div>
-      </footer>
-    </main>
-    <!-- Back To Top Button--><a class="btn-scroll-top" href="#top" data-scroll data-fixed-element><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon ci-arrow-up">   </i></a>
-    <!-- Vendor scrits: js libraries and plugins-->
-    <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="vendor/simplebar/dist/simplebar.min.js"></script>
-    <script src="vendor/tiny-slider/dist/min/tiny-slider.js"></script>
-    <script src="vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
-    <!-- Main theme script-->
-    <script src="js/theme.min.js"></script>
-  </body>
-</html>
+  <!-- 푸터 시작-->
+  <footer class="footer bg-dark pt-5">
+    <div class="container pt-2 pb-3">
+      <div class="row">
+        <div class="col-md-6 text-center text-md-start mb-4">
+          <span class="d-inline-block align-middle h5 fw-bold text-white mb-0">About us</span><br>
+          <p class="fs-sm text-white opacity-70 pb-1">DRUG24는 약 24,000개의 의약품 정보를 제공합니다.<br>오남용 없이 안전하게 복용하세요</p>
+          <h6 class="d-inline-block pe-3 me-3 border-end border-light"><span class="text-primary">5,478 </span><span class="fw-normal text-white">Products</span></h6>
+          <h6 class="d-inline-block pe-3 me-3 border-end border-light"><span class="text-primary">521 </span><span class="fw-normal text-white">Pharmacy</span></h6>
+          <h6 class="d-inline-block me-3"><span class="text-primary">17 </span><span class="fw-normal text-white">Pharmacist</span></h6>
+          <div class="widget mt-4 text-md-nowrap text-center text-md-start"><a class="btn-social bs-light bs-twitter me-2 mb-2" href="#"><i class="ci-twitter"></i></a><a class="btn-social bs-light bs-facebook me-2 mb-2" href="#"><i class="ci-facebook"></i></a><a class="btn-social bs-light bs-dribbble me-2 mb-2" href="#"><i class="ci-dribbble"></i></a><a class="btn-social bs-light bs-behance me-2 mb-2" href="#"><i class="ci-behance"></i></a><a class="btn-social bs-light bs-pinterest me-2 mb-2" href="#"><i class="ci-pinterest"></i></a></div>
+        </div>
+        <div class="col-md-3 d-none d-md-block text-center text-md-start mb-4">
+          <div class="widget widget-links widget-light pb-2">
+            <h3 class="widget-title text-light">Categories</h3>
+            <ul class="widget-list">
+              <li class="widget-list-item"><a class="widget-list-link" href="#">Drug Search</a></li>
+              <li class="widget-list-item"><a class="widget-list-link" href="#">Pharmacy Search</a></li>
+              <li class="widget-list-item"><a class="widget-list-link" href="#">Medicine Info</a></li>
+              <li class="widget-list-item"><a class="widget-list-link" href="#">My Page</a></li>
+              <li class="widget-list-item"><a class="widget-list-link" href="#">Newsroom</a></li>
+              <li class="widget-list-item"><a class="widget-list-link" href="#">Shopping Mall</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-3 d-none d-md-block text-center text-md-start mb-4">
+          <div class="widget widget-links widget-light pb-2">
+            <h3 class="widget-title text-light">For members</h3>
+            <ul class="widget-list">
+              <li class="widget-list-item"><a class="widget-list-link" href="#">My First Aid Kit</a></li>
+              <li class="widget-list-item"><a class="widget-list-link" href="#">Pharmacy Reviews</a></li>
+              <li class="widget-list-item"><a class="widget-list-link" href="#">Medicine Reaviews</a></li>
+              <li class="widget-list-item"><a class="widget-list-link" href="#">Expert Answer</a></li>
+              <li class="widget-list-item"><a class="widget-list-link" href="#">Notice</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
