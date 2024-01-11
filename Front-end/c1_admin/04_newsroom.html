@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>DRUG24</title>
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Vendor Styles including: Font Icons, Plugins, etc.-->
+    <link rel="stylesheet" media="screen" href="vendor/simplebar/dist/simplebar.min.css"/>
+    <link rel="stylesheet" media="screen" href="vendor/tiny-slider/dist/tiny-slider.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="css/theme.min.css">
+    <style>
+
+      .header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      }
+      .img_logo {
+      margin-right: 15px;
+      max-width: 80px;
+      margin-top: 20px;
+      }
+
+      .type_box {
+      height: 50px;
+      margin-top: 20px;
+      border: 2px solid rgb(43 157 146);
+      margin-right: 3px;
+      margin-bottom: 20px;
+      }
+
+      .search_box {
+      width: 520px;
+      height: 50px;
+      border: 2px solid rgb(43 157 146);
+      display: flex;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      }
+
+      .search_box input {
+      width: 90%;
+      height: 46px;
+      padding-left: 12px;
+      padding-right: 12px;
+      border: none;
+      outline: none;
+      font-size: 18px;
+      }
+
+      .search_box button {
+      width: 10%;
+      height: 46px;
+      margin: 0;
+      padding: 0;
+      border: none;
+      background: rgb(114 240 224);
+      }
+
+      .search_box i {
+      color: white;
+      font-size: 22px;
+      text-align: right;
+      }
+
+      #keyboard {
+      color: lightgray;
+      font-size: 20px;
+      text-align: center;
+      width: 10%;
+      padding-top: 12px;
+      }
+
+      .newsroom {
+        text-align: center;
+        margin-bottom: 20px;
+        margin-top: 40px;
+      }
+    </style>
+  </head>
+  <!-- Body-->
+  <body>
+    <main class="page-wrapper">
+      <!-- 헤더 시작 -->
+      <header class="bg-dark shadow-sm">
+        <div class="navbar navbar-expand-lg navbar-dark">
+          <div class="container"><a class="navbar-brand d-none d-sm-block flex-shrink-0 me-4 order-lg-1" href="main.html"><img src="imgs/LogoE_r.png" width="142" alt=""></a>
+            <!-- Toolbar-->
+            <div class="navbar-toolbar d-flex align-items-center order-lg-3">
+              <a class="navbar-tool d-none d-lg-flex" href="dashboard-favorites.html"><span class="navbar-tool-tooltip">나의 구급함</span><div class="navbar-tool-icon-box"><i class="navbar-tool-icon ci-basket-alt"></i></div></a>
+              <a class="navbar-tool d-none d-lg-flex" href="dashboard-favorites.html"><span class="navbar-tool-tooltip">즐겨찾기</span><div class="navbar-tool-icon-box"><i class="navbar-tool-icon ci-heart"></i></div></a>
+              <div class="navbar-tool dropdown ms-2"><a class="" href="dashboard-sales.html"><img src="imgs/account/donga_logo.png" height="32" width="32" alt="보령제약"></a><a class="navbar-tool-text ms-n1" href="dashboard-sales.html"><small>동아제약</small>기업 회원</a>
+                <div class="dropdown-menu dropdown-menu-end">
+                  <div style="min-width: 14rem;">
+                    <h6 class="dropdown-header">계정 정보</h6><a class="dropdown-item d-flex align-items-center" href="dashboard-settings.html"><i class="ci-settings opacity-60 me-2"></i>마이 페이지</a><a class="dropdown-item d-flex align-items-center" href="dashboard-purchases.html"><i class="ci-basket opacity-60 me-2"></i>구매 하기</a><a class="dropdown-item d-flex align-items-center" href="dashboard-favorites.html"><i class="ci-heart opacity-60 me-2"></i>장바구니<span class="fs-xs text-muted ms-auto">4</span></a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item d-flex align-items-center" href="account-signin.html"><i class="ci-sign-out opacity-60 me-2"></i>Sign Out</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="collapse navbar-collapse me-auto order-lg-2" id="navbarCollapse">
+              <!-- Primary menu-->
+              <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="Main.html">Home</a></li>
+                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">의약품 정보</a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">약 상세검색</a></li>
+                    <li><a class="dropdown-item" href="#">복약 정보</a></li>
+                    <li><a class="dropdown-item" href="#">안전성 서한</a></li>
+                    <li class="dropdown-item" href="#">안전 사용</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">약국 찾기</a></li>
+                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">의약품 쇼핑몰</a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">증상별 추천 아이템</a></li>
+                    <li><a class="dropdown-item" href="#">테마별 추천 아이템</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">Community</a>
+                  <ul class="dropdown-menu">
+                    <li class="dropdown"><a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown">후기</a>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="404-simple.html">의약품 후기</a></li>
+                        <li><a class="dropdown-item" href="404-illustration.html">약국 후기</a></li>
+                      </ul>
+                    </li>
+                    <li><a class="dropdown-item" href="#">질문과 답변</a></li>
+                    <li><a class="dropdown-item" href="#">고객센터</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">Newsroom</a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">관련 뉴스</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- 헤더 끝 -->
+      <!-- 뉴스 시작 -->
+      <section class="py-5">
+        <div class="newsroom border-bottom">
+          <h1>News Room</h1>
+          <h6 class="mb-4">최신 의학 뉴스, 일상 건강 정보를 확인하세요</h6>
+        </div>
+        <!-- 검색 바 시작 -->
+        <div class="header">
+          <select class="type_box" id="search_type">
+            <option value="name">제목</option>
+            <option value="ingrediant">내용</option>
+            <option value="company">작성자</option>
+          </select>
+          <div class="search_box"><input type="text" maxlength="225" placeholder="검색어를 입력해주세요."><i id="keyboard" class="fa fa-keyboard-o"></i>
+            <button><i class="fa fa-search"></i></button>
+          </div>
+        </div>
+        <!-- 검색 바 끝 -->
+        <!-- 카드 뉴스 시작 -->
+        <div class="container py-lg-3 mb-4">
+          <h2 class="h3 text-center">카드 뉴스</h2>
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="card"><a class="blog-entry-thumb" href="blog-single.html"><img class="card-img-top" src="imgs/blog/cardnews1.png" alt="cardnews1"></a>
+                <div class="card-body">
+                  <h2 class="h6 blog-entry-title"><a href="blog-single.html">어르신을 위한 안전한 약물 사용 안내서</a></h2>
+                  <p class="fs-sm">어르신은 왜 약물 사용에 주의해야 할까요? 어르신들은 여러가지 약을 복용하시는 분들이 많아요. 그리고 약물 부작용 발생 위험이 커요</p>
+                  <div class="fs-xs text-nowrap"><a class="blog-entry-meta-link text-nowrap" href="#">Nov 23</a><span class="blog-entry-meta-divider mx-2"></span><a class="blog-entry-meta-link text-nowrap" href="blog-single.html#comments"><i class="ci-message"></i>2</a></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="card"><a class="blog-entry-thumb" href="blog-single.html"><img class="card-img-top" src="imgs/blog/cardnews2.png" alt="cardnews2"></a>
+                <div class="card-body">
+                  <h2 class="h6 blog-entry-title"><a href="blog-single.html">여드름약, 이소트레티노인 안전사용!<br> 엄마와 아기를 지켜주세요!</a></h2>
+                  <p class="fs-sm">이소트레티노인은 태아에게 심각한 기형 유발 가능</p>
+                  <div class="fs-xs text-nowrap"><a class="blog-entry-meta-link text-nowrap" href="#">Oct 10</a><span class="blog-entry-meta-divider mx-2"></span><a class="blog-entry-meta-link text-nowrap" href="blog-single.html#comments"><i class="ci-message"></i>3</a></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="card"><a class="blog-entry-thumb" href="blog-single.html"><img class="card-img-top" src="imgs/blog/cardnews3.png" alt="cardnews3"></a>
+                <div class="card-body">
+                  <h2 class="h6 blog-entry-title"><a href="blog-single.html">나의 부작용 정보 나누면 안전해집니다. 의약전문가에게 상담을 요청하세요.</a></h2>
+                  <p class="fs-sm">약을 복용한 후 몸에 이상이 있다면 부작용 일 수 있습니다.<br></p>
+                  <div class="fs-xs text-nowrap"><a class="blog-entry-meta-link text-nowrap" href="#">Sep 15</a><span class="blog-entry-meta-divider mx-2"></span><a class="blog-entry-meta-link text-nowrap" href="blog-single.html#comments"><i class="ci-message"></i>4</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- 카드 뉴스 끝 -->
+      <!-- 의학 뉴스 시작 -->
+      <section class="container mb-3">
+        <div class="text-center mb-4">
+          <h1>의학 뉴스</h1>
+        </div>
+        <div class="row row-cols-2">
+          <div class="col">
+            <div class="pb-1">
+              <div class="pb-1">
+                <div class="my-1">
+                  <dl>
+                    <dt class="border-top mt-2"><a href="#"><small>[일상 정보]</small>생활 속 중금속 섭취 줄이려면</a></dt>
+                    <dd class="pb-3 border-bottom">식품 조리 섭취 시 중금속을 줄일 수 있는 방법에 대해 알아볼까요?</dd>
+                    <dt><a href="#"><small>[건강]</small>유해물질 바로알기 -시안화합물편</a></dt>
+                    <dd class="pb-3 border-bottom">시안화합물은 매실,살구,사과, 복숭아 등의 씨앗에 자연적으로 존재하며, 미생물에 의한 부패를 막아줘요</dd>
+                    <dt><a href="#"><small>[일상 정보]</small>채소, 과일샐러드 안전하게 섭취하기</a></dt>
+                    <dd class="pb-3 border-bottom">오늘의 키포인트는 냉장보관입니다.</dd>
+                    <dt><a href="#"><small>[건강]</small>연속혈당측정기 안전사용방법</a></dt>
+                    <dd class="pb-3 border-bottom">연속혈당측정기는 의료기기입니다. 자가 인슐린 검사 하세요.</dd>
+                    <dt><a href="#"><small>[건강]</small>유해물질 바로알기 -프탈레이트편</a></dt>
+                    <dd class="pb-3 border-bottom">프탈레이트는 딱딱한 플라스틱에 유연성을 주기 위해 첨가하는 물질이에요.</dd>
+                    <dt><a href="#"><small>[일상 정보]</small>감기 예방을 위한 식생활 요령</a></dt>
+                    <dd class="pb-3 border-bottom">환절기 감기예방은 작은 습관에서 시작돼요.</dd>
+                  </dl>
+                </div>
+              </div>
+            </div>
+            </div>
+            <div class="col">
+              <div class="pb-1">
+                <div class="pb-1">
+                  <div class="my-1">
+                    <dl>
+                      <iframe width="560" height="315" src="https://www.youtube.com/embed/3tUuZNhrurE?si=pj7v-7p-knsp1Ak5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                      <iframe width="560" height="315" src="https://www.youtube.com/embed/_IJ65WA1L-M?si=a_DJG2UjhJK871le" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+    <!-- 푸터 시작-->
+    <footer class="footer bg-dark pt-5">
+      <div class="container pt-2 pb-3">
+        <div class="row">
+          <div class="col-md-6 text-center text-md-start mb-4">
+            <div class="text-nowrap mb-3"><a class="d-inline-block align-middle mt-n2 me-2" href="#"><img class="d-block" src="imgs/LogoE_r.png" width="117" alt="Cartzilla"></a><span class="d-inline-block align-middle h5 fw-bold text-white mb-0">DRUG24</span></div>
+            <span class="d-inline-block align-middle h5 fw-bold text-white mb-0">About us</span><br>
+            <p class="fs-sm text-white opacity-70 pb-1">DRUG24는 약 24,000개의 의약품 정보를 제공합니다.<br>오남용 없이 안전하게 복용하세요</p>
+            <h6 class="d-inline-block pe-3 me-3 border-end border-light"><span class="text-primary">5,478 </span><span class="fw-normal text-white">Products</span></h6>
+            <h6 class="d-inline-block pe-3 me-3 border-end border-light"><span class="text-primary">521 </span><span class="fw-normal text-white">Pharmacy</span></h6>
+            <h6 class="d-inline-block me-3"><span class="text-primary">17 </span><span class="fw-normal text-white">Pharmacist</span></h6>
+            <div class="widget mt-4 text-md-nowrap text-center text-md-start"><a class="btn-social bs-light bs-twitter me-2 mb-2" href="#"><i class="ci-twitter"></i></a><a class="btn-social bs-light bs-facebook me-2 mb-2" href="#"><i class="ci-facebook"></i></a><a class="btn-social bs-light bs-dribbble me-2 mb-2" href="#"><i class="ci-dribbble"></i></a><a class="btn-social bs-light bs-behance me-2 mb-2" href="#"><i class="ci-behance"></i></a><a class="btn-social bs-light bs-pinterest me-2 mb-2" href="#"><i class="ci-pinterest"></i></a></div>
+          </div>
+          <div class="col-md-3 d-none d-md-block text-center text-md-start mb-4">
+            <div class="widget widget-links widget-light pb-2">
+              <h3 class="widget-title text-light">Categories</h3>
+              <ul class="widget-list">
+                <li class="widget-list-item"><a class="widget-list-link" href="#">Drug Search</a></li>
+                <li class="widget-list-item"><a class="widget-list-link" href="#">Pharmacy Search</a></li>
+                <li class="widget-list-item"><a class="widget-list-link" href="#">Medicine Info</a></li>
+                <li class="widget-list-item"><a class="widget-list-link" href="#">Newsroom</a></li>
+                <li class="widget-list-item"><a class="widget-list-link" href="#">Shopping Mall</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-3 d-none d-md-block text-center text-md-start mb-4">
+            <div class="widget widget-links widget-light pb-2">
+              <h3 class="widget-title text-light">For members</h3>
+              <ul class="widget-list">
+                <li class="widget-list-item"><a class="widget-list-link" href="#">My First Aid Kit</a></li>
+                <li class="widget-list-item"><a class="widget-list-link" href="#">My Page</a></li>
+                <li class="widget-list-item"><a class="widget-list-link" href="#">Pharmacy Reviews</a></li>
+                <li class="widget-list-item"><a class="widget-list-link" href="#">Medicine Reaviews</a></li>
+                <li class="widget-list-item"><a class="widget-list-link" href="#">Notice</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- 푸터 끝 -->
+    <!-- Back To Top Button--><a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon ci-arrow-up">   </i></a>
+    <!-- Vendor scrits: js libraries and plugins-->
+    <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/simplebar/dist/simplebar.min.js"></script>
+    <script src="vendor/tiny-slider/dist/min/tiny-slider.js"></script>
+    <script src="vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <!-- Main theme script-->
+    <script src="js/theme.min.js"></script>
+  </body>
+</html>
