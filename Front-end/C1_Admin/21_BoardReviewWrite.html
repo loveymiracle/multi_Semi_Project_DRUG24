@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>이용후기 작성하기 </title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="Cartzilla - Bootstrap E-commerce Template">
+    <meta name="keywords"
+        content="bootstrap, shop, e-commerce, market, modern, responsive,  business, mobile, bootstrap, html5, css3, js, gallery, slider, touch, creative, clean">
+    <meta name="author" content="Createx Studio">
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" color="#fe6a6a" href="safari-pinned-tab.svg">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Vendor Styles including: Font Icons, Plugins, etc.-->
+    <link rel="stylesheet" media="screen" href="vendor/simplebar/dist/simplebar.min.css" />
+    <link rel="stylesheet" media="screen" href="vendor/tiny-slider/dist/tiny-slider.css" />
+    <link rel="stylesheet" media="screen" href="vendor/flatpickr/dist/flatpickr.min.css" />
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="css/theme.min.css">
+</head>
+<!-- Body-->
+
+<body class="handheld-toolbar-enabled">
+    <main class="page-wrapper">
+
+        <!-- Page title====================================== -->
+        <div class="bg-accent mb-4 py-4">
+            <div class="container d-lg-flex justify-content-between py-2 py-lg-3">
+                <div class="order-lg-2 mb-3 mb-lg-0 pt-lg-2">
+                    <nav aria-label="breadcrumb">
+                        <ol
+                            class="breadcrumb breadcrumb-light flex-lg-nowrap justify-content-center justify-content-lg-start">
+                            <li class="breadcrumb-item"><a class="text-nowrap" href="index.html"><i
+                                        class="ci-home"></i>Home</a></li>
+                            <li class="breadcrumb-item text-nowrap">
+                                <a href="BoardMain.html"> Community</a>
+                            </li>
+                            <li class="breadcrumb-item text-nowrap active" aria-current="page"> 이용후기 작성하기 </li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="order-lg-1 pe-lg-4 text-center text-lg-start">
+                    <h1 class="h3 text-light mb-0"> 이용후기 작성하기 </h1>
+                </div>
+            </div>
+        </div>
+        <!-- Page content-->
+        <section class="container mb-5 pt-3 pb-md-5 pb-1">
+            <div class="row gy-5">
+                <form class="needs-validation col-md-8" novalidate>
+                    <!-- Details-->
+                    <div class="mb-md-5 mb-4 pb-md-0 pb-2">
+                        <h2 class="h5 mb-3 fs-3">
+                            <i class="ci-edit-alt text-accent"></i> Write
+                        </h2>
+                        <div class="row gy-md-4 gy-3">
+                            <div class="col-12">
+                                <label class="form-label" for="details-title"> 제목
+                                    <span class="ms-1 text-danger">*</span></label>
+                                <input class="form-control" id="details-title" type="Text" placeholder="제목을 입력하세요"
+                                    required>
+                                <div class="invalid-feedback">제목을 입력하세요</div><span class="form-text">
+                                    최대 100자입니다. HTML이나 이모티콘은 허용되지 않습니다.</span>
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="form-label" for="details-category"> 게시판 선택 <span
+                                        class="ms-1 text-danger">*</span> </label>
+                                <select class="form-select" id="details-category">
+                                    <option disabled selected> 게시판 선택 </option>
+                                    <option> 약국 이용후기 </option>
+                                    <option> 의약품 이용후기 </option>
+                                </select>
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="form-label" for="details-collection">Add to collection</label>
+                                <select class="form-select" id="details-collection">
+                                    <option disabled selected>Choose collection</option>
+                                    <option>Contemporary art collage</option>
+                                    <option>3D digital abstract art</option>
+                                    <option>Clone X Mini Monsters</option>
+                                    <option>Ocean and sky</option>
+                                    <option>Aesthetic art collage</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label" for="review-rating">별점<span
+                                        class="text-danger">*</span></label>
+                                <select class="form-select" required id="review-rating">
+                                    <option value=""> 별점 선택</option>
+                                    <option value="5">5 stars</option>
+                                    <option value="4">4 stars</option>
+                                    <option value="3">3 stars</option>
+                                    <option value="2">2 stars</option>
+                                    <option value="1">1 star</option>
+                                </select>
+                            </div>
+                            <div class="invalid-feedback">Please choose rating!</div>
+                            <div class="col-12">
+                                <label class="form-label" for="details-description">내용<span
+                                        class="ms-1 text-danger">*</span></label>
+                                <textarea class="form-control" id="details-description" rows="4"
+                                    placeholder="내용을 입력하세요"></textarea><span class="form-text">0 of 500 characters
+                                    used.</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Upload file-->
+                    <div class="mb-md-5 mb-4 pb-md-0 pb-2">
+                        <h2 class="h5 mb-2 pb-1 fs-3"> <i class="ci-image text-accent"></i> Photos </h2>
+                        <p class="mb-4 fs-7"> 파일 지원 형식 : PNG, JPG, GIF, WEBP, MP3 or
+                            MP4. Max size: 100mb.
+                        </p>
+                        <!-- Drag and drop file upload-->
+                        <div class="file-drop-area" style="background-color:rgba(220, 220, 220, 0.171);">
+                            <div class="file-drop-icon ci-cloud-upload"></div><span class="file-drop-message">Drag
+                                and
+                                drop here to upload</span>
+                            <input class="file-drop-input" type="file">
+                            <button class="file-drop-btn btn btn-outline-accent" type="button">파일 선택
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Submit-->
+                    <div class="pt-2">
+                        <button class="btn btn-lg btn-accent d-block w-100" type="submit"> 이용후기 등록 </button>
+                    </div>
+
+                </form>
+                <!-- Preview =============================================================-->
+                <aside class="col-lg-3 offset-lg-1 col-md-4 position-relative">
+                    <div class="sticky-top" style="top: 100px;">
+                        <h4 class="h5 mb-3 text-md-start text-center">Preview</h4>
+                        <!-- Preview item-->
+                        <div class="card border-0 shadow mx-auto" style="max-width: 500px; pointer-events: none;">
+                            <div class="card-img-top position-relative overflow-hidden">
+                                <img src="imgs/review/blueimg.png" alt="Product image" style="height: 170px;">
+                            </div>
+                            <div class="card-body">
+                                <div class="product-review pb-4 mb-4 border-bottom">
+                                    <div class="d-flex mb-3">
+                                        <div class="d-flex align-items-center me-4 pe-2">
+                                            <div class="ps-3">
+                                                <h6 class="fs-sm mb-0"> 나경원 </h6><span class="fs-ms text-muted">May 8,
+                                                    2019</span>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="star-rating">
+                                                <i class="star-rating-icon 
+                               ci-star-filled active"></i>
+                                                <i class="star-rating-icon ci-star-filled 
+                               active"></i>
+                                                <i class="star-rating-icon ci-star-filled 
+                               active"></i>
+                                                <i class="star-rating-icon ci-star"></i><i
+                                                    class="star-rating-icon ci-star"></i>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <p class="fs-md mb-2">Sed ut perspiciatis unde omnis iste
+                                        natus error sit voluptatem
+                                        accusantium doloremque laudantium, totam rem aperiam,
+                                        eaque ipsa quae ab illo inventore
+                                        veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+    <!-- Footer-->
+    <footer class="footer bg-darker">
+        <div class="bg-dark">
+            <div class="container py-5">
+                <div class="row py-lg-4">
+                    <div class="col-lg-4 mb-lg-0 mb-4">
+                        <div class="widget pb-3 mb-lg-4">
+                            <h3 class="widget-title text-light pb-1">Stay informed</h3>
+                            <form class="subscription-form validate"
+                                action="https://studio.us12.list-manage.com/subscribe/post?u=c7103e2c981361a6639545bd5&amp;amp;id=29ca296126"
+                                method="post" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+                                <div class="input-group flex-nowrap"><i
+                                        class="ci-mail position-absolute top-50 translate-middle-y text-muted fs-base ms-3"></i>
+                                    <input class="form-control rounded-start" type="email" name="EMAIL"
+                                        placeholder="Your email" required>
+                                    <button class="btn btn-accent" type="submit" name="subscribe">Subscribe*</button>
+                                </div>
+                                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                                <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                                    <input class="subscription-form-antispam" type="text"
+                                        name="b_c7103e2c981361a6639545bd5_29ca296126" tabindex="-1">
+                                </div>
+                                <div class="form-text text-light opacity-50">*Subscribe to our newsletter to receive
+                                    early discount offers, updates and new products info.</div>
+                                <div class="subscription-status"></div>
+                            </form>
+                        </div>
+                        <div><a class="btn-social bs-light bs-twitter me-2 mb-2" href="#"><i
+                                    class="ci-twitter"></i></a><a class="btn-social bs-light bs-facebook me-2 mb-2"
+                                href="#"><i class="ci-facebook"></i></a><a
+                                class="btn-social bs-light bs-instagram me-2 mb-2" href="#"><i
+                                    class="ci-instagram"></i></a><a class="btn-social bs-light bs-pinterest me-2 mb-2"
+                                href="#"><i class="ci-pinterest"></i></a><a
+                                class="btn-social bs-light bs-youtube me-2 mb-2" href="#"><i class="ci-youtube"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 offset-lg-1">
+                        <div class="d-flex flex-sm-row flex-column justify-content-sm-between mt-n4 mx-lg-n3">
+                            <div class="widget widget-links widget-light mt-4 px-lg-3 px-sm-n2">
+                                <h3 class="widget-title text-light">Company</h3>
+                                <ul class="widget-list">
+                                    <li class="widget-list-item"><a class="widget-list-link" href="#">About Us</a></li>
+                                    <li class="widget-list-item"><a class="widget-list-link" href="#">How It Works</a>
+                                    </li>
+                                    <li class="widget-list-item"><a class="widget-list-link" href="#">Create an NFT With
+                                            Us</a></li>
+                                    <li class="widget-list-item"><a class="widget-list-link" href="#">Support</a></li>
+                                    <li class="widget-list-item"><a class="widget-list-link" href="#">Blog</a></li>
+                                    <li class="widget-list-item"><a class="widget-list-link" href="#">My Account</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="widget widget-links widget-light mt-4 px-lg-3 px-sm-n2">
+                                <h3 class="widget-title text-light">Marketplace</h3>
+                                <ul class="widget-list">
+                                    <li class="widget-list-item"><a class="widget-list-link" href="#">All NFTs</a></li>
+                                    <li class="widget-list-item"><a class="widget-list-link" href="#">New</a></li>
+                                    <li class="widget-list-item"><a class="widget-list-link" href="#">Art</a></li>
+                                    <li class="widget-list-item"><a class="widget-list-link" href="#">Music</a></li>
+                                    <li class="widget-list-item"><a class="widget-list-link" href="#">Photography</a>
+                                    </li>
+                                    <li class="widget-list-item"><a class="widget-list-link" href="#">Utility</a></li>
+                                </ul>
+                            </div>
+                            <div class="widget widget-links widget-light mt-4 px-lg-3 px-sm-n2">
+                                <h3 class="widget-title text-light">Help</h3>
+                                <ul class="widget-list">
+                                    <li class="widget-list-item"><a class="widget-list-link" href="#">Terms and
+                                            Conditions</a></li>
+                                    <li class="widget-list-item"><a class="widget-list-link" href="#">Privacy Policy</a>
+                                    </li>
+                                    <li class="widget-list-item"><a class="widget-list-link" href="#">FAQ</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container my-lg-4 my-3 py-2">
+            <div class="d-flex flex-md-row flex-column-reverse align-items-center justify-content-md-between">
+                <div class="fs-xs text-light opacity-50">&copy; All rights reserved. Made by <a class="text-light"
+                        href="https://createx.studio/" target="_blank" rel="noopener">Createx Studio</a></div>
+                <div class="d-flex align-items-start mb-md-0 mb-3 mx-n1">
+                    <div class="px-1"><a class="btn-market btn-apple bg-dark" href="#"><span
+                                class="btn-market-subtitle">Download on the</span><span class="btn-market-title">App
+                                Store</span></a></div>
+                    <div class="px-1"><a class="btn-market btn-google bg-dark" href="#"><span
+                                class="btn-market-subtitle">Download on the</span><span class="btn-market-title">Google
+                                Play</span></a></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Toolbar for handheld devices (NFT Marketplace)-->
+    <div class="handheld-toolbar">
+        <div class="d-table table-layout-fixed w-100"><a class="d-none handheld-toolbar-item" href="#vendor-sidebar"
+                data-bs-toggle="offcanvas"><span class="handheld-toolbar-icon"><i class="ci-sign-in"></i></span><span
+                    class="handheld-toolbar-label">Sidebar</span></a><a class="d-table-cell handheld-toolbar-item"
+                href="#signin-modal" data-bs-toggle="modal"><span class="handheld-toolbar-icon"><i
+                        class="ci-user"></i></span><span class="handheld-toolbar-label">Account</span></a><a
+                class="d-table-cell handheld-toolbar-item" href="javascript:void(0)" data-bs-toggle="collapse"
+                data-bs-target="#navbarCollapse" onclick="window.scrollTo(0, 0)"><span class="handheld-toolbar-icon"><i
+                        class="ci-menu"></i></span><span class="handheld-toolbar-label">Menu</span></a><a
+                class="d-table-cell handheld-toolbar-item" href="nft-connect-wallet.html"><span
+                    class="handheld-toolbar-icon"><i class="ci-wallet"></i></span><span
+                    class="handheld-toolbar-label text-nowrap">Connect wallet</span></a>
+        </div>
+    </div>
+    <!-- Back To Top Button--><a class="btn-scroll-top" href="#top" data-scroll><span
+            class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon ci-arrow-up">
+        </i></a>
+    <!-- Vendor scrits: js libraries and plugins-->
+    <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/simplebar/dist/simplebar.min.js"></script>
+    <script src="vendor/tiny-slider/dist/min/tiny-slider.js"></script>
+    <script src="vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="vendor/flatpickr/dist/flatpickr.min.js"></script>
+    <script src="vendor/flatpickr/dist/plugins/rangePlugin.js"></script>
+    <!-- Main theme script-->
+    <script src="js/theme.min.js"></script>
+</body>
+
+</html>

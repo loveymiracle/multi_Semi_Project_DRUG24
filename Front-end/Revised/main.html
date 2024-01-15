@@ -10,6 +10,9 @@
     <link rel="stylesheet" media="screen" href="vendor/tiny-slider/dist/tiny-slider.css"/>
     <!-- Main Theme Styles + Bootstrap-->
     <link rel="stylesheet" media="screen" href="css/theme.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@800&family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
     <style>
       /* 지도 스타일 시작 */
       .map_wrap, .map_wrap * {margin:0; padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
@@ -34,6 +37,8 @@
       .placeinfo .tel {color:#0f7833;}
       .placeinfo .jibun {color:#999;font-size:11px;margin-top:0;}
       h2 { color: white; }
+      *{font-family: 'Noto Sans KR', sans-serif;}
+      .blodFont{font-family: 'Nanum Gothic', sans-serif;}
       /* 지도 스타일 끝 */
     </style>
   </head>
@@ -41,9 +46,11 @@
   <body>
     <main class="page-wrapper">
       <!-- 헤더 시작 -->
-      <header class="bg-dark shadow-sm navbar-sticky">
+      <header class="bg-dark shadow-sm navbar-sticky container-fluid" >
         <div class="navbar navbar-expand-lg navbar-dark">
-          <div class="container"><a class="navbar-brand d-none d-sm-block flex-shrink-0 me-4 order-lg-1" href="main.html"><img src="imgs/LogoE_r.png" width="142" alt=""></a>
+          <div class="container-fluid">
+            <a class="navbar-brand d-none d-sm-block flex-shrink-0 order-lg-1 m-0 p-0" href="main.html">
+                <img src="imgs/LogoE_r.png" width="55" alt=""></a>
             <!-- Toolbar-->
             <div class="navbar-toolbar d-flex align-items-center order-lg-3">
               <a class="navbar-tool d-none d-lg-flex" href="dashboard-favorites.html"><span class="navbar-tool-tooltip">나의 구급함</span><div class="navbar-tool-icon-box"><i class="navbar-tool-icon ci-basket-alt"></i></div></a>
@@ -58,11 +65,12 @@
                 </div>
               </div>
             </div>
-            <div class="collapse navbar-collapse me-auto order-lg-2" id="navbarCollapse">
+            <div class="collapse navbar-collapse me-auto order-lg-2 ms-3" id="navbarCollapse">
               <!-- Primary menu-->
               <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="Main.html">Home</a></li>
-                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">의약품 정보</a>
+                <li class="nav-item">
+                  <a class="nav-link blodFont h4 text-white " href="Main.html">Home</a></li>
+                <li class="nav-item dropdown h4 text-white"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">의약품 정보</a>
                   <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="#">약 상세검색</a></li>
                     <li><a class="dropdown-item" href="#">복약 정보</a></li>
@@ -70,16 +78,16 @@
                     <li class="dropdown-item" href="#">안전 사용</a></li>
                   </ul>
                 </li>
-                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">약국 찾기</a></li>
-                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">의약품 쇼핑몰</a>
+                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle h4 text-white" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">약국 찾기</a></li>
+                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle h4 text-white" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">의약품 쇼핑몰</a>
                   <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="#">증상별 추천 아이템</a></li>
                     <li><a class="dropdown-item" href="#">테마별 추천 아이템</a></li>
                   </ul>
                 </li>
-                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">Community</a>
+                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle h4 text-white" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">Community</a>
                   <ul class="dropdown-menu">
-                    <li class="dropdown"><a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown">후기</a>
+                    <li class="dropdown"><a class="dropdown-item dropdown-toggle h4 text-white" href="#" data-bs-toggle="dropdown">후기</a>
                       <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="404-simple.html">의약품 후기</a></li>
                         <li><a class="dropdown-item" href="404-illustration.html">약국 후기</a></li>
@@ -89,7 +97,8 @@
                     <li><a class="dropdown-item" href="#">공지사항</a></li>
                   </ul>
                 </li>
-                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">Newsroom</a>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle blodFont h4 text-white" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">Newsroom</a>
                   <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="#">관련 뉴스</a></li>
                   </ul>
@@ -99,7 +108,7 @@
           </div>
         </div>
         <!-- Search -->
-        <div class="search-box" id="searchBox">
+        <!-- <div class="search-box" id="searchBox">
           <div class="card pt-2 pb-4 border-0 rounded-0">
             <div class="container">
               <div class="input-group"><i class="ci-search position-absolute top-50 start-0 translate-middle-y text-muted fs-base ms-3"></i>
@@ -107,11 +116,12 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </header>
       <!-- 헤더 끝 -->
+      
       <!-- 배너 시작 Hero section -->
-      <section class="container bg-position-top-center bg-repeat-0 py-5" style="background-image: url(imgs/info3.png);">
+      <!-- <section class="container bg-position-top-center bg-repeat-0 py-5" style="background-image: url(imgs/info3.png);">
         <div class="pb-lg-5 mb-lg-3">
           <div class="container py-lg-5 my-lg-5">
             <div class="row mb-4 mb-sm-5">
@@ -122,17 +132,41 @@
             </div>
           </div>
         </div>
+      </section> -->
+
+      <!-- Hero section-->
+      <section class="bg-position-center mt-n5 mb-5" style="background-image: url(imgs/marketplace-hero.png);">
+        <div class="pb-lg-1 mb-lg-3">
+          <div class="container py-lg-5 my-lg-5">
+            <div class="row mb-4 mb-sm-5">
+              <div class="col-lg-7 col-md-9 text-center text-sm-start">
+                <h1 class="text-heading lh-base"><span class='fw-light blodFont'>약 24,000 개의 의약품을</span> 안전하게 확인하고 복용하세요! 의약품은 DRUG24 </h1>
+                <h2 class="h5 text-heading fw-light blodFont">Check and take your medicine safely on this site. DRUG24 for you!</h2>
+              </div>
+            </div>
+            <div class="row pb-lg-5  mb-sm-5">
+              <div class="col-lg-6 col-md-8">
+                <div class="input-group input-group-lg flex-nowrap"><i class="ci-search position-absolute top-50 translate-middle-y ms-3"></i>
+                  <input class="form-control rounded-start" type="text" placeholder="Start your search">
+                  <button class="btn btn-primary btn-lg fs-base" type="button" >Search</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
       <!-- 배너 끝 Hero selction -->
+
+
       <!-- 추천 아이템 시작 (Carousel)-->
-      <section class="container position-relative pt-3 pt-lg-0 pb-5">
+      <section class="container position-relative pt-3 pt-lg-0 pb-5 mt-n3">
         <div class="card px-lg-2 border-0 shadow-lg">
-          <div class="card-body px-4 pt-5 pb-4">
+          <div class="card-body px-5 pt-4 pb-3">
             <h2 class="h3 text-center">매일 매일 잊지 말고 위생 관리!</h2>
             <p class="text-muted text-center">위생 관리 추천 아이템</p>
             <!-- Carousel-->
-            <div class="tns-carousel pt-4">
-              <div class="tns-carousel-inner" data-carousel-options="{&quot;items&quot;: 2, &quot;gutter&quot;: 15, &quot;controls&quot;: false, &quot;nav&quot;: true, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;500&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3}, &quot;992&quot;:{&quot;items&quot;:3, &quot;gutter&quot;: 30}}}">
+            <div class="tns-carousel pt-1 px-5">
+              <div class="tns-carousel-inner" data-carousel-options="{&quot;items&quot;: 2, &quot;gutter&quot;: 50, &quot;controls&quot;: false, &quot;nav&quot;: true, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;500&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3}, &quot;992&quot;:{&quot;items&quot;:3, &quot;gutter&quot;: 50}}}">
                 <!-- 상품1 -->
                 <div>
                   <div class="card product-card-alt">
@@ -140,7 +174,9 @@
                       <button class="btn-wishlist btn-sm" type="button"><i class="ci-heart"></i></button>
                       <div class="product-card-actions"><a class="btn btn-light btn-icon btn-shadow fs-base mx-2" href="marketplace-single.html"><i class="ci-eye"></i></a>
                         <button class="btn btn-light btn-icon btn-shadow fs-base mx-2" type="button"><i class="ci-cart"></i></button>
-                      </div><a class="product-thumb-overlay" href="marketplace-single.html"></a><img src="imgs/products/hygiene/greentoothpaste.png" alt="toothpaste">
+                      </div>
+                        <a class="product-thumb-overlay" href="marketplace-single.html"></a>
+                        <img class="" src="imgs/products/hygiene/greentoothpaste.png" alt="toothpaste">
                     </div>
                     <div class="card-body">
                       <div class="d-flex flex-wrap justify-content-between align-items-start pb-2">
@@ -255,7 +291,8 @@
                       <button class="btn-wishlist btn-sm" type="button"><i class="ci-heart"></i></button>
                       <div class="product-card-actions"><a class="btn btn-light btn-icon btn-shadow fs-base mx-2" href="marketplace-single.html"><i class="ci-eye"></i></a>
                         <button class="btn btn-light btn-icon btn-shadow fs-base mx-2" type="button"><i class="ci-cart"></i></button>
-                      </div><a class="product-thumb-overlay" href="marketplace-single.html"></a><img src="imgs/products/hygiene/minimax.png" alt="minimax">
+                      </div>
+                      <a class="product-thumb-overlay" href="marketplace-single.html"></a><img src="imgs/products/hygiene/minimax.png" alt="minimax">
                     </div>
                     <div class="card-body">
                       <div class="d-flex flex-wrap justify-content-between align-items-start pb-2">
@@ -292,7 +329,7 @@
         <!-- Grid-->
         <div class="row pt-2 mx-n2">
           <!-- Product-->
-          <div class="col-lg-3 col-md-4 col-sm-6 px-2 mb-grid-gutter">
+          <div class="col-lg-3 col-md-3 col-sm-6 mb-grid-gutter">
             <!-- 상품1-->
             <div class="card product-card-alt">
               <div class="product-thumb">
@@ -316,7 +353,7 @@
             </div>
           </div>
           <!-- 상품2 -->
-          <div class="col-lg-3 col-md-4 col-sm-6 px-2 mb-grid-gutter">
+          <div class="col-lg-3 col-md-3 col-sm-6 mb-grid-gutter ">
             <div class="card product-card-alt">
               <div class="product-thumb">
                 <button class="btn-wishlist btn-sm" type="button"><i class="ci-heart"></i></button>
@@ -339,7 +376,7 @@
             </div>
           </div>
           <!-- 상품3 -->
-          <div class="col-lg-3 col-md-4 col-sm-6 px-2 mb-grid-gutter">
+          <div class="col-lg-3 col-md-3 col-sm-6 mb-grid-gutter">
             <div class="card product-card-alt">
               <div class="product-thumb">
                 <button class="btn-wishlist btn-sm" type="button"><i class="ci-heart"></i></button>
@@ -362,7 +399,7 @@
             </div>
           </div>
           <!-- 상품4 -->
-          <div class="col-lg-3 col-md-4 col-sm-6 px-2 mb-grid-gutter">
+          <div class="col-lg-3 col-md-3 col-sm-6 mb-grid-gutter">
             <div class="card product-card-alt">
               <div class="product-thumb">
                 <button class="btn-wishlist btn-sm" type="button"><i class="ci-heart"></i></button>
@@ -398,49 +435,49 @@
               <div id="pharmacyList" style="margin-top: 10px;"></div>
     
               <script>
-                  const kakaoApiKey = '6067f303724b05524e0b10ce1d7bbcae';
+                  // const kakaoApiKey = '6067f303724b05524e0b10ce1d7bbcae';
               
-                  function searchNearbyPharmacies(location) {
-                      const placesService = new kakao.maps.services.Places();
+                  // function searchNearbyPharmacies(location) {
+                  //     const placesService = new kakao.maps.services.Places();
                   
-                      placesService.keywordSearch('약국', (result, status) => {
-                          if (status === kakao.maps.services.Status.OK) {
-                              displayPharmacyList(result);
-                          } else {
-                              console.error('약국 검색에 실패했습니다.', status);
-                          }
-                      }, {
-                          location: location,
-                          radius: 1000, 
-                          page: 1, 
-                          size: 3
-                      });
-                  }
+                  //     placesService.keywordSearch('약국', (result, status) => {
+                  //         if (status === kakao.maps.services.Status.OK) {
+                  //             displayPharmacyList(result);
+                  //         } else {
+                  //             console.error('약국 검색에 실패했습니다.', status);
+                  //         }
+                  //     }, {
+                  //         location: location,
+                  //         radius: 1000, 
+                  //         page: 1, 
+                  //         size: 3
+                  //     });
+                  // }
                 
-                  function displayPharmacyList(pharmacies) {
-                      const pharmacyListDiv = document.getElementById('pharmacyList');
-                      pharmacyListDiv.innerHTML = '<h2>근처 약국 목록</h2>';
+                  // function displayPharmacyList(pharmacies) {
+                  //     const pharmacyListDiv = document.getElementById('pharmacyList');
+                  //     pharmacyListDiv.innerHTML = '<h2>근처 약국 목록</h2>';
                   
-                      if (pharmacies.length === 0) {
-                          pharmacyListDiv.innerHTML += '주변에 약국이 없습니다.';
-                          return;
-                      }
+                  //     if (pharmacies.length === 0) {
+                  //         pharmacyListDiv.innerHTML += '주변에 약국이 없습니다.';
+                  //         return;
+                  //     }
                     
-                      pharmacies.forEach(pharmacy => {
-                          const pharmacyDiv = document.createElement('div');
-                          pharmacyDiv.innerHTML = `<strong>${pharmacy.place_name}</strong><br>${pharmacy.address_name}<br><br>`;
-                          pharmacyListDiv.appendChild(pharmacyDiv);
-                      });
-                  }
+                  //     pharmacies.forEach(pharmacy => {
+                  //         const pharmacyDiv = document.createElement('div');
+                  //         pharmacyDiv.innerHTML = `<strong>${pharmacy.place_name}</strong><br>${pharmacy.address_name}<br><br>`;
+                  //         pharmacyListDiv.appendChild(pharmacyDiv);
+                  //     });
+                  // }
                 
-                  navigator.geolocation.getCurrentPosition(position => {
-                      const lat = position.coords.latitude;
-                      const lng = position.coords.longitude;
+                  // navigator.geolocation.getCurrentPosition(position => {
+                  //     const lat = position.coords.latitude;
+                  //     const lng = position.coords.longitude;
                   
-                      const myLocation = new kakao.maps.LatLng(lat, lng);
+                  //     const myLocation = new kakao.maps.LatLng(lat, lng);
                   
-                      searchNearbyPharmacies(myLocation);
-                  });
+                  //     searchNearbyPharmacies(myLocation);
+                  // });
               </script>
               <!-- 위치 반경 약국 찾기 끝 -->
             </div>
@@ -451,219 +488,220 @@
               <div class="map_wrap">
                 <div div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
                 <ul id="category">
-                  <li id="PM9" data-order="2"> 
-                    <span class="category_bg pharmacy"></span>
-                    약국
-                  </li>  
+                    <li id="PM9" data-order="2"> 
+                      <span class="category_bg pharmacy"></span>
+                      약국
+                    </li>  
                 </ul>
               </div>
-            </div>
-            <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6067f303724b05524e0b10ce1d7bbcae&libraries=services"></script>
+          
+            <!-- <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6067f303724b05524e0b10ce1d7bbcae&libraries=services"></script> -->
             <script>
-            var placeOverlay = new kakao.maps.CustomOverlay({zIndex:1}), 
-                contentNode = document.createElement('div'), 
-                markers = [],
-                currCategory = '';
+            // var placeOverlay = new kakao.maps.CustomOverlay({zIndex:1}), 
+            //     contentNode = document.createElement('div'), 
+            //     markers = [],
+            //     currCategory = '';
             
-            var mapContainer = document.getElementById('map'), 
-                mapOption = {
-                    center: new kakao.maps.LatLng(37.566826, 126.9786567),
-                    level: 6
-                };  
+            // var mapContainer = document.getElementById('map'), 
+            //     mapOption = {
+            //         center: new kakao.maps.LatLng(37.566826, 126.9786567),
+            //         level: 6
+            //     };  
               
-            var map = new kakao.maps.Map(mapContainer, mapOption);
-            if (navigator.geolocation) {
+            // var map = new kakao.maps.Map(mapContainer, mapOption);
+            // if (navigator.geolocation) {
             
-              navigator.geolocation.getCurrentPosition(function(position) {
+            //   navigator.geolocation.getCurrentPosition(function(position) {
               
-                var lat = position.coords.latitude,
-                    lon = position.coords.longitude;
+            //     var lat = position.coords.latitude,
+            //         lon = position.coords.longitude;
               
-                var locPosition = new kakao.maps.LatLng(lat, lon),
-                    message = '<div style="padding:5px;">근처에 약국을 찾았습니다.</div>';
+            //     var locPosition = new kakao.maps.LatLng(lat, lon),
+            //         message = '<div style="padding:5px;">근처에 약국을 찾았습니다.</div>';
               
-                displayMarker(locPosition, message);
+            //     displayMarker(locPosition, message);
     
-              });
+            //   });
             
-            } else {
+            // } else {
             
-              var locPosition = new kakao.maps.LatLng(33.450701, 126.570667),    
-                    message = '근처에 약국이 없어요..'
+            //   var locPosition = new kakao.maps.LatLng(33.450701, 126.570667),    
+            //         message = '근처에 약국이 없어요..'
     
-              displayMarker(locPosition, message);
-            }
+            //   displayMarker(locPosition, message);
+            // }
     
-            function displayMarker(locPosition, message) {
+            // function displayMarker(locPosition, message) {
     
-              var marker = new kakao.maps.Marker({  
-                  map: map, 
-                  position: locPosition
-              }); 
+            //   var marker = new kakao.maps.Marker({  
+            //       map: map, 
+            //       position: locPosition
+            //   }); 
             
-              var iwContent = message,
-                  iwRemoveable = true;
+            //   var iwContent = message,
+            //       iwRemoveable = true;
     
-              var infowindow = new kakao.maps.InfoWindow({
-                  content : iwContent,
-                  removable : iwRemoveable
-              });
+            //   var infowindow = new kakao.maps.InfoWindow({
+            //       content : iwContent,
+            //       removable : iwRemoveable
+            //   });
             
-              infowindow.open(map, marker);
+            //   infowindow.open(map, marker);
             
-              map.setCenter(locPosition);      
-            }     
+            //   map.setCenter(locPosition);      
+            // }     
     
-            var ps = new kakao.maps.services.Places(map); 
+            // var ps = new kakao.maps.services.Places(map); 
     
-            kakao.maps.event.addListener(map, 'idle', searchPlaces);
+            // kakao.maps.event.addListener(map, 'idle', searchPlaces);
     
-            contentNode.className = 'placeinfo_wrap';
+            // contentNode.className = 'placeinfo_wrap';
     
-            addEventHandle(contentNode, 'mousedown', kakao.maps.event.preventMap);
-            addEventHandle(contentNode, 'touchstart', kakao.maps.event.preventMap);
+            // addEventHandle(contentNode, 'mousedown', kakao.maps.event.preventMap);
+            // addEventHandle(contentNode, 'touchstart', kakao.maps.event.preventMap);
     
-            placeOverlay.setContent(contentNode);  
+            // placeOverlay.setContent(contentNode);  
     
-            addCategoryClickEvent();
+            // addCategoryClickEvent();
     
-            function addEventHandle(target, type, callback) {
-                if (target.addEventListener) {
-                    target.addEventListener(type, callback);
-                } else {
-                    target.attachEvent('on' + type, callback);
-                }
-            }
+            // function addEventHandle(target, type, callback) {
+            //     if (target.addEventListener) {
+            //         target.addEventListener(type, callback);
+            //     } else {
+            //         target.attachEvent('on' + type, callback);
+            //     }
+            // }
     
-            function searchPlaces() {
-                if (!currCategory) {
-                    return;
-                }
+            // function searchPlaces() {
+            //     if (!currCategory) {
+            //         return;
+            //     }
     
-                placeOverlay.setMap(null);
+            //     placeOverlay.setMap(null);
               
-                removeMarker();
+            //     removeMarker();
     
-                ps.categorySearch(currCategory, placesSearchCB, {useMapBounds:true}); 
-            }
+            //     ps.categorySearch(currCategory, placesSearchCB, {useMapBounds:true}); 
+            // }
     
-            function placesSearchCB(data, status, pagination) {
-                if (status === kakao.maps.services.Status.OK) {
+            // function placesSearchCB(data, status, pagination) {
+            //     if (status === kakao.maps.services.Status.OK) {
                 
-                    displayPlaces(data);
-                } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
+            //         displayPlaces(data);
+            //     } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
                 
-                } else if (status === kakao.maps.services.Status.ERROR) {
+            //     } else if (status === kakao.maps.services.Status.ERROR) {
     
-                }
-            }
+            //     }
+            // }
     
-            function displayPlaces(places) {
+            // function displayPlaces(places) {
             
-                var order = document.getElementById(currCategory).getAttribute('data-order');
+            //     var order = document.getElementById(currCategory).getAttribute('data-order');
             
     
             
-                for ( var i=0; i<places.length; i++ ) {
+            //     for ( var i=0; i<places.length; i++ ) {
                 
-                        var marker = addMarker(new kakao.maps.LatLng(places[i].y, places[i].x), order);
+            //             var marker = addMarker(new kakao.maps.LatLng(places[i].y, places[i].x), order);
                 
-                        (function(marker, place) {
-                            kakao.maps.event.addListener(marker, 'click', function() {
-                                displayPlaceInfo(place);
-                            });
-                        })(marker, places[i]);
-                }
-            }
+            //             (function(marker, place) {
+            //                 kakao.maps.event.addListener(marker, 'click', function() {
+            //                     displayPlaceInfo(place);
+            //                 });
+            //             })(marker, places[i]);
+            //     }
+            // }
     
-            function addMarker(position, order) {
-                var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_category.png',
-                    imageSize = new kakao.maps.Size(27, 28),
-                    imgOptions =  {
-                        spriteSize : new kakao.maps.Size(72, 208),
-                        spriteOrigin : new kakao.maps.Point(46, (order*36)),
-                        offset: new kakao.maps.Point(11, 28) 
-                    },
-                    markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imgOptions),
-                        marker = new kakao.maps.Marker({
-                        position: position,
-                        image: markerImage 
-                    });
+            // function addMarker(position, order) {
+            //     var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_category.png',
+            //         imageSize = new kakao.maps.Size(27, 28),
+            //         imgOptions =  {
+            //             spriteSize : new kakao.maps.Size(72, 208),
+            //             spriteOrigin : new kakao.maps.Point(46, (order*36)),
+            //             offset: new kakao.maps.Point(11, 28) 
+            //         },
+            //         markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imgOptions),
+            //             marker = new kakao.maps.Marker({
+            //             position: position,
+            //             image: markerImage 
+            //         });
                   
-                marker.setMap(map);
-                markers.push(marker);
+            //     marker.setMap(map);
+            //     markers.push(marker);
                   
-                return marker;
-            }
+            //     return marker;
+            // }
     
-            function removeMarker() {
-                for ( var i = 0; i < markers.length; i++ ) {
-                    markers[i].setMap(null);
-                }   
-                markers = [];
-            }
+            // function removeMarker() {
+            //     for ( var i = 0; i < markers.length; i++ ) {
+            //         markers[i].setMap(null);
+            //     }   
+            //     markers = [];
+            // }
     
-            function displayPlaceInfo (place) {
-                var content = '<div class="placeinfo">' +
-                                '<a class="title" href="' + place.place_url + '" target="_blank" title="' + place.place_name + '">' + place.place_name + '</a>';   
+            // function displayPlaceInfo (place) {
+            //     var content = '<div class="placeinfo">' +
+            //                     '   <a class="title" href="' + place.place_url + '" target="_blank" title="' + place.place_name + '">' + place.place_name + '</a>';   
                 
-                if (place.road_address_name) {
-                    content += '<span title="' + place.road_address_name + '">' + place.road_address_name + '</span>' +
-                                '<span class="jibun" title="' + place.address_name + '">(지번 : ' + place.address_name + ')</span>';
-                }  else {
-                    content += '<span title="' + place.address_name + '">' + place.address_name + '</span>';
-                }                
+            //     if (place.road_address_name) {
+            //         content += '    <span title="' + place.road_address_name + '">' + place.road_address_name + '</span>' +
+            //                     '  <span class="jibun" title="' + place.address_name + '">(지번 : ' + place.address_name + ')</span>';
+            //     }  else {
+            //         content += '    <span title="' + place.address_name + '">' + place.address_name + '</span>';
+            //     }                
               
-                content += '<span class="tel">' + place.phone + '</span>' + 
-                            '</div>' + 
-                            '<div class="after"></div>';
+            //     content += '    <span class="tel">' + place.phone + '</span>' + 
+            //                 '</div>' + 
+            //                 '<div class="after"></div>';
               
-                contentNode.innerHTML = content;
-                placeOverlay.setPosition(new kakao.maps.LatLng(place.y, place.x));
-                placeOverlay.setMap(map);  
-            }
+            //     contentNode.innerHTML = content;
+            //     placeOverlay.setPosition(new kakao.maps.LatLng(place.y, place.x));
+            //     placeOverlay.setMap(map);  
+            // }
     
-            function addCategoryClickEvent() {
-                var category = document.getElementById('category'),
-                    children = category.children;
+            // function addCategoryClickEvent() {
+            //     var category = document.getElementById('category'),
+            //         children = category.children;
             
-                for (var i=0; i<children.length; i++) {
-                    children[i].onclick = onClickCategory;
-                }
-            }
+            //     for (var i=0; i<children.length; i++) {
+            //         children[i].onclick = onClickCategory;
+            //     }
+            // }
     
-            function onClickCategory() {
-                var id = this.id,
-                    className = this.className;
+            // function onClickCategory() {
+            //     var id = this.id,
+            //         className = this.className;
             
-                placeOverlay.setMap(null);
+            //     placeOverlay.setMap(null);
             
-                if (className === 'on') {
-                    currCategory = '';
-                    changeCategoryClass();
-                    removeMarker();
-                } else {
-                    currCategory = id;
-                    changeCategoryClass(this);
-                    searchPlaces();
-                }
-            }
+            //     if (className === 'on') {
+            //         currCategory = '';
+            //         changeCategoryClass();
+            //         removeMarker();
+            //     } else {
+            //         currCategory = id;
+            //         changeCategoryClass(this);
+            //         searchPlaces();
+            //     }
+            // }
     
-            function changeCategoryClass(el) {
-                var category = document.getElementById('category'),
-                    children = category.children,
-                    i;
+            // function changeCategoryClass(el) {
+            //     var category = document.getElementById('category'),
+            //         children = category.children,
+            //         i;
             
-                for ( i=0; i<children.length; i++ ) {
-                    children[i].className = '';
-                }
+            //     for ( i=0; i<children.length; i++ ) {
+            //         children[i].className = '';
+            //     }
               
-                if (el) {
-                    el.className = 'on';
-                } 
-            } 
+            //     if (el) {
+            //         el.className = 'on';
+            //     } 
+            // } 
             </script>
             <!-- 위치 기반 지도 끝 -->
+            </div>
           </div>
         </div>
       </section>
@@ -709,47 +747,76 @@
         </div>
       </section>
       <!-- 뉴스룸 끝 -->
-      <!-- 공지사항 시작 -->
-      <section class="container position-relative">
-        <div class="border-bottom text-center mb-2">
-          <h1>공지사항</h1>
-        </div>
-        <div class="pb-1">
-          <div class="alert alert-info d-flex fs-md mb-1" role="alert">
-            <div class="alert-icon fs-lg"><i class="ci-announcement"></i></div>
-            <div><strong>안내 :</strong>※매월 첫째 주 일요일 22시~24시는 <strong>서버 정기점검 시간</strong>입니다.※</div>
-          </div>
-        <div class="pb-1">
-          <div class="my-1">
-            <dl>
-              <dt class ="border-top mt-2">2024.01.31 - 폐쇄 안내</dt>
-              <dd class="pb-3 border-bottom">적자 운영으로 사이트 폐쇄합니다. 그동안 감사합니다.</dd>
-              <dt>2024.01.31 - 쇼핑몰 철수 안내</dt>
-              <dd class="pb-3 border-bottom">성원에 감사드립니다.</dd>
-              <dt>2023.05.06 - 서버 정상화 안내</dt>
-              <dd class="pb-3 border-bottom">서비스 재개 되었습니다.</dd>
-              <dt>2023.05.05 - 서버 이전 작업 안내</dt>
-              <dd class="pb-3 border-bottom">22:00 ~ 2024.01.01 08:00 서버 이전 작업으로 서비스가 잠시 중단됩니다.</dd>
-              <dt>2023.03.31 - 쇼핑몰 오픈 안내 <a href="#" target="_blank" rel="noopener">Official website</a></dt>
-              <dd class="pb-3 border-bottom">증상별 추천 아이템, 카테고리별 아이템 판매를 시작합니다.</dd>
-            </dl>
-          </div>
-        </div>
+
+      <section class="container mb-3 ">
+        <div class="row row-cols-2">
+          <div class="col">
+            <div class="border-bottom text-center mb-2">
+              <h1>공지사항</h1>
+            </div>
+            <div class="pb-1">
+              <div class="alert alert-info d-flex fs-md mb-1" role="alert">
+                <div class="alert-icon fs-lg"><i class="ci-announcement"></i></div>
+                <div><strong>안내 :</strong>※매월 첫째 주 일요일 22시~24시는 <strong>서버 정기점검 시간</strong>입니다.※</div>
+              </div>
+              <div class="pb-1">
+                <div class="my-1">
+                  <dl>
+                    <dt class="border-top mt-2">2024.01.31 - 폐쇄 안내</dt>
+                    <dd class="pb-3 border-bottom">적자 운영으로 사이트 폐쇄합니다. 그동안 감사합니다.</dd>
+                    <dt>2024.01.31 - 쇼핑몰 철수 안내</dt>
+                    <dd class="pb-3 border-bottom">성원에 감사드립니다.</dd>
+                    <dt>2023.05.06 - 서버 정상화 안내</dt>
+                    <dd class="pb-3 border-bottom">서비스 재개 되었습니다.</dd>
+                    <dt>2023.05.05 - 서버 이전 작업 안내</dt>
+                    <dd class="pb-3 border-bottom">22:00 ~ 2024.01.01 08:00 서버 이전 작업으로 서비스가 잠시 중단됩니다.</dd>
+                    <dt>2023.03.31 - 쇼핑몰 오픈 안내 <a href="#" target="_blank" rel="noopener">Official website</a></dt>
+                    <dd class="pb-3 border-bottom">증상별 추천 아이템, 카테고리별 아이템 판매를 시작합니다.</dd>
+                  </dl>
+                </div>
+              </div>
+            </div>
+            </div>
+            <div class="col">
+              <div class=" text-center mb-2">
+                <h1>커뮤니티</h1>
+              </div >
+              <div class="pb-1">
+                <div class="pb-1">
+                  <div class="my-1">
+                    <dl>
+                      <dt class="border-top mt-2">2024.01.31 - 폐쇄 안내</dt>
+                      <dd class="pb-3 border-bottom">적자 운영으로 사이트 폐쇄합니다. 그동안 감사합니다.</dd>
+                      <dt>2024.01.31 - 쇼핑몰 철수 안내</dt>
+                      <dd class="pb-3 border-bottom">성원에 감사드립니다.</dd>
+                      <dt>2023.05.06 - 서버 정상화 안내</dt>
+                      <dd class="pb-3 border-bottom">서비스 재개 되었습니다.</dd>
+                      <dt>2023.05.05 - 서버 이전 작업 안내</dt>
+                      <dd class="pb-3 border-bottom">22:00 ~ 2024.01.01 08:00 서버 이전 작업으로 서비스가 잠시 중단됩니다.</dd>
+                      <dt>2023.03.31 - 쇼핑몰 오픈 안내 <a href="#" target="_blank" rel="noopener">Official website</a></dt>
+                      <dd class="pb-3 border-bottom">증상별 추천 아이템, 카테고리별 아이템 판매를 시작합니다.</dd>
+                      <dt>2023.03.31 - 쇼핑몰 오픈 안내 <a href="#" target="_blank" rel="noopener">Official website</a></dt>
+                      <dd class="pb-3 border-bottom">증상별 추천 아이템, 카테고리별 아이템 판매를 시작합니다.</dd>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+            </div>
+      
       </section>
       <!-- 공지사항 끝 -->
     </main>
     <!-- 푸터 시작-->
-    <footer class="footer bg-dark pt-5">
-      <div class="container pt-2 pb-3">
+    <footer class="footer bg-dark pt-5 ">
+      <div class="container pt-1 pb-1">
         <div class="row">
-          <div class="col-md-6 text-center text-md-start mb-4">
-            <div class="text-nowrap mb-3"><a class="d-inline-block align-middle mt-n2 me-2" href="#"><img class="d-block" src="imgs/LogoE_r.png" width="117" alt="Cartzilla"></a><span class="d-inline-block align-middle h5 fw-bold text-white mb-0">DRUG24</span></div>
+          <div class="col-md-6 text-center text-md-start mb-2">
+            <div class="text-nowrap mb-3"><a class="d-inline-block align-middle mt-n2 me-2" href="#"><img class="d-block" src="imgs/LogoE_r.png" width="100" alt="Cartzilla"></a><span class="d-inline-block align-middle h5 fw-bold text-white mb-0">DRUG24</span></div>
             <span class="d-inline-block align-middle h5 fw-bold text-white mb-0">About us</span><br>
             <p class="fs-sm text-white opacity-70 pb-1">DRUG24는 약 24,000개의 의약품 정보를 제공합니다.<br>오남용 없이 안전하게 복용하세요</p>
             <h6 class="d-inline-block pe-3 me-3 border-end border-light"><span class="text-primary">5,478 </span><span class="fw-normal text-white">Products</span></h6>
             <h6 class="d-inline-block pe-3 me-3 border-end border-light"><span class="text-primary">521 </span><span class="fw-normal text-white">Pharmacy</span></h6>
             <h6 class="d-inline-block me-3"><span class="text-primary">17 </span><span class="fw-normal text-white">Pharmacist</span></h6>
-            <div class="widget mt-4 text-md-nowrap text-center text-md-start"><a class="btn-social bs-light bs-twitter me-2 mb-2" href="#"><i class="ci-twitter"></i></a><a class="btn-social bs-light bs-facebook me-2 mb-2" href="#"><i class="ci-facebook"></i></a><a class="btn-social bs-light bs-dribbble me-2 mb-2" href="#"><i class="ci-dribbble"></i></a><a class="btn-social bs-light bs-behance me-2 mb-2" href="#"><i class="ci-behance"></i></a><a class="btn-social bs-light bs-pinterest me-2 mb-2" href="#"><i class="ci-pinterest"></i></a></div>
           </div>
           <div class="col-md-3 d-none d-md-block text-center text-md-start mb-4">
             <div class="widget widget-links widget-light pb-2">

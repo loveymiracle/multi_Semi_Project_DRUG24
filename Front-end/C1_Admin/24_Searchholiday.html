@@ -11,7 +11,9 @@
     <link rel="stylesheet" media="screen" href="vendor/tiny-slider/dist/tiny-slider.css" />
     <!-- Main Theme Styles + Bootstrap-->
     <link rel="stylesheet" media="screen" href="css/theme.min.css">
-
+    <!-- j 쿼리 -->
+    <script src="js/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 </head>
 <!-- Body-->
 
@@ -48,9 +50,10 @@
                                         href="dashboard-settings.html"><i
                                             class="ci-settings opacity-60 me-2"></i>설정</a><a
                                         class="dropdown-item d-flex align-items-center"
-                                        href="dashboard-purchases.html"><i class="ci-basket opacity-60 me-2"></i>구매</a>
-                                    <a class="dropdown-item d-flex align-items-center" href="dashboard-favorites.html">
-                                        <i class="ci-heart opacity-60 me-2"></i>찜목록<span
+                                        href="dashboard-purchases.html"><i
+                                            class="ci-basket opacity-60 me-2"></i>구매</a><a
+                                        class="dropdown-item d-flex align-items-center"
+                                        href="dashboard-favorites.html"><i class="ci-heart opacity-60 me-2"></i>찜목록<span
                                             class="fs-xs text-muted ms-auto">4</span></a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item d-flex align-items-center" href="account-signin.html"><i
@@ -90,8 +93,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <!--   ===========  커뮤니티 ===============        -->
-                            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="BoardMain.html"
+                            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#"
                                     data-bs-toggle="dropdown" data-bs-auto-close="outside">Community</a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="#">Expert answer</a></li>
@@ -119,14 +121,15 @@
                 </div>
             </div>
         </header>
-        <!-- ====================================================================================  헤더 끝 -->
+        <!----============================================================================================== 헤더 끝 -->
         <div class="bg-accent pt-4 pb-5">
             <div class="container pt-2 pb-3 pt-lg-3 pb-lg-4">
                 <div class="d-lg-flex justify-content-between pb-3">
                     <div class="order-lg-1 pe-lg-4 text-center text-lg-start">
                         <h2 class="h1 text-light mb-0"> 약국 찾기 </h2>
                         <br>
-                        <p class="fs-sm text-light mb-0">운영시간이 변동될 수 있으므로 약국에 전화 확인 후 방문해주시기 바랍니다.
+                        <p class="fs-sm text-light mb-0">운영시간이 변동될 수 있으므로 약국에 전화 확인 후 방문해주시기
+                            바랍니다.
                         <p class="fs-sm text-light mb-0">약국 운영시간은 대한약사회에서 제공하는 정보입니다.</p>
                     </div>
                 </div>
@@ -138,97 +141,94 @@
                 <div class="d-flex align-items-center">
                     <ul class="nav nav-tabs d-none d-lg-flex border-0 mb-0"
                         style="padding-top: 10px; padding-bottom: 10px;">
-                        <li class="nav-item fs-5"><a class="nav-link active" href="Find1.html"> 동네 약국 찾기</a></li>
-                        <li class="nav-item fs-5"><a class="nav-link" href="Find2.html"> 주소로 찾기 </a></li>
-                        <li class="nav-item fs-5"><a class="nav-link" href="Find3.html"> 심야약국 / 공휴일 </a></li>
+                        <li class="nav-item fs-5"><a class="nav-link" href="22_Searchpharm.html"> 동네 약국 찾기</a></li>
+                        <li class="nav-item fs-5"><a class="nav-link" href="23_SearchAddress.html"> 주소로 찾기 </a></li>
+                        <li class="nav-item fs-5"><a class="nav-link active" href="24_Searchholiday.html"> 심야약국 / 공휴일 </a></li>
                     </ul>
-
                 </div>
             </div>
             <br>
-            <div class="gray container d-flex justify-content-between"
-                style="border: 1px solid gainsboro; padding: 30px;">
-                <div class="container">
-                    <div class="d-flex justify-content-between">
-                        <div class="fs-5 fw-bold mb-2" style="color: blue;" id="sample5_address_display"> 서울 논현동 </div>
-                        <button type="button" class="btn btn-primary" onclick="sample5_execDaumPostcode()">
-                            <i class="ci-location me-1"></i> 위치 재설정 </button>
-                    </div>
-                    <div class="fs-base"> 현재 자신의 위치 정보가 일치하지 않을 경우 </div>
-                    <div class="fs-base"> 주소로 검색하시면 정확한 주변 정보를 제공해 드립니다 </div>
+
+            <!-----------------------------------------------------------      체크 박스 ----------------------->
+            <div div class="container"
+                style=" border-top: 1px solid grey; border-bottom: 1px solid grey; padding: 30px;">
+                <div class="d-flex justify-content-between">
+                    <select class="form-select" name="sido1" id="sido1" style="width: 500px; " required>
+                    </select>
+                    <select class="form-select" name="gugun1" id="gugun1" style="width: 350px; margin-right: 270px;"
+                        required>
+                    </select>
                 </div>
-            </div>
-            <br><br>
-            <!-- ===============================================================================================  지도  ================= -->
-            <!--  지도 + 우편번호 -->
-            <div id="map" style="width: 100%;height:450px;margin-top:10px;"></div>
-            <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-            <script
-                src="//dapi.kakao.com/v2/maps/sdk.js?appkey=adce9c041442fa349eecbf8b8bea554d&libraries=services"></script>
-            <script>
-                var mapContainer = document.getElementById('map'), // 지도를 표시할 div
-                    mapOption = {
-                        center: new daum.maps.LatLng(37.537187, 127.005476), // 지도의 중심좌표
-                        level: 3 // 지도의 확대 레벨
-                    };
 
-                //지도를 미리 생성
-                var map = new daum.maps.Map(mapContainer, mapOption);
-                //주소-좌표 변환 객체를 생성
-                var geocoder = new daum.maps.services.Geocoder();
-                //마커를 미리 생성
-                var marker = new daum.maps.Marker({
-                    position: new daum.maps.LatLng(37.537187, 127.005476),
-                    map: map
-                });
-                var themeObj = {
-                    //bgColor: "", //바탕 배경색
-                    searchBgColor: "#0B65C8", //검색창 배경색
-                    //contentBgColor: "", //본문 배경색(검색결과,결과없음,첫화면,검색서제스트)
-                    //pageBgColor: "", //페이지 배경색
-                    //textColor: "", //기본 글자색
-                    queryTextColor: "#FFFFFF" //검색창 글자색
-                    //postcodeTextColor: "", //우편번호 글자색
-                    //emphTextColor: "", //강조 글자색
-                    //outlineColor: "", //테두리
-                };
-                function sample5_execDaumPostcode() {
-                    new daum.Postcode({
-                        theme: themeObj,
-                        oncomplete: function (data) {
-                            var addr = data.address; // 최종 주소 변수
+                <script>
+                    $(function () {
+                        var area0 = ["시/도 선택", "서울특별시", "인천광역시", "대전광역시", "광주광역시", "대구광역시", "울산광역시", "부산광역시", "경기도", "강원도", "충청북도", "충청남도", "전라북도", "전라남도", "경상북도", "경상남도", "제주도"];
+                        var area1 = ["강남구", "강동구", "강북구", "강서구", "관악구", "광진구", "구로구", "금천구", "노원구", "도봉구", "동대문구", "동작구", "마포구", "서대문구", "서초구", "성동구", "성북구", "송파구", "양천구", "영등포구", "용산구", "은평구", "종로구", "중구", "중랑구"];
+                        var area2 = ["계양구", "남구", "남동구", "동구", "부평구", "서구", "연수구", "중구", "강화군", "옹진군"];
+                        var area3 = ["대덕구", "동구", "서구", "유성구", "중구"];
+                        var area4 = ["광산구", "남구", "동구", "북구", "서구"];
+                        var area5 = ["남구", "달서구", "동구", "북구", "서구", "수성구", "중구", "달성군"];
+                        var area6 = ["남구", "동구", "북구", "중구", "울주군"];
+                        var area7 = ["강서구", "금정구", "남구", "동구", "동래구", "부산진구", "북구", "사상구", "사하구", "서구", "수영구", "연제구", "영도구", "중구", "해운대구", "기장군"];
+                        var area8 = ["고양시", "과천시", "광명시", "광주시", "구리시", "군포시", "김포시", "남양주시", "동두천시", "부천시", "성남시", "수원시", "시흥시", "안산시", "안성시", "안양시", "양주시", "오산시", "용인시", "의왕시", "의정부시", "이천시", "파주시", "평택시", "포천시", "하남시", "화성시", "가평군", "양평군", "여주군", "연천군"];
+                        var area9 = ["강릉시", "동해시", "삼척시", "속초시", "원주시", "춘천시", "태백시", "고성군", "양구군", "양양군", "영월군", "인제군", "정선군", "철원군", "평창군", "홍천군", "화천군", "횡성군"];
+                        var area10 = ["제천시", "청주시", "충주시", "괴산군", "단양군", "보은군", "영동군", "옥천군", "음성군", "증평군", "진천군", "청원군"];
+                        var area11 = ["계룡시", "공주시", "논산시", "보령시", "서산시", "아산시", "천안시", "금산군", "당진군", "부여군", "서천군", "연기군", "예산군", "청양군", "태안군", "홍성군"];
+                        var area12 = ["군산시", "김제시", "남원시", "익산시", "전주시", "정읍시", "고창군", "무주군", "부안군", "순창군", "완주군", "임실군", "장수군", "진안군"];
+                        var area13 = ["광양시", "나주시", "목포시", "순천시", "여수시", "강진군", "고흥군", "곡성군", "구례군", "담양군", "무안군", "보성군", "신안군", "영광군", "영암군", "완도군", "장성군", "장흥군", "진도군", "함평군", "해남군", "화순군"];
+                        var area14 = ["경산시", "경주시", "구미시", "김천시", "문경시", "상주시", "안동시", "영주시", "영천시", "포항시", "고령군", "군위군", "봉화군", "성주군", "영덕군", "영양군", "예천군", "울릉군", "울진군", "의성군", "청도군", "청송군", "칠곡군"];
+                        var area15 = ["거제시", "김해시", "마산시", "밀양시", "사천시", "양산시", "진주시", "진해시", "창원시", "통영시", "거창군", "고성군", "남해군", "산청군", "의령군", "창녕군", "하동군", "함안군", "함양군", "합천군"];
+                        var area16 = ["서귀포시", "제주시", "남제주군", "북제주군"];
 
-                            // 주소 정보를 해당 필드에 넣는다.
-                            document.getElementById("sample5_address_display").innerText = addr;
-                            // 주소로 상세 정보를 검색
-                            geocoder.addressSearch(data.address, function (results, status) {
-                                // 정상적으로 검색이 완료됐으면
-                                if (status === daum.maps.services.Status.OK) {
-
-                                    var result = results[0]; //첫번째 결과의 값을 활용
-
-                                    // 해당 주소에 대한 좌표를 받아서
-                                    var coords = new daum.maps.LatLng(result.y, result.x);
-                                    // 지도를 보여준다.
-                                    mapContainer.style.display = "block";
-                                    map.relayout();
-                                    // 지도 중심을 변경한다.
-                                    map.setCenter(coords);
-                                    // 마커를 결과값으로 받은 위치로 옮긴다.
-                                    marker.setPosition(coords)
-                                }
+                        // 시/도 선택 박스 초기화
+                        $("select[name^=sido]").each(function () {
+                            $selsido = $(this);
+                            $.each(eval(area0), function () {
+                                $selsido.append("<option value='" + this + "'>" + this + "</option>");
                             });
-                        }
-                    }).open();
-                }
+                            $selsido.next().append("<option value=''> 구/군 선택 </option>");
+                        });
 
-            </script>
+                        // 시/도 선택시 구/군 설정
+                        $("select[name^=sido]").change(function () {
+                            var area = "area" + $("option", $(this)).index($("option:selected", $(this))); // 선택지역의 구군 Array
+                            var $gugun = $(this).next(); // 선택영역 군구 객체
+                            $("option", $gugun).remove(); // 구군 초기화
+
+                            if (area == "area0")
+                                $gugun.append("<option value=''> 구/군 선택 </option>");
+                            else {
+                                $.each(eval(area), function () {
+                                    $gugun.append("<option value='" + this + "'>" + this + "</option>");
+                                });
+                            }
+                        });
+
+                    });
+                </script>
+                <div class="col-lg-4" style="margin-top: 30px;">
+                    <div class=" d-flex justify-content-between">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="ex-check-4">
+                            <label class="form-check-label fs-6" for="ex-check-4"> 심야 약국 </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="ex-check-5" checked>
+                            <label class="form-check-label fs-6" for="ex-check-5"> 주말 / 공휴일</label>
+                        </div>
+
+                        <button class="btn btn-primary" type="search" style="margin-left: 30px;"> <i
+                                class="ci-search me-1"></i> 검색
+                        </button>
+                    </div>
+                </div>
 
 
-            <br><br><br><br>
+            </div>
+            <br><br><br><br><br><br><br>
             <!-- Products grid ============================================================  약국 리스트   -->
             <div class="row pt-3 mx-n2"> <!--여백 좌우여백 제거-->
-                <!--- ==============================================================================-->
+                <!--  ========================================================= -->
                 <!-- Product  -->
                 <div class="col-lg-3 col-md-4 col-sm-6 px-1 mb-grid-gutter">
                     <div class="card product-card">
@@ -279,12 +279,10 @@
                                         <i class="ci-moon text-primary me-1"></i> 심야 약국
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <!-- Product  -->
                 <div class="col-lg-3 col-md-4 col-sm-6 px-1 mb-grid-gutter">
                     <div class="card product-card">
@@ -393,7 +391,6 @@
                         </div>
                     </div>
                 </div>
-
                 <!-- Product  -->
                 <div class="col-lg-3 col-md-4 col-sm-6 px-1 mb-grid-gutter">
                     <div class="card product-card">
@@ -665,6 +662,7 @@
                     </div>
                 </div>
 
+
             </div>
 
             <hr class="my-3">
@@ -692,6 +690,7 @@
             </nav>
         </div>
 
+
     </main>
     <!-- ==================================================================================================== 푸터 시작-->
     <footer class="footer bg-dark pt-5">
@@ -700,10 +699,12 @@
                 <div class="col-md-6 text-center text-md-start mb-4">
                     <div class="text-nowrap mb-3"><a class="d-inline-block align-middle mt-n2 me-2" href="#"><img
                                 class="d-block" src="imgs/LogoE_r.png" width="117" alt="Cartzilla"></a><span
-                            class="d-inline-block align-middle h5 fw-bold text-white mb-0">DRUG24</span></div>
+                            class="d-inline-block align-middle h5 fw-bold text-white mb-0">DRUG24</span>
+                    </div>
                     <span class="d-inline-block align-middle h5 fw-bold text-white mb-0">About us</span><br>
-                    <p class="fs-sm text-white opacity-70 pb-1">DRUG24는 약 24,000개의 의약품 정보를 제공합니다.<br>오남용 없이 안전하게 복용하세요
-                    </p>
+                    <p class="fs-sm text-white opacity-70 pb-1">DRUG24는 약 24,000개의 의약품 정보를 제공합니다.<br>오남용 없이
+                        안전하게
+                        복용하세요</p>
                     <h6 class="d-inline-block pe-3 me-3 border-end border-light"><span class="text-primary">5,478
                         </span><span class="fw-normal text-white">Products</span></h6>
                     <h6 class="d-inline-block pe-3 me-3 border-end border-light"><span class="text-primary">521
@@ -722,12 +723,19 @@
                     <div class="widget widget-links widget-light pb-2">
                         <h3 class="widget-title text-light">Categories</h3>
                         <ul class="widget-list">
-                            <li class="widget-list-item"><a class="widget-list-link" href="#">Drug Search</a></li>
-                            <li class="widget-list-item"><a class="widget-list-link" href="#">Pharmacy Search</a></li>
-                            <li class="widget-list-item"><a class="widget-list-link" href="#">Medicine Info</a></li>
-                            <li class="widget-list-item"><a class="widget-list-link" href="#">My Page</a></li>
-                            <li class="widget-list-item"><a class="widget-list-link" href="#">Newsroom</a></li>
-                            <li class="widget-list-item"><a class="widget-list-link" href="#">Shopping Mall</a></li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">Drug
+                                    Search</a></li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">Pharmacy
+                                    Search</a>
+                            </li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">Medicine
+                                    Info</a></li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">My Page</a>
+                            </li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">Newsroom</a>
+                            </li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">Shopping
+                                    Mall</a></li>
                         </ul>
                     </div>
                 </div>
@@ -735,11 +743,19 @@
                     <div class="widget widget-links widget-light pb-2">
                         <h3 class="widget-title text-light">For members</h3>
                         <ul class="widget-list">
-                            <li class="widget-list-item"><a class="widget-list-link" href="#">My First Aid Kit</a></li>
-                            <li class="widget-list-item"><a class="widget-list-link" href="#">Pharmacy Reviews</a></li>
-                            <li class="widget-list-item"><a class="widget-list-link" href="#">Medicine Reaviews</a></li>
-                            <li class="widget-list-item"><a class="widget-list-link" href="#">Expert Answer</a></li>
-                            <li class="widget-list-item"><a class="widget-list-link" href="#">Notice</a></li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">My First Aid
+                                    Kit</a>
+                            </li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">Pharmacy
+                                    Reviews</a>
+                            </li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">Medicine
+                                    Reaviews</a>
+                            </li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">Expert
+                                    Answer</a></li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">Notice</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -750,13 +766,12 @@
             class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon ci-arrow-up">
         </i></a>
     <!-- Vendor scrits: js libraries and plugins-->
-    <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="vendor/simplebar/dist/simplebar.min.js"></script>
-    <script src="vendor/tiny-slider/dist/min/tiny-slider.js"></script>
-    <script src="vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="dist/simplebar/simplebar.min.js"></script>
+    <script src="dist/min/tiny-slider.js"></script>
+    <script src="dist/smooth-scroll.polyfills.min.js"></script>
     <!-- Main theme script-->
-    <script src="js/theme.min.js"></script>
-
+    <script src="dist/js/theme.min.js"></script>
 </body>
 
 </html>
