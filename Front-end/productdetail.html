@@ -206,28 +206,8 @@
                 <h2 class="h3 mb-0 pt-2" id="productName">타치온정50밀리그램(글루타티온(환원형))</h2>
                 <br>
 
-                <script>
-                  window.onload = function(){
-                    // var temp = request.getParameter("name");
-                    var temp = location.href.split("?");
-                    data = temp[1].split("=");
-                    value = decodeURI(data[1]);
-
-                    console.log(value + "성공");
-                    
-                    //<h2 class="h3 mb-0 pt-2" id="productName">${decodeURI(value)}</h2>
-
-                    document.getElementById("productName").HTML = value;
-
-                    //$(".h3 mb-0 pt-2").text(decodeURI(value));
-
-                    // const receivedData = localStroage.getItem("item1Data");
-                    // $("itemName").html(receivedData);
-                  }
-              </script>
-
                 <!-- 제품 이미지 (백엔드 수신 필요)-->
-                <div class="gallery"><a class="gallery-item rounded-3 mb-grid-gutter" href="imgs/default.png" data-sub-html="&lt;h6 class=&quot;fs-sm text-light&quot;&gt;Simple iPhone X Mockups&lt;/h6&gt;"><img src="imgs/default.png" alt="Gallery preview"><span class="gallery-item-caption">백엔드 수신이미지1</span></a>
+                <div class="gallery"><a class="gallery-item rounded-3 mb-grid-gutter" href="imgs/drugsearch/default.jpg" data-sub-html="&lt;h6 class=&quot;fs-sm text-light&quot;&gt;타치온정50밀리그램(글루타티온(환원형))&lt;/h6&gt;"><img src="imgs/drugsearch/default.jpg" alt="Gallery preview"><span class="gallery-item-caption">백엔드 수신이미지1</span></a>
                 </div>
                 <!-- Wishlist + Sharing-->
                 <div class="d-flex flex-wrap justify-content-between align-items-center border-top pt-3">
@@ -265,7 +245,7 @@
                   </div>
                   <hr>
                   <button class="btn btn-primary btn-shadow d-block w-100 mt-4" type="button"><i class="ci-cart fs-lg me-2"></i>장바구니 추가</button>
-                  <div class="bg-secondary rounded p-3 mt-4 mb-2"><a class="d-flex align-items-center" href="#"><img class="rounded-circle" src="imgs/default.png" width="50">
+                  <div class="bg-secondary rounded p-3 mt-4 mb-2"><a class="d-flex align-items-center" href="#"><img class="rounded-circle" src="imgs/account/Boryung_logo.png" width="50">
                       <div class="ps-2"><span class="fs-ms text-muted">보령제약</span>
                         <h6 class="fs-sm mb-0">기업회원</h6>
                       </div></a></div>
@@ -294,8 +274,8 @@
         <!-- Nav tabs-->
         <ul class="nav nav-tabs" role="tablist">
           <li class="nav-item"><a class="nav-link p-4 active" href="#details" data-bs-toggle="tab" role="tab">제품 상세설명</a></li>
-          <li class="nav-item"><a class="nav-link p-4" href="#reviews" data-bs-toggle="tab" role="tab">Reviews</a></li>
-          <li class="nav-item"><a class="nav-link p-4" href="#comments" data-bs-toggle="tab" role="tab">Comments</a></li>
+          <li class="nav-item"><a class="nav-link p-4" href="#reviews" data-bs-toggle="tab" role="tab">리뷰</a></li>
+          <li class="nav-item"><a class="nav-link p-4" href="#comments" data-bs-toggle="tab" role="tab">댓글</a></li>
         </ul>
         <div class="tab-content pt-2">
           <!-- Product details tab-->
@@ -312,17 +292,25 @@
                   <li>성인 1회 2정 1일 3회 식간(식사와 식사때 사이) 및 취침시에 복용한다.</li>
                 </ul>
 
-                <h3 class="h5 pt-2">사용상주의사항</h3>
+                <h3 class="h5 pt-2">사용상 주의사항</h3>
                 <ul class="fs-md">
                   <li>1. 다음과 같은 사람은 이 약을 복용하지 말 것.</li>
-                  <li style="list-style-type: tyle none;">  1) 투석요법을 받고 있는 환자</li>
-                  <li style="list-style-type: tyle none;">  2) 수유부(모유로 이행해서 젖먹이의 맥박이 빨라질 수 있다)</li>
-                  <li style="list-style-type: tyle none;">  3) 만 7세 이하의 어린이</li>
-                  <li style="list-style-type: tyle none;">  4) 이 약은 유당(젖당)을 함유하고 있으므로, 갈락토오스 불내성(galactose intolerance), Lapp 유당분해효소 결핍증(Lapp lactase deficiency) 또는 포도당-갈락토오스 흡수장애(glucose-galactose malabsortion) 등의 유전적인 문제가 있는 환자에게는 투여하면 안 된다.</li>
+                  <li style="list-style-type:none;">   1) 투석요법을 받고 있는 환자</li>
+                  <li style="list-style-type:none;">   2) 수유부(모유로 이행해서 젖먹이의 맥박이 빨라질 수 있다)</li>
+                  <li style="list-style-type:none;">   3) 만 7세 이하의 어린이</li>
+                  <li style="list-style-type:none;">   4) 이 약은 유당(젖당)을 함유하고 있으므로, 갈락토오스 불내성(galactose intolerance), Lapp 유당분해효소 결핍증(Lapp lactase deficiency) 또는 포도당-갈락토오스 흡수장애(glucose-galactose malabsortion) 등의 유전적인 문제가 있는 환자에게는 투여하면 안 된다.</li>
+                  <br>
                   <li>2. 이 약을 복용하는 동안 다음의 약을 복용하지 말 것.</li>
-                  <li style="list-style-type: tyle none;">1. 다음과 같은 사람은 이 약을 복용하지 말 것.</li>
-                  <li>  1) 위장진통ㆍ진경제</li>
-                  <li>  2) 테트라사이클린계 항생제</li>
+                  <li style="list-style-type:none;">1. 다음과 같은 사람은 이 약을 복용하지 말 것.</li>
+                  <li style="list-style-type:none;">  1) 위장진통ㆍ진경제</li>
+                  <li style="list-style-type:none;">  2) 테트라사이클린계 항생제</li>
+                </ul>
+
+                <h3 class="h5 pt-2">보관 및 취급상의 주의사항</h3>
+                <ul class="fs-md">
+                  <li>1. 어린이의 손이 닿지 않는 곳에 보관한다.</li>
+                  <br>
+                  <li>2. 의약품을 원래 용기에서 꺼내어 다른 용기에 보관하는 것은 의약품 오용에 의한 사고 발생이나 품질저하의 원인이 될 수 있으므로 원래의 용기에 넣고 꼭 닫아 보관한다.</li>
                 </ul>
 
                 <h3 class="h5 pt-2">주요 성분</h3>
@@ -339,9 +327,9 @@
             <!-- Reviews-->
             <div class="row pt-2 pb-3">
               <div class="col-lg-4 col-md-5">
-                <h3 class="h4 mb-4">74 Reviews</h3>
-                <div class="star-rating me-2"><i class="ci-star-filled fs-sm text-accent me-1"></i><i class="ci-star-filled fs-sm text-accent me-1"></i><i class="ci-star-filled fs-sm text-accent me-1"></i><i class="ci-star-filled fs-sm text-accent me-1"></i><i class="ci-star fs-sm text-muted me-1"></i></div><span class="d-inline-block align-middle">4.1 Overall rating</span>
-                <p class="pt-3 fs-sm text-muted">58 out of 74 (77%)<br>Customers recommended this product</p>
+                <h3 class="h4 mb-4">74 개의 리뷰</h3>
+                <div class="star-rating me-2"><i class="ci-star-filled fs-sm text-accent me-1"></i><i class="ci-star-filled fs-sm text-accent me-1"></i><i class="ci-star-filled fs-sm text-accent me-1"></i><i class="ci-star-filled fs-sm text-accent me-1"></i><i class="ci-star fs-sm text-muted me-1"></i></div><span class="d-inline-block align-middle">4.1 총 평점</span>
+                <p class="pt-3 fs-sm text-muted">74 명중 58명 (77%)<br>의 고객이 이 제품을 추천합니다</p>
               </div>
               <div class="col-lg-8 col-md-7">
                 <div class="d-flex align-items-center mb-2">
@@ -394,11 +382,11 @@
                   <div class="d-flex align-items-center flex-nowrap">
                     <label class="fs-sm text-muted text-nowrap me-2 d-none d-sm-block" for="sort-reviews">Sort by:</label>
                     <select class="form-select form-select-sm" id="sort-reviews">
-                      <option>Newest</option>
-                      <option>Oldest</option>
-                      <option>Popular</option>
-                      <option>High rating</option>
-                      <option>Low rating</option>
+                      <option>등록순</option>
+                      <option>오래된순</option>
+                      <option>인기순</option>
+                      <option>높은 평점순</option>
+                      <option>낮은 평점순</option>
                     </select>
                   </div>
                 </div>
@@ -407,13 +395,13 @@
                   <div class="d-flex mb-3">
                     <div class="d-flex align-items-center me-4 pe-2"><img class="rounded-circle" src="img/shop/reviews/01.jpg" width="50" alt="Rafael Marquez">
                       <div class="ps-3">
-                        <h6 class="fs-sm mb-0">Rafael Marquez</h6><span class="fs-ms text-muted">June 28, 2019</span>
+                        <h6 class="fs-sm mb-0">리뷰어 1</h6><span class="fs-ms text-muted">2019년 6월 28일</span>
                       </div>
                     </div>
                     <div>
                       <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star"></i>
                       </div>
-                      <div class="fs-ms text-muted">83% of users found this review helpful</div>
+                      <div class="fs-ms text-muted">83%의 사용자가 이 리뷰가 도움이 된다고 합니다.</div>
                     </div>
                   </div>
                   <p class="fs-md mb-2">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est...</p>
@@ -481,44 +469,37 @@
               <!-- Leave review form-->
               <div class="col-md-5 mt-2 pt-4 mt-md-0 pt-md-0">
                 <div class="bg-secondary py-grid-gutter px-grid-gutter rounded-3">
-                  <h3 class="h4 pb-2">Write a review</h3>
+                  <h3 class="h4 pb-2">리뷰 작성하기</h3>
                   <form class="needs-validation" method="post" novalidate>
                     <div class="mb-3">
-                      <label class="form-label" for="review-name">Your name<span class="text-danger">*</span></label>
+                      <label class="form-label" for="review-name">이름<span class="text-danger">*</span></label>
                       <input class="form-control" type="text" required id="review-name">
-                      <div class="invalid-feedback">Please enter your name!</div><small class="form-text text-muted">Will be displayed on the comment.</small>
+                      <div class="invalid-feedback">이름을 입력해 주세요</div><small class="form-text text-muted">댓글에 보여질 이름입니다</small>
                     </div>
                     <div class="mb-3">
-                      <label class="form-label" for="review-email">Your email<span class="text-danger">*</span></label>
+                      <label class="form-label" for="review-email">이메일<span class="text-danger">*</span></label>
                       <input class="form-control" type="email" required id="review-email">
-                      <div class="invalid-feedback">Please provide valid email address!</div><small class="form-text text-muted">Authentication only - we won't spam you.</small>
+                      <div class="invalid-feedback">유효한 이메일을 입력해주세요</div><small class="form-text text-muted">인증용 이메일, 상업적 사용 X</small>
                     </div>
                     <div class="mb-3">
-                      <label class="form-label" for="review-rating">Rating<span class="text-danger">*</span></label>
+                      <label class="form-label" for="review-rating">평점<span class="text-danger">*</span></label>
                       <select class="form-select" required id="review-rating">
-                        <option value="">Choose rating</option>
-                        <option value="5">5 stars</option>
-                        <option value="4">4 stars</option>
-                        <option value="3">3 stars</option>
-                        <option value="2">2 stars</option>
-                        <option value="1">1 star</option>
+                        <option value="">평점을 고르세요</option>
+                        <option value="5">5 점</option>
+                        <option value="4">4 점</option>
+                        <option value="3">3 점</option>
+                        <option value="2">2 점</option>
+                        <option value="1">1 점</option>
                       </select>
-                      <div class="invalid-feedback">Please choose rating!</div>
+                      <div class="invalid-feedback">평점을 골라주세요</div>
                     </div>
                     <div class="mb-3">
-                      <label class="form-label" for="review-text">Review<span class="text-danger">*</span></label>
+                      <label class="form-label" for="review-text">리뷰<span class="text-danger">*</span></label>
                       <textarea class="form-control" rows="6" required id="review-text"></textarea>
-                      <div class="invalid-feedback">Please write a review!</div><small class="form-text text-muted">Your review must be at least 50 characters.</small>
+                      <div class="invalid-feedback">리뷰를 작성해주세요</div><small class="form-text text-muted">리뷰가 최소 50자를 넘어야 합니다.</small>
                     </div>
-                    <div class="mb-3">
-                      <label class="form-label" for="review-pros">Pros</label>
-                      <textarea class="form-control" rows="2" placeholder="Separated by commas" id="review-pros"></textarea>
-                    </div>
-                    <div class="mb-3 mb-4">
-                      <label class="form-label" for="review-cons">Cons</label>
-                      <textarea class="form-control" rows="2" placeholder="Separated by commas" id="review-cons"></textarea>
-                    </div>
-                    <button class="btn btn-primary btn-shadow d-block w-100" type="submit">Submit a Review</button>
+                    <button class="btn btn-primary btn-shadow d-block w-100" type="submit">리뷰 작성하기
+                    </button>
                   </form>
                 </div>
               </div>
@@ -532,9 +513,9 @@
                 <div class="d-flex align-items-start py-4 border-bottom"><img class="rounded-circle" src="img/testimonials/04.jpg" width="50" alt="Laura Willson">
                   <div class="ps-3">
                     <div class="d-flex justify-content-between align-items-center mb-2">
-                      <h6 class="fs-md mb-0">Laura Willson</h6><a class="nav-link-style fs-sm fw-medium" href="#"><i class="ci-reply me-2"></i>Reply</a>
+                      <h6 class="fs-md mb-0">Laura Willson</h6><a class="nav-link-style fs-sm fw-medium" href="#"><i class="ci-reply me-2"></i>댓글 달기</a>
                     </div>
-                    <p class="fs-md mb-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat cupidatat non proident, sunt in culpa qui.</p><span class="fs-ms text-muted"><i class="ci-time align-middle me-2"></i>Sep 7, 2019</span>
+                    <p class="fs-md mb-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat cupidatat non proident, sunt in culpa qui.</p><span class="fs-ms text-muted"><i class="ci-time align-middle me-2"></i>2019년 9월 7일</span>
                     <!-- comment reply-->
                     <div class="d-flex align-items-start border-top pt-4 mt-4"><img class="rounded-circle" src="img/testimonials/01.jpg" width="50" alt="Sara Palson">
                       <div class="ps-3">
@@ -561,10 +542,10 @@
                     <div class="d-flex align-items-start"><img class="rounded-circle border p-2" src="img/marketplace/account/avatar-sm.png" width="50" alt="Createx Studio">
                       <form class="needs-validation w-100 ms-3" novalidate>
                         <div class="mb-3">
-                          <textarea class="form-control" rows="4" placeholder="Write comment..." required></textarea>
-                          <div class="invalid-feedback">Please write your comment.</div>
+                          <textarea class="form-control" rows="4" placeholder="댓글을 입력해주세요..." required></textarea>
+                          <div class="invalid-feedback">댓글을 입력해주세요</div>
                         </div>
-                        <button class="btn btn-primary btn-sm" type="submit">Post comment</button>
+                        <button class="btn btn-primary btn-sm" type="submit">댓글 입력하기</button>
                       </form>
                     </div>
                   </div>
@@ -578,7 +559,7 @@
       <section class="container mb-5 pb-lg-3">
         <div class="d-flex flex-wrap justify-content-between align-items-center border-bottom pb-4 mb-4">
           <h2 class="h3 mb-0 pt-2">관련 제품</h2>
-          <div class="pt-2"><a class="btn btn-outline-accent btn-sm" href="marketplace-category.html">More mockups<i class="ci-arrow-end ms-1 me-n1"></i></a></div>
+          <div class="pt-2"><a class="btn btn-outline-accent btn-sm" href="marketplace-category.html">더보기<i class="ci-arrow-end ms-1 me-n1"></i></a></div>
         </div>
         <!-- Carousel-->
         <div class="tns-carousel">
@@ -590,18 +571,18 @@
                   <button class="btn-wishlist btn-sm" type="button"><i class="ci-heart"></i></button>
                   <div class="product-card-actions"><a class="btn btn-light btn-icon btn-shadow fs-base mx-2" href="#"><i class="ci-eye"></i></a>
                     <button class="btn btn-light btn-icon btn-shadow fs-base mx-2" type="button"><i class="ci-cart"></i></button>
-                  </div><a class="product-thumb-overlay" href="#"></a><img src="img/marketplace/products/02.jpg" alt="Product">
+                  </div><a class="product-thumb-overlay" href="#"></a><img src="https://nedrug.mfds.go.kr/pbp/cmn/itemImageDownload/151577167067000087" alt="Product">
                 </div>
                 <div class="card-body">
                   <div class="d-flex flex-wrap justify-content-between align-items-start pb-2">
-                    <div class="text-muted fs-xs me-1">by <a class="product-meta fw-medium" href="#">Createx Std. </a>in <a class="product-meta fw-medium" href="#">Graphics</a></div>
+                    <div class="text-muted fs-xs me-1">조아제약(주)</a></div>
                     <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i>
                     </div>
                   </div>
-                  <h3 class="product-title fs-sm mb-2"><a href="#">Floating Phone and Tablet Mockup</a></h3>
+                  <h3 class="product-title fs-sm mb-2"><a href="#">에바치온캡슐(글루타티온)</a></h3>
                   <div class="d-flex flex-wrap justify-content-between align-items-center">
-                    <div class="fs-sm me-2"><i class="ci-download text-muted me-1"></i>109<span class="fs-xs ms-1">Sales</span></div>
-                    <div class="bg-faded-accent text-accent rounded-1 py-1 px-2">$15.<small>00</small></div>
+                    <div class="fs-sm me-2"><i class="ci-download text-muted me-1"></i>109<span class="fs-xs ms-1">판매</span></div>
+                    <div class="bg-faded-accent text-accent rounded-1 py-1 px-2">₩15,000</small></div>
                   </div>
                 </div>
               </div>
@@ -613,18 +594,18 @@
                   <button class="btn-wishlist btn-sm" type="button"><i class="ci-heart"></i></button>
                   <div class="product-card-actions"><a class="btn btn-light btn-icon btn-shadow fs-base mx-2" href="#"><i class="ci-eye"></i></a>
                     <button class="btn btn-light btn-icon btn-shadow fs-base mx-2" type="button"><i class="ci-cart"></i></button>
-                  </div><a class="product-thumb-overlay" href="#"></a><img src="img/marketplace/products/03.jpg" alt="Product">
+                  </div><a class="product-thumb-overlay" href="#"></a><img src="https://nedrug.mfds.go.kr/pbp/cmn/itemImageDownload/154609810414600027" alt="Product">
                 </div>
                 <div class="card-body">
                   <div class="d-flex flex-wrap justify-content-between align-items-start pb-2">
-                    <div class="text-muted fs-xs me-1">by <a class="product-meta fw-medium" href="#">Createx Std. </a>in <a class="product-meta fw-medium" href="#">Graphics</a></div>
+                    <div class="text-muted fs-xs me-1">일동제약(주)</a></div>
                     <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-half active"></i><i class="star-rating-icon ci-star"></i>
                     </div>
                   </div>
-                  <h3 class="product-title fs-sm mb-2"><a href="#">Project Devices Showcase (PSD)</a></h3>
+                  <h3 class="product-title fs-sm mb-2"><a href="#">아로나민골드정</a></h3>
                   <div class="d-flex flex-wrap justify-content-between align-items-center">
-                    <div class="fs-sm me-2"><i class="ci-download text-muted me-1"></i>95<span class="fs-xs ms-1">Sales</span></div>
-                    <div class="bg-faded-accent text-accent rounded-1 py-1 px-2">$18.<small>00</small></div>
+                    <div class="fs-sm me-2"><i class="ci-download text-muted me-1"></i>95<span class="fs-xs ms-1">판매완료</span></div>
+                    <div class="bg-faded-accent text-accent rounded-1 py-1 px-2">₩18,000</small></div>
                   </div>
                 </div>
               </div>
@@ -679,54 +660,30 @@
         </div>
       </section>
     </main>
+    
     <!-- Footer-->
     <footer class="footer bg-dark pt-5">
       <div class="container pt-2 pb-3">
         <div class="row">
           <div class="col-md-6 text-center text-md-start mb-4">
-            <div class="text-nowrap mb-3"><a class="d-inline-block align-middle mt-n2 me-2" href="#"><img class="d-block" src="img/footer-logo-light.png" width="117" alt="Cartzilla"></a><span class="d-inline-block align-middle h5 fw-light text-white mb-0">Marketplace</span></div>
-            <p class="fs-sm text-white opacity-70 pb-1">High quality items created by our global community.</p>
-            <h6 class="d-inline-block pe-3 me-3 border-end border-light"><span class="text-primary">65,478 </span><span class="fw-normal text-white">Products</span></h6>
-            <h6 class="d-inline-block pe-3 me-3 border-end border-light"><span class="text-primary">2,521 </span><span class="fw-normal text-white">Members</span></h6>
-            <h6 class="d-inline-block me-3"><span class="text-primary">897 </span><span class="fw-normal text-white">Vendors</span></h6>
+            <div class="text-nowrap mb-3"><a class="d-inline-block align-middle mt-n2 me-2" href="#"><img class="d-block" src="imgs/LogoE_r.png" width="117" alt="Cartzilla"></a><span class="d-inline-block align-middle h5 fw-bold text-white mb-0">DRUG24</span></div>
+            <span class="d-inline-block align-middle h5 fw-bold text-white mb-0">About us</span><br>
+            <p class="fs-sm text-white opacity-70 pb-1">DRUG24는 약 24,000개의 의약품 정보를 제공합니다.<br>오남용 없이 안전하게 복용하세요</p>
+            <h6 class="d-inline-block pe-3 me-3 border-end border-light"><span class="text-primary">5,478 </span><span class="fw-normal text-white">Products</span></h6>
+            <h6 class="d-inline-block pe-3 me-3 border-end border-light"><span class="text-primary">521 </span><span class="fw-normal text-white">Pharmacy</span></h6>
+            <h6 class="d-inline-block me-3"><span class="text-primary">17 </span><span class="fw-normal text-white">Pharmacist</span></h6>
             <div class="widget mt-4 text-md-nowrap text-center text-md-start"><a class="btn-social bs-light bs-twitter me-2 mb-2" href="#"><i class="ci-twitter"></i></a><a class="btn-social bs-light bs-facebook me-2 mb-2" href="#"><i class="ci-facebook"></i></a><a class="btn-social bs-light bs-dribbble me-2 mb-2" href="#"><i class="ci-dribbble"></i></a><a class="btn-social bs-light bs-behance me-2 mb-2" href="#"><i class="ci-behance"></i></a><a class="btn-social bs-light bs-pinterest me-2 mb-2" href="#"><i class="ci-pinterest"></i></a></div>
           </div>
-          <!-- Mobile dropdown menu (visible on screens below md)-->
-          <div class="col-12 d-md-none text-center mb-4 pb-2">
-            <div class="btn-group dropdown d-block mx-auto mb-3">
-              <button class="btn btn-outline-light border-light dropdown-toggle" type="button" data-bs-toggle="dropdown">Categories</button>
-              <ul class="dropdown-menu my-1">
-                <li><a class="dropdown-item" href="#">Photos</a></li>
-                <li><a class="dropdown-item" href="#">Graphics</a></li>
-                <li><a class="dropdown-item" href="#">UI Design</a></li>
-                <li><a class="dropdown-item" href="#">Web Themes</a></li>
-                <li><a class="dropdown-item" href="#">Fonts</a></li>
-                <li><a class="dropdown-item" href="#">Add-Ons</a></li>
-              </ul>
-            </div>
-            <div class="btn-group dropdown d-block mx-auto">
-              <button class="btn btn-outline-light border-light dropdown-toggle" type="button" data-bs-toggle="dropdown">For members</button>
-              <ul class="dropdown-menu my-1">
-                <li><a class="dropdown-item" href="#">Licenses</a></li>
-                <li><a class="dropdown-item" href="#">Return policy</a></li>
-                <li><a class="dropdown-item" href="#">Payment methods</a></li>
-                <li><a class="dropdown-item" href="#">Become a vendor</a></li>
-                <li><a class="dropdown-item" href="#">Become an affiliate</a></li>
-                <li><a class="dropdown-item" href="#">Marketplace benefits</a></li>
-              </ul>
-            </div>
-          </div>
-          <!-- Desktop menu (visible on screens above md)-->
           <div class="col-md-3 d-none d-md-block text-center text-md-start mb-4">
             <div class="widget widget-links widget-light pb-2">
               <h3 class="widget-title text-light">Categories</h3>
               <ul class="widget-list">
-                <li class="widget-list-item"><a class="widget-list-link" href="#">Photos</a></li>
-                <li class="widget-list-item"><a class="widget-list-link" href="#">Graphics</a></li>
-                <li class="widget-list-item"><a class="widget-list-link" href="#">UI Design</a></li>
-                <li class="widget-list-item"><a class="widget-list-link" href="#">Web Themes</a></li>
-                <li class="widget-list-item"><a class="widget-list-link" href="#">Fonts</a></li>
-                <li class="widget-list-item"><a class="widget-list-link" href="#">Add-Ons</a></li>
+                <li class="widget-list-item"><a class="widget-list-link" href="#">Drug Search</a></li>
+                <li class="widget-list-item"><a class="widget-list-link" href="#">Pharmacy Search</a></li>
+                <li class="widget-list-item"><a class="widget-list-link" href="#">Medicine Info</a></li>
+                <li class="widget-list-item"><a class="widget-list-link" href="#">My Page</a></li>
+                <li class="widget-list-item"><a class="widget-list-link" href="#">Newsroom</a></li>
+                <li class="widget-list-item"><a class="widget-list-link" href="#">Shopping Mall</a></li>
               </ul>
             </div>
           </div>
@@ -734,50 +691,18 @@
             <div class="widget widget-links widget-light pb-2">
               <h3 class="widget-title text-light">For members</h3>
               <ul class="widget-list">
-                <li class="widget-list-item"><a class="widget-list-link" href="#">Licenses</a></li>
-                <li class="widget-list-item"><a class="widget-list-link" href="#">Return policy</a></li>
-                <li class="widget-list-item"><a class="widget-list-link" href="#">Payment methods</a></li>
-                <li class="widget-list-item"><a class="widget-list-link" href="#">Become a vendor</a></li>
-                <li class="widget-list-item"><a class="widget-list-link" href="#">Become an affiliate</a></li>
-                <li class="widget-list-item"><a class="widget-list-link" href="#">Marketplace benefits</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Second row-->
-      <div class="pt-5 bg-darker">
-        <div class="container">
-          <div class="widget w-100 mb-4 pb-3 text-center mx-auto" style="max-width: 28rem;">
-            <h3 class="widget-title text-light pb-1">Subscribe to newsletter</h3>
-            <form class="subscription-form validate" action="https://studio.us12.list-manage.com/subscribe/post?u=c7103e2c981361a6639545bd5&amp;amp;id=29ca296126" method="post" name="mc-embedded-subscribe-form" target="_blank" novalidate>
-              <div class="input-group flex-nowrap"><i class="ci-mail position-absolute top-50 translate-middle-y text-muted fs-base ms-3"></i>
-                <input class="form-control rounded-start" type="email" name="EMAIL" placeholder="Your email" required>
-                <button class="btn btn-primary" type="submit" name="subscribe">Subscribe*</button>
-              </div>
-              <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-              <div style="position: absolute; left: -5000px;" aria-hidden="true">
-                <input class="subscription-form-antispam" type="text" name="b_c7103e2c981361a6639545bd5_29ca296126" tabindex="-1">
-              </div>
-              <div class="form-text text-light opacity-50">*Receive early discount offers, updates and new products info.</div>
-              <div class="subscription-status"></div>
-            </form>
-          </div>
-          <hr class="hr-light mb-3">
-          <div class="d-md-flex justify-content-between pt-4">
-            <div class="pb-4 fs-xs text-light opacity-50 text-center text-md-start">© All rights reserved. Made by <a class="text-light" href="https://createx.studio/" target="_blank" rel="noopener">Createx Studio</a></div>
-            <div class="widget widget-links widget-light pb-4">
-              <ul class="widget-list d-flex flex-wrap justify-content-center justify-content-md-start">
-                <li class="widget-list-item ms-4"><a class="widget-list-link fs-ms" href="#">Help Center</a></li>
-                <li class="widget-list-item ms-4"><a class="widget-list-link fs-ms" href="#">Affiliates</a></li>
-                <li class="widget-list-item ms-4"><a class="widget-list-link fs-ms" href="#">Support</a></li>
-                <li class="widget-list-item ms-4"><a class="widget-list-link fs-ms" href="#">Terms &amp; Conditions</a></li>
+                <li class="widget-list-item"><a class="widget-list-link" href="#">My First Aid Kit</a></li>
+                <li class="widget-list-item"><a class="widget-list-link" href="#">Pharmacy Reviews</a></li>
+                <li class="widget-list-item"><a class="widget-list-link" href="#">Medicine Reaviews</a></li>
+                <li class="widget-list-item"><a class="widget-list-link" href="#">Expert Answer</a></li>
+                <li class="widget-list-item"><a class="widget-list-link" href="#">Notice</a></li>
               </ul>
             </div>
           </div>
         </div>
       </div>
     </footer>
+
     <!-- Toolbar for handheld devices (Marketplace)-->
     <div class="handheld-toolbar">
       <div class="d-table table-layout-fixed w-100"><a class="d-table-cell handheld-toolbar-item" href="dashboard-favorites.html"><span class="handheld-toolbar-icon"><i class="ci-heart"></i></span><span class="handheld-toolbar-label">Favorites</span></a><a class="d-table-cell handheld-toolbar-item" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" onclick="window.scrollTo(0, 0)"><span class="handheld-toolbar-icon"><i class="ci-menu"></i></span><span class="handheld-toolbar-label">Menu</span></a><a class="d-table-cell handheld-toolbar-item" href="marketplace-cart.html"><span class="handheld-toolbar-icon"><i class="ci-cart"></i><span class="badge bg-primary rounded-pill ms-1">3</span></span><span class="handheld-toolbar-label">$56.00</span></a></div>
