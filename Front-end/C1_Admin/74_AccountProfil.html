@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Cartzilla | My orders</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="Cartzilla - Bootstrap E-commerce Template">
+    <meta name="keywords"
+        content="bootstrap, shop, e-commerce, market, modern, responsive,  business, mobile, bootstrap, html5, css3, js, gallery, slider, touch, creative, clean">
+    <meta name="author" content="Createx Studio">
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" color="#fe6a6a" href="safari-pinned-tab.svg">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Vendor Styles including: Font Icons, Plugins, etc.-->
+    <link rel="stylesheet" media="screen" href="vendor/simplebar/dist/simplebar.min.css" />
+    <link rel="stylesheet" media="screen" href="vendor/tiny-slider/dist/tiny-slider.css" />
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="css/theme.min.css">
+    <!--  여기서 부터 폰트 스타일 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@800&family=Noto+Sans+KR:wght@500&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .blodFont {
+            font-family: 'Nanum Gothic', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="page-wrapper">
+        <!-- 헤더 시작 -->
+        <header class="bg-dark shadow-sm navbar-sticky container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand d-none d-sm-block flex-shrink-0 order-lg-1 m-0 p-0" href="main.html">
+                        <img src="imgs/LogoE_r.png" width="55" alt=""></a>
+                    <!-- Toolbar-->
+                    <div class="navbar-toolbar d-flex align-items-center order-lg-3">
+                        <a class="navbar-tool d-none d-lg-flex" href="dashboard-favorites.html"><span
+                                class="navbar-tool-tooltip">나의 구급함</span>
+                            <div class="navbar-tool-icon-box"><i class="navbar-tool-icon ci-basket-alt"></i></div>
+                        </a>
+                        <a class="navbar-tool d-none d-lg-flex" href="dashboard-favorites.html"><span
+                                class="navbar-tool-tooltip">즐겨찾기</span>
+                            <div class="navbar-tool-icon-box"><i class="navbar-tool-icon ci-heart"></i></div>
+                        </a>
+                        <div class="navbar-tool dropdown ms-2"><a class="" href="dashboard-sales.html">
+                                <img src="imgs/account/donga_logo.png" height="32" width="32" alt="보령제약"></a>
+                            <a class="navbar-tool-text   ms-n1" href="dashboard-sales.html"><small>동아제약</small>기업 회원</a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <div style="min-width: 14rem;">
+                                    <h6 class="dropdown-header">계정 정보</h6><a
+                                        class="dropdown-item d-flex   align-items-center"
+                                        href="dashboard-settings.html"><i class="ci-settings opacity-60   me-2"></i>마이
+                                        페이지</a><a class="dropdown-item d-flex align-items-center"
+                                        href="dashboard-purchases.html"><i class="ci-basket opacity-60 me-2"></i>구매
+                                        하기</a><a class="dropdown-item d-flex align-items-center"
+                                        href="dashboard-favorites.html"><i
+                                            class="ci-heart opacity-60 me-2"></i>장바구니<span
+                                            class="fs-xs text-muted ms-auto">4</ span></a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item d-flex align-items-center" href="account-signin.html"><i
+                                            class="ci-sign-out opacity-60 me-2"></i>Sign Out</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse me-auto order-lg-2 ms-3" id="navbarCollapse">
+                        <!-- Primary menu-->
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link blodFont h4 text-white " href="Main.html">Home</a>
+                            </li>
+                            <li class="nav-item dropdown h4 text-white"><a class="nav-link dropdown-toggle" href="#"
+                                    data-bs-toggle="dropdown" data-bs-auto-close="outside">의약품 정보</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">약 상세검색</a></li>
+                                    <li><a class="dropdown-item" href="#">복약 정보</a></li>
+                                    <li><a class="dropdown-item" href="#">안전성 서한</a></li>
+                                    <li class="dropdown-item" href="#">안전 사용</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle h4 text-white"
+                                    href="Find.html">약국 찾기</a></li>
+                            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle h4 text-white" href="#"
+                                    data-bs-toggle="dropdown" data-bs-auto-close="outside">의약품 쇼핑몰</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">증상별 추천 아이템</a></li>
+                                    <li><a class="dropdown-item" href="#">테마별 추천 아이템</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle h4 text-white"
+                                    href="BoardMain.html">Community</a>
+                                <ul class="dropdown-menu">
+                                    <li class="dropdown"><a class="dropdown-item dropdown-toggle h4" href="#"
+                                            data-bs-toggle="dropdown">후기</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="BoardMain.html">의약품 후기</a></li>
+                                            <li><a class="dropdown-item" href="404-illustration.html">약국 후기</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">질문과 답변</a></li>
+                                    <li><a class="dropdown-item" href="#">공지사항</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle blodFont h4 text-white" href="#"
+                                    data-bs-toggle="dropdown" data-bs-auto-close="outside">Newsroom</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">관련 뉴스</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- 헤더 끝 -->
+        <!----- ========================================================================================= -->
+        <!-- Page Title-->
+        <div class="page-title-overlap bg-dark pt-4">
+            <div class="container d-lg-flex justify-content-between py-2 py-lg-3" style="margin-top: 50px;">
+                <div class="order-lg-2 mb-3 mb-lg-0 pt-lg-2">
+                    <nav aria-label="breadcrumb">
+                        <ol
+                            class="breadcrumb breadcrumb-light flex-lg-nowrap justify-content-center justify-content-lg-start">
+                            <li class="breadcrumb-item"><a class="text-nowrap" href="main.html"><i class="ci-home"></i>
+                                    Home</a></li>
+                            <li class="breadcrumb-item text-nowrap"><a href="#"> 마이 페이지 </a>
+                            </li>
+                            <li class="breadcrumb-item text-nowrap active" aria-current="page"> 회원정보 </li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="order-lg-1 pe-lg-4 text-center text-lg-start">
+                    <h1 class="h1 text-light mb-0 blodFont"> 회원 정보 </h1>
+                </div>
+            </div>
+        </div>
+        <div class="container pb-5 mb-2 mb-md-4">
+            <div class="row">
+                <!-- Sidebar-->
+                <aside class="col-lg-4 pt-4 pt-lg-0 pe-xl-5">
+                    <div class="bg-white rounded-3 shadow-lg pt-1 mb-5 mb-lg-0">
+                        <div class="d-md-flex justify-content-between align-items-center text-center text-md-start p-4">
+                            <div class="d-md-flex align-items-center">
+                                <div class="img-thumbnail rounded-circle position-relative flex-shrink-0 mx-auto mb-2 mx-md-0 mb-md-0"
+                                    style="width: 6.375rem;">
+
+                                    <img class="rounded-circle" src="img/shop/account/avatar.jpg" alt="Susan Gardner">
+                                </div>
+                                <div class="ps-md-3">
+                                    <h3 class="h5 mb-0"> 나경원 </h3>
+                                    <span class="text-accent fs-md"> nakw415@example.com</span>
+                                </div>
+                            </div><a class="btn btn-primary d-lg-none mb-2 mt-3 mt-md-0" href="#account-menu"
+                                data-bs-toggle="collapse" aria-expanded="false"><i class="ci-menu me-2"></i>Account
+                                menu</a>
+                        </div>
+                        <!---   사이드 바   ========= ================================================== ===========  -->
+                        <div class="d-lg-block collapse" id="account-menu">
+                            <div class="bg-secondary px-4 py-3">
+                                <h3 class="fs-sm mb-0 text-muted"></h3>
+                            </div>
+                            <ul class="list-unstyled mb-0 h5">
+                                <li class="border-bottom mb-0"><a
+                                        class="nav-link-style d-flex align-items-center px-4 py-3"
+                                        href="accountOrder.html"><i class="ci-bag opacity-60 me-2"></i> 주문목록 <span
+                                            class="h6 text-muted ms-auto">1</span></a>
+                                </li>
+                                <li class="border-bottom mb-0"><a
+                                        class="nav-link-style d-flex align-items-center px-4 py-3 "
+                                        href="account-orders.html"><i class="ci-cart opacity-60 me-2"></i> 장바구니 <span
+                                            class="h6 text-muted ms-auto">1</span></a>
+                                </li>
+
+
+                                <li class="border-bottom mb-0"><a
+                                        class="nav-link-style d-flex align-items-center px-4 py-3 "
+                                        href="accountWishList.html"><i class="ci-heart opacity-60 me-2"></i> 찜한 상품
+                                        <span class=" text-muted ms-auto h6">3</span></a></li>
+
+                                <li class="border-bottom mb-0"><a
+                                        class="nav-link-style d-flex align-items-center px-4 py-3"
+                                        href="account-tickets.html"><i
+                                            class="navbar-tool-icon ci-basket-alt opacity-60 me-2"></i>
+                                        나의 구급함
+                                        <span class="h6 text-muted ms-auto">1</span></a>
+                                </li>
+                                <li class="border-bottom mb-0"><a
+                                        class="nav-link-style d-flex align-items-center px-4 py-3 "
+                                        href="accountPharmacy.html"><i class="ci-star opacity-60 me-2"></i> 약국 즐겨찾기
+                                        <span class=" text-muted ms-auto h6">3</span></a>
+                                </li>
+
+                            </ul>
+                            <div class="bg-secondary px-4 py-3">
+                                <h3 class="h5 mb-0 text-muted"> 내 정보 관리 </h3>
+                            </div>
+                            <ul class="list-unstyled mb-0 h5">
+                                <li class="border-bottom mb-0"><a
+                                        class="nav-link-style d-flex align-items-center px-4 py-3 active"
+                                        href="accountProfil.html"><i class="ci-user opacity-60 me-2"></i> 회원 정보 </a>
+                                </li>
+                                <li class="border-bottom mb-0"><a
+                                        class="nav-link-style d-flex align-items-center px-4 py-3"
+                                        href="accountReview.html"><i class="ci-edit opacity-60 me-2"></i> 리뷰 관리 </a>
+                                </li>
+
+
+                                <li class="border-bottom mb-0"><a
+                                        class="nav-link-style d-flex align-items-center px-4 py-3 "
+                                        href="accountAddresses.html"><i class="ci-location opacity-60 me-2"></i> 배송지
+                                    </a>
+                                </li>
+
+
+                                <li class="mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3"
+                                        href="accountPayment.html"><i class="ci-card opacity-60 me-2"></i>
+                                        결제 수단
+
+                                    </a></li>
+                                <li class="d-lg-none border-top mb-0"><a
+                                        class="nav-link-style d-flex align-items-center px-4 py-3"
+                                        href="account-signin.html"><i class="ci-sign-out opacity-60 me-2"></i>
+                                        Sign
+                                        out
+                                    </a>
+                                </li>
+
+                                <br>
+
+                            </ul>
+                        </div>
+                    </div>
+                </aside>
+                <!-- Content ========================================================================== -->
+                <section class="col-lg-8">
+                    <!-- Toolbar-->
+                    <div
+                        class="d-none d-lg-flex justify-content-between align-items-center pt-lg-2 pb-4 pb-lg-5 mb-lg-3 ">
+                        <h6 class="h4 text-light mb-2"> </h6>
+
+                        <a class="btn btn-primary btn-md d-none d-lg-inline-block" href="account-signin.html"><i
+                                class="ci-sign-out me-2"></i> 로그 아웃 </a>
+                    </div>
+                    <!-- Profile form ================================================= -->
+                    <form>
+                        <div class="bg-secondary rounded-3 p-4 mb-4">
+                            <div class="d-flex align-items-center"><img class="rounded"
+                                    src="img/shop/account/avatar.jpg" width="110" alt="Susan Gardner">
+                                <div class="ps-3">
+                                    <button class="btn btn-light btn-shadow btn-sm mb-2" type="button"><i
+                                            class="ci-loading me-2"></i> 프로필 사진 변경하기 </button>
+                                    <div class="p mb-0 fs-sm text-muted">
+                                        JPG, GIF, 또는 PNG 이미지를 업로드하세요. 300 x 300이 필요합니다.
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gx-4 gy-3 h5">
+                            <div class="col-sm-6 mb-3">
+                                <label class="form-label fs-base" for="account-name"> 이름 </label>
+                                <input class="form-control" type="text" id="account-name" value="나경원">
+                            </div>
+                            <div class="col-sm-6 mb-3">
+                                <label class="form-label fs-base" for="account-email"> 이메일 주소 </label>
+                                <input class="form-control" type="email" id="account-email"
+                                    value="s.gardner@example.com" disabled>
+                            </div>
+                            <div class="col-sm-6 mb-3">
+                                <label class="form-label fs-base" for="account-phone"> 핸드폰 번호 </label>
+                                <input class="form-control" type="text" id="account-phone" value="010 - 1234 - 1234"
+                                    required>
+                            </div>
+                            <div class="col-sm-6 mb-3">
+                                <label class="form-label fs-base" for="account-pass"> 새로운 비밀번호 </label>
+                                <div class="password-toggle">
+                                    <input class="form-control" type="password" id="account-pass">
+                                    <label class="password-toggle-btn" aria-label="Show/hide password">
+                                        <input class="password-toggle-check" type="checkbox"><span
+                                            class="password-toggle-indicator"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 mb-3">
+                                <label class="form-label fs-base" for="account-confirm-pass"> 새로운 비밀번호 확인 </label>
+                                <div class="password-toggle">
+                                    <input class="form-control" type="password" id="account-confirm-pass">
+                                    <label class="password-toggle-btn" aria-label="Show/hide password">
+                                        <input class="password-toggle-check" type="checkbox"><span
+                                            class="password-toggle-indicator"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <br><br>
+                            <div class="col-12">
+                                <hr class="mt-2 mb-3">
+                                <div class="d-flex flex-wrap justify-content-lg-end align-items-center">
+                                    <button class="btn btn-primary mt-3 mt-sm-0" type="button"> 회원정보 변경하기 </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                </section>
+            </div>
+        </div>
+    </main>
+    <br><br><br>
+    <!-- Footer-->
+    <!-- 푸터 시작-->
+    <footer class="footer bg-dark pt-5 ">
+        <div class="container pt-1 pb-1">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-2">
+                    <div class="text-nowrap mb-3"><a class="d-inline-block align-middle mt-n2 me-2" href="#"><img
+                                class="d-block" src="imgs/LogoE_r.png" width="100" alt="Cartzilla"></a><span
+                            class="d-inline-block align-middle h5 fw-bold text-white mb-0">DRUG24</span></div>
+                    <span class="d-inline-block align-middle h5 fw-bold text-white mb-0">About us</span><br>
+                    <p class="fs-sm text-white opacity-70 pb-1">DRUG24는 약 24,000개의 의약품 정보를 제공합니다.<br>오남용 없이 안전하게 복용하세요
+                    </p>
+                    <h6 class="d-inline-block pe-3 me-3 border-end border-light"><span class="text-primary">5,478
+                        </span><span class="fw-normal text-white">Products</span></h6>
+                    <h6 class="d-inline-block pe-3 me-3 border-end border-light"><span class="text-primary">521
+                        </span><span class="fw-normal text-white">Pharmacy</span></h6>
+                    <h6 class="d-inline-block me-3"><span class="text-primary">17 </span><span
+                            class="fw-normal text-white">Pharmacist</span></h6>
+                </div>
+                <div class="col-md-3 d-none d-md-block text-center text-md-start mb-4">
+                    <div class="widget widget-links widget-light pb-2">
+                        <h3 class="widget-title text-light">Categories</h3>
+                        <ul class="widget-list">
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">Drug Search</a></li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">Pharmacy Search</a></li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">Medicine Info</a></li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">Newsroom</a></li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">Shopping Mall</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 d-none d-md-block text-center text-md-start mb-4">
+                    <div class="widget widget-links widget-light pb-2">
+                        <h3 class="widget-title text-light">For members</h3>
+                        <ul class="widget-list">
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">My First Aid Kit</a></li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">My Page</a></li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">Pharmacy Reviews</a></li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">Medicine Reaviews</a></li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">Notice</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- 푸터 끝 -->
+    <!-- Toolbar for handheld devices (Default)-->
+    <div class="handheld-toolbar">
+        <div class="d-table table-layout-fixed w-100"><a class="d-table-cell handheld-toolbar-item"
+                href="account-wishlist.html"><span class="handheld-toolbar-icon"><i class="ci-heart"></i></span><span
+                    class="handheld-toolbar-label">Wishlist</span></a><a class="d-table-cell handheld-toolbar-item"
+                href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                onclick="window.scrollTo(0, 0)"><span class="handheld-toolbar-icon"><i class="ci-menu"></i></span><span
+                    class="handheld-toolbar-label">Menu</span></a><a class="d-table-cell handheld-toolbar-item"
+                href="shop-cart.html"><span class="handheld-toolbar-icon"><i class="ci-cart"></i><span
+                        class="badge bg-primary rounded-pill ms-1">4</span></span><span
+                    class="handheld-toolbar-label">$265.00</span></a></div>
+    </div>
+    <!-- Back To Top Button--><a class="btn-scroll-top" href="#top" data-scroll><span
+            class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon ci-arrow-up">
+        </i></a>
+    <!-- Vendor scrits: js libraries and plugins-->
+    <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/simplebar/dist/simplebar.min.js"></script>
+    <script src="vendor/tiny-slider/dist/min/tiny-slider.js"></script>
+    <script src="vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <!-- Main theme script-->
+    <script src="js/theme.min.js"></script>
+</body>
+
+</html>

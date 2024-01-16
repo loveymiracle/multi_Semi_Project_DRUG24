@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>pharmacyreview.html</title>
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Vendor Styles including: Font Icons, Plugins, etc.-->
+    <link rel="stylesheet" media="screen" href="vendor/simplebar/dist/simplebar.min.css" />
+    <link rel="stylesheet" media="screen" href="vendor/tiny-slider/dist/tiny-slider.css" />
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="css/theme.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <!--  여기서 부터 폰트 스타일 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@800&family=Noto+Sans+KR:wght@500&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .blodFont {
+            font-family: 'Nanum Gothic', sans-serif;
+        }
+
+        .table th,
+        .table td {
+            width: 10px;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+    </style>
+
+</head>
+<!-- Body-->
+
+<body>
+    <main class="page-wrapper">
+        <!-- 헤더 시작 -->
+        <header class="bg-dark shadow-sm navbar-sticky container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand d-none d-sm-block flex-shrink-0 order-lg-1 m-0 p-0" href="main.html">
+                        <img src="imgs/LogoE_r.png" width="55" alt=""></a>
+                    <!-- Toolbar-->
+                    <div class="navbar-toolbar d-flex align-items-center order-lg-3">
+                        <a class="navbar-tool d-none d-lg-flex" href="dashboard-favorites.html"><span
+                                class="navbar-tool-tooltip">나의
+                                구급함</span>
+                            <div class="navbar-tool-icon-box"><i class="navbar-tool-icon ci-basket-alt"></i></div>
+                        </a>
+                        <a class="navbar-tool d-none d-lg-flex" href="dashboard-favorites.html"><span
+                                class="navbar-tool-tooltip">즐겨찾기</span>
+                            <div class="navbar-tool-icon-box"><i class="navbar-tool-icon ci-heart"></i></div>
+                        </a>
+                        <div class="navbar-tool dropdown ms-2"><a class="" href="dashboard-sales.html">
+                                <img src="imgs/account/donga_logo.png" height="32" width="32" alt="보령제약"></a>
+                            <a class="navbar-tool-text   ms-n1" href="dashboard-sales.html"><small>동아제약</small>기업 회원</a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <div style="min-width: 14rem;">
+                                    <h6 class="dropdown-header">계정 정보</h6><a
+                                        class="dropdown-item d-flex   align-items-center"
+                                        href="dashboard-settings.html"><i class="ci-settings opacity-60   me-2"></i>마이
+                                        페이지</a><a class="dropdown-item d-flex align-items-center"
+                                        href="dashboard-purchases.html"><i class="ci-basket opacity-60 me-2"></i>구매
+                                        하기</a><a class="dropdown-item d-flex align-items-center"
+                                        href="dashboard-favorites.html"><i
+                                            class="ci-heart opacity-60 me-2"></i>장바구니<span
+                                            class="fs-xs text-muted ms-auto">4</ span></a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item d-flex align-items-center" href="account-signin.html"><i
+                                            class="ci-sign-out opacity-60 me-2"></i>Sign Out</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse me-auto order-lg-2 ms-3" id="navbarCollapse">
+                        <!-- Primary menu-->
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link blodFont h4 text-white " href="Main.html">Home</a>
+                            </li>
+                            <li class="nav-item dropdown h4 text-white"><a class="nav-link dropdown-toggle" href="#"
+                                    data-bs-toggle="dropdown" data-bs-auto-close="outside">의약품 정보</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">약 상세검색</a></li>
+                                    <li><a class="dropdown-item" href="#">복약 정보</a></li>
+                                    <li><a class="dropdown-item" href="#">안전성 서한</a></li>
+                                    <li class="dropdown-item" href="#">안전 사용</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle h4 text-white"
+                                    href="Find.html">약국 찾기</a>
+                            </li>
+                            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle h4 text-white" href="#"
+                                    data-bs-toggle="dropdown" data-bs-auto-close="outside">의약품 쇼핑몰</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">증상별 추천 아이템</a></li>
+                                    <li><a class="dropdown-item" href="#">테마별 추천 아이템</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle h4 text-white"
+                                    href="BoardMain.html">Community</a>
+                                <ul class="dropdown-menu">
+                                    <li class="dropdown"><a class="dropdown-item dropdown-toggle h4" href="#"
+                                            data-bs-toggle="dropdown">후기</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="BoardDrugreview.html">의약품 후기</a></li>
+                                            <li><a class="dropdown-item" href="pharmacyreview.html">약국 후기</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">질문과 답변</a></li>
+                                    <li><a class="dropdown-item" href="#">공지사항</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle blodFont h4 text-white" href="#"
+                                    data-bs-toggle="dropdown" data-bs-auto-close="outside">Newsroom</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">관련 뉴스</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- 헤더 끝 -->
+        <div class="bg-secondary py-4">
+            <div class="container d-lg-flex justify-content-between py-2 py-lg-3">
+                <div class="order-lg-2 mb-3 mb-lg-0 pt-lg-2">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb flex-lg-nowrap justify-content-center justify-content-lg-start fs-5">
+                            <li class="breadcrumb-item"><a class="text-nowrap" href="main.html"><i
+                                        class="ci-home"></i>Home</a></li>
+                            <li class="breadcrumb-item text-nowrap"><a href="BoardMain.html"> Community </a>
+                            </li>
+                            <li class="breadcrumb-item text-nowrap"><a href="#"> 의약품 이용후기 </a>
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="order-lg-1 pe-lg-4 text-center text-lg-start">
+                    <h1 class="blodFont mb-0"> 의약품 이용후기 </h1>
+                </div>
+            </div>
+        </div>
+
+        <!-----------------------------------------------------------      체크 박스 
+----------------------->
+        <div div class="container"
+            style=" border-top: 1px solid #3F4859; border-bottom: 1px solid #3F4859; padding: 30px; margin-top: 40px;">
+            <!--name : 라디오를 그룹핑할 네임으로 중복해서 사용-->
+            <!--value : 실제 서버로 넘어갈 값-->
+            <div class="col-md-4 mb-4 h5">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="ex-check-4">
+                    <label class="form-check-label fs-5" for="ex-check-4"> 제목 </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="ex-check-5" checked>
+                    <label class="form-check-label fs-5" for="ex-check-5"> 작성자 </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="ex-check-5" checked>
+                    <label class="form-check-label fs-5" for="ex-check-5"> 내용 </label>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between h2">
+                <select class=" form-select" name="pharcategory" id="pharcategory" style="width: 320px; " required>
+                    <option value=""> 카테고리 선택 </option>
+                    <option value="5"> 감기 </option>
+                    <option value="4"> 감기 </option>
+                    <option value="3"> 감기 </option>
+                    <option value="3"> 충청 약국 </option>
+                    <option value="2"> 전라 약국 </option>
+                    <option value="1"> 경상 약국 </option>
+                    <option value="1"> 제주 약국 </option>
+                </select>
+                <div class="d-flex justify-content-between">
+                    <input class="form-control" type="text" id="road" placeholder="입력하세요" style="width: 700px;"
+                        required>
+                    <button class="btn btn-primary" type="search" style="margin-left: 25px; margin-right: 30px;"> <i
+                            class="ci-search 
+        me-1"></i> 검색
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!--   이용후기 리스트  =================== -->
+        <div class="container">
+            <br><br><br><br><br>
+            <select class="form-select" id="order-sort" style="width: 200px;">
+                <option> 모두 </option>
+                <option> 최신순 </option>
+                <option> 오래된 순 </option>
+                <option> 조회순 </option>
+            </select>
+            <br>
+            <table class="table table-hover h5">
+                <tr class="border-top">
+                    <th class="text-center"> 번호 </th>
+                    <th class="text-center" style="width: 50px ;"> 카테고리 </th>
+                    <th class="text-center" style="width: 200px;"> 제목</th>
+                    <th class="text-center"> 작성자 </th>
+                    <th class="text-center"> 작성일</th>
+                    <th class="text-center" style="width: 50px;"> 첨부파일</th>
+                    <th class="text-center"> 조회수 </th>
+                </tr>
+                <tbody>
+                    <tr style="cursor:pointer;" data-saft_not_no="1">
+                        <th class="text-center" scope="row">1</th>
+                        <td class="text-center "> 서울 약국</td>
+                        <td class="text-center ">복약지도 잘해주시고 친절함 </td>
+                        <td class="text-center"> 나 (nana) </td>
+                        <td class="text-center"> 2024-01-31 </td>
+                        <td class="text-center"> - </td>
+                        <td class="text-center"> 1 </td>
+                    </tr>
+                    <tr style="cursor:pointer;" data-saft_not_no="2">
+                        <th class="text-center" scope="row">1</th>
+                        <td class="text-center "> 서울 약국</td>
+                        <td class="text-center ">복약지도 잘해주시고 친절함 </td>
+                        <td class="text-center"> 나 (nana) </td>
+                        <td class="text-center"> 2024-01-31 </td>
+                        <td class="text-center"> - </td>
+                        <td class="text-center"> 0 </td>
+                    </tr>
+                    <tr style="cursor:pointer;" data-saft_not_no="2">
+                        <th class="text-center" scope="row">1</th>
+                        <td class="text-center "> 서울 약국</td>
+                        <td class="text-center ">복약지도 잘해주시고 친절함 </td>
+                        <td class="text-center"> 나 (nana) </td>
+                        <td class="text-center"> 2024-01-31 </td>
+                        <td class="text-center"> - </td>
+                        <td class="text-center"> 0 </td>
+                    </tr>
+                    <tr style="cursor:pointer;" data-saft_not_no="2">
+                        <th class="text-center" scope="row">1</th>
+                        <td class="text-center "> 서울 약국</td>
+                        <td class="text-center ">복약지도 잘해주시고 친절함 </td>
+                        <td class="text-center"> 나 (nana) </td>
+                        <td class="text-center"> 2024-01-31 </td>
+                        <td class="text-center"> - </td>
+                        <td class="text-center"> 0 </td>
+                    </tr>
+                    <tr style="cursor:pointer;" data-saft_not_no="2">
+                        <th class="text-center" scope="row">1</th>
+                        <td class="text-center "> 서울 약국</td>
+                        <td class="text-center ">복약지도 잘해주시고 친절함 </td>
+                        <td class="text-center"> 나 (nana) </td>
+                        <td class="text-center"> 2024-01-31 </td>
+                        <td class="text-center"> - </td>
+                        <td class="text-center"> 0 </td>
+                    </tr>
+                    <tr style="cursor:pointer;" data-saft_not_no="2">
+                        <th class="text-center" scope="row">1</th>
+                        <td class="text-center "> 서울 약국</td>
+                        <td class="text-center ">복약지도 잘해주시고 친절함 </td>
+                        <td class="text-center"> 나 (nana) </td>
+                        <td class="text-center"> 2024-01-31 </td>
+                        <td class="text-center"> - </td>
+                        <td class="text-center"> 0 </td>
+                    </tr>
+                    <tr style="cursor:pointer;" data-saft_not_no="2">
+                        <th class="text-center" scope="row">1</th>
+                        <td class="text-center "> 서울 약국</td>
+                        <td class="text-center ">복약지도 잘해주시고 친절함 </td>
+                        <td class="text-center"> 나 (nana) </td>
+                        <td class="text-center"> 2024-01-31 </td>
+                        <td class="text-center"> - </td>
+                        <td class="text-center"> 0 </td>
+                    </tr>
+                    <tr style="cursor:pointer;" data-saft_not_no="2">
+                        <th class="text-center" scope="row">1</th>
+                        <td class="text-center "> 서울 약국</td>
+                        <td class="text-center ">복약지도 잘해주시고 친절함 </td>
+                        <td class="text-center"> 나 (nana) </td>
+                        <td class="text-center"> 2024-01-31 </td>
+                        <td class="text-center"> - </td>
+                        <td class="text-center"> 0 </td>
+                    </tr>
+                    <tr style="cursor:pointer;" data-saft_not_no="2">
+                        <th class="text-center" scope="row">9</th>
+                        <td class="text-center "> 서울 약국</td>
+                        <td class="text-center ">복약지도 잘해주시고 친절함 </td>
+                        <td class="text-center"> 나 (nana) </td>
+                        <td class="text-center"> 2024-01-31 </td>
+                        <td class="text-center"> - </td>
+                        <td class="text-center"> 0 </td>
+                    </tr>
+                    <tr style="cursor:pointer;" data-saft_not_no="2">
+                        <th class="text-center" scope="row">10</th>
+                        <td class="text-center "> 서울 약국</td>
+                        <td class="text-center ">복약지도 잘해주시고 친절함 </td>
+                        <td class="text-center"> 나 (nana) </td>
+                        <td class="text-center"> 2024-01-31 </td>
+                        <td class="text-center"> - </td>
+                        <td class="text-center"> 0 </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <br><br><br>
+        <!-- ===================================================================   Pagination-->
+        <nav class="d-flex justify-content-between pt-2" aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#"><i class="ci-arrow-left me-2"></i></a>
+                </li>
+            </ul>
+            <ul class="pagination">
+                <li class="page-item d-sm-none"><span class="page-link page-link-static">1 /
+                        5</span></li>
+                <li class="page-item active d-none d-sm-block" aria-current="page"><span class="page-link">1<span
+                            class="visually-hidden">(current)</span></span>
+                </li>
+                <li class="page-item d-none d-sm-block"><a class="page-link" href="#">2</a></li>
+                <li class="page-item d-none d-sm-block"><a class="page-link" href="#">3</a></li>
+                <li class="page-item d-none d-sm-block"><a class="page-link" href="#">4</a></li>
+                <li class="page-item d-none d-sm-block"><a class="page-link" href="#">5</a></li>
+            </ul>
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#" aria-label="Next"><i
+                            class="ci-arrow-right ms-2"></i></a>
+                </li>
+            </ul>
+        </nav>
+    </main>
+    <!-- 푸터 시작-->
+    <footer class="footer bg-dark pt-5 ">
+        <div class="container pt-1 pb-1">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-2">
+                    <div class="text-nowrap mb-3"><a class="d-inline-block align-middle mt-n2 me-2" href="#"><img
+                                class="d-block" src="imgs/LogoE_r.png" width="100" alt="Cartzilla"></a><span
+                            class="d-inline-block align-middle h5 fw-bold text-white mb-0">DRUG24</span></div>
+                    <span class="d-inline-block align-middle h5 fw-bold text-white mb-0">About us</span><br>
+                    <p class="fs-sm text-white opacity-70 pb-1">DRUG24는 약 24,000개의 의약품 정보를 제공합니다.<br>오남용 없이 안전하게 복용하세요
+                    </p>
+                    <h6 class="d-inline-block pe-3 me-3 border-end border-light"><span class="text-primary">5,478
+                        </span><span class="fw-normal text-white">Products</span></h6>
+                    <h6 class="d-inline-block pe-3 me-3 border-end border-light"><span class="text-primary">521
+                        </span><span class="fw-normal text-white">Pharmacy</span></h6>
+                    <h6 class="d-inline-block me-3"><span class="text-primary">17 </span><span
+                            class="fw-normal text-white">Pharmacist</span></h6>
+                </div>
+                <div class="col-md-3 d-none d-md-block text-center text-md-start mb-4">
+                    <div class="widget widget-links widget-light pb-2">
+                        <h3 class="widget-title text-light">Categories</h3>
+                        <ul class="widget-list">
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">Drug Search</a></li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">Pharmacy Search</a></li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">Medicine Info</a></li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">Newsroom</a></li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">Shopping Mall</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 d-none d-md-block text-center text-md-start mb-4">
+                    <div class="widget widget-links widget-light pb-2">
+                        <h3 class="widget-title text-light">For members</h3>
+                        <ul class="widget-list">
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">My First Aid Kit</a></li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">My Page</a></li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">Pharmacy Reviews</a></li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">Medicine Reaviews</a></li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">Notice</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- 푸터 끝 -->
+    <!-- Back To Top Button--><a class="btn-scroll-top" href="#top" data-scroll><span
+            class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon ci-arrow-up">
+        </i></a>
+    <!-- Vendor scrits: js libraries and plugins-->
+    <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/simplebar/dist/simplebar.min.js"></script>
+    <script src="vendor/tiny-slider/dist/min/tiny-slider.js"></script>
+    <script src="vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <!-- Main theme script-->
+    <script src="js/theme.min.js"></script>
+</body>
+
+</html>
