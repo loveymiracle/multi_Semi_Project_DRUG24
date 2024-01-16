@@ -102,7 +102,7 @@
                   <li class="dropdown"><a class="dropdown-item dropdown-toggle h4" href="#"
                       data-bs-toggle="dropdown">후기</a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="BoardMain.html">의약품 후기</a></li>
+                      <li><a class="dropdown-item" href="BoardDrugreview.html">의약품 후기</a></li>
                       <li><a class="dropdown-item" href="pharmacyreview.html">약국 후기</a></li>
                     </ul>
                   </li>
@@ -141,10 +141,11 @@
         </div>
       </div>
     </div>
+
     <!-----------------------------------------------------------      체크 박스 
 ----------------------->
     <div div class="container"
-      style=" border-top: 2px solid #3F4859; border-bottom: 2px solid #3F4859; padding: 30px; margin-top: 40px;">
+      style=" border-top: 1px solid #3F4859; border-bottom: 1px solid #3F4859; padding: 30px; margin-top: 40px;">
       <!--name : 라디오를 그룹핑할 네임으로 중복해서 사용-->
       <!--value : 실제 서버로 넘어갈 값-->
       <div class="col-md-4 mb-4 h5">
@@ -180,16 +181,18 @@
         </div>
       </div>
     </div>
-    <!--   이용후기 작성하기 =================== -->
+    <!--   이용후기 리스트  =================== -->
     <div class="container">
-      <div class="d-flex justify-content-lg-end mb-5" style="margin-top: 40px;">
-        <a class="btn btn-accent btn-shadow btn-sm" href="BoardReviewWrite.html">
-          <span class="fs-6"> <i class="ci-edit-alt me-2"></i>이용후기 작성하기</span>
-        </a>
-      </div>
+      <br><br><br><br><br>
+      <select class="form-select" id="order-sort" style="width: 200px;">
+        <option> 모두 </option>
+        <option> 최신순 </option>
+        <option> 오래된 순 </option>
+        <option> 조회순 </option>
+      </select>
       <br>
       <table class="table table-hover h5">
-        <tr>
+        <tr class="border-top">
           <th class="text-center"> 번호 </th>
           <th class="text-center" style="width: 50px ;"> 카테고리 </th>
           <th class="text-center" style="width: 200px;"> 제목</th>
