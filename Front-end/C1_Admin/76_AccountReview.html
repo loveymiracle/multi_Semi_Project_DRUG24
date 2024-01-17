@@ -143,12 +143,12 @@
                                     Home</a></li>
                             <li class="breadcrumb-item text-nowrap"><a href="#"> 마이 페이지 </a>
                             </li>
-                            <li class="breadcrumb-item text-nowrap active" aria-current="page"> 주문 목록 </li>
+                            <li class="breadcrumb-item text-nowrap active" aria-current="page"> 리뷰 관리 </li>
                         </ol>
                     </nav>
                 </div>
                 <div class="order-lg-1 pe-lg-4 text-center text-lg-start">
-                    <h1 class="h1 text-light mb-0 blodFont"> 주문 목록</h1>
+                    <h1 class="h1 text-light mb-0 blodFont"> 리뷰 관리 </h1>
                 </div>
             </div>
         </div>
@@ -179,7 +179,7 @@
                             </div>
                             <ul class="list-unstyled mb-0 h5">
                                 <li class="border-bottom mb-0"><a
-                                        class="nav-link-style d-flex align-items-center px-4 py-3 active"
+                                        class="nav-link-style d-flex align-items-center px-4 py-3"
                                         href="accountOrder.html"><i class="ci-bag opacity-60 me-2"></i> 주문목록 <span
                                             class="h6 text-muted ms-auto">1</span></a>
                                 </li>
@@ -218,15 +218,17 @@
                                         href="accountProfil.html"><i class="ci-user opacity-60 me-2"></i> 회원 정보 </a>
                                 </li>
                                 <li class="border-bottom mb-0"><a
-                                        class="nav-link-style d-flex align-items-center px-4 py-3"
+                                        class="nav-link-style d-flex align-items-center px-4 py-3 active"
                                         href="accountReview.html"><i class="ci-edit opacity-60 me-2"></i> 리뷰 관리 </a>
                                 </li>
 
 
                                 <li class="border-bottom mb-0"><a
-                                        class="nav-link-style d-flex align-items-center px-4 py-3"
-                                        href="account-address.html"><i
-                                            class="ci-location opacity-60 me-2"></i>Addresses</a></li>
+                                        class="nav-link-style d-flex align-items-center px-4 py-3 "
+                                        href="accountAddresses.html"><i class="ci-location opacity-60 me-2"></i> 배송지
+                                    </a>
+                                </li>
+
                                 <li class="mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3"
                                         href="accountPayment.html"><i class="ci-card opacity-60 me-2"></i>
                                         결제 수단
@@ -258,9 +260,9 @@
                                 orders:</label>
                             <select class="form-select" id="order-sort">
                                 <option> 모두 </option>
-                                <option> 배송 완료 </option>
-                                <option> 진행 중 </option>
-                                <option> 취소. 반품 </option>
+                                <option> 최신순 </option>
+                                <option> 오래된 순 </option>
+
                             </select>
                         </div><a class="btn btn-primary btn-md d-none d-lg-inline-block" href="account-signin.html"><i
                                 class="ci-sign-out me-2"></i> 로그 아웃 </a>
@@ -270,59 +272,80 @@
                         <table class="table table-hover mb-0 text-center">
                             <thead>
                                 <tr>
-                                    <th> 주문 번호 </th>
-                                    <th> 주문한 날짜 </th>
-                                    <th> 주문 상태 </th>
-                                    <th> 금액 </th>
+                                    <th> 번호 </th>
+                                    <th> 카테고리 </th>
+                                    <th> 제목 </th>
+
+                                    <th> 작성일 </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td class="py-3"><a class="nav-link-style fw-medium" href="#order-details"
-                                            data-bs-toggle="modal">34VB5540K83</a></td>
-                                    <td class="py-3"> 2019 - 06 - 12</td>
-                                    <td class="py-3"><span class="badge bg-info m-0">In Progress</span></td>
-                                    <td class="py-3"> 15,000 원 </td>
-                                </tr>
-                                <tr>
-                                    <td class="py-3"><a class="nav-link-style fw-medium " href="#order-details"
-                                            data-bs-toggle="modal">78A643CD409</a></td>
-                                    <td class="py-3">2019 - 06 - 12</td>
-                                    <td class="py-3"><span class="badge bg-danger m-0">Canceled</span></td>
-                                    <td class="py-3"><span>15,000 원</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="py-3"><a class="nav-link-style fw-medium " href="#order-details"
-                                            data-bs-toggle="modal">112P45A90V2</a></td>
-                                    <td class="py-3">2019 - 06 - 12</td>
-                                    <td class="py-3"><span class="badge bg-warning m-0">Delayed</span></td>
-                                    <td class="py-3">15,000 원</td>
-                                </tr>
-                                <tr>
-                                    <td class="py-3"><a class="nav-link-style fw-medium " href="#order-details"
-                                            data-bs-toggle="modal">28BA67U0981</a></td>
-                                    <td class="py-3"> 2019 - 06 - 12</td>
-                                    <td class="py-3"><span class="badge bg-success m-0">Delivered</span></td>
-                                    <td class="py-3">15,000 원</td>
-                                </tr>
-                                <tr>
-                                    <td class="py-3"><a class="nav-link-style fw-medium " href="#order-details"
-                                            data-bs-toggle="modal">502TR872W2</a></td>
-                                    <td class="py-3"> 2019 - 06 - 12</td>
-                                    <td class="py-3"><span class="badge bg-success m-0">Delivered</span></td>
-                                    <td class="py-3">15,000 원</td>
+                                            data-bs-toggle="modal"> 1 </a></td>
+                                    <td class="py-3"> 서울약국 </td>
+                                    <td class="py-3"> 복약지도 잘해주시고 친절함 </td>
+                                    <td class="py-3"> 2019 - 06 - 12 </td>
                                 </tr>
                                 <tr>
                                     <td class="py-3"><a class="nav-link-style fw-medium" href="#order-details"
-                                            data-bs-toggle="modal">47H76G09F33</a></td>
-                                    <td class="py-3">2019 - 06 - 12</td>
-                                    <td class="py-3"><span class="badge bg-success m-0">Delivered</span></td>
-                                    <td class="py-3">15,000 원</td>
+                                            data-bs-toggle="modal"> 1 </a></td>
+                                    <td class="py-3"> 의약품 이용후기 </td>
+                                    <td class="py-3"> 복약지도 잘해주시고 친절함 </td>
+                                    <td class="py-3"> 2019 - 06 - 12 </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3"><a class="nav-link-style fw-medium" href="#order-details"
+                                            data-bs-toggle="modal"> 1 </a></td>
+                                    <td class="py-3"> 약국 이용후기 </td>
+                                    <td class="py-3"> 복약지도 잘해주시고 친절함 </td>
+                                    <td class="py-3"> 2019 - 06 - 12 </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3"><a class="nav-link-style fw-medium" href="#order-details"
+                                            data-bs-toggle="modal"> 1 </a></td>
+                                    <td class="py-3"> 서울약국 </td>
+                                    <td class="py-3"> 복약지도 잘해주시고 친절함 </td>
+                                    <td class="py-3"> 2019 - 06 - 20 </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3"><a class="nav-link-style fw-medium" href="#order-details"
+                                            data-bs-toggle="modal"> 1 </a></td>
+                                    <td class="py-3"> 서울약국 </td>
+                                    <td class="py-3"> 복약지도 잘해주시고 친절함 </td>
+                                    <td class="py-3"> 2019 - 06 - 12 </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3"><a class="nav-link-style fw-medium" href="#order-details"
+                                            data-bs-toggle="modal"> 1 </a></td>
+                                    <td class="py-3"> 서울약국 </td>
+                                    <td class="py-3"> 복약지도 잘해주시고 친절함 </td>
+                                    <td class="py-3"> 2019 - 06 - 12 </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                    <br><br><br><br><br><br><br><br>
+                    <br><br><br><br><br><br><br><br><br>
+                    <!-- Pagination-->
+                    <nav class="d-flex justify-content-between pt-2" aria-label="Page navigation">
+                        <ul class="pagination">
+                            <li class="page-item"><a class="page-link" href="#"><i
+                                        class="ci-arrow-left me-2"></i>Prev</a></li>
+                        </ul>
+                        <ul class="pagination">
+                            <li class="page-item d-sm-none"><span class="page-link page-link-static">1 / 5</span></li>
+                            <li class="page-item active d-none d-sm-block" aria-current="page"><span
+                                    class="page-link">1<span class="visually-hidden">(current)</span></span></li>
+                            <li class="page-item d-none d-sm-block"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item d-none d-sm-block"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item d-none d-sm-block"><a class="page-link" href="#">4</a></li>
+                            <li class="page-item d-none d-sm-block"><a class="page-link" href="#">5</a></li>
+                        </ul>
+                        <ul class="pagination">
+                            <li class="page-item"><a class="page-link" href="#" aria-label="Next">Next<i
+                                        class="ci-arrow-right ms-2"></i></a></li>
+                        </ul>
+                    </nav>
                 </section>
             </div>
         </div>

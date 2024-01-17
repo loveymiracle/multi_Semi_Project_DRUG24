@@ -27,9 +27,6 @@
             font-family: 'Nanum Gothic', sans-serif;
         }
 
-        /* 지도 스타일 끝 */
-
-
         .table th,
         .table td {
             width: 10px;
@@ -111,7 +108,7 @@
                                     <li class="dropdown"><a class="dropdown-item dropdown-toggle h4" href="#"
                                             data-bs-toggle="dropdown">후기</a>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="BoardMain.html">의약품 후기</a></li>
+                                            <li><a class="dropdown-item" href="BoardDrugreview.html">의약품 후기</a></li>
                                             <li><a class="dropdown-item" href="pharmacyreview.html">약국 후기</a></li>
                                         </ul>
                                     </li>
@@ -151,10 +148,11 @@
                 </div>
             </div>
         </div>
+
         <!-----------------------------------------------------------      체크 박스 
 ----------------------->
         <div div class="container"
-            style=" border-top: 2px solid #3F4859; border-bottom: 2px solid #3F4859; padding: 30px; margin-top: 40px;">
+            style=" border-top: 1px solid #3F4859; border-bottom: 1px solid #3F4859; padding: 30px; margin-top: 40px;">
             <!--name : 라디오를 그룹핑할 네임으로 중복해서 사용-->
             <!--value : 실제 서버로 넘어갈 값-->
             <div class="col-md-4 mb-4 h5">
@@ -174,9 +172,9 @@
             <div class="d-flex justify-content-between h2">
                 <select class=" form-select" name="pharcategory" id="pharcategory" style="width: 320px; " required>
                     <option value=""> 카테고리 선택 </option>
-                    <option value="5"> 건강 </option>
-                    <option value="4"> 구강 </option>
-                    <option value="3"> 위생 / 기타 </option>
+                    <option value="5"> 감기 </option>
+                    <option value="4"> 감기 </option>
+                    <option value="3"> 감기 </option>
                     <option value="3"> 충청 약국 </option>
                     <option value="2"> 전라 약국 </option>
                     <option value="1"> 경상 약국 </option>
@@ -192,16 +190,18 @@
                 </div>
             </div>
         </div>
-        <!--   이용후기 작성하기 =================== -->
+        <!--   이용후기 리스트  =================== -->
         <div class="container">
-            <div class="d-flex justify-content-lg-end mb-5" style="margin-top: 40px;">
-                <a class="btn btn-accent btn-shadow btn-sm" href="BoardReviewWrite.html">
-                    <span class="fs-6"> <i class="ci-edit-alt me-2"></i>이용후기 작성하기</span>
-                </a>
-            </div>
+            <br><br><br><br><br>
+            <select class="form-select" id="order-sort" style="width: 200px;">
+                <option> 모두 </option>
+                <option> 최신순 </option>
+                <option> 오래된 순 </option>
+                <option> 조회순 </option>
+            </select>
             <br>
             <table class="table table-hover h5">
-                <tr>
+                <tr class="border-top">
                     <th class="text-center"> 번호 </th>
                     <th class="text-center" style="width: 50px ;"> 카테고리 </th>
                     <th class="text-center" style="width: 200px;"> 제목</th>
@@ -213,93 +213,93 @@
                 <tbody>
                     <tr style="cursor:pointer;" data-saft_not_no="1">
                         <th class="text-center" scope="row">1</th>
-                        <td class="text-center "> 구강 </td>
+                        <td class="text-center "> 서울 약국</td>
                         <td class="text-center ">복약지도 잘해주시고 친절함 </td>
                         <td class="text-center"> 나 (nana) </td>
                         <td class="text-center"> 2024-01-31 </td>
                         <td class="text-center"> - </td>
                         <td class="text-center"> 1 </td>
                     </tr>
-                    <tr style="cursor:pointer;" data-saft_not_no="1">
+                    <tr style="cursor:pointer;" data-saft_not_no="2">
                         <th class="text-center" scope="row">1</th>
-                        <td class="text-center "> 구강 </td>
+                        <td class="text-center "> 서울 약국</td>
                         <td class="text-center ">복약지도 잘해주시고 친절함 </td>
                         <td class="text-center"> 나 (nana) </td>
                         <td class="text-center"> 2024-01-31 </td>
                         <td class="text-center"> - </td>
-                        <td class="text-center"> 1 </td>
+                        <td class="text-center"> 0 </td>
                     </tr>
-                    <tr style="cursor:pointer;" data-saft_not_no="1">
+                    <tr style="cursor:pointer;" data-saft_not_no="2">
                         <th class="text-center" scope="row">1</th>
-                        <td class="text-center "> 구강 </td>
+                        <td class="text-center "> 서울 약국</td>
                         <td class="text-center ">복약지도 잘해주시고 친절함 </td>
                         <td class="text-center"> 나 (nana) </td>
                         <td class="text-center"> 2024-01-31 </td>
                         <td class="text-center"> - </td>
-                        <td class="text-center"> 1 </td>
+                        <td class="text-center"> 0 </td>
                     </tr>
-                    <tr style="cursor:pointer;" data-saft_not_no="1">
+                    <tr style="cursor:pointer;" data-saft_not_no="2">
                         <th class="text-center" scope="row">1</th>
-                        <td class="text-center "> 구강 </td>
+                        <td class="text-center "> 서울 약국</td>
                         <td class="text-center ">복약지도 잘해주시고 친절함 </td>
                         <td class="text-center"> 나 (nana) </td>
                         <td class="text-center"> 2024-01-31 </td>
                         <td class="text-center"> - </td>
-                        <td class="text-center"> 1 </td>
+                        <td class="text-center"> 0 </td>
                     </tr>
-                    <tr style="cursor:pointer;" data-saft_not_no="1">
+                    <tr style="cursor:pointer;" data-saft_not_no="2">
                         <th class="text-center" scope="row">1</th>
-                        <td class="text-center "> 구강 </td>
+                        <td class="text-center "> 서울 약국</td>
                         <td class="text-center ">복약지도 잘해주시고 친절함 </td>
                         <td class="text-center"> 나 (nana) </td>
                         <td class="text-center"> 2024-01-31 </td>
                         <td class="text-center"> - </td>
-                        <td class="text-center"> 1 </td>
+                        <td class="text-center"> 0 </td>
                     </tr>
-                    <tr style="cursor:pointer;" data-saft_not_no="1">
+                    <tr style="cursor:pointer;" data-saft_not_no="2">
                         <th class="text-center" scope="row">1</th>
-                        <td class="text-center "> 구강 </td>
+                        <td class="text-center "> 서울 약국</td>
                         <td class="text-center ">복약지도 잘해주시고 친절함 </td>
                         <td class="text-center"> 나 (nana) </td>
                         <td class="text-center"> 2024-01-31 </td>
                         <td class="text-center"> - </td>
-                        <td class="text-center"> 1 </td>
+                        <td class="text-center"> 0 </td>
                     </tr>
-                    <tr style="cursor:pointer;" data-saft_not_no="1">
+                    <tr style="cursor:pointer;" data-saft_not_no="2">
                         <th class="text-center" scope="row">1</th>
-                        <td class="text-center "> 구강 </td>
+                        <td class="text-center "> 서울 약국</td>
                         <td class="text-center ">복약지도 잘해주시고 친절함 </td>
                         <td class="text-center"> 나 (nana) </td>
                         <td class="text-center"> 2024-01-31 </td>
                         <td class="text-center"> - </td>
-                        <td class="text-center"> 1 </td>
+                        <td class="text-center"> 0 </td>
                     </tr>
-                    <tr style="cursor:pointer;" data-saft_not_no="1">
+                    <tr style="cursor:pointer;" data-saft_not_no="2">
                         <th class="text-center" scope="row">1</th>
-                        <td class="text-center "> 구강 </td>
+                        <td class="text-center "> 서울 약국</td>
                         <td class="text-center ">복약지도 잘해주시고 친절함 </td>
                         <td class="text-center"> 나 (nana) </td>
                         <td class="text-center"> 2024-01-31 </td>
                         <td class="text-center"> - </td>
-                        <td class="text-center"> 1 </td>
+                        <td class="text-center"> 0 </td>
                     </tr>
-                    <tr style="cursor:pointer;" data-saft_not_no="1">
-                        <th class="text-center" scope="row">1</th>
-                        <td class="text-center "> 구강 </td>
+                    <tr style="cursor:pointer;" data-saft_not_no="2">
+                        <th class="text-center" scope="row">9</th>
+                        <td class="text-center "> 서울 약국</td>
                         <td class="text-center ">복약지도 잘해주시고 친절함 </td>
                         <td class="text-center"> 나 (nana) </td>
                         <td class="text-center"> 2024-01-31 </td>
                         <td class="text-center"> - </td>
-                        <td class="text-center"> 1 </td>
+                        <td class="text-center"> 0 </td>
                     </tr>
-                    <tr style="cursor:pointer;" data-saft_not_no="1">
+                    <tr style="cursor:pointer;" data-saft_not_no="2">
                         <th class="text-center" scope="row">10</th>
-                        <td class="text-center "> 구강 </td>
+                        <td class="text-center "> 서울 약국</td>
                         <td class="text-center ">복약지도 잘해주시고 친절함 </td>
                         <td class="text-center"> 나 (nana) </td>
                         <td class="text-center"> 2024-01-31 </td>
                         <td class="text-center"> - </td>
-                        <td class="text-center"> 1 </td>
+                        <td class="text-center"> 0 </td>
                     </tr>
                 </tbody>
             </table>

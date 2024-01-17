@@ -277,27 +277,27 @@
         </header>
         <!-- 헤더 끝 -->
         <!----===================================================================================================== 헤더 끝 -->
-        <!-- Hero section-->
-        <section class="mt-n5 mb-5"
-            style="background-image: url(imgs/pharmacy/search.png); background-repeat: no-repeat; background-position: 85% center;; height: 400px;">
+        <!-- Hero section  히어로 섹션 =============================================================-->
+        <section class="mt-n5 mb-5 bg-dark"
+            style="background-color: white; background-image: url(); background-repeat: no-repeat; background-position: 85% center;; height: 250px;">
             <div class="pb-lg-1 mb-lg-3">
                 <div class="container d-lg-flex justify-content-between py-2 py-lg-5 my-lg-5">
                     <div class="order-lg-2 mb-3 mb-lg-0 pt-lg-2">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb flex-lg-nowrap justify-content-center justify-content-lg-start fs-5">
-                                <li class="breadcrumb-item"><a class="text-nowrap" href="main.html"><i
+                                <li class="breadcrumb-item"><a class="text-nowrap text-light" href="main.html"><i
                                             class="ci-home"></i>Home</a></li>
-                                <li class="breadcrumb-item text-nowrap"><a href="#"> 약국 찾기 </a>
+                                <li class=" breadcrumb-item text-nowrap "><a class="text-light" href="#"> 약국 찾기 </a>
                                 </li>
                             </ol>
                         </nav>
                     </div>
                     <div class="order-lg-1 pe-lg-4 text-center text-lg-start">
-                        <h1 class="blodFont mb-0"> 약국 찾기 </h1>
+                        <h1 class="blodFont mb-0 text-light"> 약국 찾기 </h1>
                         <br>
-                        <p class="h5 mb-0">
+                        <p class="h5 mb-1 text-light">
                             운영시간이 변동될 수 있으므로 약국에 전화 확인 후 방문해주시기 바랍니다.
-                        <p class="h5 mb-0">약국 운영시간은 대한약사회에서 제공하는 정보입니다.</p>
+                        <p class="h5 mb-0 text-light">약국 운영시간은 대한약사회에서 제공하는 정보입니다.</p>
                     </div>
                 </div>
             </div>
@@ -305,7 +305,7 @@
         <!-- =============================== -->
         <!-----------------------------------------------------------      체크 박스 ----------------------->
         <div div class="container h2"
-            style=" border-top: 1px solid brown; border-bottom: 1px solid brown; padding: 30px; margin-top: 40px;">
+            style=" border-top: 1px solid #183459; border-bottom: 1px solid #183459; padding: 30px; margin-top: 40px;">
             <!--name : 라디오를 그룹핑할 네임으로 중복해서 사용-->
             <!--value : 실제 서버로 넘어갈 값-->
             <div class="col-md-4 mb-4 h2">
@@ -388,9 +388,9 @@
             </div>
         </div>
         <br><br><br>
-        <div class="gray container d-flex justify-content-between" style="border: 1px solid gainsboro; padding: 30px;">
+        <div class="gray container d-flex justify-content-between" style="border-bottom: 1px solid #183459;">
             <div class="container">
-                <div class="h3 mb-2 text-accent" id="sample5_address_display"> 서울 논현동 </div>
+                <div class="h3 mb-4 text-accent" id="sample5_address_display"> 서울 논현동 </div>
             </div>
         </div>
 
@@ -460,7 +460,9 @@
                 }
 
             </script>
-            <br><br>
+            <br><br><br><br>
+            <div class="gray container d-flex justify-content-between" style="border-bottom: 1px solid #183459;">
+            </div>
             <!-- Products grid ============================================================  약국 리스트   -->
             <div class="row pt-4 mx-n2"> <!--여백 좌우여백 제거-->
                 <!--- ==============================================================================-->
@@ -470,76 +472,17 @@
                         <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip"
                             data-bs-placement="left" title="즐겨찾기">
                             <i class="ci-star"></i></button>
-                        <a class="card-img-top d-block overflow-hidden" href="Pharmacy.html">
+                        <a class="card-img-top d-block overflow-hidden" href="FindPharmacy.html">
                             <img src="imgs/pharmacy/phar1.png" style="width: 100%; height: 230px;" alt="Product"></a>
                         <!-- ---------- ---------  약국 이미지 -->
                         <div class="card-body">
                             <div class="d-flex flex-wrap justify-content-between align-items-start pb-2">
-                                <h3 class="product-title mb-2 blodFont"><a href="Pharmacy.html">
+                                <h3 class="product-title mb-2 blodFont"><a href="FindPharmacy.html">
                                         논현튼튼 싱싱약국
                                     </a>
                                 </h3>
                                 <!-- 별 -->
-                                <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i
-                                        class="star-rating-icon ci-star-filled active"></i><i
-                                        class="star-rating-icon ci-star-filled active"></i><i
-                                        class="star-rating-icon ci-star-filled active"></i><i
-                                        class="star-rating-icon ci-star-filled active"></i>
-                                </div>
-                                <div class="Pharmacy-name" </div>
-                                    <div class="h5 me-1">
-                                        <i class="ci-location me-1"></i> 서울 논현역
-                                    </div>
-                                    <div class="h5 me-1">
-                                        <i class="ci-phone me-1"></i> 054-834-0015
-                                    </div>
-                                    <h1 class="product-title h5 mb-3 me-1">
-                                        <i class="ci-time text-muted me-1"></i> 영업시간
-                                        <span class="h6 ms-2 text-muted">08:00 - 19:00</span>
-                                    </h1>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">월 </div>
-                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">화 </div>
-                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">수 </div>
-                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">목 </div>
-                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">금 </div>
-                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">토 </div>
-                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">일 </div>
-                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4"> 공휴일
-                                    </div>
-                                </div>
-                                <div class="d-flex h5" style="margin-top: 5px;">
-                                    <div class="bg-warning text-white rounded-1 py-2 px-3 h5 me-3">
-                                        <i class="ci-moon text-white me-1"></i> 심야 약국
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Product -------------------------------------------------- -->
-                <div class="col-lg-4 col-md-4 col-sm-6 px-3 mb-grid-gutter">
-                    <div class="card product-card">
-                        <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip"
-                            data-bs-placement="left" title="즐겨찾기">
-                            <i class="ci-star"></i></button>
-                        <a class="card-img-top d-block overflow-hidden" href="Pharmacy.html">
-                            <img src="imgs/pharmacy/phar1.png" style="width: 100%; height: 230px;" alt="Product"></a>
-                        <!-- ---------- ---------  약국 이미지 -->
-                        <div class="card-body">
-                            <div class="d-flex flex-wrap justify-content-between align-items-start pb-2">
-                                <h3 class="product-title mb-2 blodFont"><a href="Pharmacy.html">
-                                        논현튼튼 싱싱약국
-                                    </a>
-                                </h3>
-                                <!-- 별 -->
-                                <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i
-                                        class="star-rating-icon ci-star-filled active"></i><i
-                                        class="star-rating-icon ci-star-filled active"></i><i
-                                        class="star-rating-icon ci-star-filled active"></i><i
-                                        class="star-rating-icon ci-star-filled active"></i>
-                                </div>
+                                <div class="h5 text-warning"> 이용후기 (3) </div>
                                 <div class="Pharmacy-name" </div>
                                     <div class="h5 me-1">
                                         <i class="ci-location me-1"></i> 서울 논현역
@@ -578,76 +521,17 @@
                         <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip"
                             data-bs-placement="left" title="즐겨찾기">
                             <i class="ci-star"></i></button>
-                        <a class="card-img-top d-block overflow-hidden" href="Pharmacy.html">
+                        <a class="card-img-top d-block overflow-hidden" href="FindPharmacy.html">
                             <img src="imgs/pharmacy/phar1.png" style="width: 100%; height: 230px;" alt="Product"></a>
                         <!-- ---------- ---------  약국 이미지 -->
                         <div class="card-body">
                             <div class="d-flex flex-wrap justify-content-between align-items-start pb-2">
-                                <h3 class="product-title mb-2 blodFont"><a href="Pharmacy.html">
+                                <h3 class="product-title mb-2 blodFont"><a href="FindPharmacy.html">
                                         논현튼튼 싱싱약국
                                     </a>
                                 </h3>
                                 <!-- 별 -->
-                                <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i
-                                        class="star-rating-icon ci-star-filled active"></i><i
-                                        class="star-rating-icon ci-star-filled active"></i><i
-                                        class="star-rating-icon ci-star-filled active"></i><i
-                                        class="star-rating-icon ci-star-filled active"></i>
-                                </div>
-                                <div class="Pharmacy-name" </div>
-                                    <div class="h5 me-1">
-                                        <i class="ci-location me-1"></i> 서울 논현역
-                                    </div>
-                                    <div class="h5 me-1">
-                                        <i class="ci-phone me-1"></i> 054-834-0015
-                                    </div>
-                                    <h1 class="product-title h5 mb-3 me-1">
-                                        <i class="ci-time text-muted me-1"></i> 영업시간
-                                        <span class="h6 ms-2 text-muted">08:00 - 19:00</span>
-                                    </h1>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">월 </div>
-                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">화 </div>
-                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">수 </div>
-                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">목 </div>
-                                    <div class=" rounded-3 py-1 px-1 h4 me-2">금 </div>
-                                    <div class=" rounded-3 py-1 px-1 h4 me-2">토 </div>
-                                    <div class=" rounded-3 py-1 px-1 h4 me-2">일 </div>
-                                    <div class=" rounded-3 py-1 px-1 h4"> 공휴일
-                                    </div>
-                                </div>
-                                <!-- <div class="d-flex h5" style="margin-top: 5px;"> -->
-                                <!-- <div class="bg-success text-white rounded-1 py-2 px-3 h5 me-3"> -->
-                                <!-- <i class="ci-moon text-white me-1"></i> 심야 약국 -->
-                                <!-- </div> -->
-                                <!-- </div> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Product -------------------------------------------------- -->
-                <div class="col-lg-4 col-md-4 col-sm-6 px-3 mb-grid-gutter">
-                    <div class="card product-card">
-                        <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip"
-                            data-bs-placement="left" title="즐겨찾기">
-                            <i class="ci-star"></i></button>
-                        <a class="card-img-top d-block overflow-hidden" href="Pharmacy.html">
-                            <img src="imgs/pharmacy/phar1.png" style="width: 100%; height: 230px;" alt="Product"></a>
-                        <!-- ---------- ---------  약국 이미지 -->
-                        <div class="card-body">
-                            <div class="d-flex flex-wrap justify-content-between align-items-start pb-2">
-                                <h3 class="product-title mb-2 blodFont"><a href="Pharmacy.html">
-                                        논현튼튼 싱싱약국
-                                    </a>
-                                </h3>
-                                <!-- 별 -->
-                                <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i
-                                        class="star-rating-icon ci-star-filled active"></i><i
-                                        class="star-rating-icon ci-star-filled active"></i><i
-                                        class="star-rating-icon ci-star-filled active"></i><i
-                                        class="star-rating-icon ci-star-filled active"></i>
-                                </div>
+                                <div class="h5 text-warning "> 이용후기 (3) </div>
                                 <div class="Pharmacy-name" </div>
                                     <div class="h5 me-1">
                                         <i class="ci-location me-1"></i> 서울 논현역
@@ -686,22 +570,17 @@
                         <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip"
                             data-bs-placement="left" title="즐겨찾기">
                             <i class="ci-star"></i></button>
-                        <a class="card-img-top d-block overflow-hidden" href="Pharmacy.html">
+                        <a class="card-img-top d-block overflow-hidden" href="FindPharmacy.html">
                             <img src="imgs/pharmacy/phar1.png" style="width: 100%; height: 230px;" alt="Product"></a>
                         <!-- ---------- ---------  약국 이미지 -->
                         <div class="card-body">
                             <div class="d-flex flex-wrap justify-content-between align-items-start pb-2">
-                                <h3 class="product-title mb-2 blodFont"><a href="Pharmacy.html">
+                                <h3 class="product-title mb-2 blodFont"><a href="FindPharmacy.html">
                                         논현튼튼 싱싱약국
                                     </a>
                                 </h3>
                                 <!-- 별 -->
-                                <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i
-                                        class="star-rating-icon ci-star-filled active"></i><i
-                                        class="star-rating-icon ci-star-filled active"></i><i
-                                        class="star-rating-icon ci-star-filled active"></i><i
-                                        class="star-rating-icon ci-star-filled active"></i>
-                                </div>
+                                <div class="h5 text-warning"> 이용후기 (3) </div>
                                 <div class="Pharmacy-name" </div>
                                     <div class="h5 me-1">
                                         <i class="ci-location me-1"></i> 서울 논현역
@@ -740,22 +619,115 @@
                         <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip"
                             data-bs-placement="left" title="즐겨찾기">
                             <i class="ci-star"></i></button>
-                        <a class="card-img-top d-block overflow-hidden" href="Pharmacy.html">
+                        <a class="card-img-top d-block overflow-hidden" href="FindPharmacy.html">
                             <img src="imgs/pharmacy/phar1.png" style="width: 100%; height: 230px;" alt="Product"></a>
                         <!-- ---------- ---------  약국 이미지 -->
                         <div class="card-body">
                             <div class="d-flex flex-wrap justify-content-between align-items-start pb-2">
-                                <h3 class="product-title mb-2 blodFont"><a href="Pharmacy.html">
+                                <h3 class="product-title mb-2 blodFont"><a href="FindPharmacy.html">
                                         논현튼튼 싱싱약국
                                     </a>
                                 </h3>
                                 <!-- 별 -->
-                                <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i
-                                        class="star-rating-icon ci-star-filled active"></i><i
-                                        class="star-rating-icon ci-star-filled active"></i><i
-                                        class="star-rating-icon ci-star-filled active"></i><i
-                                        class="star-rating-icon ci-star-filled active"></i>
+                                <div class="h5 text-warning"> 이용후기 (3) </div>
+                                <div class="Pharmacy-name" </div>
+                                    <div class="h5 me-1">
+                                        <i class="ci-location me-1"></i> 서울 논현역
+                                    </div>
+                                    <div class="h5 me-1">
+                                        <i class="ci-phone me-1"></i> 054-834-0015
+                                    </div>
+                                    <h1 class="product-title h5 mb-3 me-1">
+                                        <i class="ci-time text-muted me-1"></i> 영업시간
+                                        <span class="h6 ms-2 text-muted">08:00 - 19:00</span>
+                                    </h1>
                                 </div>
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">월 </div>
+                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">화 </div>
+                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">수 </div>
+                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">목 </div>
+                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">금 </div>
+                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">토 </div>
+                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">일 </div>
+                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4"> 공휴일
+                                    </div>
+                                </div>
+                                <div class="d-flex h5" style="margin-top: 5px;">
+                                    <div class="bg-success text-white rounded-1 py-2 px-3 h5 me-3">
+                                        <i class="ci-moon text-white me-1"></i> 심야 약국
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product -------------------------------------------------- -->
+                <div class="col-lg-4 col-md-4 col-sm-6 px-3 mb-grid-gutter">
+                    <div class="card product-card">
+                        <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip"
+                            data-bs-placement="left" title="즐겨찾기">
+                            <i class="ci-star"></i></button>
+                        <a class="card-img-top d-block overflow-hidden" href="FindPharmacy.html">
+                            <img src="imgs/pharmacy/phar1.png" style="width: 100%; height: 230px;" alt="Product"></a>
+                        <!-- ---------- ---------  약국 이미지 -->
+                        <div class="card-body">
+                            <div class="d-flex flex-wrap justify-content-between align-items-start pb-2">
+                                <h3 class="product-title mb-2 blodFont"><a href="FindPharmacy.html">
+                                        논현튼튼 싱싱약국
+                                    </a>
+                                </h3>
+                                <!-- 별 -->
+                                <div class="h5 text-warning"> 이용후기 (0) </div>
+                                <div class="Pharmacy-name" </div>
+                                    <div class="h5 me-1">
+                                        <i class="ci-location me-1"></i> 서울 논현역
+                                    </div>
+                                    <div class="h5 me-1">
+                                        <i class="ci-phone me-1"></i> 054-834-0015
+                                    </div>
+                                    <h1 class="product-title h5 mb-3 me-1">
+                                        <i class="ci-time text-muted me-1"></i> 영업시간
+                                        <span class="h6 ms-2 text-muted">08:00 - 19:00</span>
+                                    </h1>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">월 </div>
+                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">화 </div>
+                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">수 </div>
+                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">목 </div>
+                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">금 </div>
+                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">토 </div>
+                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">일 </div>
+                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4"> 공휴일
+                                    </div>
+                                </div>
+                                <div class="d-flex h5" style="margin-top: 5px;">
+                                    <div class="bg-success text-white rounded-1 py-2 px-3 h5 me-3">
+                                        <i class="ci-moon text-white me-1"></i> 심야 약국
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product -------------------------------------------------- -->
+                <div class="col-lg-4 col-md-4 col-sm-6 px-3 mb-grid-gutter">
+                    <div class="card product-card">
+                        <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip"
+                            data-bs-placement="left" title="즐겨찾기">
+                            <i class="ci-star"></i></button>
+                        <a class="card-img-top d-block overflow-hidden" href="FindPharmacy.html">
+                            <img src="imgs/pharmacy/phar1.png" style="width: 100%; height: 230px;" alt="Product"></a>
+                        <!-- ---------- ---------  약국 이미지 -->
+                        <div class="card-body">
+                            <div class="d-flex flex-wrap justify-content-between align-items-start pb-2">
+                                <h3 class="product-title mb-2 blodFont"><a href="FindPharmacy.html">
+                                        논현튼튼 싱싱약국
+                                    </a>
+                                </h3>
+                                <!-- 별 -->
+                                <div class="h5 text-warning"> 이용후기 (3) </div>
                                 <div class="Pharmacy-name" </div>
                                     <div class="h5 me-1">
                                         <i class="ci-location me-1"></i> 서울 논현역
