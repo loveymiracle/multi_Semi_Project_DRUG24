@@ -1,3 +1,4 @@
+@charset "utf-8";
 /*!
  * Bootstrap  v5.2.3 (https://getbootstrap.com/)
  * Copyright 2011-2022 The Bootstrap Authors
@@ -110,9 +111,9 @@
     bottom: 8px;
     transition: all .2s;
 }
-  
+
 .filter-search:focus ~ label, filter-search:valid ~ label {
-    font-size: 16px;
+    font-size: 0.9375rem;
     bottom: 50px;
     color: #666;
     font-weight: bold;
@@ -120,6 +121,64 @@
 
 .filter-search:focus ~ span, filter-search:valid ~ span {
     width: 100%;
+  }
+
+.find-btn{
+	text-align: center;
+}
+
+.btn-margin{
+    margin-left: 25%;
+    width: 55%;
+}
+
+.warn-btn {
+    --cz-btn-padding-x: 1rem;
+    --cz-btn-padding-y: 0.625rem;
+    --cz-btn-font-family: ;
+    --cz-btn-font-size: 0.9375rem;
+    --cz-btn-font-weight: normal;
+    --cz-btn-line-height: 1.5;
+    --cz-btn-color: #4b566b;
+    --cz-btn-bg: transparent;
+    --cz-btn-border-width: 1px;
+    --cz-btn-border-color: transparent;
+    --cz-btn-border-radius: 0.3125rem;
+    --cz-btn-hover-border-color: transparent;
+    --cz-btn-box-shadow: unset;
+    --cz-btn-disabled-opacity: 0.65;
+    --cz-btn-focus-box-shadow: 0 0 0 0 rgba(var(--cz-btn-focus-shadow-rgb), .5);
+    
+    display: inline-block;
+    padding: var(--cz-btn-padding-y) var(--cz-btn-padding-x);
+    font-family: var(--cz-btn-font-family);
+    font-size: var(--cz-btn-font-size);
+    font-weight: var(--cz-btn-font-weight);
+    line-height: var(--cz-btn-line-height);
+    color: var(--cz-btn-color);
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    border: var(--cz-btn-border-width) solid var(--cz-btn-border-color);
+    border-radius: var(--cz-btn-border-radius);
+    background-color: var(--cz-btn-bg);
+    box-shadow: var(--cz-btn-box-shadow);
+    transition: color .25s ease-in-out, background-color .25s ease-in-out, border-color .25s ease-in-out, box-shadow .2s ease-in-out
+}
+
+.autocomplete > div.active {
+    background: #e0e5f6;
+    color: #000;
+    
+  }
+  
+  .autocomplete > div {
+    background: #f1f3f499;
+    padding: .2rem .6rem;
   }
 
 @font-face {
@@ -1525,7 +1584,7 @@ progress {
 
     .col-lg-8 {
         flex: 0 0 auto;
-        width: 66.66666667%
+        width: 66.66666667%;
     }
 
     .col-lg-9 {
@@ -1545,7 +1604,7 @@ progress {
 
     .col-lg-12 {
         flex: 0 0 auto;
-        width: 100%
+        width: 100%;
     }
 
     .offset-lg-0 {
@@ -3291,6 +3350,7 @@ textarea.form-control-lg {
     --cz-btn-box-shadow: unset;
     --cz-btn-disabled-opacity: 0.65;
     --cz-btn-focus-box-shadow: 0 0 0 0 rgba(var(--cz-btn-focus-shadow-rgb), .5);
+    
     display: inline-block;
     padding: var(--cz-btn-padding-y) var(--cz-btn-padding-x);
     font-family: var(--cz-btn-font-family);
@@ -3514,7 +3574,8 @@ textarea.form-control-lg {
     --cz-btn-active-shadow: unset;
     --cz-btn-disabled-color: #fff;
     --cz-btn-disabled-bg: #373f50;
-    --cz-btn-disabled-border-color: #373f50
+    --cz-btn-disabled-border-color: #373f50;
+    color: gray;
 }
 
 .btn-outline-primary {
@@ -4833,6 +4894,7 @@ textarea.form-control-lg {
     --cz-card-bg: #fff;
     --cz-card-img-overlay-padding: 1rem;
     --cz-card-group-margin: 0.9375rem;
+    margin-bottom: 1rem;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -4875,7 +4937,7 @@ textarea.form-control-lg {
 .card-body {
     flex: 1 1 auto;
     padding: var(--cz-card-spacer-y) var(--cz-card-spacer-x);
-    color: var(--cz-card-color)
+    color: var(--cz-card-color);
 }
 
 .card-title {
@@ -16670,7 +16732,7 @@ input[type=search]::-webkit-search-decoration, input[type=search]::-webkit-searc
     box-shadow: var(--cz-btn-box-shadow)
 }
 
-.btn-dark.btn-shadow {
+.btn-dark.btn-shadow{
     --cz-btn-box-shadow: 0 .5rem 1.125rem -.5rem rgba(55, 63, 80, 0.9);
     box-shadow: var(--cz-btn-box-shadow)
 }
@@ -20442,11 +20504,18 @@ html:not([dir=rtl]) .range-slider-ui.noUi-horizontal .noUi-handle {
     opacity: 1
 }
 
+.item-name{
+    margin: auto;
+}
+
 .star-rating {
     display: inline-block;
     white-space: nowrap;
     line-height: 1;
-    vertical-align: middle
+    vertical-align: middle;
+    float: right;
+    position: relative;
+    width: max-content;
 }
 
 .star-rating .star-rating-icon {
@@ -20459,6 +20528,12 @@ html:not([dir=rtl]) .range-slider-ui.noUi-horizontal .noUi-handle {
 
 .star-rating .star-rating-icon.active {
     color: #fea569
+}
+
+.star-rating-fill{
+    position: absolute;
+    z-index: 1;
+    overflow: hidden;
 }
 
 .page-title-overlap {

@@ -23,6 +23,7 @@
   <link rel="stylesheet" media="screen" href="vendor/drift-zoom/dist/drift-basic.min.css" />
   <!-- Main Theme Styles + Bootstrap-->
   <link rel="stylesheet" media="screen" href="css/theme.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 
 </head>
 <!-- Body-->
@@ -263,10 +264,11 @@
                   <div class="accordion-body">
                     <div class="widget widget-links widget-filter">
                       <div class="searchMed-div input-group-sm mb-2">
-                        <input class="filter-search" type="text"><i
-                          class="ci-search position-absolute top-50 end-0 translate-middle-y fs-sm me-3"></i>
-                          <label class="searchlabel">검색하기</label>
-                          <span class="span"></span>
+                        <input class="filter-search" type="text" id="filter-search" placeholder="검색어를 입력해주세요">
+                        <i class="ci-search position-absolute top-50 end-0 translate-middle-y fs-sm me-3"></i>
+                        <div class="autocomplete"></div>
+                        <span class="span"></span>
+                        <script src="js/search.js"></script>
                       </div>
                     </div>
                   </div>
@@ -540,253 +542,93 @@
         <div class="bg-light shadow-lg rounded-3 pb-4 mt-n5 mb-4"></div>
         <div class="row justify-content-center">
           <!-- Products list-->
-          <section class="col-lg-8 pt-2">
-            <!-- Product-->
-            <div class="card product-card product-list height: 150px;">
-              <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip" data-bs-placement="left"
-                title="Add to wishlist"><i class="ci-heart"></i></button>
-              <div class="d-sm-flex align-items-center"><a class="product-list-thumb"><img
-                    src="https://nedrug.mfds.go.kr/pbp/cmn/itemImageDownload/1NOwp2F66kj" alt="Product"></a>
-                <div class="card-body py-2"><a class="product-meta d-block fs-xs pb-1" href="#" id="item1">동아제약(주)</a>
-                  <!-- entpName --> <!-- 회사,제품이름은 e약은요 api기준-->
-                  <h3 class="product-title fs-base"><a href="shop-single-v1.html">타치온정50밀리그램(글루타티온(환원형))</a></h3>
-                  <!-- itemName -->
-                  <div class="d-flex justify-content-between">
-                    <div class="product-price"><span class="text-accent">5,400원</span></div>
-                    <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i
-                        class="star-rating-icon ci-star-filled active"></i><i
-                        class="star-rating-icon ci-star-filled active"></i><i
-                        class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star"></i>
-                    </div>
-                  </div>
-                  <div class="card-body card-body-hidden">
-                    <button class="btn btn-primary btn-sm mb-2" type="button"><i class="ci-cart fs-sm me-1"></i>장바구니
-                      추가</button>
-                    <div class="text-start"><a class="nav-link-style fs-ms"
-                        href="productdetail.html?name=타치온정50밀리그램(글루타티온(환원형))"><i class="ci-eye align-middle me-1"></i>상세
-                        페이지</a></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="border-top pt-3 mt-3"></div>
-            <!-- Product-->
-            <div class="card product-card product-list"><span class="badge bg-danger badge-shadow">세일</span>
-              <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip" data-bs-placement="left"
-                title="Add to wishlist"><i class="ci-heart"></i></button>
-              <div class="d-sm-flex align-items-center"><a class="product-list-thumb" href="shop-single-v1.html"><img
-                    src="https://nedrug.mfds.go.kr/pbp/cmn/itemImageDownload/152035092098000085" alt="Product"></a>
-                <div class="card-body py-2"><a class="product-meta d-block fs-xs pb-1" href="#">삼진제약(주)</a>
-                  <h3 class="product-title fs-base"><a href="shop-single-v1.html">아네모정</a></h3>
-                  <div class="d-flex justify-content-between">
-                    <div class="product-price"><span class="text-accent">8,400원</span>
-                      <del class="fs-sm text-muted">9,400원</small></del>
-                    </div>
-                    <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i
-                        class="star-rating-icon ci-star-filled active"></i><i
-                        class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star"></i><i
-                        class="star-rating-icon ci-star"></i>
-                    </div>
-                  </div>
-                  <div class="card-body card-body-hidden">
-                    <div class="d-flex mb-2">
-                      <button class="btn btn-primary btn-sm" type="button"><i class="ci-cart fs-sm me-1"></i>장바구니
-                        추가</button>
-                    </div>
-                    <div class="text-start"><a class="nav-link-style fs-ms" href="productdetail.html"><i
-                          class="ci-eye align-middle me-1"></i>상세 페이지</a></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="border-top pt-3 mt-3"></div>
+        <section class="itemRow col-lg-12 pt-2">
+          <script type="text/javascript">
+              //서버에서 받아올 약이름 하드코딩
+              //list구조 (회사, 약이름, 가격,  별점, 병용금기, 노인금기, 임부금기, 용량주의, 연령금기, 이미지 링크)
+              //         company, id, price, star,  opt1,    opt2,     opt3,    opt4,     opt5,    image
+              item = []
+              
+              item.push({"company":'동아제약(주)', "id":'타치온정50밀리그램(글루타티온(환원형))', "price":5800, "star":2.4, "opt1":true, "opt2":false, "opt3":false, "opt4":false, "opt5":false, "image":'https://nedrug.mfds.go.kr/pbp/cmn/itemImageDownload/148609556259100153'});
+              item.push({"company":'삼진제약(주)', "id":'아네모정', "price":6800, "star":4, "opt1":false, "opt2":true, "opt3":true, "opt4":true, "opt5":true, "image":'https://nedrug.mfds.go.kr/pbp/cmn/itemImageDownload/148609556259100153'});
+              item.push({"company":'(주)보령', "id":'겔포스현탁액(인산알루미늄겔)', "price":7800, "star":4.4, "opt1":true, "opt2":true, "opt3":true, "opt4":true, "opt5":true, "image":'https://nedrug.mfds.go.kr/pbp/cmn/itemImageDownload/148609556259100153'});
+              item.push({"company":'일양약품(주)', "id":'일양노이겔현탁액(규산알루민산마그네슘)', "price":8800, "star":2.8, "opt1":true, "opt2":true, "opt3":true, "opt4":false, "opt5":false, "image":'https://nedrug.mfds.go.kr/pbp/cmn/itemImageDownload/148609556259100153'});
+              item.push({"company":'일양약품(주)', "id":'일양노이시린에이정(규산알루민산마그네슘)', "price":9800, "star":1.1, "opt1":true, "opt2":false, "opt3":false, "opt4":false, "opt5":false, "image":'https://nedrug.mfds.go.kr/pbp/cmn/itemImageDownload/148609556259100153'});
+              item.push({"company":'정우신약(주)', "id":'자모', "price":2800, "star":2.4, "opt1":true, "opt2":false, "opt3":false, "opt4":true, "opt5":false, "image":'https://nedrug.mfds.go.kr/pbp/cmn/itemImageDownload/148609556259100153'});
+              item.push({"company":'(주)유한양행', "id":'페니라민정(클로르페니라민말레산염)', "price":5800, "star":3.4, "opt1":true, "opt2":false, "opt3":false, "opt4":true, "opt5":true, "image":'https://nedrug.mfds.go.kr/pbp/cmn/itemImageDownload/148609556259100153'});
+              item.push({"company":'(주)유한양행', "id":'삐콤정', "price":3800, "star":1.4, "opt1":true, "opt2":false, "opt3":true, "opt4":false, "opt5":true, "image":'https://nedrug.mfds.go.kr/pbp/cmn/itemImageDownload/148609556259100153'});
 
-            <!-- Product-->
-            <div class="card product-card product-list">
-              <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip" data-bs-placement="left"
-                title="Add to wishlist"><i class="ci-heart"></i></button>
-              <div class="d-sm-flex align-items-center"><a class="product-list-thumb" href="shop-single-v1.html"><img
-                    src="imgs/drugsearch/default.jpg" alt="Product"></a>
-                <div class="card-body py-2"><a class="product-meta d-block fs-xs pb-1" href="#">(주)보령</a>
-                  <h3 class="product-title fs-base"><a href="shop-single-v1.html">겔포스현탁액(인산알루미늄겔)</a></h3>
-                  <div class="d-flex justify-content-between">
-                    <div class="product-price"><span class="text-accent">8,400원</span>
-                    </div>
-                    <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i
-                        class="star-rating-icon ci-star-filled active"></i><i
-                        class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star"></i><i
-                        class="star-rating-icon ci-star"></i>
-                    </div>
-                  </div>
-                  <div class="card-body card-body-hidden">
-                    <div class="d-flex mb-2">
-                      <button class="btn btn-primary btn-sm" type="button"><i class="ci-cart fs-sm me-1"></i>장바구니
-                        추가</button>
-                    </div>
-                    <div class="text-start"><a class="nav-link-style fs-ms"
-                        href="marketplace-single.html?name=타치온정50밀리그램(글루타티온(환원형))"><i
-                          class="ci-eye align-middle me-1"></i>상세 페이지</a></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="border-top pt-3 mt-3"></div>
+              item.forEach(function(data,i){
+                optArray = [];
+                var score = data.star * 2;
 
-            <!-- Product-->
-            <div class="card product-card product-list">
-              <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip" data-bs-placement="left"
-                title="Add to wishlist"><i class="ci-heart"></i></button>
-              <div class="d-sm-flex align-items-center"><a class="product-list-thumb" href="shop-single-v1.html"><img
-                    src="imgs/drugsearch/default.jpg" alt="Product"></a>
-                <div class="card-body py-2"><a class="product-meta d-block fs-xs pb-1" href="#">일양약품(주)</a>
-                  <h3 class="product-title fs-base"><a href="shop-single-v1.html">일양노이겔현탁액(규산알루민산마그네슘)</a></h3>
-                  <div class="d-flex justify-content-between">
-                    <div class="product-price"><span class="text-accent">3,200원</span>
-                    </div>
-                    <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i
-                        class="star-rating-icon ci-star-filled active"></i><i
-                        class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star"></i><i
-                        class="star-rating-icon ci-star"></i>
-                    </div>
-                  </div>
-                  <div class="card-body card-body-hidden">
-                    <div class="d-flex mb-2">
-                      <button class="btn btn-primary btn-sm" type="button"><i class="ci-cart fs-sm me-1"></i>장바구니
-                        추가</button>
-                    </div>
-                    <div class="text-start"><a class="nav-link-style fs-ms"
-                        href="marketplace-single.html?name=타치온정50밀리그램(글루타티온(환원형))"><i
-                          class="ci-eye align-middle me-1"></i>상세 페이지</a></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="border-top pt-3 mt-3"></div>
+                for (var i = 0; i < 5; i++) {
+                  optArray[i] = 'btn-dark';
+                }
+                
+                if (data.opt1 == true) {
+                  optArray[0] = 'btn-primary';
+                }
 
-            <!-- Product-->
-            <div class="card product-card product-list">
-              <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip" data-bs-placement="left"
-                title="Add to wishlist"><i class="ci-heart"></i></button>
-              <div class="d-sm-flex align-items-center"><a class="product-list-thumb" href="shop-single-v1.html"><img
-                    src="https://nedrug.mfds.go.kr/pbp/cmn/itemImageDownload/148674126111200110" alt="Product"></a>
-                <div class="card-body py-2"><a class="product-meta d-block fs-xs pb-1" href="#">일양약품(주)</a>
-                  <h3 class="product-title fs-base"><a href="shop-single-v1.html">일양노이시린에이정(규산알루민산마그네슘)</a></h3>
-                  <div class="d-flex justify-content-between">
-                    <div class="product-price"><span class="text-accent">13,100원</span>
-                    </div>
-                    <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i
-                        class="star-rating-icon ci-star-filled active"></i><i
-                        class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star"></i><i
-                        class="star-rating-icon ci-star"></i>
-                    </div>
-                  </div>
-                  <div class="card-body card-body-hidden">
-                    <div class="d-flex mb-2">
-                      <button class="btn btn-primary btn-sm" type="button"><i class="ci-cart fs-sm me-1"></i>장바구니
-                        추가</button>
-                    </div>
-                    <div class="text-start"><a class="nav-link-style fs-ms"
-                        href="marketplace-single.html?name=타치온정50밀리그램(글루타티온(환원형))"><i
-                          class="ci-eye align-middle me-1"></i>상세 페이지</a></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="border-top pt-3 mt-3"></div>
+                if (data.opt2 == true) {
+                  optArray[1] = 'btn-warning';
+                }
 
-            <!-- Product-->
-            <div class="card product-card product-list"><span class="badge bg-danger badge-shadow">Sale</span>
-              <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip" data-bs-placement="left"
-                title="Add to wishlist"><i class="ci-heart"></i></button>
-              <div class="d-sm-flex align-items-center"><a class="product-list-thumb" href="shop-single-v1.html"><img
-                    src="imgs/drugsearch/default.jpg" alt="Product"></a>
-                <div class="card-body py-2"><a class="product-meta d-block fs-xs pb-1" href="#">정우신약(주)</a>
-                  <h3 class="product-title fs-base"><a href="shop-single-v1.html">자모</a></h3>
-                  <div class="d-flex justify-content-between">
-                    <div class="product-price"><span class="text-accent">1,400원</span>
-                      <del class="fs-sm text-muted">2,700원</small></del>
-                    </div>
-                    <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i
-                        class="star-rating-icon ci-star-filled active"></i><i
-                        class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star"></i><i
-                        class="star-rating-icon ci-star"></i>
-                    </div>
-                  </div>
-                  <div class="card-body card-body-hidden">
-                    <div class="d-flex mb-2">
-                      <button class="btn btn-primary btn-sm" type="button"><i class="ci-cart fs-sm me-1"></i>장바구니
-                        추가</button>
-                    </div>
-                    <div class="text-start"><a class="nav-link-style fs-ms"
-                        href="marketplace-single.html?name=타치온정50밀리그램(글루타티온(환원형))"><i
-                          class="ci-eye align-middle me-1"></i>상세 페이지</a></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="border-top pt-3 mt-3"></div>
+                if (data.opt3 == true) {
+                  optArray[2] = 'btn-success';
+                }
 
-            <!-- Product-->
-            <div class="card product-card product-list">
-              <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip" data-bs-placement="left"
-                title="Add to wishlist"><i class="ci-heart"></i></button>
-              <div class="d-sm-flex align-items-center"><a class="product-list-thumb" href="shop-single-v1.html"><img
-                    src="https://nedrug.mfds.go.kr/pbp/cmn/itemImageDownload/148609556259100153" alt="Product"></a>
-                <div class="card-body py-2"><a class="product-meta d-block fs-xs pb-1" href="#">(주)유한양행</a>
-                  <h3 class="product-title fs-base"><a href="shop-single-v1.html">페니라민정(클로르페니라민말레산염)</a></h3>
-                  <div class="d-flex justify-content-between">
-                    <div class="product-price"><span class="text-accent">8,900원</span>
-                    </div>
-                    <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i
-                        class="star-rating-icon ci-star-filled active"></i><i
-                        class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star"></i><i
-                        class="star-rating-icon ci-star"></i>
-                    </div>
-                  </div>
-                  <div class="card-body card-body-hidden">
-                    <div class="d-flex mb-2">
-                      <button class="btn btn-primary btn-sm" type="button"><i class="ci-cart fs-sm me-1"></i>장바구니
-                        추가</button>
-                    </div>
-                    <div class="text-start"><a class="nav-link-style fs-ms"
-                        href="marketplace-single.html?name=타치온정50밀리그램(글루타티온(환원형))"><i
-                          class="ci-eye align-middle me-1"></i>상세 페이지</a></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="border-top pt-3 mt-3"></div>
+                if (data.opt4 == true) {
+                  optArray[3] = 'btn-info';
+                }
 
-            <!-- Product-->
-            <div class="card product-card product-list">
-              <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip" data-bs-placement="left"
-                title="Add to wishlist"><i class="ci-heart"></i></button>
-              <div class="d-sm-flex align-items-center"><a class="product-list-thumb" href="shop-single-v1.html"><img
-                    src="https://nedrug.mfds.go.kr/pbp/cmn/itemImageDownload/153495248483300010" alt="Product"></a>
-                <div class="card-body py-2"><a class="product-meta d-block fs-xs pb-1" href="#">(주)유한양행</a>
-                  <h3 class="product-title fs-base"><a href="shop-single-v1.html">삐콤정</a></h3>
-                  <div class="d-flex justify-content-between">
-                    <div class="product-price"><span class="text-accent">33,000원</span>
+                if (data.opt5 == true) {
+                  optArray[4] = 'btn-accent';
+                }
+
+                const temp = document.createElement("div");
+
+                temp.innerHTML=`
+                <div class="card product-card product-list mt-2 height: 200px;">
+                  <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip" data-bs-placement="left"
+                    title="Add to wishlist"><i class="ci-heart"></i></button>
+                   <div class="d-sm-flex align-items-center"><a class="product-list-thumb" href="productdetail.html?name=타치온정50밀리그램(글루타티온(환원형))"><img
+                       src="${data.image}" alt="Product"></a>
+                  <div class="card-body py-2 row m-lg-2">
+                <div class="col-5">
+                  <a class="product-meta d-block fs-xs pb-1 " href="#">${data.company}</a>
+                  <h3 class="product-title fs-base"><a class="bold" href="productdetail.html?name=타치온정50밀리그램(글루타티온(환원형))">${data.id}</a></h3>
+                  <div class="product-price mt-n3">
+                    <span class="text-accent">8,900원</span>
+                  </div>
+                    <div class="star-rating star-rating-fill" style="float: left; width: ${score}%;">
+                      <i class="star-rating-icon ci-star-filled active"></i>
+                      <i class="star-rating-icon ci-star-filled active"></i> <i class="star-rating-icon ci-star-filled active"></i>
+                      <i class="star-rating-icon ci-star-filled active"></i> <i class="star-rating-icon ci-star-filled active"></i>
                     </div>
-                    <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i
-                        class="star-rating-icon ci-star-filled active"></i><i
-                        class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star"></i><i
-                        class="star-rating-icon ci-star"></i>
+
+                    <div class="star-rating" style="float: left;">
+                      <i class="star-rating-icon ci-star"></i>
+                      <i class="star-rating-icon ci-star"></i> <i class="star-rating-icon ci-star"></i>
+                      <i class="star-rating-icon ci-star"></i> <i class="star-rating-icon ci-star"></i>
+                    </div>
+                    
+                  </div>
+          
+                  <div class="col-7  align-items-center row">
+                    <button class="col ms-1 warn-btn ${optArray[0]}" type="button">병용금기</button>
+                    <button class="col ms-1 warn-btn ${optArray[1]}" type="button">노인금기</button>
+                    <button class="col ms-1 warn-btn ${optArray[2]}" type="button">임부금기</button>
+                    <button class="col ms-1 warn-btn ${optArray[3]}" type="button">용량주의</button>
+                    <button class="col ms-1 warn-btn ${optArray[4]}" type="button">연령금기</button>
+                      </div>
                     </div>
                   </div>
-                  <div class="card-body card-body-hidden">
-                    <div class="d-flex mb-2">
-                      <button class="btn btn-primary btn-sm" type="button"><i class="ci-cart fs-sm me-1"></i>장바구니
-                        추가</button>
-                    </div>
-                    <div class="text-start"><a class="nav-link-style fs-ms"
-                        href="marketplace-single.html?name=타치온정50밀리그램(글루타티온(환원형))"><i
-                          class="ci-eye align-middle me-1"></i>상세 페이지</a></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="border-top pt-3 mt-3"></div>
+                </div> <br>
+                `;
+                document.querySelector(".itemRow").append(temp);
+              });
+          </script>
 
             <!-- Pagination-->
             <nav class="d-flex justify-content-between pt-2" aria-label="Page navigation">
@@ -807,66 +649,78 @@
                       class="ci-arrow-right ms-2"></i></a></li>
               </ul>
             </nav>
-          </section>
+        </section>
+          
+          <script type="text/javascript"> 
+            function scroll_follow(id){
+              $(window).scroll(function()  //스크롤이 움직일때마다 이벤트 발생
+              { 
+                  var position = $(window).scrollTop(); // 현재 스크롤바의 위치값을 반환합니다.
+                  $(id).stop().animate({top:position+"px"}, 1000); //해당 오브젝트 위치값 재설정
+               });
+            }
 
+            scroll_follow("#scroll");
+            //스크롤이 생기도록 <br> 을 여러게 넣은 부분..
+            
+            $(document).ready(function(){ 
+              for(var i=0; i<200; i++) 
+              {
+                $('#brr').html($('#brr').html() +"<br>" + i);
+              } 
+            });
+            </script> 
+
+          
           <!-- Sidebar with banners-->
           <!-- 가장 잘 팔린 의약품-->
           <aside class="col-lg-4 d-none d-lg-block">
-            <div class="d-flex d-lg-block p-4 ms-auto w-100" style="max-width: 21.25rem;">
+            <div class="d-lg-block p-4 ms-auto w-100" id=scroll style="position:absolute;right:0;top:0; max-width: 15%; margin-top:20rem; background-color:white; border-radius: 2rem">
               <div class="widget mb-4">
                 <h3 class="smallsearch-title">가장 잘 팔린 의약품</h3>
-                <div class="d-flex align-items-center pb-2 border-bottom"><a class="d-block"
-                    href="shop-single-v1.html"><img src="imgs/drugsearch/default.jpg" width="64" alt="Product"></a>
+                <div class="d-flex align-items-center pb-2 border-bottom"><a class="d-block" href="shop-single-v1.html"><img
+                      src="imgs/drugsearch/default.jpg" width="64" alt="Product"></a>
                   <div class="ps-2">
                     <h6 class="widget-product-title"><a href="shop-single-v1.html">활명수</a></h6>
                     <div class="widget-product-meta"><span class="text-accent me-2">3,400원</small></span></div>
                   </div>
                 </div>
-                <div class="d-flex align-items-center py-2 border-bottom"><a class="d-block"
-                    href="shop-single-v1.html"><img
-                      src="https://nedrug.mfds.go.kr/pbp/cmn/itemImageDownload/151577167067000087" width="64"
-                      alt="Product"></a>
+                <div class="d-flex align-items-center py-2 border-bottom"><a class="d-block" href="shop-single-v1.html"><img
+                      src="https://nedrug.mfds.go.kr/pbp/cmn/itemImageDownload/151577167067000087" width="64" alt="Product"></a>
                   <div class="ps-2">
                     <h6 class="widget-product-title"><a href="shop-single-v1.html">에바치온캡슐(글루타티온)</a></h6>
                     <div class="widget-product-meta"><span class="text-accent me-2">14,500원</span></div>
                   </div>
                 </div>
-                <div class="d-flex align-items-center py-2 border-bottom"><a class="d-block"
-                    href="shop-single-v1.html"><img
-                      src="https://nedrug.mfds.go.kr/pbp/cmn/itemImageDownload/154609810414600027" width="64"
-                      alt="Product"></a>
+                <div class="d-flex align-items-center py-2 border-bottom"><a class="d-block" href="shop-single-v1.html"><img
+                      src="https://nedrug.mfds.go.kr/pbp/cmn/itemImageDownload/154609810414600027" width="64" alt="Product"></a>
                   <div class="ps-2">
                     <h6 class="widget-product-title"><a href="shop-single-v1.html">아로나민골드정</a></h6>
                     <div class="widget-product-meta"><span class="text-accent me-2">7,800원</span></div>
                   </div>
                 </div>
-                <div class="d-flex align-items-center py-2 border-bottom"><a class="d-block"
-                    href="shop-single-v1.html"><img
-                      src="https://nedrug.mfds.go.kr/pbp/cmn/itemImageDownload/1NOwp2F68-A" width="64"
-                      alt="Product"></a>
+                <div class="d-flex align-items-center py-2 border-bottom"><a class="d-block" href="shop-single-v1.html"><img
+                      src="https://nedrug.mfds.go.kr/pbp/cmn/itemImageDownload/1NOwp2F68-A" width="64" alt="Product"></a>
                   <div class="ps-2">
                     <h6 class="widget-product-title"><a href="shop-single-v1.html">대웅우루사연질캡슐</a></h6>
                     <div class="widget-product-meta"><span class="text-accent me-2">17,900원</span></div>
                   </div>
                 </div>
                 <div class="d-flex align-items-center py-2"><a class="d-block" href="shop-single-v1.html"><img
-                      src="https://nedrug.mfds.go.kr/pbp/cmn/itemImageDownload/151369816808500002" width="64"
-                      alt="Product"></a>
+                      src="https://nedrug.mfds.go.kr/pbp/cmn/itemImageDownload/151369816808500002" width="64" alt="Product"></a>
                   <div class="ps-2">
                     <h6 class="widget-product-title"><a href="shop-single-v1.html">액티피드정</a></h6>
                     <div class="widget-product-meta"><span class="text-accent me-2">12,400원</small></span></div>
                   </div>
                 </div>
               </div>
-              <div class="position-relative bg-size-cover bg-position-center rounded-3 py-5 mb-grid-gutter"
-                style="background-image: url(img/blog/banner-bg.jpg);">
-                <div class="py-5 px-4 text-center">
-                  <h5 class="mb-2">광고추가?</h5>
-                  <p class="fs-sm text-muted">제거할까요</p><a class="btn btn-info btn-shadow btn-sm stretched-link"
-                    href="#">광고 신청하기</a>
-                </div>
-              </div>
             </div>
+
+            <div class="content">
+              
+
+            </div>
+
           </aside>
         </div>
       </div>
