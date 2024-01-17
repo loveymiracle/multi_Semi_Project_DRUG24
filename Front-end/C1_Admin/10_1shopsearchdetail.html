@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Search Medicine</title>
+  <!-- SEO Meta Tags-->
+  <meta name="description" content="Search Medincine list and description">
+  <meta name="keywords"
+    content="bootstrap, shop, e-commerce, market, modern, responsive,  business, mobile, bootstrap, html5, css3, js, gallery, slider, touch, creative, clean">
+  <meta name="author" content="Createx Studio">
+  <!-- Viewport-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Favicon and Touch Icons-->
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="mask-icon" color="#fe6a6a" href="safari-pinned-tab.svg">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+  <!-- Vendor Styles including: Font Icons, Plugins, etc.-->
+  <link rel="stylesheet" media="screen" href="vendor/simplebar/dist/simplebar.min.css" />
+  <link rel="stylesheet" media="screen" href="vendor/tiny-slider/dist/tiny-slider.css" />
+  <link rel="stylesheet" media="screen" href="vendor/nouislider/dist/nouislider.min.css" />
+  <link rel="stylesheet" media="screen" href="vendor/drift-zoom/dist/drift-basic.min.css" />
+  <!-- Main Theme Styles + Bootstrap-->
+  <link rel="stylesheet" media="screen" href="css/theme.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+
+</head>
+<!-- Body-->
+
+<body class="handheld-toolbar-enabled">
+  <!-- Sign in / sign up modal-->
+  <div class="modal fade" id="signin-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-secondary">
+          <ul class="nav nav-tabs card-header-tabs" role="tablist">
+            <li class="nav-item"><a class="nav-link fw-medium active" href="#signin-tab" data-bs-toggle="tab" role="tab"
+                aria-selected="true"><i class="ci-unlocked me-2 mt-n1"></i>Sign in</a></li>
+            <li class="nav-item"><a class="nav-link fw-medium" href="#signup-tab" data-bs-toggle="tab" role="tab"
+                aria-selected="false"><i class="ci-user me-2 mt-n1"></i>Sign up</a></li>
+          </ul>
+          <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body tab-content py-4">
+          <form class="needs-validation tab-pane fade show active" autocomplete="off" novalidate id="signin-tab">
+            <div class="mb-3">
+              <label class="form-label" for="si-email">Email address</label>
+              <input class="form-control" type="email" id="si-email" placeholder="johndoe@example.com" required>
+              <div class="invalid-feedback">Please provide a valid email address.</div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="si-password">Password</label>
+              <div class="password-toggle">
+                <input class="form-control" type="password" id="si-password" required>
+                <label class="password-toggle-btn" aria-label="Show/hide password">
+                  <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+                </label>
+              </div>
+            </div>
+            <div class="mb-3 d-flex flex-wrap justify-content-between">
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="si-remember">
+                <label class="form-check-label" for="si-remember">Remember me</label>
+              </div><a class="fs-sm" href="#">Forgot password?</a>
+            </div>
+            <button class="btn btn-primary btn-shadow d-block w-100" type="submit">Sign in</button>
+          </form>
+          <form class="needs-validation tab-pane fade" autocomplete="off" novalidate id="signup-tab">
+            <div class="mb-3">
+              <label class="form-label" for="su-name">Full name</label>
+              <input class="form-control" type="text" id="su-name" placeholder="John Doe" required>
+              <div class="invalid-feedback">Please fill in your name.</div>
+            </div>
+            <div class="mb-3">
+              <label for="su-email">Email address</label>
+              <input class="form-control" type="email" id="su-email" placeholder="johndoe@example.com" required>
+              <div class="invalid-feedback">Please provide a valid email address.</div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="su-password">Password</label>
+              <div class="password-toggle">
+                <input class="form-control" type="password" id="su-password" required>
+                <label class="password-toggle-btn" aria-label="Show/hide password">
+                  <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+                </label>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="su-password-confirm">Confirm password</label>
+              <div class="password-toggle">
+                <input class="form-control" type="password" id="su-password-confirm" required>
+                <label class="password-toggle-btn" aria-label="Show/hide password">
+                  <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+                </label>
+              </div>
+            </div>
+            <button class="btn btn-primary btn-shadow d-block w-100" type="submit">Sign up</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <main class="page-wrapper">
+
+    <!-- Navbar 3 Level (Light)-->
+    <header class="shadow-sm">
+      <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page.-->
+      <!DOCTYPE html>
+      <html lang="en">
+
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DRUG24</title>
+        <!-- Main Theme Styles + Bootstrap-->
+        <link rel="stylesheet" media="screen" href="css/theme.min.css">
+      </head>
+
+      <body>
+        <!-- 헤더 시작 -->
+        <header class="bg-light shadow-sm navbar-sticky">
+          <div class="navbar navbar-expand-lg navbar-light">
+            <div class="container"><a class="navbar-brand d-none d-sm-block flex-shrink-0 me-4 order-lg-1"
+                href="Main.html"><img src="imgs/LogoE_r.png" width="142" alt=""></a>
+              <!-- Toolbar-->
+              <div class="navbar-toolbar d-flex align-items-center order-lg-3">
+                <a class="navbar-tool d-none d-lg-flex" href="dashboard-favorites.html"><span
+                    class="navbar-tool-tooltip">나의 구급함</span>
+                  <div class="navbar-tool-icon-box"><i class="navbar-tool-icon ci-basket-alt"></i></div>
+                </a>
+                <a class="navbar-tool d-none d-lg-flex" href="dashboard-favorites.html"><span
+                    class="navbar-tool-tooltip">즐겨찾기</span>
+                  <div class="navbar-tool-icon-box"><i class="navbar-tool-icon ci-heart"></i></div>
+                </a>
+                <div class="navbar-tool dropdown ms-2"><a class="navbar-tool-icon-box border dropdown-toggle"
+                    href="dashboard-sales.html"><img src="imgs/account/Boryung_logo.png" width="32"
+                      alt="Createx Studio"></a><a class="navbar-tool-text ms-n1"
+                    href="dashboard-sales.html"><small>보령제약</small>기업 회원</a>
+                  <div class="dropdown-menu dropdown-menu-end">
+                    <div style="min-width: 14rem;">
+                      <h6 class="dropdown-header">계정</h6><a class="dropdown-item d-flex align-items-center"
+                        href="dashboard-settings.html"><i class="ci-settings opacity-60 me-2"></i>설정</a><a
+                        class="dropdown-item d-flex align-items-center" href="dashboard-purchases.html"><i
+                          class="ci-basket opacity-60 me-2"></i>구매</a><a class="dropdown-item d-flex align-items-center"
+                        href="dashboard-favorites.html"><i class="ci-heart opacity-60 me-2"></i>찜목록<span
+                          class="fs-xs text-muted ms-auto">4</span></a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item d-flex align-items-center" href="account-signin.html"><i
+                          class="ci-sign-out opacity-60 me-2"></i>Sign Out</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="navbar-tool ms-4"><a class="navbar-tool-icon-box bg-secondary dropdown-toggle"
+                    href="marketplace-cart.html"><span class="navbar-tool-label">3</span><i
+                      class="navbar-tool-icon ci-cart"></i></a></div>
+              </div>
+              <div class="collapse navbar-collapse me-auto order-lg-2" id="navbarCollapse">
+                <!-- Search-->
+                <div class="input-group d-lg-none my-3"><i
+                    class="ci-search position-absolute top-50 start-0 translate-middle-y text-muted fs-base ms-3"></i>
+                  <input class="form-control rounded-start" type="text" placeholder="Search marketplace">
+                </div>
+
+                <!-- Primary menu-->
+                <ul class="navbar-nav">
+                  <li class="nav-item"><a class="nav-link" href="Main.html">Home</a></li>
+                  <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">약
+                      상세검색</a></li>
+                  <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                      data-bs-auto-close="outside">약국 찾기</a></li>
+                  <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                      data-bs-auto-close="outside">의약품 정보</a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">약물 백과</a></li>
+                      <li><a class="dropdown-item" href="about.html">안정성</a></li>
+                      <li><a class="dropdown-item" href="contacts.html">유통</a></li>
+                      <li><a class="dropdown-item" href="#">안전사용</a></li>
+                      <li class="dropdown"><a class="dropdown-item dropdown-toggle" href="#"
+                          data-bs-toggle="dropdown">복용 정보</a>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="404-simple.html">그림 복약정보</a></li>
+                          <li><a class="dropdown-item" href="404-illustration.html">복약정보</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                      data-bs-auto-close="outside">Community</a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Expert answer</a></li>
+                      <li class="dropdown"><a class="dropdown-item dropdown-toggle" href="#"
+                          data-bs-toggle="dropdown">후기</a>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="404-simple.html">의약품 후기</a></li>
+                          <li><a class="dropdown-item" href="404-illustration.html">약국 후기</a></li>
+                        </ul>
+                      </li>
+                      <li><a class="dropdown-item" href="#">질문과 답변</a></li>
+                      <li><a class="dropdown-item" href="#">고객센터</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                      data-bs-auto-close="outside">Newsroom</a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">관련 뉴스</a></li>
+                      <li><a class="dropdown-item" href="#">동영상</a></li>
+                      <li><a class="dropdown-item" href="#">일상 정보</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- Search -->
+          <div class="search-box" id="searchBox">
+            <div class="card pt-2 pb-4 border-0 rounded-0">
+              <div class="container">
+                <div class="input-group"><i
+                    class="ci-search position-absolute top-50 start-0 translate-middle-y text-muted fs-base ms-3"></i>
+                  <input class="form-control rounded-start" type="text" placeholder="의약품 검색">
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+        <!-- 헤더 끝 -->
+        <br><br>
+
+    </header>
+    <!-- Page Title (Shop Alt)-->
+    <!-- used for shop templates with filters on top-->
+    <div class="bg-dark pt-4 pb-5">
+      <div class="container pt-2 pb-3 pt-lg-3 pb-lg-4">
+        <div class="d-lg-flex justify-content-between pb-3">
+          <div class="order-lg-2 mb-3 mb-lg-0 pt-lg-2">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb breadcrumb-light flex-lg-nowrap justify-content-center justify-content-lg-start">
+                <li class="breadcrumb-item"><a class="text-nowrap" href="index.html"><i class="ci-home"></i>Home</a>
+                </li>
+                <li class="breadcrumb-item text-nowrap"><a href="#">의약품 검색</a>
+                </li>
+                <li class="breadcrumb-item text-nowrap active" aria-current="page">의약품 상세검색</li>
+              </ol>
+            </nav>
+          </div>
+          <div class="order-lg-1 pe-lg-4 text-center text-lg-start">
+            <h1 class="h3 text-light mb-0">의약품 상세검색</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container pb-5 mb-2 mb-md-4">
+      <div class="row pt-4">
+        <!-- 검색창-->
+        <div class="card">
+          <div class="card-body px-4">
+            <div class="widget widget-categories">
+              <br>
+              <h3 class="search-title mb-grid-gutter">의약품 이름 검색</h3>
+              <div class="accordion mt-n1" id="medicine-search-name">
+                <!-- 의약품 이름 검색-->
+                <div class="accordion-item">
+                  <div class="accordion-body">
+                    <div class="widget widget-links widget-filter">
+                      <div class="searchMed-div input-group-sm mb-2">
+                        <input class="filter-search" type="text" id="filter-search" placeholder="검색어를 입력해주세요">
+                        <i class="ci-search position-absolute top-50 end-0 translate-middle-y fs-sm me-3"></i>
+                        <div class="autocomplete"></div>
+                        <span class="span"></span>
+                        <script src="js/search.js"></script>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+          <div class="col-lg-4 col-sm-6 mb-grid-gutter">
+            <!-- 제약 회사명 검색-->
+            <div class="accordion-item">
+              <br>
+              <h3 class="smallsearch-title">제약회사</h3>
+              <div class="accordion-body">
+                <div class="widget widget-links widget-filter">
+                  <div class="input-group input-group-sm mb-2">
+                    <input class="widget-filter-search form-control rounded-end" type="text" placeholder="검색"><i
+                      class="ci-search position-absolute top-50 end-0 translate-middle-y fs-sm me-3"></i>
+                  </div>
+                  <ul class="widget-list widget-filter-list pt-1" style="height: 12rem;" data-simplebar
+                    data-simplebar-auto-hide="false">
+                    <li class="widget-list-item widget-filter-item"><a
+                        class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span
+                          class="widget-filter-item-text">제약회사1</span><span class="fs-xs text-muted ms-3">232
+                          제품</span></a></li>
+                    <li class="widget-list-item widget-filter-item"><a
+                        class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span
+                          class="widget-filter-item-text">제약회사2</span><span class="fs-xs text-muted ms-3">235
+                          제품</span></a></li>
+                    <li class="widget-list-item widget-filter-item"><a
+                        class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span
+                          class="widget-filter-item-text">제약회사3</span><span class="fs-xs text-muted ms-3">410
+                          제품</span></a></li>
+                    <li class="widget-list-item widget-filter-item"><a
+                        class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span
+                          class="widget-filter-item-text">제약회사4</span><span class="fs-xs text-muted ms-3">107
+                          제품</span></a></li>
+                    <li class="widget-list-item widget-filter-item"><a
+                        class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span
+                          class="widget-filter-item-text">제약회사5</span><span class="fs-xs text-muted ms-3">93
+                          제품</span></a></li>
+                    <li class="widget-list-item widget-filter-item"><a
+                        class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span
+                          class="widget-filter-item-text">제약회사6</span><span class="fs-xs text-muted ms-3">122
+                          제품</span></a></li>
+                    <li class="widget-list-item widget-filter-item"><a
+                        class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span
+                          class="widget-filter-item-text">제약회사7</span><span class="fs-xs text-muted ms-3">116
+                          제품</span></a></li>
+                    <li class="widget-list-item widget-filter-item"><a
+                        class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span
+                          class="widget-filter-item-text">제약회사8</span><span class="fs-xs text-muted ms-3">215
+                          제품</span></a></li>
+                    <li class="widget-list-item widget-filter-item"><a
+                        class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span
+                          class="widget-filter-item-text">제약회사9</span><span class="fs-xs text-muted ms-3">150
+                          제품</span></a></li>
+                    <li class="widget-list-item widget-filter-item"><a
+                        class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span
+                          class="widget-filter-item-text">제약회사10</span><span class="fs-xs text-muted ms-3">8
+                          제품</span></a></li>
+                    <li class="widget-list-item widget-filter-item"><a
+                        class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span
+                          class="widget-filter-item-text">제약회사11</span><span class="fs-xs text-muted ms-3">26
+                          제품</span></a></li>
+                    <li class="widget-list-item widget-filter-item"><a
+                        class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span
+                          class="widget-filter-item-text">제약회사12</span><span class="fs-xs text-muted ms-3">164
+                          제품</span></a></li>
+                    <li class="widget-list-item widget-filter-item"><a
+                        class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span
+                          class="widget-filter-item-text">제약회사13</span><span class="fs-xs text-muted ms-3">147
+                          제품</span></a></li>
+                    <li class="widget-list-item widget-filter-item"><a
+                        class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span
+                          class="widget-filter-item-text">제약회사14</span><span class="fs-xs text-muted ms-3">139
+                          제품</span></a></li>
+                    <li class="widget-list-item widget-filter-item"><a
+                        class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span
+                          class="widget-filter-item-text">제약회사15</span><span class="fs-xs text-muted ms-3">65
+                          제품</span></a></li>
+                    <li class="widget-list-item widget-filter-item"><a
+                        class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span
+                          class="widget-filter-item-text">제약회사16</span><span class="fs-xs text-muted ms-3">18
+                          제품</span></a></li>
+                    <li class="widget-list-item widget-filter-item"><a
+                        class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span
+                          class="widget-filter-item-text">제약회사17</span><span class="fs-xs text-muted ms-3">209
+                          제품</span></a></li>
+                    <li class="widget-list-item widget-filter-item"><a
+                        class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span
+                          class="widget-filter-item-text">제약회사18</span><span class="fs-xs text-muted ms-3">132
+                          제품</span></a></li>
+                    <li class="widget-list-item widget-filter-item"><a
+                        class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span
+                          class="widget-filter-item-text">제약회사19</span><span class="fs-xs text-muted ms-3">105
+                          제품</span></a></li>
+                    <li class="widget-list-item widget-filter-item"><a
+                        class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span
+                          class="widget-filter-item-text">제약회사20</span><span class="fs-xs text-muted ms-3">87
+                          제품</span></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+          <div class="col-lg-4 col-sm-6 mb-grid-gutter">
+            <!-- 의약품 종류 검색 -->
+              <div class="accordion-item">
+                <br>
+                    <h3 class="smallsearch-title">의약품 분류</h3>
+                    <div class="input-group input-group-sm mb-2">
+                      <input class="widget-filter-search form-control rounded-end" type="text" placeholder="검색"><i
+                      class="ci-search position-absolute top-50 end-0 translate-middle-y fs-sm me-3"></i>
+                    </div>
+                    <ul class="widget-list widget-filter-list list-unstyled pt-1" style="max-height: 6rem;"
+                      data-simplebar data-simplebar-auto-hide="false">
+                      <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="normal-med">
+                          <label class="form-check-label widget-filter-item-text" for="adidas">일반의약품</label>
+                        </div><span class="fs-xs text-muted">425</span>
+                      </li>
+                      <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="pro-med">
+                          <label class="form-check-label widget-filter-item-text" for="ataylor">전문의약품</label>
+                        </div><span class="fs-xs text-muted">15</span>
+                      </li>
+                      <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="classify3-med">
+                          <label class="form-check-label widget-filter-item-text" for="armani">의약품 분류3</label>
+                        </div><span class="fs-xs text-muted">18</span>
+                      </li>
+                      <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="classify4-med">
+                          <label class="form-check-label widget-filter-item-text" for="banana">의약품 분류4</label>
+                        </div><span class="fs-xs text-muted">103</span>
+                      </li>
+                      <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="classify5-med">
+                          <label class="form-check-label widget-filter-item-text" for="bilabong">의약품 분류5</label>
+                        </div><span class="fs-xs text-muted">27</span>
+                      </li>
+                    </ul>
+                  </div>
+              </div>
+
+          <div class="col-lg-4 col-sm-6 mb-grid-gutter">
+            <br>
+            <h3 class="smallsearch-title">주요 성분</h3>
+            <div class="input-group input-group-sm mb-2">
+              <input class="widget-filter-search form-control rounded-end" type="text" placeholder="검색"><i
+                      class="ci-search position-absolute top-50 end-0 translate-middle-y fs-sm me-3"></i>
+            </div>
+            <ul class="widget-list widget-filter-list list-unstyled pt-1" style="max-height: 12rem;" data-simplebar
+              data-simplebar-auto-hide="false">
+              <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="Cyclophosphamide">
+                  <label class="form-check-label widget-filter-item-text" for="Cyclophosphamide">시클로포스파미드</label>
+                </div><span class="fs-xs text-muted">34</span>
+              </li>
+              <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="Disodium">
+                  <label class="form-check-label widget-filter-item-text" for="Disodium">디소디움아데노신-5-트리포스페이트</label>
+                </div><span class="fs-xs text-muted">57</span>
+              </li>
+              <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="Gentamicin">
+                  <label class="form-check-label widget-filter-item-text" for="Gentamicin">황산겐타마이신</label>
+                </div><span class="fs-xs text-muted">198</span>
+              </li>
+              <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="Cefoxitine">
+                  <label class="form-check-label widget-filter-item-text" for="Cefoxitine">세팔로틴나트륨</label>
+                </div><span class="fs-xs text-muted">72</span>
+              </li>
+              <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="size-xl">
+                  <label class="form-check-label widget-filter-item-text" for="size-xl">디클록사실린나트륨</label>
+                </div><span class="fs-xs text-muted">46</span>
+              </li>
+              <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="size-39">
+                  <label class="form-check-label widget-filter-item-text" for="size-39">코바마미드(코엔자임비12)</label>
+                </div><span class="fs-xs text-muted">112</span>
+              </li>
+              <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="size-40">
+                  <label class="form-check-label widget-filter-item-text" for="size-40">아미노카프론산</label>
+                </div><span class="fs-xs text-muted">85</span>
+              </li>
+              <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="size-41">
+                  <label class="form-check-label widget-filter-item-text" for="size-40">마행감석탕연조엑스</label>
+                </div><span class="fs-xs text-muted">210</span>
+              </li>
+              <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="size-42">
+                  <label class="form-check-label widget-filter-item-text" for="size-42">십미패독산연조엑스(7.88→1)</label>
+                </div><span class="fs-xs text-muted">57</span>
+              </li>
+              <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="size-43">
+                  <label class="form-check-label widget-filter-item-text" for="size-43">옥수수전분</label>
+                </div><span class="fs-xs text-muted">30</span>
+              </li>
+              <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="size-44">
+                  <label class="form-check-label widget-filter-item-text" for="size-44">유당수화물</label>
+                </div><span class="fs-xs text-muted">61</span>
+              </li>
+              <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="size-45">
+                  <label class="form-check-label widget-filter-item-text" for="size-45">목단피</label>
+                </div><span class="fs-xs text-muted">23</span>
+              </li>
+              <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="size-46">
+                  <label class="form-check-label widget-filter-item-text" for="size-46">복령</label>
+                </div><span class="fs-xs text-muted">19</span>
+              </li>
+              <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="size-47">
+                  <label class="form-check-label widget-filter-item-text" for="size-47">산수유</label>
+                </div><span class="fs-xs text-muted">15</span>
+              </li>
+              <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="size-48">
+                  <label class="form-check-label widget-filter-item-text" for="size-48">산약</label>
+                </div><span class="fs-xs text-muted">12</span>
+              </li>
+              <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="size-49">
+                  <label class="form-check-label widget-filter-item-text" for="size-49">택사</label>
+                </div><span class="fs-xs text-muted">8</span>
+              </li>
+              <li class="widget-filter-item d-flex justify-content-between align-items-center">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="size-50">
+                  <label class="form-check-label widget-filter-item-text" for="size-50">숙지황</label>
+                </div><span class="fs-xs text-muted">6</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+        <!--필터끝-->
+        <div class="bg-light shadow-lg rounded-3 pb-4 mt-n5 mb-4"></div>
+        <div class="row justify-content-center">
+          <!-- Products list-->
+        <section class="itemRow col-lg-12 pt-2">
+          <script type="text/javascript">
+              //서버에서 받아올 약이름 하드코딩
+              //list구조 (회사, 약이름, 가격,  별점, 병용금기, 노인금기, 임부금기, 용량주의, 연령금기, 이미지 링크)
+              //         company, id, price, star,  opt1,    opt2,     opt3,    opt4,     opt5,    image
+              item = []
+              
+              item.push({"company":'동아제약(주)', "id":'타치온정50밀리그램(글루타티온(환원형))', "price":5800, "star":2.4, "opt1":true, "opt2":false, "opt3":false, "opt4":false, "opt5":false, "image":'https://nedrug.mfds.go.kr/pbp/cmn/itemImageDownload/148609556259100153'});
+              item.push({"company":'삼진제약(주)', "id":'아네모정', "price":6800, "star":4, "opt1":false, "opt2":true, "opt3":true, "opt4":true, "opt5":true, "image":'https://nedrug.mfds.go.kr/pbp/cmn/itemImageDownload/148609556259100153'});
+              item.push({"company":'(주)보령', "id":'겔포스현탁액(인산알루미늄겔)', "price":7800, "star":4.4, "opt1":true, "opt2":true, "opt3":true, "opt4":true, "opt5":true, "image":'https://nedrug.mfds.go.kr/pbp/cmn/itemImageDownload/148609556259100153'});
+              item.push({"company":'일양약품(주)', "id":'일양노이겔현탁액(규산알루민산마그네슘)', "price":8800, "star":2.8, "opt1":true, "opt2":true, "opt3":true, "opt4":false, "opt5":false, "image":'https://nedrug.mfds.go.kr/pbp/cmn/itemImageDownload/148609556259100153'});
+              item.push({"company":'일양약품(주)', "id":'일양노이시린에이정(규산알루민산마그네슘)', "price":9800, "star":1.1, "opt1":true, "opt2":false, "opt3":false, "opt4":false, "opt5":false, "image":'https://nedrug.mfds.go.kr/pbp/cmn/itemImageDownload/148609556259100153'});
+              item.push({"company":'정우신약(주)', "id":'자모', "price":2800, "star":2.4, "opt1":true, "opt2":false, "opt3":false, "opt4":true, "opt5":false, "image":'https://nedrug.mfds.go.kr/pbp/cmn/itemImageDownload/148609556259100153'});
+              item.push({"company":'(주)유한양행', "id":'페니라민정(클로르페니라민말레산염)', "price":5800, "star":3.4, "opt1":true, "opt2":false, "opt3":false, "opt4":true, "opt5":true, "image":'https://nedrug.mfds.go.kr/pbp/cmn/itemImageDownload/148609556259100153'});
+              item.push({"company":'(주)유한양행', "id":'삐콤정', "price":3800, "star":1.4, "opt1":true, "opt2":false, "opt3":true, "opt4":false, "opt5":true, "image":'https://nedrug.mfds.go.kr/pbp/cmn/itemImageDownload/148609556259100153'});
+
+              item.forEach(function(data,i){
+                optArray = [];
+                var score = data.star * 2;
+
+                for (var i = 0; i < 5; i++) {
+                  optArray[i] = 'btn-dark';
+                }
+                
+                if (data.opt1 == true) {
+                  optArray[0] = 'btn-primary';
+                }
+
+                if (data.opt2 == true) {
+                  optArray[1] = 'btn-warning';
+                }
+
+                if (data.opt3 == true) {
+                  optArray[2] = 'btn-success';
+                }
+
+                if (data.opt4 == true) {
+                  optArray[3] = 'btn-info';
+                }
+
+                if (data.opt5 == true) {
+                  optArray[4] = 'btn-accent';
+                }
+
+                const temp = document.createElement("div");
+
+                temp.innerHTML=`
+                <div class="card product-card product-list mt-2 height: 200px;">
+                  <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip" data-bs-placement="left"
+                    title="Add to wishlist"><i class="ci-heart"></i></button>
+                   <div class="d-sm-flex align-items-center"><a class="product-list-thumb" href="productdetail.html?name=타치온정50밀리그램(글루타티온(환원형))"><img
+                       src="${data.image}" alt="Product"></a>
+                  <div class="card-body py-2 row m-lg-2">
+                <div class="col-5">
+                  <a class="product-meta d-block fs-xs pb-1 " href="#">${data.company}</a>
+                  <h3 class="product-title fs-base"><a class="bold" href="productdetail.html?name=타치온정50밀리그램(글루타티온(환원형))">${data.id}</a></h3>
+                  <div class="product-price mt-n3">
+                    <span class="text-accent">8,900원</span>
+                  </div>
+                    <div class="star-rating star-rating-fill" style="float: left; width: ${score}%;">
+                      <i class="star-rating-icon ci-star-filled active"></i>
+                      <i class="star-rating-icon ci-star-filled active"></i> <i class="star-rating-icon ci-star-filled active"></i>
+                      <i class="star-rating-icon ci-star-filled active"></i> <i class="star-rating-icon ci-star-filled active"></i>
+                    </div>
+
+                    <div class="star-rating" style="float: left;">
+                      <i class="star-rating-icon ci-star"></i>
+                      <i class="star-rating-icon ci-star"></i> <i class="star-rating-icon ci-star"></i>
+                      <i class="star-rating-icon ci-star"></i> <i class="star-rating-icon ci-star"></i>
+                    </div>
+                    
+                  </div>
+          
+                  <div class="col-7  align-items-center row">
+                    <button class="col ms-1 warn-btn ${optArray[0]}" type="button">병용금기</button>
+                    <button class="col ms-1 warn-btn ${optArray[1]}" type="button">노인금기</button>
+                    <button class="col ms-1 warn-btn ${optArray[2]}" type="button">임부금기</button>
+                    <button class="col ms-1 warn-btn ${optArray[3]}" type="button">용량주의</button>
+                    <button class="col ms-1 warn-btn ${optArray[4]}" type="button">연령금기</button>
+                      </div>
+                    </div>
+                  </div>
+                </div> <br>
+                `;
+                document.querySelector(".itemRow").append(temp);
+              });
+          </script>
+
+            <!-- Pagination-->
+            <nav class="d-flex justify-content-between pt-2" aria-label="Page navigation">
+              <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#"><i class="ci-arrow-left me-2"></i>이전 페이지</a></li>
+              </ul>
+              <ul class="pagination">
+                <li class="page-item d-sm-none"><span class="page-link page-link-static">1 / 5</span></li>
+                <li class="page-item active d-none d-sm-block" aria-current="page"><span class="page-link">1<span
+                      class="visually-hidden">(current)</span></span></li>
+                <li class="page-item d-none d-sm-block"><a class="page-link" href="#">2</a></li>
+                <li class="page-item d-none d-sm-block"><a class="page-link" href="#">3</a></li>
+                <li class="page-item d-none d-sm-block"><a class="page-link" href="#">4</a></li>
+                <li class="page-item d-none d-sm-block"><a class="page-link" href="#">5</a></li>
+              </ul>
+              <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#" aria-label="Next">다음 페이지<i
+                      class="ci-arrow-right ms-2"></i></a></li>
+              </ul>
+            </nav>
+        </section>
+          
+          <script type="text/javascript"> 
+            function scroll_follow(id){
+              $(window).scroll(function()  //스크롤이 움직일때마다 이벤트 발생
+              { 
+                  var position = $(window).scrollTop(); // 현재 스크롤바의 위치값을 반환합니다.
+                  $(id).stop().animate({top:position+"px"}, 1000); //해당 오브젝트 위치값 재설정
+               });
+            }
+
+            scroll_follow("#scroll");
+            //스크롤이 생기도록 <br> 을 여러게 넣은 부분..
+            
+            $(document).ready(function(){ 
+              for(var i=0; i<200; i++) 
+              {
+                $('#brr').html($('#brr').html() +"<br>" + i);
+              } 
+            });
+            </script> 
+
+          
+          <!-- Sidebar with banners-->
+          <!-- 가장 잘 팔린 의약품-->
+          <aside class="col-lg-4 d-none d-lg-block">
+            <div class="d-lg-block p-4 ms-auto w-100" id=scroll style="position:absolute;right:0;top:0; max-width: 15%; margin-top:20rem; background-color:white; border-radius: 2rem">
+              <div class="widget mb-4">
+                <h3 class="smallsearch-title">가장 잘 팔린 의약품</h3>
+                <div class="d-flex align-items-center pb-2 border-bottom"><a class="d-block" href="shop-single-v1.html"><img
+                      src="imgs/drugsearch/default.jpg" width="64" alt="Product"></a>
+                  <div class="ps-2">
+                    <h6 class="widget-product-title"><a href="shop-single-v1.html">활명수</a></h6>
+                    <div class="widget-product-meta"><span class="text-accent me-2">3,400원</small></span></div>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center py-2 border-bottom"><a class="d-block" href="shop-single-v1.html"><img
+                      src="https://nedrug.mfds.go.kr/pbp/cmn/itemImageDownload/151577167067000087" width="64" alt="Product"></a>
+                  <div class="ps-2">
+                    <h6 class="widget-product-title"><a href="shop-single-v1.html">에바치온캡슐(글루타티온)</a></h6>
+                    <div class="widget-product-meta"><span class="text-accent me-2">14,500원</span></div>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center py-2 border-bottom"><a class="d-block" href="shop-single-v1.html"><img
+                      src="https://nedrug.mfds.go.kr/pbp/cmn/itemImageDownload/154609810414600027" width="64" alt="Product"></a>
+                  <div class="ps-2">
+                    <h6 class="widget-product-title"><a href="shop-single-v1.html">아로나민골드정</a></h6>
+                    <div class="widget-product-meta"><span class="text-accent me-2">7,800원</span></div>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center py-2 border-bottom"><a class="d-block" href="shop-single-v1.html"><img
+                      src="https://nedrug.mfds.go.kr/pbp/cmn/itemImageDownload/1NOwp2F68-A" width="64" alt="Product"></a>
+                  <div class="ps-2">
+                    <h6 class="widget-product-title"><a href="shop-single-v1.html">대웅우루사연질캡슐</a></h6>
+                    <div class="widget-product-meta"><span class="text-accent me-2">17,900원</span></div>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center py-2"><a class="d-block" href="shop-single-v1.html"><img
+                      src="https://nedrug.mfds.go.kr/pbp/cmn/itemImageDownload/151369816808500002" width="64" alt="Product"></a>
+                  <div class="ps-2">
+                    <h6 class="widget-product-title"><a href="shop-single-v1.html">액티피드정</a></h6>
+                    <div class="widget-product-meta"><span class="text-accent me-2">12,400원</small></span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="content">
+              
+
+            </div>
+
+          </aside>
+        </div>
+      </div>
+  </main>
+  <!-- Footer-->
+  <footer class="footer bg-dark pt-5">
+    <div class="container pt-2 pb-3">
+      <div class="row">
+        <div class="col-md-6 text-center text-md-start mb-4">
+          <div class="text-nowrap mb-3"><a class="d-inline-block align-middle mt-n2 me-2" href="#"><img class="d-block"
+                src="imgs/LogoE_r.png" width="117" alt="Cartzilla"></a><span
+              class="d-inline-block align-middle h5 fw-bold text-white mb-0">DRUG24</span></div>
+          <span class="d-inline-block align-middle h5 fw-bold text-white mb-0">About us</span><br>
+          <p class="fs-sm text-white opacity-70 pb-1">DRUG24는 약 24,000개의 의약품 정보를 제공합니다.<br>오남용 없이 안전하게 복용하세요</p>
+          <h6 class="d-inline-block pe-3 me-3 border-end border-light"><span class="text-primary">5,478 </span><span
+              class="fw-normal text-white">Products</span></h6>
+          <h6 class="d-inline-block pe-3 me-3 border-end border-light"><span class="text-primary">521 </span><span
+              class="fw-normal text-white">Pharmacy</span></h6>
+          <h6 class="d-inline-block me-3"><span class="text-primary">17 </span><span
+              class="fw-normal text-white">Pharmacist</span></h6>
+          <div class="widget mt-4 text-md-nowrap text-center text-md-start"><a
+              class="btn-social bs-light bs-twitter me-2 mb-2" href="#"><i class="ci-twitter"></i></a><a
+              class="btn-social bs-light bs-facebook me-2 mb-2" href="#"><i class="ci-facebook"></i></a><a
+              class="btn-social bs-light bs-dribbble me-2 mb-2" href="#"><i class="ci-dribbble"></i></a><a
+              class="btn-social bs-light bs-behance me-2 mb-2" href="#"><i class="ci-behance"></i></a><a
+              class="btn-social bs-light bs-pinterest me-2 mb-2" href="#"><i class="ci-pinterest"></i></a></div>
+        </div>
+        <div class="col-md-3 d-none d-md-block text-center text-md-start mb-4">
+          <div class="widget widget-links widget-light pb-2">
+            <h3 class="widget-title text-light">Categories</h3>
+            <ul class="widget-list">
+              <li class="widget-list-item"><a class="widget-list-link" href="#">Drug Search</a></li>
+              <li class="widget-list-item"><a class="widget-list-link" href="#">Pharmacy Search</a></li>
+              <li class="widget-list-item"><a class="widget-list-link" href="#">Medicine Info</a></li>
+              <li class="widget-list-item"><a class="widget-list-link" href="#">My Page</a></li>
+              <li class="widget-list-item"><a class="widget-list-link" href="#">Newsroom</a></li>
+              <li class="widget-list-item"><a class="widget-list-link" href="#">Shopping Mall</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-3 d-none d-md-block text-center text-md-start mb-4">
+          <div class="widget widget-links widget-light pb-2">
+            <h3 class="widget-title text-light">For members</h3>
+            <ul class="widget-list">
+              <li class="widget-list-item"><a class="widget-list-link" href="#">My First Aid Kit</a></li>
+              <li class="widget-list-item"><a class="widget-list-link" href="#">Pharmacy Reviews</a></li>
+              <li class="widget-list-item"><a class="widget-list-link" href="#">Medicine Reaviews</a></li>
+              <li class="widget-list-item"><a class="widget-list-link" href="#">Expert Answer</a></li>
+              <li class="widget-list-item"><a class="widget-list-link" href="#">Notice</a></li>
+            </ul>bundled
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Toolbar for handheld devices (Default)-->
+  <div class="handheld-toolbar">
+    <div class="d-table table-layout-fixed w-100"><a class="d-table-cell handheld-toolbar-item"
+        href="account-wishlist.html"><span class="handheld-toolbar-icon"><i class="ci-heart"></i></span><span
+          class="handheld-toolbar-label">Wishlist</span></a><a class="d-table-cell handheld-toolbar-item"
+        href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+        onclick="window.scrollTo(0, 0)"><span class="handheld-toolbar-icon"><i class="ci-menu"></i></span><span
+          class="handheld-toolbar-label">Menu</span></a><a class="d-table-cell handheld-toolbar-item"
+        href="shop-cart.html"><span class="handheld-toolbar-icon"><i class="ci-cart"></i><span
+            class="badge bg-primary rounded-pill ms-1">4</span></span><span
+          class="handheld-toolbar-label">$265.00</span></a></div>
+  </div>
+  <!-- Back To Top Button--><a class="btn-scroll-top" href="#top" data-scroll><span
+      class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon ci-arrow-up">
+    </i></a>
+  <!-- Vendor scrits: js libraries and plugins-->
+  <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/simplebar/dist/simplebar.min.js"></script>
+  <script src="vendor/tiny-slider/dist/min/tiny-slider.js"></script>
+  <script src="vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+  <script src="vendor/nouislider/dist/nouislider.min.js"></script>
+  <script src="vendor/drift-zoom/dist/Drift.min.js"></script>
+  <!-- Main theme script-->
+  <script src="js/theme.min.js"></script>
+</body>
+
+</html>
