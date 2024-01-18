@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Cartzilla | Isometric Device Mockups Bundle</title>
+    <title> 약국 상세 보기</title>
     <!-- SEO Meta Tags-->
     <meta name="description" content="Cartzilla - Bootstrap E-commerce Template">
     <meta name="keywords"
@@ -25,425 +25,715 @@
     <link rel="stylesheet" media="screen" href="vendor/lightgallery/css/lightgallery-bundle.min.css" />
     <!-- Main Theme Styles + Bootstrap-->
     <link rel="stylesheet" media="screen" href="css/theme.min.css">
+    <!-- Vendor Styles ====  추가 ==  -->
+    <link rel="stylesheet" media="screen" href="vendor/prismjs/themes/prism.css" />
+    <link rel="stylesheet" media="screen" href="vendor/prismjs/plugins/line-numbers/prism-line-numbers.css" />
+    <link rel="stylesheet" media="screen" href="vendor/tiny-slider/dist/tiny-slider.css" />
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <!--  여기서 부터 폰트 스타일 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@800&family=Noto+Sans+KR:wght@500&display=swap"
+        rel="stylesheet">
+    <style>
+        /* 지도 스타일 시작 */
+        .map_wrap,
+        .map_wrap * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;
+            font-size: 12px;
+        }
+
+        .map_wrap {
+            position: relative;
+            width: 100%;
+            height: 350px;
+        }
+
+        #category {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            border-radius: 5px;
+            border: 1px solid #909090;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+            background: #fff;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        #category li {
+            float: left;
+            list-style: none;
+            width: 50px;
+            border-right: 1px solid #acacac;
+            padding: 6px 0;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        #category li.on {
+            background: #eee;
+        }
+
+        #category li:hover {
+            background: #ffe6e6;
+            border-left: 1px solid #acacac;
+            margin-left: -1px;
+        }
+
+        #category li:last-child {
+            margin-right: 0;
+            border-right: 0;
+        }
+
+        #category li span {
+            display: block;
+            margin: 0 auto 3px;
+            width: 27px;
+            height: 28px;
+        }
+
+        #category li .category_bg {
+            background: url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_category.png) no-repeat;
+        }
+
+        #category li .pharmacy {
+            background-position: -10px -72px;
+        }
+
+        #category li.on .category_bg {
+            background-position-x: -46px;
+        }
+
+        .placeinfo_wrap {
+            position: absolute;
+            bottom: 28px;
+            left: -150px;
+            width: 300px;
+        }
+
+        .placeinfo {
+            position: relative;
+            width: 100%;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            background: #fff;
+        }
+
+        .placeinfo:nth-of-type(n) {
+            border: 0;
+            box-shadow: 0px 1px 2px #888;
+        }
+
+        .placeinfo_wrap .after {
+            content: '';
+            position: relative;
+            margin-left: -12px;
+            left: 50%;
+            width: 22px;
+            height: 12px;
+            background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')
+        }
+
+        .placeinfo a,
+        .placeinfo a:hover,
+        .placeinfo a:active {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .placeinfo a,
+        .placeinfo span {
+            display: block;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .placeinfo span {
+            margin: 5px 5px 0 5px;
+            cursor: default;
+            font-size: 13px;
+        }
+
+        .placeinfo .title {
+            font-weight: bold;
+            font-size: 14px;
+            border-radius: 6px 6px 0 0;
+            margin: -1px -1px 0 -1px;
+            padding: 10px;
+            color: #fff;
+            background: #d95050;
+            background: #d95050 url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png) no-repeat right 14px center;
+        }
+
+        .placeinfo .tel {
+            color: #0f7833;
+        }
+
+        .placeinfo .jibun {
+            color: #999;
+            font-size: 11px;
+            margin-top: 0;
+        }
+
+        h2 {
+            color: white;
+        }
+
+        * {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .blodFont {
+            font-family: 'Nanum Gothic', sans-serif;
+        }
+
+        .fs-5 {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .text-na {
+            color: #f24453c6;
+        }
+
+        /* 지도 스타일 끝 */
+    </style>
 </head>
 
-<!-- Body-->
-
-<!--------------------------------------------------------  툴바 -->
-
-<body class="handheld-toolbar-enabled">
-    <!-- Page Title-->
-    <div class="page-title-overlap bg-accent pt-4">
-        <div class="container d-lg-flex justify-content-between py-2 py-lg-3">
-            <div class="order-lg-2 mb-3 mb-lg-0 pt-lg-2">
-                <nav aria-label="breadcrumb">
-                    <ol
-                        class="breadcrumb breadcrumb-light flex-lg-nowrap justify-content-center justify-content-lg-start">
-                        <li class="breadcrumb-item"><a class="text-nowrap" href="index.html"><i
-                                    class="ci-home"></i>Home</a></li>
-                        <li class="breadcrumb-item text-nowrap"><a href="Find1.html"> 약국 찾기</a>
-                        </li>
-                        <li class="breadcrumb-item text-nowrap active" aria-current="page"> 약국 상세보기 </li>
-                    </ol>
-                </nav>
-            </div>
-            <div class="order-lg-1 pe-lg-4 text-center text-lg-start">
-                <h1 class="h3 text-light mb-0"> 약국 상세보기</h1>
-            </div>
-        </div>
-    </div>
-    <!-- Shadow box-->
-    <section class="container mb-3 pb-3">
-        <div class="bg-light shadow-lg rounded-3 overflow-hidden">
-            <div class="row">
-                <!-- Content-->
-                <section class="col-lg-8 pt-2 pt-lg-4 pb-4 mb-lg-3">
-                    <div class="pt-3 px-4 pe-lg-0 ps-xl-5">
-                        <!-- Product gallery-->
-                        <div class="gallery">
-                            <div class="row">
-                                <img src="imgs/pharmacy/phar2.png" style="width: 80%; height: 500px;" alt="Product"></a>
-
+<body>
+    <main class="page-wrapper">
+        <!-- 헤더 시작 -->
+        <header class="bg-dark shadow-sm navbar-sticky container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand d-none d-sm-block flex-shrink-0 order-lg-1 m-0 p-0" href="main.html">
+                        <img src="imgs/LogoE_r.png" width="55" alt=""></a>
+                    <!-- Toolbar-->
+                    <div class="navbar-toolbar d-flex align-items-center order-lg-3">
+                        <a class="navbar-tool d-none d-lg-flex" href="dashboard-favorites.html"><span
+                                class="navbar-tool-tooltip">나의 구급함</span>
+                            <div class="navbar-tool-icon-box"><i class="navbar-tool-icon ci-basket-alt"></i></div>
+                        </a>
+                        <a class="navbar-tool d-none d-lg-flex" href="dashboard-favorites.html"><span
+                                class="navbar-tool-tooltip">즐겨찾기</span>
+                            <div class="navbar-tool-icon-box"><i class="navbar-tool-icon ci-heart"></i></div>
+                        </a>
+                        <div class="navbar-tool dropdown ms-2"><a class="" href="dashboard-sales.html">
+                                <img src="imgs/account/donga_logo.png" height="32" width="32" alt="보령제약"></a>
+                            <a class="navbar-tool-text   ms-n1" href="dashboard-sales.html"><small>동아제약</small>기업 회원</a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <div style="min-width: 14rem;">
+                                    <h6 class="dropdown-header">계정 정보</h6><a
+                                        class="dropdown-item d-flex   align-items-center" href="accountOrder.html"><i
+                                            class="ci-settings opacity-60   me-2"></i>마이
+                                        페이지</a><a class="dropdown-item d-flex align-items-center"
+                                        href="dashboard-purchases.html"><i class="ci-basket opacity-60 me-2"></i>구매
+                                        하기</a><a class="dropdown-item d-flex align-items-center"
+                                        href="dashboard-favorites.html"><i
+                                            class="ci-heart opacity-60 me-2"></i>장바구니<span
+                                            class="fs-xs text-muted ms-auto">4</ span></a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item d-flex align-items-center" href="account-signin.html"><i
+                                            class="ci-sign-out opacity-60 me-2"></i>Sign Out</a>
+                                </div>
                             </div>
-                        </div>
-                        <!-- Wishlist + Sharing-->
-                        <div class="d-flex flex-wrap justify-content-between align-items-center border-top pt-3">
-                            <div class="py-2 me-2">
-                                <button class="btn btn-outline-accent" type="button"><i
-                                        class="ci-star fs-lg me-2"></i>약국 즐겨찾기</button>
-                            </div>
-                            <div class="py-2"><i class="ci-share-alt fs-lg align-middle text-muted me-2"></i><a
-                                    class="btn-social bs-outline bs-facebook bs-sm ms-2" href="#"><i
-                                        class="ci-facebook"></i></a><a
-                                    class="btn-social bs-outline bs-twitter bs-sm ms-2" href="#"><i
-                                        class="ci-twitter"></i></a><a
-                                    class="btn-social bs-outline bs-pinterest bs-sm ms-2" href="#"><i
-                                        class="ci-pinterest"></i></a><a
-                                    class="btn-social bs-outline bs-instagram bs-sm ms-2" href="#"><i
-                                        class="ci-instagram"></i></a></div>
                         </div>
                     </div>
-                </section>
-                <!-- Sidebar-->
-                <aside class="col-lg-4 ps-xl-5">
-                    <hr class="d-lg-none">
-                    <div class="bg-white h-100 p-4 ms-auto border-start">
-                        <div class="px-lg-2">
-                            <hr>
-                            <ul class="list-unstyled fs-sm">
-                                <li class="d-flex justify-content-between mb-3 pb-3 border-bottom"><span
-                                        class="text-dark fw-medium">
-                                        약국 이름 : 하늘약국
-
-                                        영업시간(월) : 0900~2030
-                                        영업시간(화) : 0900~2030
-                                        영업시간(수) : 0900~2030
-                                        영업시간(목) : 0900~2030
-                                        영업시간(금) : 0900~2030
-                                        우편번호 : 03157 </span><span class="text-muted">April
-                                        27, 2019</span></li>
-                                <li class="d-flex justify-content-between mb-3 pb-3 border-bottom"><span
-                                        class="text-dark fw-medium"> 주소지 : 서울특별시 종로구 종로 19, 르메이에르종로타운1 2층 226-2호
-                                        (종로1가)</span>
+                    <div class="collapse navbar-collapse me-auto order-lg-2 ms-3" id="navbarCollapse">
+                        <!-- Primary menu-->
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link blodFont h4 text-white " href="Main.html">Home</a>
+                            </li>
+                            <li class="nav-item dropdown h4 text-white"><a class="nav-link dropdown-toggle" href="#"
+                                    data-bs-toggle="dropdown" data-bs-auto-close="outside">의약품 정보</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">약 상세검색</a></li>
+                                    <li><a class="dropdown-item" href="#">복약 정보</a></li>
+                                    <li><a class="dropdown-item" href="#">안전성 서한</a></li>
+                                    <li class="dropdown-item" href="#">안전 사용</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle h4 text-white"
+                                    href="Find.html">약국 찾기</a></li>
+                            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle h4 text-white" href="#"
+                                    data-bs-toggle="dropdown" data-bs-auto-close="outside">의약품 쇼핑몰</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">증상별 추천 아이템</a></li>
+                                    <li><a class="dropdown-item" href="#">테마별 추천 아이템</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle h4 text-white"
+                                    href="BoardMain.html">Community</a>
+                                <ul class="dropdown-menu">
+                                    <li class="dropdown"><a class="dropdown-item dropdown-toggle h4" href="#"
+                                            data-bs-toggle="dropdown">후기</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="BoardDrugreview.html">의약품 후기</a></li>
+                                            <li><a class="dropdown-item" href="BoardPharmacyreview.html">약국 후기</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">질문과 답변</a></li>
+                                    <li><a class="dropdown-item" href="#">공지사항</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle blodFont h4 text-white" href="#"
+                                    data-bs-toggle="dropdown" data-bs-auto-close="outside">Newsroom</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">관련 뉴스</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- 헤더 끝 -->
+        <!----===================================================================================================== 헤더 끝 -->
+        <!-- Hero section  히어로 섹션 =============================================================-->
+        <section class="mt-n5 mb-5 bg-dark"
+            style="background-color: white; background-image: url(); background-repeat: no-repeat; background-position: 85% center; height: 250px;">
+            <div class="pb-lg-1 mb-lg-3">
+                <div class="container d-lg-flex justify-content-between py-2 py-lg-5 my-lg-5">
+                    <div class="order-lg-2 mb-3 mb-lg-0 pt-lg-2">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb flex-lg-nowrap justify-content-center justify-content-lg-start fs-5">
+                                <li class="breadcrumb-item "><a class="text-nowrap text-light" href="main.html"><i
+                                            class="ci-home"></i>Home</a></li>
+                                <li class="breadcrumb-item text-nowrap"><a class="text-light" href="#"> 약국 찾기 </a>
                                 </li>
-                                <li class="d-flex justify-content-between mb-3 pb-3 border-bottom"><span
-                                        class="text-dark fw-medium"> 약국 전화번호 : 02-733-9006</span> </li>
-                                <li class="d-flex justify-content-between mb-3 pb-3 border-bottom"><span
-                                        class="text-dark fw-medium">Compatible with</span><span
-                                        class="text-muted">Photoshop CS5</span></li>
-                                <li class="d-flex justify-content-between pb-3 border-bottom"><span
-                                        class="text-dark fw-medium">File size</span><span class="text-muted">56
-                                        MB</span></li>
-                            </ul>
-                        </div>
+                                <li class="breadcrumb-item text-nowrap">
+                                    <span class=" fs-5 text-danger"> 약국 상세보기 </span>
+                                </li>
+                            </ol>
+                        </nav>
                     </div>
-                </aside>
+                    <div class="order-lg-1 pe-lg-4 text-center text-lg-start">
+                        <h1 class="blodFont mb-0 text-light"> 약국 상세보기 </h1>
+                        <br>
+                        <p class="h5 mb-1 text-light">
+                            운영시간이 변동될 수 있으므로 약국에 전화 확인 후 방문해주시기 바랍니다.
+                        <p class="h5 mb-0 text-light">약국 운영시간은 대한약사회에서 제공하는 정보입니다.</p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
-    <!-- Product description + Reviews + Comments-->
-    <section class="container mb-4 mb-lg-5">
-        <!--  =============================================================  리뷰 ==============-->
-        <!-- Reviews-->
-        <div class="border-top border-bottom my-lg-3 py-5">
-            <div class="container pt-md-2" id="reviews">
-                <div class="row pb-3">
-                    <div class="col-lg-4 col-md-5">
-                        <h2 class="h3 mb-4">74 Reviews</h2>
-                        <div class="star-rating me-2"><i class="ci-star-filled fs-sm text-accent me-1"></i><i
-                                class="ci-star-filled fs-sm text-accent me-1"></i><i
-                                class="ci-star-filled fs-sm text-accent me-1"></i><i
-                                class="ci-star-filled fs-sm text-accent me-1"></i><i
-                                class="ci-star fs-sm text-muted me-1"></i></div><span
-                            class="d-inline-block align-middle">4.1 평점 </span>
-                        <p class="pt-3 fs-sm text-muted">58 out of 74 (77%)<br>Customers recommended this product</p>
+        </section>
+
+        <!-- Body-->
+        <!--------------------------------------------------------  툴바 -->
+        <br>
+
+        <body class="handheld-toolbar-enabled">
+            <!-- Shadow box-->
+            <section class="container mb-2 pb-3" style="margin-top: 10px;">
+                <div class="row">
+                    <div class="d-flex justify-content-between">
+                        <div class="h1 blodFont mb-5" id=""> 하늘 약국 </div>
+                        <div class="py-2 me-2">
+                            <button class="btn btn-outline-accent" type="button"><i class="ci-star fs-lg me-2"></i>약국
+                                즐겨찾기</button>
+                        </div>
                     </div>
-                    <div class="col-lg-8 col-md-7">
-                        <div class="d-flex align-items-center mb-2">
-                            <div class="text-nowrap me-3"><span
-                                    class="d-inline-block align-middle text-muted">5</span><i
-                                    class="ci-star-filled fs-xs ms-1"></i></div>
-                            <div class="w-100">
-                                <div class="progress" style="height: 4px;">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 60%;"
-                                        aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="mb-3 pb-4">
+                        <span class="h3">
+                            <i class="ci-location text-success fw-bold  me-2 h2"></i>
+                            서울특별시 종로구 종로 19, 르메이에르종로타운1 2층 226-2호
+                            (종로1가)
+                        </span>
+                    </div>
+
+                    <!--========================================================= 지도 ===== 지도를 표시할 div 입니다 -->
+                    <div id="map" style="width:100%; height:450px;"></div>
+
+                    <script type="text/javascript"
+                        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=adce9c041442fa349eecbf8b8bea554d">
+                        </script>
+                    <script>
+                        var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+                            mapOption = {
+                                center: new kakao.maps.LatLng(37.5666103, 126.9783882), // 지도의 중심좌표
+                                level: 2 // 지도의 확대 레벨
+                            };
+
+                        // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+                        var map = new kakao.maps.Map(mapContainer, mapOption); 
+                    </script>
+                    <div class=" row" style="margin-top: 70px;">
+                        <h2 class="mb-4 text-muted blodFont h2" id=""> 상세 정보 </h2>
+                        <div class="row h3">
+                            <div class="mb-2 pb-4">
+                                <i class="ci-phone me-2 text-success fw-bold h2"></i> 061 - 277 -2100
+                            </div>
+                            <div class=" d-flex justify-content-between mb-2">
+                                <div class="" style="width: 360px;">
+                                    <i class="ci-time me-2 text-success fw-bold  h2"></i> 운영 시간
                                 </div>
-                            </div><span class="text-muted ms-3">43</span>
-                        </div>
-                        <div class="d-flex align-items-center mb-2">
-                            <div class="text-nowrap me-3"><span
-                                    class="d-inline-block align-middle text-muted">4</span><i
-                                    class="ci-star-filled fs-xs ms-1"></i></div>
-                            <div class="w-100">
-                                <div class="progress" style="height: 4px;">
-                                    <div class="progress-bar" role="progressbar"
-                                        style="width: 27%; background-color: #a7e453;" aria-valuenow="27"
-                                        aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div class="row d-flex justify-content-between mb-4" style="margin-left: 30px;">
+                                <div class="col row mb-1">
+                                    <div> 월요일 &nbsp; 09:00 ~ 20:30 </div>
+                                    <div> 화요일 &nbsp; 09:00 ~ 20:30 </div>
+                                    <div> 수요일 &nbsp; 09:00 ~ 20:30 </div>
+                                    <div> 목요일 &nbsp; 09:00 ~ 20:30 </div>
+                                    <div> 금요일 &nbsp; 09:00 ~ 20:30 </div>
                                 </div>
-                            </div><span class="text-muted ms-3">16</span>
-                        </div>
-                        <div class="d-flex align-items-center mb-2">
-                            <div class="text-nowrap me-3"><span
-                                    class="d-inline-block align-middle text-muted">3</span><i
-                                    class="ci-star-filled fs-xs ms-1"></i></div>
-                            <div class="w-100">
-                                <div class="progress" style="height: 4px;">
-                                    <div class="progress-bar" role="progressbar"
-                                        style="width: 17%; background-color: #ffda75;" aria-valuenow="17"
-                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="col mb-1" style="margin-right: 500px;">
+                                    <div> 토요일 &nbsp; 09:00 ~ 20:30</div>
+                                    <div> 일요일 &nbsp; 09:00 ~ 20:30</div>
+                                    <div> &nbsp;</div>
+                                    <div> 공휴일 &nbsp; 09:00 ~ 20:30</div>
                                 </div>
-                            </div><span class="text-muted ms-3">9</span>
-                        </div>
-                        <div class="d-flex align-items-center mb-2">
-                            <div class="text-nowrap me-3"><span
-                                    class="d-inline-block align-middle text-muted">2</span><i
-                                    class="ci-star-filled fs-xs ms-1"></i></div>
-                            <div class="w-100">
-                                <div class="progress" style="height: 4px;">
-                                    <div class="progress-bar" role="progressbar"
-                                        style="width: 9%; background-color: #fea569;" aria-valuenow="9"
-                                        aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div><span class="text-muted ms-3">4</span>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <div class="text-nowrap me-3"><span
-                                    class="d-inline-block align-middle text-muted">1</span><i
-                                    class="ci-star-filled fs-xs ms-1"></i></div>
-                            <div class="w-100">
-                                <div class="progress" style="height: 4px;">
-                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 4%;"
-                                        aria-valuenow="4" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div><span class="text-muted ms-3">2</span>
+                            </div>
+                            <div class="mb-2 pb-4">
+                                <i class="ci-moon me-2 text-success fw-bold  h2"></i> 심야 약국 , 주말약국
+                            </div>
+                            <div class="mb-2 pb-4">
+                                <i class="ci-home me-2 text-success fw-bold  h2"></i> 20년 이상 건강을 책임지고 있는
+                                약국입니다. 1년
+                                365일 연중무휴, 야간 운영합니다
+                            </div>
+
                         </div>
                     </div>
                 </div>
-                <hr class="mt-4 mb-3">
-                <div class="row pt-4">
-                    <!-- Reviews list-->
-                    <div class="col-md-7">
-                        <div class="d-flex justify-content-end pb-4">
-                            <div class="d-flex align-items-center flex-nowrap">
-                                <label class="fs-sm text-muted text-nowrap me-2 d-none d-sm-block"
-                                    for="sort-reviews">Sort by:</label>
-                                <select class="form-select form-select-sm" id="sort-reviews">
-                                    <option> 최신 등록순 </option>
-                                    <option> 오래된 순 </option>
-                                    <option> 인기 순 </option>
-                                    <option> 평점 높은 순 </option>
-                                    <option>Low rating</option>
-                                </select>
-                            </div>
-                        </div>
-                        <!-- Review  =========================== 리뷰 1개 ====-->
-                        <div class="product-review pb-4 mb-4 border-bottom">
-                            <div class="d-flex mb-3">
-                                <div class="d-flex align-items-center me-4 pe-2">
-                                    <i class="ci-user text-accent me-1" style="font-size: 25px;"></i>
-                                    <div class="ps-3">
-                                        <h6 class="fs-sm mb-0"> 나경원 </h6><span class="fs-ms text-muted">6월
-                                            28, 2019</span>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i
-                                            class="star-rating-icon ci-star-filled active"></i><i
-                                            class="star-rating-icon ci-star-filled active"></i><i
-                                            class="star-rating-icon ci-star-filled active"></i><i
-                                            class="star-rating-icon ci-star"></i>
-                                    </div>
-                                    <div class="fs-ms text-muted">83% of users found this review helpful</div>
-                                </div>
-                            </div>
-                            <p class="fs-md mb-2"> 아는 게 없는데, 이걸 어떻게 다 하나욥
+                <hr class="mb-4">
+            </section>
 
+            <!---- 이용 후기 ========================================== -->
+            <!-- Product description + Reviews + Comments-->
+            <section class="container mb-4 mb-lg-5" style="margin-top: 30px;">
+                <div class="container d-flex justify-content-between">
+                    <div class=" h2 mb-4 blodFont" id=""> 약국 이용후기
+                        <div class="d-inline-block h3 text-accent"> (3)
+                        </div>
+                    </div>
+                    <div>
+                        <a class="btn btn-accent" type="button" href="BoardReviewWrite.html">
+                            <i class="ci-edit-alt me-2"></i> 이용후기 작성
+                        </a>
+                    </div>
+
+                </div>
+                <hr class="mb-4 text-accent">
+
+                <div class="card col mb-4">
+                    <div class="card-body">
+                        <!-- Product review -->
+                        <div class="product-review">
+                            <div class="d-flex mb-3">
+                                <div class="d-flex align-items-center me-0 pe-0">
+                                    <img class="rounded-circle" width="50" src="img/blog/meta/04.jpg"
+                                        alt="Rafael Marquez" />
+                                    <div class="ps-3">
+                                        <h6 class="h5 mb-1"> 나경원</h6>
+                                        <span class="h6 text-muted">2022년 8월 20일 </span>
+                                    </div>
+                                </div>
+                                <div style="margin-left: 40px;">
+                                    <div class="star-rating">
+                                        <i class="fs-5 star-rating-icon ci-star-filled active"></i>
+                                        <i class="fs-5 star-rating-icon ci-star-filled active"></i>
+                                        <i class="fs-5 star-rating-icon ci-star-filled active"></i>
+                                        <i class="fs-5 star-rating-icon ci-star-filled active"></i>
+                                        <i class="fs-5 star-rating-icon ci-star"></i>
+                                    </div>
+                                </div>
+                                <div class="text-nowrap" style="margin-left: 700px;">
+                                    <button class="btn-like" type="button">15</button>
+                                    <button class="btn-dislike" type="button">3</button>
+                                </div>
+                            </div>
+                            <p class="h3 mb-3">
+                                복약지도 친절ㅎ해요
                             </p>
-                            <ul class="list-unstyled fs-ms pt-1">
-                                <li class="mb-1"><span class="fw-medium"> 장점:&nbsp;</span>Consequuntur magni,
-                                    voluptatem sequi, tempora</li>
-                                <li class="mb-1"><span class="fw-medium">단점:&nbsp;</span>Architecto beatae, quis autem
-                                </li>
-                            </ul>
-                            <div class="text-nowrap">
-                                <button class="btn-like" type="button">15</button>
-                                <button class="btn-dislike" type="button">3</button>
-                            </div>
-                        </div>
-                        <!-- Review-->
-                        <div class="product-review pb-4 mb-4 border-bottom">
-                            <div class="d-flex mb-3">
-                                <div class="d-flex align-items-center me-4 pe-2"><img class="rounded-circle"
-                                        src="img/shop/reviews/02.jpg" width="50" alt="Barbara Palson">
-                                    <div class="ps-3">
-                                        <h6 class="fs-sm mb-0">Barbara Palson</h6><span class="fs-ms text-muted">May 17,
-                                            2019</span>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i
-                                            class="star-rating-icon ci-star-filled active"></i><i
-                                            class="star-rating-icon ci-star-filled active"></i><i
-                                            class="star-rating-icon ci-star-filled active"></i><i
-                                            class="star-rating-icon ci-star-filled active"></i>
-                                    </div>
-                                    <div class="fs-ms text-muted">99% of users found this review helpful</div>
-                                </div>
-                            </div>
-                            <p class="fs-md mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            <ul class="list-unstyled fs-ms pt-1">
-                                <li class="mb-1"><span class="fw-medium">Pros:&nbsp;</span>Consequuntur magni,
-                                    voluptatem sequi, tempora</li>
-                                <li class="mb-1"><span class="fw-medium">Cons:&nbsp;</span>Architecto beatae, quis autem
-                                </li>
-                            </ul>
-                            <div class="text-nowrap">
-                                <button class="btn-like" type="button">34</button>
-                                <button class="btn-dislike" type="button">1</button>
-                            </div>
-                        </div>
-                        <!-- Review-->
-                        <div class="product-review pb-4 mb-4 border-bottom">
-                            <div class="d-flex mb-3">
-                                <div class="d-flex align-items-center me-4 pe-2"><img class="rounded-circle"
-                                        src="img/shop/reviews/03.jpg" width="50" alt="Daniel Adams">
-                                    <div class="ps-3">
-                                        <h6 class="fs-sm mb-0">Daniel Adams</h6><span class="fs-ms text-muted">May 8,
-                                            2019</span>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i>
-                                        <i class="star-rating-icon ci-star-filled active"></i><i
-                                            class="star-rating-icon ci-star-filled active"></i><i
-                                            class="star-rating-icon ci-star"></i><i
-                                            class="star-rating-icon ci-star"></i>
-                                    </div>
-                                    <div class="fs-ms text-muted">75% of users found this review helpful</div>
-                                </div>
-                            </div>
-                            <p class="fs-md mb-2">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
-                                veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
-                                voluptatem.</p>
-                            <ul class="list-unstyled fs-ms pt-1">
-                                <li class="mb-1"><span class="fw-medium">Pros:&nbsp;</span>Consequuntur magni,
-                                    voluptatem sequi</li>
-                                <li class="mb-1"><span class="fw-medium">Cons:&nbsp;</span>Architecto beatae, quis
-                                    autem, voluptatem sequ</li>
-                            </ul>
-                            <div class="text-nowrap">
-                                <button class="btn-like" type="button">26</button>
-                                <button class="btn-dislike" type="button">9</button>
-                            </div>
-                        </div>
-                        <div class="text-center">
-                            <button class="btn btn-outline-accent" type="button"><i class="ci-reload me-2"></i>Load more
-                                reviews</button>
-                        </div>
-                    </div>
-                    <!-- Leave review form ==============  리뷰 폼 ========================-->
-                    <div class="col-md-5 mt-2 pt-4 mt-md-0 pt-md-0">
-                        <div class="bg-secondary py-grid-gutter px-grid-gutter rounded-3">
-                            <h3 class="h4 pb-2"> 리뷰 작성하기 </h3>
-                            <form class="needs-validation" method="post" novalidate>
-                                <div class="mb-3">
-                                    <label class="form-label" for="review-name"> 이름 <span
-                                            class="text-danger">*</span></label>
-                                    <input class="form-control" type="text" required id="review-name">
-                                    <div class="invalid-feedback">Please enter your name!</div><small
-                                        class="form-text text-muted">Will be displayed on the comment.</small>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label" for="review-email">메일<span
-                                            class="text-danger">*</span></label>
-                                    <input class="form-control" type="email" required id="review-email">
-                                    <div class="invalid-feedback">Please provide valid email address!</div><small
-                                        class="form-text text-muted">Authentication only - we won't spam you.</small>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label" for="review-rating">Rating<span
-                                            class="text-danger">*</span></label>
-                                    <select class="form-select" required id="review-rating">
-                                        <option value="">Choose rating</option>
-                                        <option value="5">5 stars</option>
-                                        <option value="4">4 stars</option>
-                                        <option value="3">3 stars</option>
-                                        <option value="2">2 stars</option>
-                                        <option value="1">1 star</option>
-                                    </select>
-                                    <div class="invalid-feedback">Please choose rating!</div>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label" for="review-text"> 리뷰<span
-                                            class="text-danger">*</span></label>
-                                    <textarea class="form-control" rows="6" required id="review-text"></textarea>
-                                    <div class="invalid-feedback">Please write a review!</div><small
-                                        class="form-text text-muted">Your review must be at least 50 characters.</small>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label" for="review-pros">장점</label>
-                                    <textarea class="form-control" rows="2" placeholder="Separated by commas"
-                                        id="review-pros"></textarea>
-                                </div>
-                                <div class="mb-3 mb-4">
-                                    <label class="form-label" for="review-cons">단점</label>
-                                    <textarea class="form-control" rows="2" placeholder="Separated by commas"
-                                        id="review-cons"></textarea>
-                                </div>
-                                <button class="btn btn-primary btn-shadow d-block w-100" type="submit">Submit a
-                                    Review</button>
-                            </form>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
+                <div class="card col mb-4">
+                    <div class="card-body">
+                        <!-- Product review -->
+                        <div class="product-review">
+                            <div class="d-flex mb-3">
+                                <div class="d-flex align-items-center me-0 pe-0">
+                                    <img class="rounded-circle" width="50" src="img/blog/meta/04.jpg"
+                                        alt="Rafael Marquez" />
+                                    <div class="ps-3">
+                                        <h6 class="h5 mb-1"> 나경원</h6>
+                                        <span class="h6 text-muted">2022년 8월 20일 </span>
+                                    </div>
+                                </div>
+                                <div style="margin-left: 40px;">
+                                    <div class="star-rating">
+                                        <i class="fs-5 star-rating-icon ci-star-filled active"></i>
+                                        <i class="fs-5 star-rating-icon ci-star-filled active"></i>
+                                        <i class="fs-5 star-rating-icon ci-star-filled active"></i>
+                                        <i class="fs-5 star-rating-icon ci-star-filled active"></i>
+                                        <i class="fs-5 star-rating-icon ci-star"></i>
+                                    </div>
+                                </div>
+                                <div class="text-nowrap" style="margin-left: 700px;">
+                                    <button class="btn-like" type="button">15</button>
+                                    <button class="btn-dislike" type="button">3</button>
+                                </div>
+                            </div>
+                            <p class="h3 mb-3">
+                                복약지도 친절ㅎ해요
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card col mb-4">
+                    <div class="card-body">
+                        <!-- Product review -->
+                        <div class="product-review">
+                            <div class="d-flex mb-3">
+                                <div class="d-flex align-items-center me-0 pe-0">
+                                    <img class="rounded-circle" width="50" src="img/blog/meta/04.jpg"
+                                        alt="Rafael Marquez" />
+                                    <div class="ps-3">
+                                        <h6 class="h5 mb-1"> 나경원</h6>
+                                        <span class="h6 text-muted">2022년 8월 20일 </span>
+                                    </div>
+                                </div>
+                                <div style="margin-left: 40px;">
+                                    <div class="star-rating">
+                                        <i class="fs-5 star-rating-icon ci-star-filled active"></i>
+                                        <i class="fs-5 star-rating-icon ci-star-filled active"></i>
+                                        <i class="fs-5 star-rating-icon ci-star-filled active"></i>
+                                        <i class="fs-5 star-rating-icon ci-star-filled active"></i>
+                                        <i class="fs-5 star-rating-icon ci-star"></i>
+                                    </div>
+                                </div>
+                                <div class="text-nowrap" style="margin-left: 700px;">
+                                    <button class="btn-like" type="button">15</button>
+                                    <button class="btn-dislike" type="button">3</button>
+                                </div>
+                            </div>
+                            <p class="h3 mb-3">
+                                복약지도 친절ㅎ해요
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <div class=""> </div>
+                    <a class="btn btn-outline-accent" type="button" href="BoardPharmacyreview.html">
+                        <i class="ci-arrow-right me-2"></i> 이용후기 더 보기
+                    </a>
+                </div>
+
+                </div>
+
+                <br><br><br>
+
+                <!-- Related posts-->
+                <div class="bg-secondary py-4">
+                    <div class="container py-4 mb-lg-5">
+                        <h2 class="h2 text-center pb-4"> 주변 다른 약국 </h2>
+                        <div class="tns-carousel">
+                            <div class="tns-carousel-inner"
+                                data-carousel-options="{&quot;items&quot;: 2, &quot;controls&quot;: false, &quot;autoHeight&quot;: true, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;500&quot;:{&quot;items&quot;:2, &quot;gutter&quot;: 20},&quot;900&quot;:{&quot;items&quot;:3, &quot;gutter&quot;: 20}, &quot;1100&quot;:{&quot;items&quot;:3, &quot;gutter&quot;: 30}}}">
+                                <!-- article-->
+                                <div>
+                                    <div class="card product-card">
+                                        <a class="card-img-top d-block overflow-hidden" href="FindPharmacy.html">
+                                            <img src="imgs/pharmacy/phar1.png" style="width: 100%; height: 230px;"
+                                                alt="Product"></a>
+                                        <!-- ---------- ---------  약국 이미지 -->
+                                        <div class="card-body">
+                                            <div
+                                                class="d-flex flex-wrap justify-content-between align-items-start pb-2">
+                                                <h3 class="product-title mb-2 blodFont"><a href="FindPharmacy.html">
+                                                        논현튼튼 싱싱약국
+                                                    </a>
+                                                </h3>
+                                                <!-- 별 -->
+                                                <div class="h5 text-warning"> 이용후기 (3) </div>
+                                                <div class="Pharmacy-name">
+                                                    <div class="h5 me-1">
+                                                        <i class="ci-location me-1"></i> 서울 논현역
+                                                    </div>
+                                                    <div class="h5 me-1">
+                                                        <i class="ci-phone me-1"></i> 054-834-0015
+                                                    </div>
+                                                    <h1 class="product-title h5 mb-3 me-1">
+                                                        <i class="ci-time text-muted me-1"></i> 영업시간
+                                                        <span class="h6 ms-2 text-muted">08:00 - 19:00</span>
+                                                    </h1>
+                                                </div>
+                                                <div class="d-flex h5" style="margin-top: 5px;">
+                                                    <div class="bg-success text-white rounded-1 py-2 px-3 h5 me-3">
+                                                        <i class="ci-moon text-white me-1"></i> 심야 약국
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- article-->
+                                <div>
+                                    <div class="card product-card">
+                                        <a class="card-img-top d-block overflow-hidden" href="FindPharmacy.html">
+                                            <img src="imgs/pharmacy/phar1.png" style="width: 100%; height: 230px;"
+                                                alt="Product"></a>
+                                        <!-- ---------- ---------  약국 이미지 -->
+                                        <div class="card-body">
+                                            <div
+                                                class="d-flex flex-wrap justify-content-between align-items-start pb-2">
+                                                <h3 class="product-title mb-2 blodFont"><a href="FindPharmacy.html">
+                                                        논현튼튼 싱싱약국
+                                                    </a>
+                                                </h3>
+                                                <!-- 별 -->
+                                                <div class="h5 text-warning"> 이용후기 (3) </div>
+                                                <div class="Pharmacy-name">
+                                                    <div class="h5 me-1">
+                                                        <i class="ci-location me-1"></i> 서울 논현역
+                                                    </div>
+                                                    <div class="h5 me-1">
+                                                        <i class="ci-phone me-1"></i> 054-834-0015
+                                                    </div>
+                                                    <h1 class="product-title h5 mb-3 me-1">
+                                                        <i class="ci-time text-muted me-1"></i> 영업시간
+                                                        <span class="h6 ms-2 text-muted">08:00 - 19:00</span>
+                                                    </h1>
+                                                </div>
+                                                <div class="d-flex h5" style="margin-top: 5px;">
+                                                    <div class="bg-success text-white rounded-1 py-2 px-3 h5 me-3">
+                                                        <i class="ci-moon text-white me-1"></i> 심야 약국
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- article-->
+                                <div>
+                                    <div class="card product-card">
+                                        <a class="card-img-top d-block overflow-hidden" href="FindPharmacy.html">
+                                            <img src="imgs/pharmacy/phar1.png" style="width: 100%; height: 230px;"
+                                                alt="Product"></a>
+                                        <!-- ---------- ---------  약국 이미지 -->
+                                        <div class="card-body">
+                                            <div
+                                                class="d-flex flex-wrap justify-content-between align-items-start pb-2">
+                                                <h3 class="product-title mb-2 blodFont"><a href="FindPharmacy.html">
+                                                        논현튼튼 싱싱약국
+                                                    </a>
+                                                </h3>
+                                                <!-- 별 -->
+                                                <div class="h5 text-warning"> 이용후기 (3) </div>
+                                                <div class="Pharmacy-name">
+                                                    <div class="h5 me-1">
+                                                        <i class="ci-location me-1"></i> 서울 논현역
+                                                    </div>
+                                                    <div class="h5 me-1">
+                                                        <i class="ci-phone me-1"></i> 054-834-0015
+                                                    </div>
+                                                    <h1 class="product-title h5 mb-3 me-1">
+                                                        <i class="ci-time text-muted me-1"></i> 영업시간
+                                                        <span class="h6 ms-2 text-muted">08:00 - 19:00</span>
+                                                    </h1>
+                                                </div>
+                                                <div class="d-flex h5" style="margin-top: 5px;">
+                                                    <div class="bg-success text-white rounded-1 py-2 px-3 h5 me-3">
+                                                        <i class="ci-moon text-white me-1"></i> 심야 약국
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- article-->
+                                <div>
+                                    <div class="card product-card">
+                                        <a class="card-img-top d-block overflow-hidden" href="FindPharmacy.html">
+                                            <img src="imgs/pharmacy/phar1.png" style="width: 100%; height: 230px;"
+                                                alt="Product"></a>
+                                        <!-- ---------- ---------  약국 이미지 -->
+                                        <div class="card-body">
+                                            <div
+                                                class="d-flex flex-wrap justify-content-between align-items-start pb-2">
+                                                <h3 class="product-title mb-2 blodFont"><a href="FindPharmacy.html">
+                                                        논현튼튼 싱싱약국
+                                                    </a>
+                                                </h3>
+                                                <!-- 별 -->
+                                                <div class="h5 text-warning"> 이용후기 (3) </div>
+
+                                                <div class="Pharmacy-name">
+                                                    <div class="h5 me-1">
+                                                        <i class="ci-location me-1"></i> 서울 논현역
+                                                    </div>
+                                                    <div class="h5 me-1">
+                                                        <i class="ci-phone me-1"></i> 054-834-0015
+                                                    </div>
+                                                    <h1 class="product-title h5 mb-3 me-1">
+                                                        <i class="ci-time text-muted me-1"></i> 영업시간
+                                                        <span class="h6 ms-2 text-muted">08:00 - 19:00</span>
+                                                    </h1>
+                                                </div>
+                                                <div class="d-flex h5" style="margin-top: 5px;">
+                                                    <div class="bg-success text-white rounded-1 py-2 px-3 h5 me-3">
+                                                        <i class="ci-moon text-white me-1"></i> 심야 약국
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </body>
+
     </main>
-    <!-- Footer-->
-    <footer class="footer bg-dark pt-5">
-        <div class="container pt-2 pb-3">
+    <!-- 푸터 시작-->
+    <footer class="footer bg-dark pt-5 ">
+        <div class="container pt-1 pb-1">
             <div class="row">
-                <div class="col-md-6 text-center text-md-start mb-4">
+                <div class="col-md-6 text-center text-md-start mb-2">
                     <div class="text-nowrap mb-3"><a class="d-inline-block align-middle mt-n2 me-2" href="#"><img
-                                class="d-block" src="img/footer-logo-light.png" width="117" alt="Cartzilla"></a><span
-                            class="d-inline-block align-middle h5 fw-light text-white mb-0">Marketplace</span></div>
-                    <p class="fs-sm text-white opacity-70 pb-1">High quality items created by our global community.</p>
-                    <h6 class="d-inline-block pe-3 me-3 border-end border-light"><span class="text-primary">65,478
-                        </span><span class="fw-normal text-white">Products</span></h6>
-                    <h6 class="d-inline-block pe-3 me-3 border-end border-light"><span class="text-primary">2,521
-                        </span><span class="fw-normal text-white">Members</span></h6>
-                    <h6 class="d-inline-block me-3"><span class="text-primary">897 </span><span
-                            class="fw-normal text-white">Vendors</span></h6>
-                    <div class="widget mt-4 text-md-nowrap text-center text-md-start"><a
-                            class="btn-social bs-light bs-twitter me-2 mb-2" href="#"><i class="ci-twitter"></i></a><a
-                            class="btn-social bs-light bs-facebook me-2 mb-2" href="#"><i class="ci-facebook"></i></a><a
-                            class="btn-social bs-light bs-dribbble me-2 mb-2" href="#"><i class="ci-dribbble"></i></a><a
-                            class="btn-social bs-light bs-behance me-2 mb-2" href="#"><i class="ci-behance"></i></a><a
-                            class="btn-social bs-light bs-pinterest me-2 mb-2" href="#"><i class="ci-pinterest"></i></a>
+                                class="d-block" src="imgs/LogoE_r.png" width="100" alt="Cartzilla"></ a><span
+                                class="d-inline-block align-middle h5 fw-bold text-white mb-0">DRUG24</ span>
                     </div>
+                    <span class="d-inline-block align-middle h5 fw-bold text-white mb-0">About us</ span><br>
+                        <p class="fs-sm text-white opacity-70 pb-1">DRUG24는 약 24,000개의 의약품 정보를
+                            제공합니다.<br>오남용 없이 안전하게 복용하세요</p>
+                        <h6 class="d-inline-block pe-3 me-3 border-end border-light"><span class="text-primary">5,478
+                            </span><span class="fw-normal text-white">Products</ span>
+                        </h6>
+                        <h6 class="d-inline-block pe-3 me-3 border-end border-light"><span class="text-primary">521
+                            </span><span class="fw-normal text-white">Pharmacy</ span>
+                        </h6>
+                        <h6 class="d-inline-block me-3"><span class="text-primary">17 </span><span
+                                class="fw-normal text-white">Pharmacist</span></h6>
                 </div>
-                <!-- Mobile dropdown menu (visible on screens below md)-->
-                <div class="col-12 d-md-none text-center mb-4 pb-2">
-                    <div class="btn-group dropdown d-block mx-auto mb-3">
-                        <button class="btn btn-outline-light border-light dropdown-toggle" type="button"
-                            data-bs-toggle="dropdown">Categories</button>
-                        <ul class="dropdown-menu my-1">
-                            <li><a class="dropdown-item" href="#">Photos</a></li>
-                            <li><a class="dropdown-item" href="#">Graphics</a></li>
-                            <li><a class="dropdown-item" href="#">UI Design</a></li>
-                            <li><a class="dropdown-item" href="#">Web Themes</a></li>
-                            <li><a class="dropdown-item" href="#">Fonts</a></li>
-                            <li><a class="dropdown-item" href="#">Add-Ons</a></li>
-                        </ul>
-                    </div>
-                    <div class="btn-group dropdown d-block mx-auto">
-                        <button class="btn btn-outline-light border-light dropdown-toggle" type="button"
-                            data-bs-toggle="dropdown">For members</button>
-                        <ul class="dropdown-menu my-1">
-                            <li><a class="dropdown-item" href="#">Licenses</a></li>
-                            <li><a class="dropdown-item" href="#">Return policy</a></li>
-                            <li><a class="dropdown-item" href="#">Payment methods</a></li>
-                            <li><a class="dropdown-item" href="#">Become a vendor</a></li>
-                            <li><a class="dropdown-item" href="#">Become an affiliate</a></li>
-                            <li><a class="dropdown-item" href="#">Marketplace benefits</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- Desktop menu (visible on screens above md)-->
                 <div class="col-md-3 d-none d-md-block text-center text-md-start mb-4">
                     <div class="widget widget-links widget-light pb-2">
                         <h3 class="widget-title text-light">Categories</h3>
                         <ul class="widget-list">
-                            <li class="widget-list-item"><a class="widget-list-link" href="#">Photos</a></li>
-                            <li class="widget-list-item"><a class="widget-list-link" href="#">Graphics</a></li>
-                            <li class="widget-list-item"><a class="widget-list-link" href="#">UI Design</a></li>
-                            <li class="widget-list-item"><a class="widget-list-link" href="#">Web Themes</a></li>
-                            <li class="widget-list-item"><a class="widget-list-link" href="#">Fonts</a></li>
-                            <li class="widget-list-item"><a class="widget-list-link" href="#">Add-Ons</a></li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">Drug Search</ a>
+                            </li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">Pharmacy
+                                    Search</a></li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">Medicine
+                                    Info</a></li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">Newsroom</ a>
+                            </li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">Shopping
+                                    Mall</a></li>
                         </ul>
                     </div>
                 </div>
@@ -451,76 +741,21 @@
                     <div class="widget widget-links widget-light pb-2">
                         <h3 class="widget-title text-light">For members</h3>
                         <ul class="widget-list">
-                            <li class="widget-list-item"><a class="widget-list-link" href="#">Licenses</a></li>
-                            <li class="widget-list-item"><a class="widget-list-link" href="#">Return policy</a></li>
-                            <li class="widget-list-item"><a class="widget-list-link" href="#">Payment methods</a></li>
-                            <li class="widget-list-item"><a class="widget-list-link" href="#">Become a vendor</a></li>
-                            <li class="widget-list-item"><a class="widget-list-link" href="#">Become an affiliate</a>
-                            </li>
-                            <li class="widget-list-item"><a class="widget-list-link" href="#">Marketplace benefits</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Second row-->
-        <div class="pt-5 bg-darker">
-            <div class="container">
-                <div class="widget w-100 mb-4 pb-3 text-center mx-auto" style="max-width: 28rem;">
-                    <h3 class="widget-title text-light pb-1">Subscribe to newsletter</h3>
-                    <form class="subscription-form validate"
-                        action="https://studio.us12.list-manage.com/subscribe/post?u=c7103e2c981361a6639545bd5&amp;amp;id=29ca296126"
-                        method="post" name="mc-embedded-subscribe-form" target="_blank" novalidate>
-                        <div class="input-group flex-nowrap"><i
-                                class="ci-mail position-absolute top-50 translate-middle-y text-muted fs-base ms-3"></i>
-                            <input class="form-control rounded-start" type="email" name="EMAIL" placeholder="Your email"
-                                required>
-                            <button class="btn btn-primary" type="submit" name="subscribe">Subscribe*</button>
-                        </div>
-                        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                        <div style="position: absolute; left: -5000px;" aria-hidden="true">
-                            <input class="subscription-form-antispam" type="text"
-                                name="b_c7103e2c981361a6639545bd5_29ca296126" tabindex="-1">
-                        </div>
-                        <div class="form-text text-light opacity-50">*Receive early discount offers, updates and new
-                            products info.</div>
-                        <div class="subscription-status"></div>
-                    </form>
-                </div>
-                <hr class="hr-light mb-3">
-                <div class="d-md-flex justify-content-between pt-4">
-                    <div class="pb-4 fs-xs text-light opacity-50 text-center text-md-start">© All rights reserved. Made
-                        by <a class="text-light" href="https://createx.studio/" target="_blank" rel="noopener">Createx
-                            Studio</a></div>
-                    <div class="widget widget-links widget-light pb-4">
-                        <ul class="widget-list d-flex flex-wrap justify-content-center justify-content-md-start">
-                            <li class="widget-list-item ms-4"><a class="widget-list-link fs-ms" href="#">Help Center</a>
-                            </li>
-                            <li class="widget-list-item ms-4"><a class="widget-list-link fs-ms" href="#">Affiliates</a>
-                            </li>
-                            <li class="widget-list-item ms-4"><a class="widget-list-link fs-ms" href="#">Support</a>
-                            </li>
-                            <li class="widget-list-item ms-4"><a class="widget-list-link fs-ms" href="#">Terms &amp;
-                                    Conditions</a></li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">My First Aid
+                                    Kit</a></li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">My Page</a></ li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">Pharmacy
+                                    Reviews</a></li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">Medicine
+                                    Reaviews</a></li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">Notice</a></ li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
-    <!-- Toolbar for handheld devices (Marketplace)-->
-    <div class="handheld-toolbar">
-        <div class="d-table table-layout-fixed w-100"><a class="d-table-cell handheld-toolbar-item"
-                href="dashboard-favorites.html"><span class="handheld-toolbar-icon"><i class="ci-heart"></i></span><span
-                    class="handheld-toolbar-label">Favorites</span></a><a class="d-table-cell handheld-toolbar-item"
-                href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-                onclick="window.scrollTo(0, 0)"><span class="handheld-toolbar-icon"><i class="ci-menu"></i></span><span
-                    class="handheld-toolbar-label">Menu</span></a><a class="d-table-cell handheld-toolbar-item"
-                href="marketplace-cart.html"><span class="handheld-toolbar-icon"><i class="ci-cart"></i><span
-                        class="badge bg-primary rounded-pill ms-1">3</span></span><span
-                    class="handheld-toolbar-label">$56.00</span></a></div>
-    </div>
+    <!-- 푸터 끝 -->
     <!-- Back To Top Button--><a class="btn-scroll-top" href="#top" data-scroll><span
             class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon ci-arrow-up">
         </i></a>
