@@ -11,10 +11,10 @@
     <!-- Viewport-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Vendor Styles including: Font Icons, Plugins, etc.-->
-    <link rel="stylesheet" media="screen" href="${path}/vendor/simplebar/dist/simplebar.min.css"/>
-    <link rel="stylesheet" media="screen" href="${path}/vendor/tiny-slider/dist/tiny-slider.css"/>
+    <link rel="stylesheet" media="screen" href="${path}/resources/vendor/simplebar/dist/simplebar.min.css"/>
+    <link rel="stylesheet" media="screen" href="${path}/resources/vendor/tiny-slider/dist/tiny-slider.css"/>
     <!-- Main Theme Styles + Bootstrap-->
-    <link rel="stylesheet" media="screen" href="${path}/css/theme.min.css">
+    <link rel="stylesheet" media="screen" href="${path}/resources/css/theme.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@800&family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
   </head>
   <!-- Body-->
