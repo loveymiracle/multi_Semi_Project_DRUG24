@@ -157,6 +157,222 @@ COMMIT;
 SELECT * FROM MEMBER;
 
 ---------------------------------------------------
+------------------- 약국 테이블 ----------------------
+---------------------------------------------------
+
+CREATE TABLE PHARMACY (
+	phNO 		INT PRIMARY KEY AUTO_INCREMENT,
+    phNAME 		VARCHAR(100),
+    phTEL 		VARCHAR(13),
+	phADDRESS 	VARCHAR(1000),
+	phPICURL 	text NULL,
+	phOP1 		VARCHAR(100),
+	phOP2 		VARCHAR(100),
+	phOP3 		VARCHAR(100),
+	phOP4 		VARCHAR(100),
+	phOP5 		VARCHAR(100),
+	phOP6 		VARCHAR(100),
+	phLATI 		VARCHAR(30) DEFAULT '37.49864',
+	phLONG 		VARCHAR(30) DEFAULT '127.02811',
+	REVIEWCOUNT	INT DEFAULT '0',
+	FAVCOUNT 	INT DEFAULT '0',
+	RATING 		INT DEFAULT '0',
+	STATUS		VARCHAR(1) DEFAULT 'Y' CHECK (STATUS IN('Y', 'N'))
+);
+
+INSERT INTO PHARMACY (
+	phNO, phNAME, phTEL, phADDRESS, phPICURL,
+	phOP1, phOP2, phOP3, phOP4, phOP5,
+    phOP6, phLATI, phLONG, REVIEWCOUNT, FAVCOUNT,
+    RATING, STATUS
+) VALUES(
+	0, '이즈타워약국', '02-501-9489', '서울 강남구 테헤란로', NULL, 
+    '월 10:00~15:00', '화 10:00~15:00', '수 10:00~15:00', '목 10:00~15:00', '금 10:00~15:00',
+    '토 10:00~18:00', '37.49864', '127.02811', DEFAULT, DEFAULT,
+    DEFAULT, DEFAULT
+);
+
+INSERT INTO PHARMACY (
+	phNO, phNAME, phTEL, phADDRESS, phPICURL,
+	phOP1, phOP2, phOP3, phOP4, phOP5,
+    phOP6, phLATI, phLONG, REVIEWCOUNT, FAVCOUNT,
+    RATING, STATUS
+) VALUES(
+	0, '미진약국', '02-566-1954', '서울 강남구 강남대로', NULL, 
+    '월 09:30~21:00', '화 09:30~21:00', '수 09:30~21:00', '목 09:00~21:00', '금 09:00~21:00',
+    '토 09:00~18:00', '37.49795', '127.02855', DEFAULT, DEFAULT,
+    DEFAULT, DEFAULT
+);
+
+INSERT INTO PHARMACY (
+	phNO, phNAME, phTEL, phADDRESS, phPICURL,
+	phOP1, phOP2, phOP3, phOP4, phOP5,
+    phOP6, phLATI, phLONG, REVIEWCOUNT, FAVCOUNT,
+    RATING, STATUS
+) VALUES(
+	0, '강남역2번출구약국', '02-565-5490', '서울 강남구 강남대로', 'https://www.google.com/maps/place/%EA%B0%95%EB%82%A8%EC%97%AD+2%EB%B2%88%EC%B6%9C%EA%B5%AC+%EC%95%BD%EA%B5%AD/@37.4973576,127.0283168,3a,75y,90t/data=!3m8!1e2!3m6!1sAF1QipPdh1rhxrq1jXj0r4mkjdZKXNNeXOnrhmypXp-u!2e10!3e12!6shttps:%2F%2Flh5.googleusercontent.com%2Fp%2FAF1QipPdh1rhxrq1jXj0r4mkjdZKXNNeXOnrhmypXp-u%3Dw114-h86-k-no!7i4032!8i3024!4m10!1m2!2m1!1z64m07JqV7JW96rWt!3m6!1s0x357ca16bc8f58189:0x5b342f9a8055b1a6!8m2!3d37.4973576!4d127.0283168!10e5!16s%2Fg%2F11pyc1t_zv?hl=ko&entry=ttu#', 
+    '월 09:30~19:30', '화 09:30~19:30', '수 08:30~14:00', '목 09:30~19:30', '금 09:30~20:00',
+    '토일 08:50~12:00', '37.49750', '127.02872', DEFAULT, DEFAULT,
+    DEFAULT, DEFAULT
+);
+
+INSERT INTO PHARMACY (
+	phNO, phNAME, phTEL, phADDRESS, phPICURL,
+	phOP1, phOP2, phOP3, phOP4, phOP5,
+    phOP6, phLATI, phLONG, REVIEWCOUNT, FAVCOUNT,
+    RATING, STATUS
+) VALUES(
+	0, '뉴욕약국', '070-4147-3039', '서울 강남구 테헤란로', 'https://www.google.com/maps/place/%EB%89%B4%EC%9A%95%EC%95%BD%EA%B5%AD/@37.4987204,127.0286696,3a,75y,90t/data=!3m8!1e2!3m6!1s5i_rZG4lmLXMPq9OGt6TPGUpKBlZVygxF6ZxeeUEkIcqPln_LUb7fPCVrNo1VJX-!2e9!3e27!6s%2F%2Flh6.googleusercontent.com%2F5i_rZG4lmLXMPq9OGt6TPGUpKBlZVygxF6ZxeeUEkIcqPln_LUb7fPCVrNo1VJX-%3Dw86-h86-k-no!7i2448!8i2448!4m11!1m2!2m1!1z64m07JqV7JW96rWt!3m7!1s0x357ca159db47d5fd:0x7ce8d0aa4d79956c!8m2!3d37.4987204!4d127.0286696!10e5!15sCgzribTsmpXslb3qta1aDyIN64m07JqVIOyVveq1rZIBCWRydWdzdG9yZeABAA!16s%2Fg%2F11h67qs4gl?hl=ko&entry=ttu#', 
+    '월 09:00~21:30', '화 09:00~21:30', '수 09:00~21:30', '목 09:00~21:30', '금 09:00~21:30',
+    '토 09:00~18:30', '37.50179', '127.04018', DEFAULT, DEFAULT,
+    DEFAULT, DEFAULT
+);
+
+COMMIT;
+
+SELECT * FROM PHARMACY;
+
+-- DROP TABLE PHARMACY;
+
+---------------------------------------------------
+------------------- 약 테이블 ----------------------
+---------------------------------------------------
+
+CREATE TABLE MEDICINE (
+	dNO	INT	PRIMARY KEY,
+	dNAME VARCHAR(100),
+	dEFFECT	VARCHAR(500),
+	dUSAGE VARCHAR(500),
+	dWARNC	VARCHAR(500),
+	dWARN VARCHAR(500),
+	dNEGATIVE VARCHAR(500),
+	dSAVE VARCHAR(500),
+	dIMGURL	TEXT NULL,
+    dTYPE VARCHAR(10) COMMENT 'DUR',
+	dPROHBT	VARCHAR(500) COMMENT 'DUR',
+	dPROHBTNAME VARCHAR(500) COMMENT 'DUR',
+	CREATE_DATE	DATETIME DEFAULT CURRENT_TIMESTAMP,
+	MODIFY_DATE DATETIME DEFAULT CURRENT_TIMESTAMP,
+	STATUS VARCHAR(1) DEFAULT 'Y' CHECK (STATUS IN ('Y', 'N'))
+);
+
+INSERT INTO MEDICINE (
+	dNO, dNAME, dEFFECT, dUSAGE, dWARNC,
+    dWARN, dNEGATIVE, dSAVE,
+    dIMGURL, dTYPE, dPROHBT, dPROHBTNAME,
+    CREATE_DATE, MODIFY_DATE, STATUS
+) VALUES(
+	195700020, '활명수', '이 약은 식욕감퇴(식욕부진), 위부팽만감, 소화불량, 과식, 체함, 구역, 구토에 사용합니다.', '만 15세 이상 및 성인은 1회 1병(75 mL), 만 11세이상~만 15세미만은 1회 2/3병(50 mL), 만 8세 이상~만 11세 미만은 1회 1/2병(37.5 mL), 만 5세 이상~만 8세 미만은 1회 1/3병(25 mL), 만 3세 이상~만 5세 미만은 1회 1/4병(18.75 mL), 만 1세 이상~만 3세 미만은 1회 1/5병(15 mL), 1일 3회 식후에 복용합니다. 복용간격은 4시간 이상으로 합니다.', NULL,
+    '만 3개월 미만의 젖먹이는 이 약을 복용하지 마십시오.', NULL, '습기와 빛을 피해 실온에서 보관하십시오.',
+    NULL, NULL, NULL, NULL,
+    DEFAULT, DEFAULT, DEFAULT
+);
+
+INSERT INTO MEDICINE (
+	dNO, dNAME, dEFFECT, dUSAGE, dWARNC,
+    dWARN, dNEGATIVE, dSAVE,
+    dIMGURL, dTYPE, dPROHBT, dPROHBTNAME,
+    CREATE_DATE, MODIFY_DATE, STATUS
+) VALUES(
+	201307928, '에이스린장용정(아스피린)', '이 약은 심근경색, 뇌경색, 불안정형 협심증에서 혈전 생성 억제와 관상동맥 우회술(CABG) 또는 경피경관 관상동맥 성형술(PTCA) 후 혈전 생성 억제와 고위험군환자(허혈성 심장질환의 가족력, 고혈압, 고콜레스테롤혈증, 비만, 당뇨 등 복합적 위험인자를 가진 환자)에서 심혈관계 위험성 감소에 사용합니다.', '성인은 1회 1정, 1일 1회 복용합니다.', '임신 1기와 2기에는 반드시 필요한 경우가 아니라면 이 약을 복용하지 마십시오.',
+    '다른 비스테로이드성 소염진통제 및 살리실산 제제, 일주일 동안 메토트렉세이트 15밀리그람(15mg/주) 이상의 용량은 이 약과 병용 투여 시 출혈이 증가되거나 신기능이 감소될 수 있으므로 함께 사용하지 않습니다.', '식욕부진, 가슴쓰림, 위통, 구역, 구토 등이 나타날 수 있습니다.', '습기와 빛을 피해 실온에서 보관하십시오.',
+    NULL, '노인주의', NULL, NULL,
+    DEFAULT, DEFAULT, DEFAULT
+);
+
+COMMIT;
+
+SELECT * FROM MEDICINE;
+
+---------------------------------------------------
+------------------- 건기식 테이블 ----------------------
+---------------------------------------------------
+
+CREATE TABLE HEALTHFOOD (
+	pNO	INT	PRIMARY KEY AUTO_INCREMENT,
+	pNAME VARCHAR(1000),
+    pLINK VARCHAR(1000),
+    pIMG VARCHAR(1000),
+    pPrice INT,
+    pMALLNAME VARCHAR(1000),
+	pPRODUCTID VARCHAR(1000),
+	pTYPE VARCHAR(1000),
+	pBRAND VARCHAR(1000),
+    pMAKER VARCHAR(1000),
+	CATEGORY1 VARCHAR(1000),
+	CATEGORY2 VARCHAR(1000),
+	CATEGORY3 VARCHAR(1000),
+	CATEGORY4 VARCHAR(1000),
+    pSCOREAVG INT,
+    pAMOUNT INT
+);
+
+INSERT INTO HEALTHFOOD (
+	pNO, pNAME, pLINK, pIMG, pPRICE,
+    pMALLNAME, pPRODUCTID, pTYPE, pBRAND, pMAKER,
+    CATEGORY1, CATEGORY2, CATEGORY3, CATEGORY4, pSCOREAVG,
+    pAMOUNT
+) VALUES(
+	'0', '고려인삼', 'https://pmall.co', '0.png', '150000',
+    '인삼몰', '001', '건강기능식품', '고려', '고려제약',
+    '인삼', '홍삼아니고', '찐거아니고', '국내산', '3',
+    '1'
+);
+
+COMMIT;
+
+SELECT * FROM HEALTHFOOD;
+
+---------------------------------------------------
+------------------- 주문 테이블 ---------------------
+---------------------------------------------------
+
+CREATE TABLE ORDERS (
+	oNO INT PRIMARY KEY AUTO_INCREMENT,
+	mNO INT,
+	pNO INT,
+	PAYMETHOD VARCHAR(20) DEFAULT 'KAKAOPAY',
+	PRICE INT,
+	REQUESTS VARCHAR(100) NULL,
+	CREATE_DATE DATETIME DEFAULT CURRENT_TIMESTAMP,
+	MODIFY_DATE DATETIME DEFAULT CURRENT_TIMESTAMP,
+	STATUS VARCHAR(1) DEFAULT 'Y' CHECK(STATUS IN('Y', 'N')),
+    CONSTRAINT FOREIGN KEY (mNO) REFERENCES MEMBER (mNO) ON DELETE SET NULL,
+    CONSTRAINT FOREIGN KEY (pNO) REFERENCES HEALTHFOOD (pNO) ON DELETE SET NULL
+);
+
+INSERT INTO ORDERS (oNO, mNO, pNO, PAYMETHOD, PRICE, REQUESTS) VALUES(0, 2, 1, DEFAULT, 150000, NULL);
+
+COMMIT;
+
+SELECT * FROM ORDERS;
+
+-- DROP TABLE ORDERS;
+
+---------------------------------------------------
+------------------ 장바구니 테이블 ---------------------
+---------------------------------------------------
+
+CREATE TABLE CART (
+	cartNO INT PRIMARY KEY AUTO_INCREMENT,
+	mNO INT,
+	pNO	INT,
+	QUANTITY INT,
+    PRICE INT,
+	CREATE_DATE DATETIME DEFAULT CURRENT_TIMESTAMP,
+	MODIFY_DATE DATETIME DEFAULT CURRENT_TIMESTAMP,
+	STATUS VARCHAR(1) DEFAULT 'Y' CHECK (STATUS IN ('Y', 'N')),
+    CONSTRAINT FOREIGN KEY (mNO) REFERENCES MEMBER (mNO) ON DELETE SET NULL,
+    CONSTRAINT FOREIGN KEY (pNO) REFERENCES HEALTHFOOD (pNO) ON DELETE SET NULL
+);
+
+INSERT INTO CART (cartNO, mNO, pNO, QUANTITY, PRICE) VALUES(0, 2, 1, 2, 300000);
+
+COMMIT;
+
+SELECT * FROM CART;
+
+---------------------------------------------------
 --------------- Board 카테고리 테이블 ------------------
 ---------------------------------------------------
 
@@ -173,16 +389,19 @@ INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('PLAIN', '일반'
 INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('QUESTION', '질문', 3, 3);
 INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('TIP', 'TIP', 3, 4);
 INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('NEWS', '뉴스', 3, 5);
-INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('CMM1', '약 및 건기식 리뷰', 3, 6);
+INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('CMM1', '약리뷰', 3, 6);
 INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('CMM2', '약국리뷰', 3, 7);
-INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('SLETTER', '안전성서한', 3, 8);
-INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('NBOARD', '공지사항', 3, 9);
-INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('LIFE', '일상정보', 3, 10);
-INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('HEALTH', '건강', 3, 11);
+INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('CMM3', '건기식리뷰', 3, 8);
+INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('SLETTER', '안전성서한', 3, 9);
+INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('NBOARD', '공지사항', 3, 10);
+INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('LIFE', '일상정보', 3, 11);
+INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('HEALTH', '건강', 3, 12);
 
 COMMIT;
 
 SELECT * FROM BOARD_CATEGORY ORDER BY ORDERNO;
+
+-- DROP TABLE BOARD_CATEGORY;
 
 -------------------------------------------------
 --------------- 게시판 ----------------------------
@@ -306,11 +525,11 @@ INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 2, 'QUESTION', '[�
  COMMIT;
  
  SELECT * FROM BOARD;
---  DROP TABLE BOARD;
+--  DROP TABLE BOARD; 
  
  
 ------------------------------------------------------------------
---------------------------- 게시판 첨부파일 --------------------------
+--------------------------- 게시판 첨부파일 -------------------------
 ------------------------------------------------------------------
 
  CREATE TABLE BOARD_ATTACH_FILE (
@@ -374,13 +593,14 @@ SELECT * FROM REPLY_BOARD;
 -- DROP TABLE REPLY_BOARD; 
 
 -------------------------------------------------
---------------- 약 리뷰 게시판 ----------------------
+--------------- 약,건기식 리뷰 게시판 ----------------------
 -------------------------------------------------
 
 CREATE TABLE MBOARD (
 	mbNO INT AUTO_INCREMENT,
 	mNO INT,
-	ITEMNAME VARCHAR(1000),
+	dNO INT,
+    pNO INT,
     TYPE VARCHAR(20) DEFAULT 'CMM1',
     TITLE VARCHAR(1000),
     CONTENT VARCHAR(2000),
@@ -393,279 +613,335 @@ CREATE TABLE MBOARD (
 	CREATE_DATE DATETIME DEFAULT CURRENT_TIMESTAMP,
 	MODIFY_DATE DATETIME DEFAULT CURRENT_TIMESTAMP,
 	CONSTRAINT PK_MBOARD_NO PRIMARY KEY(mbNO),
-    CONSTRAINT FK_MBOARD_ITEM FOREIGN KEY(ITEMNAME) REFERENCES MEDICINE(ITEMNAME) ON DELETE SET NULL,
+    CONSTRAINT FK_MBOARD_ITEM FOREIGN KEY(dNO) REFERENCES MEDICINE(dNO) ON DELETE SET NULL,
+    CONSTRAINT FK_MBOARD_PRODUCT FOREIGN KEY(pNO) REFERENCES HEALTHFOOD(pNO) ON DELETE SET NULL,
     CONSTRAINT FK_MBOARD_WRITER FOREIGN KEY(mNO) REFERENCES MEMBER(mNO) ON DELETE SET NULL,
     CONSTRAINT FK_MBOARD_CATEGORY FOREIGN KEY(TYPE) REFERENCES BOARD_CATEGORY(TYPE) ON DELETE SET NULL
 );
 
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 1, 'NOTICE', '[공지] 의약품 및 건강기능식품 리뷰 게시판입니다.',
+INSERT INTO MBOARD (mbNO, mNO, dNO, pNO, TYPE, TITLE, CONTENT) VALUES(0, 1, NULL, NULL, 'NOTICE', '[공지] 의약품 및 건강기능식품 리뷰 게시판입니다.',
 '의약품 및 건강기능식품 평가 및 후기 작성 해주세요.');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 1, 'NOTICE', '[공지] 욕설, 도배 및 광고 금지 합니다.',
+INSERT INTO MBOARD (mbNO, mNO, dNO, pNO, TYPE, TITLE, CONTENT) VALUES(0, 1, NULL, NUll, 'NOTICE', '[공지] 욕설, 도배 및 광고 금지 합니다.',
 '욕설, 도배 및 광고글 게시시 불이익을 받을 수 있습니다.');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 2, 'CMM1', '[약 및 건기식 리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 3, 'CMM1', '[약 및 건기식 리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 4, 'CMM1', '[약 및 건기식 리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 5, 'CMM1', '[약 및 건기식 리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 6, 'CMM1', '[약 및 건기식 리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 7, 'CMM1', '[약 및 건기식 리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 8, 'CMM1', '[약 및 건기식 리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 9, 'CMM1', '[약 및 건기식 리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 10, 'CMM1', '[약 및 건기식 리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 11, 'CMM1', '[약 및 건기식 리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 2, 'CMM1', '[약 및 건기식 리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 3, 'CMM1', '[약 및 건기식 리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 4, 'CMM1', '[약 및 건기식 리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 5, 'CMM1', '[약 및 건기식 리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 6, 'CMM1', '[약 및 건기식 리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 7, 'CMM1', '[약 및 건기식 리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 8, 'CMM1', '[약 및 건기식 리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 9, 'CMM1', '[약 및 건기식 리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 10, 'CMM1', '[약 및 건기식 리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 11, 'CMM1', '[약 및 건기식 리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 2, 'CMM1', '[약 및 건기식 리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 3, 'CMM1', '[약 및 건기식 리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 4, 'CMM1', '[약 및 건기식 리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 5, 'CMM1', '[약 및 건기식 리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 6, 'CMM1', '[약 및 건기식 리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 7, 'CMM1', '[약 및 건기식 리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 8, 'CMM1', '[약 및 건기식 리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 9, 'CMM1', '[약리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 10, 'CMM1', '[약리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 11, 'CMM1', '[약리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 2, 'CMM1', '[약리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 3, 'CMM1', '[약리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 4, 'CMM1', '[약리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 5, 'CMM1', '[약리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 6, 'CMM1', '[약리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 7, 'CMM1', '[약리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 8, 'CMM1', '[약리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 9, 'CMM1', '[약리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 10, 'CMM1', '[약리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 11, 'CMM1', '[약리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 2, 'CMM1', '[약리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 3, 'CMM1', '[약리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 4, 'CMM1', '[약리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 5, 'CMM1', '[약리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 6, 'CMM1', '[약리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 7, 'CMM1', '[약리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 8, 'CMM1', '[약리뷰] ,'
-'');
-INSERT INTO MBOARD (mbNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 9, 'CMM1', '[약리뷰] ,'
-'');
+INSERT INTO MBOARD (mbNO, mNO, dNO, pNO, TYPE, TITLE, CONTENT) VALUES(0, 2, NULL, 1, 'CMM3', '[건기식 리뷰] ,',
+'날마다 복용잘하고 있습니다! 고맙습니다!');
+INSERT INTO MBOARD (mbNO, mNO, dNO, pNO, TYPE, TITLE, CONTENT) VALUES(0, 3, NULL, NULL, 'CMM3', '[건기식 리뷰] ,',
+'효과가 아주 좋은것 같네요');
+INSERT INTO MBOARD (mbNO, mNO, dNO, pNO, TYPE, TITLE, CONTENT) VALUES(0, 4, NULL, NULL, 'CMM3', '[건기식 리뷰] ,',
+'구성 좋고! 가격 좋고!');
+INSERT INTO MBOARD (mbNO, mNO, dNO, pNO, TYPE, TITLE, CONTENT) VALUES(0, 5, NULL, NULL, 'CMM3', '[건기식 리뷰] ,',
+'온가족이 먹습니다.');
+INSERT INTO MBOARD (mbNO, mNO, dNO, pNO, TYPE, TITLE, CONTENT) VALUES(0, 6, NULL, NULL, 'CMM3', '[건기식 리뷰] ,',
+'날마다 1알씩 챙겨먹어요');
+INSERT INTO MBOARD (mbNO, mNO, dNO, pNO, TYPE, TITLE, CONTENT) VALUES(0, 7, NULL, NULL, 'CMM3', '[건기식 리뷰] ,',
+'잘먹고 있어요');
+INSERT INTO MBOARD (mbNO, mNO, dNO, pNO, TYPE, TITLE, CONTENT) VALUES(0, 8, NULL, NULL, 'CMM3', '[건기식 리뷰] ,',
+'배송 빠르네요~ 번창하세요.');
+INSERT INTO MBOARD (mbNO, mNO, dNO, pNO, TYPE, TITLE, CONTENT) VALUES(0, 9, NULL, NULL, 'CMM3', '[건기식 리뷰] ,',
+'꾸준히 잘 복용하고 있어요');
+INSERT INTO MBOARD (mbNO, mNO, dNO, pNO, TYPE, TITLE, CONTENT) VALUES(0, 10, NULL, NULL, 'CMM3', '[건기식 리뷰] ,',
+'가성비도 굿! 빠른배송도 굿!!');
+INSERT INTO MBOARD (mbNO, mNO, dNO, pNO, TYPE, TITLE, CONTENT) VALUES(0, 11, NULL, NULL, 'CMM3', '[건기식 리뷰] ,',
+'성분이 100% 함량이라고 하여 믿고 구매했어요');
+INSERT INTO MBOARD (mbNO, mNO, dNO, pNO, TYPE, TITLE, CONTENT) VALUES(0, 2, NULL, NULL, 'CMM3', '[건기식 리뷰] ,',
+'효과 만점이네요');
+INSERT INTO MBOARD (mbNO, mNO, dNO, pNO, TYPE, TITLE, CONTENT) VALUES(0, 3, NULL, NULL, 'CMM3', '[건기식 리뷰] ,',
+'재구매 합니다.');
+INSERT INTO MBOARD (mbNO, mNO, dNO, pNO, TYPE, TITLE, CONTENT) VALUES(0, 4, NULL, NULL, 'CMM3', '[건기식 리뷰] ,',
+'피로회복에 도움이 됩니다 ㅎ');
+INSERT INTO MBOARD (mbNO, mNO, dNO, pNO, TYPE, TITLE, CONTENT) VALUES(0, 5, NULL, NULL, 'CMM3', '[건기식 리뷰] ,',
+'복용하기 편하게 낱개로 위생포장되어 고급지다고 생각합니다.');
+INSERT INTO MBOARD (mbNO, mNO, dNO, pNO, TYPE, TITLE, CONTENT) VALUES(0, 6, NULL, NULL, 'CMM3', '[건기식 리뷰] ,',
+'재구매했습니다~~ 가격대비 최고');
+INSERT INTO MBOARD (mbNO, mNO, dNO, pNO, TYPE, TITLE, CONTENT) VALUES(0, 7, NULL, NULL, 'CMM3', '[건기식 리뷰] ,',
+'가성비 좋아 꾸준히 섭취 중');
+INSERT INTO MBOARD (mbNO, mNO, dNO, pNO, TYPE, TITLE, CONTENT) VALUES(0, 8, NULL, NULL, 'CMM3', '[건기식 리뷰] ,',
+'너무 좋아요 감사합니다.');
+INSERT INTO MBOARD (mbNO, mNO, dNO, pNO, TYPE, TITLE, CONTENT) VALUES(0, 9, NULL, NULL, 'CMM3', '[건기식 리뷰] ,',
+'매일 저녁 식사 후 잊지 않고 복용하고 있습니다.');
+INSERT INTO MBOARD (mbNO, mNO, dNO, pNO, TYPE, TITLE, CONTENT) VALUES(0, 10, NULL, NULL, 'CMM3', '[건기식 리뷰] ,',
+'평소 복용하는 약이 많아 걱정이었는데 보충도 하고 좋습니다');
+INSERT INTO MBOARD (mbNO, mNO, dNO, pNO, TYPE, TITLE, CONTENT) VALUES(0, 11, NULL, NULL, 'CMM3', '[건기식 리뷰] ,',
+'드러그24몰 믿고 구매합니다.');
+INSERT INTO MBOARD (mbNO, mNO, dNO, pNO, TYPE, TITLE, CONTENT) VALUES(0, 2, NULL, NULL, 'CMM1', '[약리뷰] ,',
+'두통엔 역시 ~ ');
+INSERT INTO MBOARD (mbNO, mNO, dNO, pNO, TYPE, TITLE, CONTENT) VALUES(0, 3, NULL, NULL, 'CMM1', '[약리뷰] ,',
+'타이레놀은 15분이죠!');
+INSERT INTO MBOARD (mbNO, mNO, dNO, pNO, TYPE, TITLE, CONTENT) VALUES(0, 4, NULL, NULL, 'CMM1', '[약리뷰] ,',
+'이만한 약이 없죠');
+INSERT INTO MBOARD (mbNO, mNO, dNO, pNO, TYPE, TITLE, CONTENT) VALUES(0, 5, NULL, NULL, 'CMM1', '[약리뷰] ,',
+'알고 먹는 약이 꿀맛이네요');
+INSERT INTO MBOARD (mbNO, mNO, dNO, pNO, TYPE, TITLE, CONTENT) VALUES(0, 6, NULL, NULL, 'CMM1', '[약리뷰] ,',
+'정보 감사합니다.');
+INSERT INTO MBOARD (mbNO, mNO, dNO, pNO, TYPE, TITLE, CONTENT) VALUES(0, 7, NULL, NULL, 'CMM1', '[약리뷰] ,',
+'약국에서 물어보기 그럴 떈 여기와서 찾아봐요');
+INSERT INTO MBOARD (mbNO, mNO, dNO, pNO, TYPE, TITLE, CONTENT) VALUES(0, 8, NULL, NULL, 'CMM1', '[약리뷰] ,',
+'부작용 정보를 알 수 있으니 더 조심하게 되네요');
+INSERT INTO MBOARD (mbNO, mNO, dNO, pNO, TYPE, TITLE, CONTENT) VALUES(0, 9, NULL, NULL, 'CMM1', '[약리뷰] ,',
+'더 많은 정보 올려주세요');
+INSERT INTO MBOARD (mbNO, mNO, dNO, pNO, TYPE, TITLE, CONTENT) VALUES(0, 10, NULL, NULL, 'CMM1', '[약리뷰] ,',
+'유명한 약들 한번씩 다 검색해보고 있어요');
+INSERT INTO MBOARD (mbNO, mNO, dNO, pNO, TYPE, TITLE, CONTENT) VALUES(0, 11, NULL, NULL, 'CMM1', '[약리뷰] ,',
+'신기하네요');
+INSERT INTO MBOARD (mbNO, mNO, dNO, pNO, TYPE, TITLE, CONTENT) VALUES(0, 2, NULL, NULL, 'CMM1', '[약리뷰] ,',
+'잘 보고 갑니다.');
+INSERT INTO MBOARD (mbNO, mNO, dNO, pNO, TYPE, TITLE, CONTENT) VALUES(0, 3, NULL, NULL, 'CMM1', '[약리뷰] ,',
+'감사합니다.');
+INSERT INTO MBOARD (mbNO, mNO, dNO, pNO, TYPE, TITLE, CONTENT) VALUES(0, 4, NULL, NULL, 'CMM1', '[약리뷰] ,',
+'보관 중인 상비약 검색해보고 있어요');
+INSERT INTO MBOARD (mbNO, mNO, dNO, pNO, TYPE, TITLE, CONTENT) VALUES(0, 5, NULL, NULL, 'CMM1', '[약리뷰] ,',
+'약 폐기는 어떻게 하나요? 그냥 버리나요?');
+INSERT INTO MBOARD (mbNO, mNO, dNO, pNO, TYPE, TITLE, CONTENT) VALUES(0, 6, NULL, NULL, 'CMM1', '[약리뷰] ,',
+'세상에 많은 약이 있네요 ');
+INSERT INTO MBOARD (mbNO, mNO, dNO, pNO, TYPE, TITLE, CONTENT) VALUES(0, 7, NULL, NULL, 'CMM1', '[약리뷰] ,',
+'건강하세요');
+INSERT INTO MBOARD (mbNO, mNO, dNO, pNO, TYPE, TITLE, CONTENT) VALUES(0, 8, NULL, NULL, 'CMM1', '[약리뷰] ,',
+'건강이 최고입니다.');
+INSERT INTO MBOARD (mbNO, mNO, dNO, pNO, TYPE, TITLE, CONTENT) VALUES(0, 9, NULL, NULL, 'CMM1', '[약리뷰] ,',
+'병용 금지라니 몰랐어요');
+INSERT INTO MBOARD (mbNO, mNO, dNO, pNO, TYPE, TITLE, CONTENT) VALUES(0, 10, NULL, NULL, 'CMM1', '[약리뷰] ,',
+'약에도 나이 제한이 있었네요');
+INSERT INTO MBOARD (mbNO, mNO, dNO, pNO, TYPE, TITLE, CONTENT) VALUES(0, 11, NULL, NULL, 'CMM1', '[약리뷰] ,',
+'내 간아 미안하다. 너무 독하게 먹었구나');
+
 
 COMMIT;
 
 SELECT * FROM MBOARD;
+-- DROP TABLE MBOARD;
 
-CREATE TABLE `PHARMACY` (
-	`pharmNo`	INT	NOT NULL,
-	`pharmaddr`	VARCHAR(100)	NOT NULL,
-	`pharmName`	VARCHAR(30)	NOT NULL,
-	`pharmTel`	VARCHAR(30)	NOT NULL,
-	`pharmPictureUrl`	text	NULL,
-	`pharmOp1`	VARCHAR(30)	NOT NULL,
-	`pharmOp2`	VARCHAR(30)	NOT NULL,
-	`pharmOp3`	VARCHAR(30)	NOT NULL,
-	`pharmOp4`	VARCHAR(30)	NOT NULL,
-	`pharmOp5`	VARCHAR(30)	NOT NULL,
-	`pharmOp6`	VARCHAR(30)	NOT NULL,
-	`pharmLati`	VARCHAR(30)	NOT NULL,
-	`pharmLong`	VARCHAR(30)	NOT NULL,
-	`reviewCount`	INT(11)	NOT NULL,
-	`favCount`	INT(11)	NOT NULL,
-	`pharmRating`	DECIMAL(2, 1)	NOT NULL,
-	`status`	VARCHAR(1)	NOT NULL	COMMENT '일반'
+------------------------------------------------------------------
+------------------------ 약, 건기식 게시판 첨부파일 ----------------------
+------------------------------------------------------------------
+
+ CREATE TABLE MBOARD_ATTACH_FILE (
+	fNO	INT	AUTO_INCREMENT,
+	mbNO INT,
+	ORIGINAL_FILENAME VARCHAR(200),
+	RENAMED_FILENAME VARCHAR(200),
+	CREATE_DATE DATETIME DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT PK_MBOARD_ATTACH_FILE PRIMARY KEY(fNO),
+    CONSTRAINT FK_MBOARD_BO FOREIGN KEY(mbNO) REFERENCES MBOARD(mbNO) ON DELETE CASCADE
 );
 
-CREATE TABLE `ORDERS` (
-	`oNo`	BIGINT(20)	NOT NULL,
-	`id`	VARCHAR(30)	NOT NULL,
-	`pNo`	INT	NOT NULL,
-	`pName`	VARCHAR(100)	NOT NULL,
-	`payMethod`	VARCHAR(50)	NOT NULL,
-	`totalPrice`	INT(10)	NOT NULL,
-	`requests`	VARCHAR(100)	NULL,
-	`createdDate`	TIMESTAMP	NOT NULL,
-	`modifiedDate`	TIMESTAMP	NOT NULL,
-	`status`	VARCHAR(1)	NOT NULL
+INSERT INTO MBOARD_ATTACH_FILE (fNO, mbNO, ORIGINAL_FILENAME, RENAMED_FILENAME, CREATE_DATE) VALUES(0, 1, '첨부파일2','TEST_FILE2', DEFAULT);
+UPDATE MBOARD SET ATTACHCOUNT =(SELECT COUNT(*) FROM MBOARD_ATTACH_FILE WHERE MBNO=1) WHERE MBNO=1;
+INSERT INTO MBOARD_ATTACH_FILE (fNO, mbNO, ORIGINAL_FILENAME, RENAMED_FILENAME, CREATE_DATE) VALUES(0, 2, '첨부파일','TEST_FILE', DEFAULT);
+INSERT INTO MBOARD_ATTACH_FILE (fNO, mbNO, ORIGINAL_FILENAME, RENAMED_FILENAME, CREATE_DATE) VALUES(0, 2, '첨부파일','TEST_FILE', DEFAULT);
+UPDATE MBOARD SET ATTACHCOUNT =(SELECT COUNT(*) FROM MBOARD_ATTACH_FILE WHERE MBNO=2) WHERE MBNO=2;
+INSERT INTO MBOARD_ATTACH_FILE (fNO, mbNO, ORIGINAL_FILENAME, RENAMED_FILENAME, CREATE_DATE) VALUES(0, 3, '첨부파일','TEST_FILE', DEFAULT);
+INSERT INTO MBOARD_ATTACH_FILE (fNO, mbNO, ORIGINAL_FILENAME, RENAMED_FILENAME, CREATE_DATE) VALUES(0, 3, '첨부파일','TEST_FILE', DEFAULT);
+INSERT INTO MBOARD_ATTACH_FILE (fNO, mbNO, ORIGINAL_FILENAME, RENAMED_FILENAME, CREATE_DATE) VALUES(0, 3, '첨부파일','TEST_FILE', DEFAULT);
+UPDATE MBOARD SET ATTACHCOUNT =(SELECT COUNT(*) FROM MBOARD_ATTACH_FILE WHERE MBNO=3) WHERE MBNO=3;
+
+COMMIT;
+
+SELECT * FROM BOARD_ATTACH_FILE;
+
+SELECT * FROM MBOARD;
+-- DROP TABLE MBOARD_ATTACH_FILE;
+
+-------------------------------------------------
+--------------- 약, 건기식 REPLY -------------------
+-------------------------------------------------
+
+CREATE TABLE REPLY_MBOARD (
+	rNO INT PRIMARY KEY AUTO_INCREMENT,
+	mbNO INT,
+	mNO INT,
+	CONTENT VARCHAR(1000),
+	STATUS VARCHAR(1) DEFAULT 'Y' CHECK (STATUS IN ('Y', 'N')),
+	CREATE_DATE DATETIME DEFAULT CURRENT_TIMESTAMP,
+	MODIFY_DATE DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (mbNO) REFERENCES MBOARD(mbNO) ON DELETE CASCADE,
+    FOREIGN KEY (mNO) REFERENCES MEMBER(mNO) ON DELETE SET NULL
 );
 
-CREATE TABLE `CARTS` (
-	`cartNo`	INT	NOT NULL,
-	`id`	VARCHAR(30)	NOT NULL,
-	`pNo`	INT	NOT NULL,
-	`pName`	VARCHAR(100)	NOT NULL,
-	`Quantity`	INT	NOT NULL,
-	`totalPrice`	INT	NOT NULL,
-	`createdDate`	timestamp	NOT NULL,
-	`modifiedDate`	timestamp	NOT NULL,
-	`status`	VARCHAR(1)	NOT NULL
+INSERT INTO REPLY_MBOARD (rNO, mbNO, mNO, CONTENT) VALUES(0, 1, 2, '안녕하세요.');
+INSERT INTO REPLY_MBOARD (rNO, mbNO, mNO, CONTENT) VALUES(0, 1, 3, '댓글 테스트 입니다. 1');
+INSERT INTO REPLY_MBOARD (rNO, mbNO, mNO, CONTENT) VALUES(0, 1, 3, '댓글 테스트 입니다. 2');
+INSERT INTO REPLY_MBOARD (rNO, mbNO, mNO, CONTENT) VALUES(0, 1, 3, '댓글 테스트 입니다. 3');
+INSERT INTO REPLY_MBOARD (rNO, mbNO, mNO, CONTENT) VALUES(0, 1, 3, '댓글 테스트 입니다. 4');
+INSERT INTO REPLY_MBOARD (rNO, mbNO, mNO, CONTENT) VALUES(0, 2, 2, '안녕하세요.');
+INSERT INTO REPLY_MBOARD (rNO, mbNO, mNO, CONTENT) VALUES(0, 2, 3, '반갑습니다.');
+INSERT INTO REPLY_MBOARD (rNO, mbNO, mNO, CONTENT) VALUES(0, 3, 3, '안녕하세요.');
+INSERT INTO REPLY_MBOARD (rNO, mbNO, mNO, CONTENT) VALUES(0, 3, 2, '반갑습니다.');
+
+COMMIT;
+
+SELECT * FROM REPLY_MBOARD;
+
+-------------------------------------------------
+---------------- 약국 리뷰 게시판 -------------------
+-------------------------------------------------
+
+CREATE TABLE PBOARD (
+	pbNO INT AUTO_INCREMENT,
+	mNO INT,
+    phNO INT,
+    TYPE VARCHAR(20) DEFAULT 'CMM1',
+    TITLE VARCHAR(1000),
+    CONTENT VARCHAR(2000),
+    ATTACHCOUNT INT DEFAULT '0',
+    VIEWS INT DEFAULT '0',
+	RATING INT DEFAULT '0',
+	REVIEWPIC TEXT NULL,
+    THUMBCOUNT INT DEFAULT '0',
+    STATUS VARCHAR(1) DEFAULT 'Y' CHECK (STATUS IN ('Y', 'N')),
+	CREATE_DATE DATETIME DEFAULT CURRENT_TIMESTAMP,
+	MODIFY_DATE DATETIME DEFAULT CURRENT_TIMESTAMP,
+	CONSTRAINT PK_PBOARD_NO PRIMARY KEY(pbNO),
+    CONSTRAINT FK_PBOARD_WRITER FOREIGN KEY(mNO) REFERENCES MEMBER(mNO) ON DELETE SET NULL,
+    CONSTRAINT FK_PBOARD_NAME FOREIGN KEY(phNO) REFERENCES PHARMACY(phNO) ON DELETE SET NULL,
+    CONSTRAINT FK_PBOARD_CATEGORY FOREIGN KEY(TYPE) REFERENCES BOARD_CATEGORY(TYPE) ON DELETE SET NULL
 );
 
+INSERT INTO PBOARD (pbNO, mNO, phNO, TYPE, TITLE, CONTENT) VALUES(0, 1, NULL, 'NOTICE', '[공지] 약국 리뷰 게시판입니다.',
+'약국 서비스 평가 및 후기 작성 해주세요.');
+INSERT INTO PBOARD (pbNO, mNO, phNO, TYPE, TITLE, CONTENT) VALUES(0, 2, 1, 'CMM2', '[약국리뷰] ',
+'역이랑 가까움 집에가는길에 이용 가능');
+INSERT INTO PBOARD (pbNO, mNO, phNO, TYPE, TITLE, CONTENT) VALUES(0, 3, 2, 'CMM2', '[약국리뷰] ',
+'역이랑 가까움 집에가는길에 이용 가능');
+INSERT INTO PBOARD (pbNO, mNO, phNO, TYPE, TITLE, CONTENT) VALUES(0, 4, 3, 'CMM2', '[약국리뷰] ',
+'역이랑 가까움 집에가는길에 이용 가능');
+INSERT INTO PBOARD (pbNO, mNO, phNO, TYPE, TITLE, CONTENT) VALUES(0, 5, 4, 'CMM2', '[약국리뷰] ',
+'역이랑 가까움 집에가는길에 이용 가능');
+INSERT INTO PBOARD (pbNO, mNO, phNO, TYPE, TITLE, CONTENT) VALUES(0, 6, 1, 'CMM2', '[약국리뷰] ',
+'서비스 별로');
+INSERT INTO PBOARD (pbNO, mNO, phNO, TYPE, TITLE, CONTENT) VALUES(0, 7, 2, 'CMM2', '[약국리뷰] ',
+'약봉지 안챙겨줌');
+INSERT INTO PBOARD (pbNO, mNO, phNO, TYPE, TITLE, CONTENT) VALUES(0, 8, 3, 'CMM2', '[약국리뷰] ',
+'설명 상세하게 잘해주심');
+INSERT INTO PBOARD (pbNO, mNO, phNO, TYPE, TITLE, CONTENT) VALUES(0, 9, 4, 'CMM2', '[약국리뷰] ',
+'복잡하다');
+INSERT INTO PBOARD (pbNO, mNO, phNO, TYPE, TITLE, CONTENT) VALUES(0, 10, 1, 'CMM2', '[약국리뷰] ',
+'줄이길다');
+INSERT INTO PBOARD (pbNO, mNO, phNO, TYPE, TITLE, CONTENT) VALUES(0, 11, 2, 'CMM2', '[약국리뷰] ',
+'후기 가 별로 없네..');
 
+COMMIT;
 
-CREATE TABLE `MyAidKit` (
-	`id`	VARCHAR(30)	NOT NULL,
-	`itemName`	VARCHAR(255)	NOT NULL,
-	`quantity`	INT	NOT NULL,
-	`experationDate`	DATE	NOT NULL,
-	`createdDate`	timestamp	NOT NULL,
-	`modifiedDate`	timestamp	NOT NULL,
-	`status`	VARCHAR(1)	NOT NULL
+SELECT * FROM PBOARD;
+
+------------------------------------------------------------------
+------------------------ 약국 게시판 첨부파일 ----------------------
+------------------------------------------------------------------
+
+ CREATE TABLE PBOARD_ATTACH_FILE (
+	fNO	INT	AUTO_INCREMENT,
+	pbNO INT,
+	ORIGINAL_FILENAME VARCHAR(200),
+	RENAMED_FILENAME VARCHAR(200),
+	CREATE_DATE DATETIME DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT PK_PBOARD_ATTACH_FILE PRIMARY KEY(fNO),
+    CONSTRAINT FK_PBOARD_BO FOREIGN KEY(pbNO) REFERENCES PBOARD(pbNO) ON DELETE CASCADE
 );
 
+INSERT INTO PBOARD_ATTACH_FILE (fNO, pbNO, ORIGINAL_FILENAME, RENAMED_FILENAME, CREATE_DATE) VALUES(0, 1, '첨부파일2','TEST_FILE2', DEFAULT);
+UPDATE PBOARD SET ATTACHCOUNT =(SELECT COUNT(*) FROM PBOARD_ATTACH_FILE WHERE PBNO=1) WHERE PBNO=1;
+INSERT INTO PBOARD_ATTACH_FILE (fNO, pbNO, ORIGINAL_FILENAME, RENAMED_FILENAME, CREATE_DATE) VALUES(0, 2, '첨부파일','TEST_FILE', DEFAULT);
+INSERT INTO PBOARD_ATTACH_FILE (fNO, pbNO, ORIGINAL_FILENAME, RENAMED_FILENAME, CREATE_DATE) VALUES(0, 2, '첨부파일','TEST_FILE', DEFAULT);
+UPDATE PBOARD SET ATTACHCOUNT =(SELECT COUNT(*) FROM PBOARD_ATTACH_FILE WHERE PBNO=2) WHERE PBNO=2;
+INSERT INTO PBOARD_ATTACH_FILE (fNO, pbNO, ORIGINAL_FILENAME, RENAMED_FILENAME, CREATE_DATE) VALUES(0, 3, '첨부파일','TEST_FILE', DEFAULT);
+INSERT INTO PBOARD_ATTACH_FILE (fNO, pbNO, ORIGINAL_FILENAME, RENAMED_FILENAME, CREATE_DATE) VALUES(0, 3, '첨부파일','TEST_FILE', DEFAULT);
+INSERT INTO PBOARD_ATTACH_FILE (fNO, pbNO, ORIGINAL_FILENAME, RENAMED_FILENAME, CREATE_DATE) VALUES(0, 3, '첨부파일','TEST_FILE', DEFAULT);
+UPDATE PBOARD SET ATTACHCOUNT =(SELECT COUNT(*) FROM PBOARD_ATTACH_FILE WHERE PBNO=3) WHERE PBNO=3;
 
+COMMIT;
 
+SELECT * FROM BOARD_ATTACH_FILE;
 
+SELECT * FROM PBOARD;
 
-CREATE TABLE `NEWS` (
-	`newsNo`	INT	NOT NULL,
-	`title`	VARCHAR(100)	NOT NULL,
-	`content`	VARCHAR(500)	NOT NULL,
-	`newsImgUrl`	text	NOT NULL,
-	`mnewsImgUrl`	text	NOT NULL,
-	`views`	INT	NOT NULL,
-	`createdDate`	TIMESTAMP	NOT NULL,
-	`modifiedDate`	TIMESTAMP	NOT NULL,
-	`status`	VARCHAR(1)	NOT NULL
+-- DROP TABLE PBOARD_ATTACH_FILE;
+
+-------------------------------------------------
+------------------ 약국 REPLY ---------------------
+-------------------------------------------------
+
+CREATE TABLE REPLY_PBOARD (
+	rNO INT PRIMARY KEY AUTO_INCREMENT,
+	pbNO INT,
+	mNO INT,
+	CONTENT VARCHAR(1000),
+	STATUS VARCHAR(1) DEFAULT 'Y' CHECK (STATUS IN ('Y', 'N')),
+	CREATE_DATE DATETIME DEFAULT CURRENT_TIMESTAMP,
+	MODIFY_DATE DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (pbNO) REFERENCES PBOARD(pbNO) ON DELETE CASCADE,
+    FOREIGN KEY (mNO) REFERENCES MEMBER(mNO) ON DELETE SET NULL
 );
 
-CREATE TABLE `MEDICINE` (
-	`itemSeq`	INT	NOT NULL,
-	`itemName`	VARCHAR(500)	NOT NULL,
-	`efcyQesitm`	VARCHAR(500)	NOT NULL,
-	`useMethodQesitm`	VARCHAR(500)	NOT NULL,
-	`atpnWarnQesitm`	VARCHAR(500)	NOT NULL,
-	`atpnQesitm`	VARCHAR(255)	NOT NULL,
-	`intrcQesitm`	VARCHAR(500)	NOT NULL,
-	`seQesitm`	VARCHAR(500)	NOT NULL,
-	`depositMethodQesitm`	VARCHAR(500)	NOT NULL,
-	`itemImage`	text	NOT NULL,
-	`PROHBT_CONTENT`	VARCHAR(500)	NOT NULL	COMMENT 'DUR',
-	`TYPE_NAME`	VARCHAR(10)	NOT NULL	COMMENT 'DUR',
-	`PBANC_CONT`	VARCHAR(500)	NOT NULL	COMMENT 'DUR',
-	`PBNAC_DIVS_NM`	VARCHAR(255)	NOT NULL	COMMENT 'Safe',
-	`CHRG_DEP`	VARCHAR(100)	NOT NULL	COMMENT 'Safe',
-	`createdDate`	TIMESTAMP	NOT NULL,
-	`modifiedDate`	TIMESTAMP	NOT NULL,
-	`status`	VARCHAR(1)	NOT NULL
+INSERT INTO REPLY_PBOARD (rNO, pbNO, mNO, CONTENT) VALUES(0, 1, 2, '안녕하세요.');
+INSERT INTO REPLY_PBOARD (rNO, pbNO, mNO, CONTENT) VALUES(0, 1, 3, '댓글 테스트 입니다. 1');
+INSERT INTO REPLY_PBOARD (rNO, pbNO, mNO, CONTENT) VALUES(0, 1, 3, '댓글 테스트 입니다. 2');
+INSERT INTO REPLY_PBOARD (rNO, pbNO, mNO, CONTENT) VALUES(0, 1, 3, '댓글 테스트 입니다. 3');
+INSERT INTO REPLY_PBOARD (rNO, pbNO, mNO, CONTENT) VALUES(0, 1, 3, '댓글 테스트 입니다. 4');
+INSERT INTO REPLY_PBOARD (rNO, pbNO, mNO, CONTENT) VALUES(0, 2, 2, '안녕하세요.');
+INSERT INTO REPLY_PBOARD (rNO, pbNO, mNO, CONTENT) VALUES(0, 2, 3, '반갑습니다.');
+INSERT INTO REPLY_PBOARD (rNO, pbNO, mNO, CONTENT) VALUES(0, 3, 3, '안녕하세요.');
+INSERT INTO REPLY_PBOARD (rNO, pbNO, mNO, CONTENT) VALUES(0, 3, 2, '반갑습니다.');
+
+COMMIT;
+
+SELECT * FROM REPLY_PBOARD;
+
+-------------------------------------------------
+--------------- 나의 구급함(=즐겨찾기) ----------------
+-------------------------------------------------
+
+CREATE TABLE MYAIDKIT (
+	kNO INT PRIMARY KEY AUTO_INCREMENT,
+	mNO INT,
+    dNO INT,
+	QUANTITY INT,
+	kIMG VARCHAR(100),
+	CREATE_DATE	DATETIME DEFAULT CURRENT_TIMESTAMP,
+	MODIFY_DATE DATETIME DEFAULT CURRENT_TIMESTAMP,
+	STATUS VARCHAR(1) DEFAULT 'Y' CHECK (STATUS IN ('Y', 'N')),
+    CONSTRAINT FK_MYAIDKIT_WRITER FOREIGN KEY (mNO) REFERENCES MEMBER(mNO) ON DELETE SET NULL,
+    CONSTRAINT FK_MYAIDKIT_ITEM FOREIGN KEY (dNO) REFERENCES MEDICINE(dNO) ON DELETE CASCADE
 );
 
-CREATE TABLE `PHARMACY_REVIEWS` (
-	`phreviewid`	INT	NOT NULL,
-	`pharmNo`	INT	NOT NULL,
-	`id`	VARCHAR(30)	NOT NULL,
-	`rating`	VARCHAR(255)	NOT NULL,
-	`content`	VARCHAR(1000)	NULL,
-	`reviewPicture`	text	NULL,
-	`readcount`	int	NOT NULL,
-	`attachcount`	int	NOT NULL,
-	`thumbcount`	INT	NOT NULL,
-	`createdDate`	timestamp	NOT NULL,
-	`modifiedDate`	timestamp	NOT NULL,
-	`status`	VARCHAR(1)	NOT NULL
+INSERT INTO MYAIDKIT (kNO, mNO, dNO, QUANTITY, kIMG) VALUES(0, 2, 195700020, 12, NULL);
+
+COMMIT;
+
+SELECT * FROM MYAIDKIT;
+
+-- DROP TABLE MYAIDKIT;
+
+-------------------------------------------------
+--------------------- 뉴스 ----------------------
+-------------------------------------------------
+
+CREATE TABLE NEWS (
+	newsNO	INT	PRIMARY KEY AUTO_INCREMENT,
+    TYPE VARCHAR(20) DEFAULT 'NEWS',
+	TITLE VARCHAR(100),
+	CONTENT	VARCHAR(500),
+	newsIMG VARCHAR(100),
+	VIEWS INT DEFAULT '0',
+	CREATE_DATE DATETIME DEFAULT CURRENT_TIMESTAMP,
+	MODIFY_DATE DATETIME DEFAULT CURRENT_TIMESTAMP,
+	STATUS VARCHAR(1) DEFAULT 'Y' CHECK (STATUS IN ('Y', 'N')),
+    CONSTRAINT FK_NEWS_CATEGORY FOREIGN KEY(TYPE) REFERENCES BOARD_CATEGORY(TYPE) ON DELETE SET NULL
 );
 
-CREATE TABLE `REPLY_PHREVIEWS` (
-	`rq_id`	INT	NOT NULL,
-	`phreviewid`	INT	NOT NULL,
-	`pharmNo`	INT	NOT NULL,
-	`id`	VARCHAR(30)	NOT NULL,
-	`content`	VARCHAR(500)	NOT NULL,
-	`createdDate`	TIMESTAMP	NOT NULL,
-	`modifiedDate`	TIMESTAMP	NOT NULL,
-	`status`	VARCHAR(1)	NOT NULL
-);
+INSERT INTO NEWS (newsNO, TYPE, TITLE, CONTENT, newsIMG, VIEWS) VALUES(0, 'NEWS', '[카드뉴스]어르신을 위한 안전한 약물 사용 안내서', '어르신을 위한 안전한 약물 사용 안내', NULL, DEFAULT);
+INSERT INTO NEWS (newsNO, TYPE, TITLE, CONTENT, newsIMG, VIEWS) VALUES(0, 'NEWS', '[일상정보] 생활 속 중금속 섭취 줄이려면', '11', NULL, DEFAULT);
+INSERT INTO NEWS (newsNO, TYPE, TITLE, CONTENT, newsIMG, VIEWS) VALUES(0, 'NEWS', '[건강]유해물질 바로알기 - 시안화합물편', '11', NULL, DEFAULT);
+INSERT INTO NEWS (newsNO, TYPE, TITLE, CONTENT, newsIMG, VIEWS) VALUES(0, 'NEWS', '[일상정보]채소, 과일샐러드 안전하게 섭취하기', '11', NULL, DEFAULT);
+INSERT INTO NEWS (newsNO, TYPE, TITLE, CONTENT, newsIMG, VIEWS) VALUES(0, 'NEWS', '[건강]연속 혈당 측정기 안전사용방법', '11', NULL, DEFAULT);
+INSERT INTO NEWS (newsNO, TYPE, TITLE, CONTENT, newsIMG, VIEWS) VALUES(0, 'NEWS', '[건강]유해물질 바로알기 - 프탈레이트편', '11', NULL, DEFAULT);
+INSERT INTO NEWS (newsNO, TYPE, TITLE, CONTENT, newsIMG, VIEWS) VALUES(0, 'NEWS', '[일상정보]감기 예방을 위한 식생활 요령', '11', NULL, DEFAULT);
+INSERT INTO NEWS (newsNO, TYPE, TITLE, CONTENT, newsIMG, VIEWS) VALUES(0, 'NEWS', '[일상정보]조리법 개선으로 식품 내 중금속 줄일 수 있어요!', '11', NULL, DEFAULT);
+INSERT INTO NEWS (newsNO, TYPE, TITLE, CONTENT, newsIMG, VIEWS) VALUES(0, 'NEWS', '[카드뉴스]여드름약, 이소트레티노인 안전사용! 엄마와 아기를 지켜주세요!', '11', NULL, DEFAULT);
+INSERT INTO NEWS (newsNO, TYPE, TITLE, CONTENT, newsIMG, VIEWS) VALUES(0, 'NEWS', '[카드뉴스]나의 부작용 정보 나누면 안전해집니다.', '11', NULL, DEFAULT);
 
-CREATE TABLE `REPLY_MEREVIEWS` (
-	`rq_id`	INT	NOT NULL,
-	`mereviewid`	INT	NOT NULL,
-	`id`	VARCHAR(30)	NOT NULL,
-	`itemName`	VARCHAR(500)	NOT NULL,
-	`content`	VARCHAR(500)	NOT NULL,
-	`createdDate`	TIMESTAMP	NOT NULL,
-	`modifiedDate`	TIMESTAMP	NOT NULL,
-	`status`	VARCHAR(1)	NOT NULL
-);
+COMMIT;
 
-CREATE TABLE `HEALTHFOOD` (
-	`pNo`	INT	NOT NULL,
-	`pName`	VARCHAR(100)	NOT NULL,
-	`pPrice`	INT	NOT NULL,
-	`pImgURL`	text	NOT NULL,
-	`pMaker`	VARCHAR(1000)	NOT NULL,
-	`pType`	VARCHAR(1000)	NOT NULL,
-	`pInfo`	VARCHAR(1000)	NOT NULL,
-	`category1`	VARCHAR(1000)	NOT NULL,
-	`category2`	VARCHAR(1000)	NOT NULL,
-	`category3`	VARCHAR(1000)	NULL,
-	`category4`	VARCHAR(1000)	NULL
-);
+SELECT * FROM NEWS;
+-- DROP TABLE NEWS;
+------------------------------------ DDL 끝 -------------------------------------------
 
-CREATE TABLE `MEDICINE_ATTACH_FILE` (
-	`fNo`	INT	NOT NULL,
-	`mereviewid`	INT	NOT NULL,
-	`id`	VARCHAR(30)	NOT NULL,
-	`itemName`	VARCHAR(500)	NOT NULL,
-	`origianl_filename`	VARCHAR(200)	NOT NULL,
-	`renamed_filename`	VARCHAR(200)	NOT NULL,
-	`createDate`	TIMESTAMP	NOT NULL
-);
-
-CREATE TABLE `PHARMACY_ATTACH_FILE` (
-	`fNo`	INT	NOT NULL,
-	`phreviewid`	INT	NOT NULL,
-	`pharmNo`	INT	NOT NULL,
-	`id`	VARCHAR(30)	NOT NULL,
-	`origianl_filename`	VARCHAR(200)	NOT NULL,
-	`renamed_filename`	VARCHAR(200)	NOT NULL,
-	`createDate`	TIMESTAMP	NOT NULL
-);
-
-
+------------------------------------ DML 시작-------------------------------------------
