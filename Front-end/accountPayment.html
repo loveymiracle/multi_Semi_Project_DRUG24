@@ -43,6 +43,52 @@
 
 <body>
     <main class="page-wrapper">
+        <!-- Add Payment Method  ========     -->
+        <form class="needs-validation modal fade" method="post" id="add-payment" tabindex="-1" novalidate>
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"> 결제 수단 추가 </h5>
+                        <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-check  mb-4">
+                            <input class="form-check-input" type="radio" id="paypal" name="payment-method">
+                            <label class="form-check-label fs-base" for="paypal"> 페이 <img
+                                    class="d-inline-block align-middle ms-2" src="img/card-paypal.png" width="39"
+                                    alt="PayPal"></label>
+                        </div>
+                        <div class="form-check mb-4">
+                            <input class="form-check-input" type="radio" id="card" name="payment-method" checked>
+                            <label class="form-check-label fs-base" for="card"> 체크카드/ 신용카드 <img
+                                    class="d-inline-block align-middle ms-2" src="img/cards.png" width="187"
+                                    alt="Credit card"></label>
+                        </div>
+                        <div class="row g-3 mb-2">
+                            <div class="col-sm-6">
+                                <input class="form-control" type="text" name="number" placeholder=" 카드 번호 " required>
+                                <div class="invalid-feedback"> 카드 번호를 입력하세요 !</div>
+                            </div>
+                            <div class="col-sm-6">
+                                <input class="form-control" type="text" name="name" placeholder=" 이름 " required>
+                                <div class="invalid-feedback"> 이름을 입력하세요 !</div>
+                            </div>
+                            <div class="col-sm-3">
+                                <input class="form-control" type="text" name="expiry" placeholder="MM/YY" required>
+                                <div class="invalid-feedback"> 만료기간을 입력하세요 !</div>
+                            </div>
+                            <div class="col-sm-3">
+                                <input class="form-control" type="text" name="cvc" placeholder="CVC" required>
+                                <div class="invalid-feedback"> CVC 코드를 입력하세요 !</div>
+                            </div>
+                            <div class="col-sm-6">
+                                <button class="btn btn-primary d-block w-100" type="submit"> 카드 등록 </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
         <!-- 헤더 시작 -->
         <header class="bg-dark shadow-sm navbar-sticky container-fluid">
             <div class="navbar navbar-expand-lg navbar-dark">
@@ -219,7 +265,7 @@
                                 </li>
                                 <li class="border-bottom mb-0"><a
                                         class="nav-link-style d-flex align-items-center px-4 py-3"
-                                        href="account-profile.html"><i class="ci-edit opacity-60 me-2"></i> 리뷰 관리 </a>
+                                        href="accountReview.html"><i class="ci-edit opacity-60 me-2"></i> 리뷰 관리 </a>
                                 </li>
 
 
@@ -282,9 +328,9 @@
                                     <td class="py-3 align-middle">Susan Gardner</td>
                                     <td class="py-3 align-middle">08 / 2019</td>
                                     <td class="py-3 align-middle"><a class="nav-link-style me-2" href="#"
-                                            data-bs-toggle="tooltip" title="Edit"><i class="ci-edit"></i></a><a
+                                            data-bs-toggle="tooltip" title="수정"><i class="ci-edit"></i></a><a
                                             class="nav-link-style text-danger" href="#" data-bs-toggle="tooltip"
-                                            title="Remove">
+                                            title="삭제">
                                             <div class="ci-trash"></div>
                                         </a></td>
                                 </tr>
@@ -300,9 +346,9 @@
                                     <td class="py-3 align-middle">Susan Gardner</td>
                                     <td class="py-3 align-middle">11 / 2021</td>
                                     <td class="py-3 align-middle"><a class="nav-link-style me-2" href="#"
-                                            data-bs-toggle="tooltip" title="Edit"><i class="ci-edit"></i></a><a
+                                            data-bs-toggle="tooltip" title="수정"><i class="ci-edit"></i></a><a
                                             class="nav-link-style text-danger" href="#" data-bs-toggle="tooltip"
-                                            title="Remove">
+                                            title="삭제">
                                             <div class="ci-trash"></div>
                                         </a></td>
                                 </tr>
@@ -318,26 +364,9 @@
                                     <td class="py-3 align-middle">&mdash;</td>
                                     <td class="py-3 align-middle">&mdash;</td>
                                     <td class="py-3 align-middle"><a class="nav-link-style me-2" href="#"
-                                            data-bs-toggle="tooltip" title="Edit"><i class="ci-edit"></i></a><a
+                                            data-bs-toggle="tooltip" title="수정"><i class="ci-edit"></i></a><a
                                             class="nav-link-style text-danger" href="#" data-bs-toggle="tooltip"
-                                            title="Remove">
-                                            <div class="ci-trash"></div>
-                                        </a></td>
-                                </tr>
-                                <tr>
-                                    <td class="py-3 align-middle">
-                                        <div class="d-flex align-items-center"><img src="img/card-visa.png" width="39"
-                                                alt="Visa">
-                                            <div class="ps-2"><span
-                                                    class="fw-medium text-heading me-1">Visa</span>ending in 9791</div>
-                                        </div>
-                                    </td>
-                                    <td class="py-3 align-middle">Susan Gardner</td>
-                                    <td class="py-3 align-middle">05 / 2021</td>
-                                    <td class="py-3 align-middle"><a class="nav-link-style me-2" href="#"
-                                            data-bs-toggle="tooltip" title="Edit"><i class="ci-edit"></i></a><a
-                                            class="nav-link-style text-danger" href="#" data-bs-toggle="tooltip"
-                                            title="Remove">
+                                            title="삭제">
                                             <div class="ci-trash"></div>
                                         </a></td>
                                 </tr>

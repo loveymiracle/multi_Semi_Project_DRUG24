@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>이용후기 작성하기 </title>
+    <title> 이용후기 작성하기 </title>
     <!-- SEO Meta Tags-->
     <meta name="description" content="Cartzilla - Bootstrap E-commerce Template">
     <meta name="keywords"
@@ -25,30 +25,137 @@
     <link rel="stylesheet" media="screen" href="vendor/flatpickr/dist/flatpickr.min.css" />
     <!-- Main Theme Styles + Bootstrap-->
     <link rel="stylesheet" media="screen" href="css/theme.min.css">
+
+    <!--  여기서 부터 폰트 스타일 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@800&family=Noto+Sans+KR:wght@500&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .blodFont {
+            font-family: 'Nanum Gothic', sans-serif;
+        }
+
+        .form-label {
+            font-size: 16px;
+            margin-left: 5px;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        /* 지도 스타일 끝 */
+    </style>
 </head>
-<!-- Body-->
 
-<body class="handheld-toolbar-enabled">
+<body>
     <main class="page-wrapper">
-
+        <!-- 헤더 시작 -->
+        <header class="bg-dark shadow-sm navbar-sticky container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand d-none d-sm-block flex-shrink-0 order-lg-1 m-0 p-0" href="main.html">
+                        <img src="imgs/LogoE_r.png" width="55" alt=""></a>
+                    <!-- Toolbar-->
+                    <div class="navbar-toolbar d-flex align-items-center order-lg-3">
+                        <a class="navbar-tool d-none d-lg-flex" href="dashboard-favorites.html"><span
+                                class="navbar-tool-tooltip">나의 구급함</span>
+                            <div class="navbar-tool-icon-box"><i class="navbar-tool-icon ci-basket-alt"></i></div>
+                        </a>
+                        <a class="navbar-tool d-none d-lg-flex" href="dashboard-favorites.html"><span
+                                class="navbar-tool-tooltip">즐겨찾기</span>
+                            <div class="navbar-tool-icon-box"><i class="navbar-tool-icon ci-heart"></i></div>
+                        </a>
+                        <div class="navbar-tool dropdown ms-2"><a class="" href="dashboard-sales.html">
+                                <img src="imgs/account/donga_logo.png" height="32" width="32" alt="보령제약"></a>
+                            <a class="navbar-tool-text   ms-n1" href="dashboard-sales.html"><small>동아제약</small>기업 회원</a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <div style="min-width: 14rem;">
+                                    <h6 class="dropdown-header">계정 정보</h6><a
+                                        class="dropdown-item d-flex   align-items-center"
+                                        href="dashboard-settings.html"><i class="ci-settings opacity-60   me-2"></i>마이
+                                        페이지</a><a class="dropdown-item d-flex align-items-center"
+                                        href="dashboard-purchases.html"><i class="ci-basket opacity-60 me-2"></i>구매
+                                        하기</a><a class="dropdown-item d-flex align-items-center"
+                                        href="dashboard-favorites.html"><i
+                                            class="ci-heart opacity-60 me-2"></i>장바구니<span
+                                            class="fs-xs text-muted ms-auto">4</ span></a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item d-flex align-items-center" href="account-signin.html"><i
+                                            class="ci-sign-out opacity-60 me-2"></i>Sign Out</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse me-auto order-lg-2 ms-3" id="navbarCollapse">
+                        <!-- Primary menu-->
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link blodFont h4 text-white " href="Main.html">Home</a>
+                            </li>
+                            <li class="nav-item dropdown h4 text-white"><a class="nav-link dropdown-toggle" href="#"
+                                    data-bs-toggle="dropdown" data-bs-auto-close="outside">의약품 정보</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">약 상세검색</a></li>
+                                    <li><a class="dropdown-item" href="#">복약 정보</a></li>
+                                    <li><a class="dropdown-item" href="#">안전성 서한</a></li>
+                                    <li class="dropdown-item" href="#">안전 사용</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle h4 text-white"
+                                    href="Find.html">약국 찾기</a></li>
+                            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle h4 text-white" href="#"
+                                    data-bs-toggle="dropdown" data-bs-auto-close="outside">의약품 쇼핑몰</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">증상별 추천 아이템</a></li>
+                                    <li><a class="dropdown-item" href="#">테마별 추천 아이템</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle h4 text-white"
+                                    href="BoardMain.html">Community</a>
+                                <ul class="dropdown-menu">
+                                    <li class="dropdown"><a class="dropdown-item dropdown-toggle h4" href="#"
+                                            data-bs-toggle="dropdown">후기</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="BoardMain.html">의약품 후기</a></li>
+                                            <li><a class="dropdown-item" href="404-illustration.html">약국 후기</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">질문과 답변</a></li>
+                                    <li><a class="dropdown-item" href="#">공지사항</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle blodFont h4 text-white" href="#"
+                                    data-bs-toggle="dropdown" data-bs-auto-close="outside">Newsroom</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">관련 뉴스</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- 헤더 끝 ================================================================================== -->
         <!-- Page title====================================== -->
         <div class="bg-accent mb-4 py-4">
             <div class="container d-lg-flex justify-content-between py-2 py-lg-3">
                 <div class="order-lg-2 mb-3 mb-lg-0 pt-lg-2">
                     <nav aria-label="breadcrumb">
                         <ol
-                            class="breadcrumb breadcrumb-light flex-lg-nowrap justify-content-center justify-content-lg-start">
+                            class="breadcrumb breadcrumb-light flex-lg-nowrap justify-content-center justify-content-lg-start fs-6">
                             <li class="breadcrumb-item"><a class="text-nowrap" href="index.html"><i
                                         class="ci-home"></i>Home</a></li>
-                            <li class="breadcrumb-item text-nowrap">
-                                <a href="BoardMain.html"> Community</a>
-                            </li>
                             <li class="breadcrumb-item text-nowrap active" aria-current="page"> 이용후기 작성하기 </li>
                         </ol>
                     </nav>
                 </div>
                 <div class="order-lg-1 pe-lg-4 text-center text-lg-start">
-                    <h1 class="h3 text-light mb-0"> 이용후기 작성하기 </h1>
+                    <h1 class="text-light blodFont mb-3"> 이용후기 작성하기 </h1>
                 </div>
             </div>
         </div>
@@ -58,7 +165,7 @@
                 <form class="needs-validation col-md-8" novalidate>
                     <!-- Details-->
                     <div class="mb-md-5 mb-4 pb-md-0 pb-2">
-                        <h2 class="h5 mb-3 fs-3">
+                        <h2 class="h2 mb-4 blodFont">
                             <i class="ci-edit-alt text-accent"></i> Write
                         </h2>
                         <div class="row gy-md-4 gy-3">
@@ -67,27 +174,28 @@
                                     <span class="ms-1 text-danger">*</span></label>
                                 <input class="form-control" id="details-title" type="Text" placeholder="제목을 입력하세요"
                                     required>
-                                <div class="invalid-feedback">제목을 입력하세요</div><span class="form-text">
+                                <div class="invalid-feedback">제목을 입력하세요</div>
+                                <span class="form-text fs-7">
                                     최대 100자입니다. HTML이나 이모티콘은 허용되지 않습니다.</span>
                             </div>
                             <div class="col-sm-6">
                                 <label class="form-label" for="details-category"> 게시판 선택 <span
                                         class="ms-1 text-danger">*</span> </label>
-                                <select class="form-select" id="details-category">
-                                    <option disabled selected> 게시판 선택 </option>
-                                    <option> 약국 이용후기 </option>
-                                    <option> 의약품 이용후기 </option>
+
+                                <select class="form-select" required id="details-category">
+                                    <option value=""> 게시판 선택</option>
+                                    <option value=""> 약국 이용후기 </option>
+                                    <option value=""> 의약품 이용후기 </option>
                                 </select>
+                                <div class="invalid-feedback"> 게시판을 선택하세요 !</div>
                             </div>
+                            <!--  카테고리 선택  ====================================================   -->
                             <div class="col-sm-6">
-                                <label class="form-label" for="details-collection">Add to collection</label>
-                                <select class="form-select" id="details-collection">
-                                    <option disabled selected>Choose collection</option>
-                                    <option>Contemporary art collage</option>
-                                    <option>3D digital abstract art</option>
-                                    <option>Clone X Mini Monsters</option>
-                                    <option>Ocean and sky</option>
-                                    <option>Aesthetic art collage</option>
+                                <label class="form-label" for="details-category2"> 카테고리 </label>
+                                <select class="form-select" id="details-category2">
+                                    <option disabled selected> 카테고리 선택 </option>
+                                    <option> 서울 약국 </option>
+                                    <option> 경기 약국 </option>
                                 </select>
                             </div>
                             <div class="col-12">
@@ -95,84 +203,87 @@
                                         class="text-danger">*</span></label>
                                 <select class="form-select" required id="review-rating">
                                     <option value=""> 별점 선택</option>
-                                    <option value="5">5 stars</option>
-                                    <option value="4">4 stars</option>
-                                    <option value="3">3 stars</option>
-                                    <option value="2">2 stars</option>
-                                    <option value="1">1 star</option>
+                                    <option value="5">★★★★★</option>
+                                    <option value="4">★★★★</option>
+                                    <option value="3">★★★</option>
+                                    <option value="2">★★</option>
+                                    <option value="1">★</option>
                                 </select>
+                                <div class="invalid-feedback"> 별점을 선택하세요 !</div>
                             </div>
-                            <div class="invalid-feedback">Please choose rating!</div>
+
                             <div class="col-12">
                                 <label class="form-label" for="details-description">내용<span
                                         class="ms-1 text-danger">*</span></label>
-                                <textarea class="form-control" id="details-description" rows="4"
-                                    placeholder="내용을 입력하세요"></textarea><span class="form-text">0 of 500 characters
+                                <textarea class="form-control" id="details-description" type="Text" rows="4"
+                                    placeholder="내용을 입력하세요" required></textarea>
+                                <div class="invalid-feedback"> 내용을 입력하세요</div>
+                                <span class="form-text fs-7">0 of 500
+                                    characters
                                     used.</span>
+
                             </div>
                         </div>
                     </div>
 
-
                     <!-- Upload file-->
-                    <div class="mb-md-5 mb-4 pb-md-0 pb-2">
-                        <h2 class="h5 mb-2 pb-1 fs-3"> <i class="ci-image text-accent"></i> Photos </h2>
-                        <p class="mb-4 fs-7"> 파일 지원 형식 : PNG, JPG, GIF, WEBP, MP3 or
+                    <div class="mb-md-5 mb-4 pb-md-0 pb-1">
+                        <h2 class="h2 mb-3 blodFont"> <i class="ci-image text-accent"></i> Photos </h2>
+                        <p class="mb-4 h7"> 파일 지원 형식 : PNG, JPG, GIF, WEBP, MP3 or
                             MP4. Max size: 100mb.
                         </p>
                         <!-- Drag and drop file upload-->
                         <div class="file-drop-area" style="background-color:rgba(220, 220, 220, 0.171);">
-                            <div class="file-drop-icon ci-cloud-upload"></div><span class="file-drop-message">Drag
+                            <div class="file-drop-icon ci-cloud-upload"></div><span class="file-drop-message">
+                                Drag
                                 and
                                 drop here to upload</span>
                             <input class="file-drop-input" type="file">
-                            <button class="file-drop-btn btn btn-outline-accent" type="button">파일 선택
+                            <button class="file-drop-btn btn btn-outline-accent" type="button"> 파일 선택
                             </button>
                         </div>
                     </div>
                     <!-- Submit-->
                     <div class="pt-2">
-                        <button class="btn btn-lg btn-accent d-block w-100" type="submit"> 이용후기 등록 </button>
+                        <button class="btn btn-lg btn-accent d-block w-100" type="submit"> 이용후기 등록
+                        </button>
                     </div>
-
                 </form>
-                <!-- Preview =============================================================-->
+                <!-- Preview  프리뷰 =============================================================-->
                 <aside class="col-lg-3 offset-lg-1 col-md-4 position-relative">
                     <div class="sticky-top" style="top: 100px;">
-                        <h4 class="h5 mb-3 text-md-start text-center">Preview</h4>
+                        <h4 class="h4 mb-3 text-md-start text-center"> Preview</h4>
                         <!-- Preview item-->
                         <div class="card border-0 shadow mx-auto" style="max-width: 500px; pointer-events: none;">
                             <div class="card-img-top position-relative overflow-hidden">
-                                <img src="imgs/review/blueimg.png" alt="Product image" style="height: 170px;">
+                                <img src="imgs/blueimg.png" alt="Product image" style="height: 170px;">
                             </div>
                             <div class="card-body">
                                 <div class="product-review pb-4 mb-4 border-bottom">
                                     <div class="d-flex mb-3">
                                         <div class="d-flex align-items-center me-4 pe-2">
                                             <div class="ps-3">
-                                                <h6 class="fs-sm mb-0"> 나경원 </h6><span class="fs-ms text-muted">May 8,
-                                                    2019</span>
+                                                <h6 class=" mb-0"> 나경원 </h6><span class="fs-sm text-muted">
+                                                    2019년 8월 15일 </span>
                                             </div>
                                         </div>
                                         <div>
                                             <div class="star-rating">
-                                                <i class="star-rating-icon 
-                               ci-star-filled active"></i>
-                                                <i class="star-rating-icon ci-star-filled 
-                               active"></i>
-                                                <i class="star-rating-icon ci-star-filled 
-                               active"></i>
+                                                <i class="star-rating-icon ci-star-filled active"></i>
+                                                <i class="star-rating-icon ci-star-filled active"></i>
+                                                <i class="star-rating-icon ci-star-filled active"></i>
                                                 <i class="star-rating-icon ci-star"></i><i
                                                     class="star-rating-icon ci-star"></i>
                                             </div>
 
                                         </div>
                                     </div>
-                                    <p class="fs-md mb-2">Sed ut perspiciatis unde omnis iste
-                                        natus error sit voluptatem
-                                        accusantium doloremque laudantium, totam rem aperiam,
-                                        eaque ipsa quae ab illo inventore
-                                        veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                                    <p class="h5 mb-2">
+                                        이용후기
+                                    </p>
+                                    <p class="fs-7 mb-2">
+                                        이용후기를 남겨 주셔서 감사합니다.
+                                        여러분의 솔직한 후기는 DRUG24 의 큰 힘이 됩니다.
                                     </p>
                                 </div>
                             </div>
@@ -183,99 +294,52 @@
         </section>
     </main>
     <!-- Footer-->
-    <footer class="footer bg-darker">
-        <div class="bg-dark">
-            <div class="container py-5">
-                <div class="row py-lg-4">
-                    <div class="col-lg-4 mb-lg-0 mb-4">
-                        <div class="widget pb-3 mb-lg-4">
-                            <h3 class="widget-title text-light pb-1">Stay informed</h3>
-                            <form class="subscription-form validate"
-                                action="https://studio.us12.list-manage.com/subscribe/post?u=c7103e2c981361a6639545bd5&amp;amp;id=29ca296126"
-                                method="post" name="mc-embedded-subscribe-form" target="_blank" novalidate>
-                                <div class="input-group flex-nowrap"><i
-                                        class="ci-mail position-absolute top-50 translate-middle-y text-muted fs-base ms-3"></i>
-                                    <input class="form-control rounded-start" type="email" name="EMAIL"
-                                        placeholder="Your email" required>
-                                    <button class="btn btn-accent" type="submit" name="subscribe">Subscribe*</button>
-                                </div>
-                                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                                <div style="position: absolute; left: -5000px;" aria-hidden="true">
-                                    <input class="subscription-form-antispam" type="text"
-                                        name="b_c7103e2c981361a6639545bd5_29ca296126" tabindex="-1">
-                                </div>
-                                <div class="form-text text-light opacity-50">*Subscribe to our newsletter to receive
-                                    early discount offers, updates and new products info.</div>
-                                <div class="subscription-status"></div>
-                            </form>
-                        </div>
-                        <div><a class="btn-social bs-light bs-twitter me-2 mb-2" href="#"><i
-                                    class="ci-twitter"></i></a><a class="btn-social bs-light bs-facebook me-2 mb-2"
-                                href="#"><i class="ci-facebook"></i></a><a
-                                class="btn-social bs-light bs-instagram me-2 mb-2" href="#"><i
-                                    class="ci-instagram"></i></a><a class="btn-social bs-light bs-pinterest me-2 mb-2"
-                                href="#"><i class="ci-pinterest"></i></a><a
-                                class="btn-social bs-light bs-youtube me-2 mb-2" href="#"><i class="ci-youtube"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 offset-lg-1">
-                        <div class="d-flex flex-sm-row flex-column justify-content-sm-between mt-n4 mx-lg-n3">
-                            <div class="widget widget-links widget-light mt-4 px-lg-3 px-sm-n2">
-                                <h3 class="widget-title text-light">Company</h3>
-                                <ul class="widget-list">
-                                    <li class="widget-list-item"><a class="widget-list-link" href="#">About Us</a></li>
-                                    <li class="widget-list-item"><a class="widget-list-link" href="#">How It Works</a>
-                                    </li>
-                                    <li class="widget-list-item"><a class="widget-list-link" href="#">Create an NFT With
-                                            Us</a></li>
-                                    <li class="widget-list-item"><a class="widget-list-link" href="#">Support</a></li>
-                                    <li class="widget-list-item"><a class="widget-list-link" href="#">Blog</a></li>
-                                    <li class="widget-list-item"><a class="widget-list-link" href="#">My Account</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="widget widget-links widget-light mt-4 px-lg-3 px-sm-n2">
-                                <h3 class="widget-title text-light">Marketplace</h3>
-                                <ul class="widget-list">
-                                    <li class="widget-list-item"><a class="widget-list-link" href="#">All NFTs</a></li>
-                                    <li class="widget-list-item"><a class="widget-list-link" href="#">New</a></li>
-                                    <li class="widget-list-item"><a class="widget-list-link" href="#">Art</a></li>
-                                    <li class="widget-list-item"><a class="widget-list-link" href="#">Music</a></li>
-                                    <li class="widget-list-item"><a class="widget-list-link" href="#">Photography</a>
-                                    </li>
-                                    <li class="widget-list-item"><a class="widget-list-link" href="#">Utility</a></li>
-                                </ul>
-                            </div>
-                            <div class="widget widget-links widget-light mt-4 px-lg-3 px-sm-n2">
-                                <h3 class="widget-title text-light">Help</h3>
-                                <ul class="widget-list">
-                                    <li class="widget-list-item"><a class="widget-list-link" href="#">Terms and
-                                            Conditions</a></li>
-                                    <li class="widget-list-item"><a class="widget-list-link" href="#">Privacy Policy</a>
-                                    </li>
-                                    <li class="widget-list-item"><a class="widget-list-link" href="#">FAQ</a></li>
-                                </ul>
-                            </div>
-                        </div>
+    <!-- 푸터 시작-->
+    <footer class="footer bg-dark pt-5 ">
+        <div class="container pt-1 pb-1">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-2">
+                    <div class="text-nowrap mb-3"><a class="d-inline-block align-middle mt-n2 me-2" href="#"><img
+                                class="d-block" src="imgs/LogoE_r.png" width="100" alt="Cartzilla"></a><span class="d-inline-block 
+      align-middle h5 fw-bold text-white mb-0">DRUG24</span></div>
+                    <span class="d-inline-block align-middle h5 fw-bold text-white mb-0">About us</span><br>
+                    <p class="fs-sm text-white opacity-70 pb-1">DRUG24는 약 24,000개의 의약품 정보를 제공합니다.<br>오남용 없이 안전하게 복용하세요
+                    </p>
+                    <h6 class="d-inline-block pe-3 me-3 border-end border-light"><span class="text-primary">5,478
+                        </span><span class="fw-normal text-white">Products</span></h6>
+                    <h6 class="d-inline-block pe-3 me-3 border-end border-light"><span class="text-primary">521
+                        </span><span class="fw-normal text-white">Pharmacy</span></h6>
+                    <h6 class="d-inline-block me-3"><span class="text-primary">17 </span><span
+                            class="fw-normal text-white">Pharmacist</span></h6>
+                </div>
+                <div class="col-md-3 d-none d-md-block text-center text-md-start mb-4">
+                    <div class="widget widget-links widget-light pb-2">
+                        <h3 class="widget-title text-light">Categories</h3>
+                        <ul class="widget-list">
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">Drug Search</a></li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">Pharmacy Search</a></li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">Medicine Info</a></li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">Newsroom</a></li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">Shopping Mall</a></li>
+                        </ul>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="container my-lg-4 my-3 py-2">
-            <div class="d-flex flex-md-row flex-column-reverse align-items-center justify-content-md-between">
-                <div class="fs-xs text-light opacity-50">&copy; All rights reserved. Made by <a class="text-light"
-                        href="https://createx.studio/" target="_blank" rel="noopener">Createx Studio</a></div>
-                <div class="d-flex align-items-start mb-md-0 mb-3 mx-n1">
-                    <div class="px-1"><a class="btn-market btn-apple bg-dark" href="#"><span
-                                class="btn-market-subtitle">Download on the</span><span class="btn-market-title">App
-                                Store</span></a></div>
-                    <div class="px-1"><a class="btn-market btn-google bg-dark" href="#"><span
-                                class="btn-market-subtitle">Download on the</span><span class="btn-market-title">Google
-                                Play</span></a></div>
+                <div class="col-md-3 d-none d-md-block text-center text-md-start mb-4">
+                    <div class="widget widget-links widget-light pb-2">
+                        <h3 class="widget-title text-light">For members</h3>
+                        <ul class="widget-list">
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">My First Aid Kit</a></li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">My Page</a></li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">Pharmacy Reviews</a></li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">Medicine Reaviews</a></li>
+                            <li class="widget-list-item"><a class="widget-list-link" href="#">Notice</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </footer>
+    <!-- 푸터 끝 -->
     <!-- Toolbar for handheld devices (NFT Marketplace)-->
     <div class="handheld-toolbar">
         <div class="d-table table-layout-fixed w-100"><a class="d-none handheld-toolbar-item" href="#vendor-sidebar"
@@ -288,7 +352,8 @@
                         class="ci-menu"></i></span><span class="handheld-toolbar-label">Menu</span></a><a
                 class="d-table-cell handheld-toolbar-item" href="nft-connect-wallet.html"><span
                     class="handheld-toolbar-icon"><i class="ci-wallet"></i></span><span
-                    class="handheld-toolbar-label text-nowrap">Connect wallet</span></a>
+                    class="handheld-toolbar-label text-nowrap">Connect
+                    wallet</span></a>
         </div>
     </div>
     <!-- Back To Top Button--><a class="btn-scroll-top" href="#top" data-scroll><span
