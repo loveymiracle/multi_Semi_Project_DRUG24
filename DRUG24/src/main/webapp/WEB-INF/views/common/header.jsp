@@ -129,59 +129,49 @@
 				<div class="container-fluid">
 					<a
 						class="navbar-brand d-none d-sm-block flex-shrink-0 order-lg-1 m-0 p-0"
-						href="${path}"> <img src="${path}/resources/imgs/LogoE_r.png"
-						width="55" alt="DRUG24"></a>
+						href="main.html"> <img src="imgs/LogoE_r.png" width="55"
+						alt=""></a>
 					<!-- Toolbar-->
 					<div class="navbar-toolbar d-flex align-items-center order-lg-3">
-						<a class="navbar-tool d-none d-lg-flex"
-							href="dashboard-favorites.html"><span
-							class="navbar-tool-tooltip">나의 구급함</span>
-							<div class="navbar-tool-icon-box">
-								<i class="navbar-tool-icon ci-basket-alt"></i>
-							</div></a> <a class="navbar-tool d-none d-lg-flex"
-							href="dashboard-favorites.html"><span
-							class="navbar-tool-tooltip">즐겨찾기</span>
-							<div class="navbar-tool-icon-box">
-								<i class="navbar-tool-icon ci-heart"></i>
-							</div></a>
-
-						<c:if test="${loginMember == null}">
-							<a class="navbar-tool ms-1 ms-lg-0 me-n1 me-lg-2"
-								href="#signin-modal" data-bs-toggle="modal">
-								<div class="navbar-tool-icon-box">
-									<i class="navbar-tool-icon ci-user"></i>
-								</div>
-								<div class="navbar-tool-text ms-n3">
-									<small>Hello, Sign in</small>My Account
-								</div>
-							</a>
-						</c:if>
-
-						<c:if test="${loginMember != null}">
-							<div class="navbar-tool ms-1 ms-lg-0 me-n1 me-lg-2"
-								data-bs-toggle="modal">
-								<div class="navbar-tool-icon-box">
-									<i class="navbar-tool-icon ci-user"></i>
-								</div>
-								<div class="navbar-tool-text ms-n3">
-									${loginMember.name}님
-									<div>
-										<a href="${path}/logout">logout</a>
-									</div>
+						<div class="navbar-tool d-none d-lg-flex"
+							href="dashboard-favorites.html">
+							<span class="navbar-tool-tooltip">나의 구급함</span><span
+								class="navbar-tool-icon-box"><i
+								class="navbar-tool-icon ci-basket-alt"></i></span>
+						</div>
+						<div class="navbar-tool d-none d-lg-flex">
+							<a class="navbar-tool-icon-box bg-secondary dropdown-toggle"
+								href="marketplace-cart.html"><span class="navbar-tool-label">3</span><i
+								class="navbar-tool-icon ci-cart"></i></a>
+						</div>
+						<div class="navbar-tool dropdown ms-2">
+							<a class="" href="dashboard-sales.html"></a><a
+								class="navbar-tool-text ms-n1" href="dashboard-sales.html"><small>nickname</small>일반
+								회원</a>
+							<div class="dropdown-menu dropdown-menu-end">
+								<div style="min-width: 14rem;">
+									<h6 class="dropdown-header">계정 정보</h6>
+									<a class="dropdown-item d-flex align-items-center"
+										href="dashboard-settings.html"><i
+										class="ci-settings opacity-60 me-2"></i>마이 페이지</a>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item d-flex align-items-center"
+										href="account-signin.html"><i
+										class="ci-sign-out opacity-60 me-2"></i>Sign Out</a>
 								</div>
 							</div>
-						</c:if>
+						</div>
 					</div>
 					<div class="collapse navbar-collapse me-auto order-lg-2 ms-3"
 						id="navbarCollapse">
 						<!-- Primary menu-->
 						<ul class="navbar-nav">
 							<li class="nav-item"><a
-								class="nav-link blodFont h4 text-white " href="${path}">Home</a></li>
-							<li class="nav-item dropdown h4 text-white"><a
-								class="nav-link dropdown-toggle" href="#"
-								data-bs-toggle="dropdown" data-bs-auto-close="outside">의약품
-									정보</a>
+								class="nav-link blodFont h4 text-white " href="Main.html">Home</a></li>
+							<li class="nav-item dropdown"><a
+								class="nav-link dropdown-toggle h4 text-white" href="#"
+								data-bs-toggle="dropdown" data-bs-auto-close="outside">Medicine
+									Info</a>
 								<ul class="dropdown-menu">
 									<li><a class="dropdown-item" href="#">약 상세검색</a></li>
 									<li><a class="dropdown-item" href="#">복약 정보</a></li>
@@ -190,37 +180,19 @@
 								</ul></li>
 							<li class="nav-item dropdown"><a
 								class="nav-link dropdown-toggle h4 text-white" href="#"
-								data-bs-toggle="dropdown" data-bs-auto-close="outside">약국 찾기</a></li>
+								data-bs-toggle="dropdown" data-bs-auto-close="outside">Pharmacy</a></li>
 							<li class="nav-item dropdown"><a
 								class="nav-link dropdown-toggle h4 text-white" href="#"
-								data-bs-toggle="dropdown" data-bs-auto-close="outside">의약품
-									쇼핑몰</a>
-								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" href="#">증상별 추천 아이템</a></li>
-									<li><a class="dropdown-item" href="#">테마별 추천 아이템</a></li>
-								</ul></li>
+								data-bs-toggle="dropdown" data-bs-auto-close="outside">Shop</a></li>
 							<li class="nav-item dropdown"><a
 								class="nav-link dropdown-toggle h4 text-white" href="#"
 								data-bs-toggle="dropdown" data-bs-auto-close="outside">Community</a>
 								<ul class="dropdown-menu">
-									<li class="dropdown"><a
-										class="dropdown-item dropdown-toggle h4 text-white" href="#"
-										data-bs-toggle="dropdown">후기</a>
-										<ul class="dropdown-menu">
-											<li><a class="dropdown-item" href="404-simple.html">의약품
-													후기</a></li>
-											<li><a class="dropdown-item"
-												href="404-illustration.html">약국 후기</a></li>
-										</ul></li>
 									<li><a class="dropdown-item" href="#">질문과 답변</a></li>
 									<li><a class="dropdown-item" href="#">공지사항</a></li>
-								</ul></li>
-							<li class="nav-item dropdown"><a
-								class="nav-link dropdown-toggle blodFont h4 text-white" href="#"
-								data-bs-toggle="dropdown" data-bs-auto-close="outside">Newsroom</a>
-								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" href="#">뉴스 게시판</a></li>
-								</ul></li>
+									<li><a class="dropdown-item" href="#">Newsroom</a></li>
+								</ul>
+							</li>
 						</ul>
 					</div>
 				</div>
