@@ -24,7 +24,7 @@ public class Product {
 	private String category2;
 	private String category3;
 	private String category4;
-	private double scoreAvg;
+	private double rating;
 	private int amount;
 
 }

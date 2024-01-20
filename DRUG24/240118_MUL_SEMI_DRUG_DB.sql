@@ -289,49 +289,71 @@ SELECT * FROM MEDICINE;
 ------------------- 건기식 테이블 ----------------------
 ---------------------------------------------------
 
-CREATE TABLE HEALTHFOOD (
-	pNO	INT PRIMARY KEY AUTO_INCREMENT,
-	TITLE VARCHAR(1000),
-    LINK VARCHAR(1000),
-    IMAGE VARCHAR(1000),
-    LPrice INT,
-    HPrice INT,
-    MALLNAME VARCHAR(1000),
-	PRODUCTID VARCHAR(1000),
-	PRODUCTTYPE VARCHAR(1000),
-	BRAND VARCHAR(1000),
-    MAKER VARCHAR(1000),
-	CATEGORY1 VARCHAR(1000),
-	CATEGORY2 VARCHAR(1000),
-	CATEGORY3 VARCHAR(1000),
-	CATEGORY4 VARCHAR(1000),
-    SCOREAVG INT,
-    AMOUNT INT
+CREATE TABLE Product (
+	pNo int auto_increment primary key,
+	title varchar(1000), 
+	link varchar(1000),
+	image varchar(1000),
+	lprice int,
+	hprice int,
+	mallName varchar(1000),
+	productId varchar(1000),
+	productType varchar(1000),
+	maker varchar(1000),
+	brand varchar(1000),
+	category1 varchar(1000),
+	category2 varchar(1000),
+	category3 varchar(1000),
+	category4 varchar(1000),
+	rating double
 );
 
-INSERT INTO HEALTHFOOD (
-	pNO, TITLE, LINK, IMAGE, LPRICE,
-    HPRICE, MALLNAME, PRODUCTID, PRODUCTTYPE, BRAND,
-    MAKER, CATEGORY1, CATEGORY2, CATEGORY3, CATEGORY4, 
-    SCOREAVG, AMOUNT
-) VALUES(
-	0, '고려인삼', 'https://pmall.co', '0.png', 140000,
-    150000, '인삼몰', '001', '건강기능식품', '고려',
-    '고려제약', '인삼', '홍삼아니고', '찐거아니고', '국내산',
-    3, 1
+INSERT INTO Product (
+	pNo, title, link, image, lprice,
+    hprice, mallName, productId, productType, maker,
+    brand, category1, category2, category3, category4
+) 
+values(
+	0, '프로바이오틱스 1', null,  null, 21900,
+    0, '건기식 전문샵', 'test1', '1', '덴프스',
+    '덴프스', '건강식품/홍삼','건강기능식품','영양제','유산균'
 );
+
+INSERT INTO Product (
+	pNo, title, link, image, lprice,
+    hprice, mallName, productId, productType, maker,
+    brand, category1, category2, category3, category4
+) 
+values(
+	0, '프로바이오틱스 2', null,  null, 51990,
+    0, '건기식 전문샵', 'test1', '1', '유한양행',
+    '유한양행', '건강식품/홍삼','건강기능식품','영양제','유산균'
+);
+
+INSERT INTO Product (
+	pNo, title, link, image, lprice,
+    hprice, mallName, productId, productType, maker,
+    brand, category1, category2, category3, category4
+) 
+values(
+	0, '비타민 1', null,  null, 21990,
+    0, '건기식 전문샵', 'test1', '1', '덴프스',
+    '덴프스', '건강식품/홍삼','건강기능식품','영양제','비타민'
+);
+
+SELECT * FROM Product;
+
+SELECT * FROM Product LIMIT 0, 10;
 
 COMMIT;
 
-SELECT * FROM HEALTHFOOD;
-
--- DROP TABLE HEALTHFOOD;
+DROP TABLE Product;
 
 ---------------------------------------------------
 ------------------- 주문 테이블 ---------------------
 ---------------------------------------------------
 
-CREATE TABLE ORDERS (
+CREATE TABLE Orders (
 	oNO INT PRIMARY KEY AUTO_INCREMENT,
 	mNO INT,
 	pNO INT,
@@ -341,38 +363,41 @@ CREATE TABLE ORDERS (
 	CREATE_DATE DATETIME DEFAULT CURRENT_TIMESTAMP,
 	MODIFY_DATE DATETIME DEFAULT CURRENT_TIMESTAMP,
 	STATUS VARCHAR(1) DEFAULT 'Y' CHECK(STATUS IN('Y', 'N')),
-    CONSTRAINT FOREIGN KEY (mNO) REFERENCES MEMBER (mNO) ON DELETE SET NULL,
-    CONSTRAINT FOREIGN KEY (pNO) REFERENCES HEALTHFOOD (pNO) ON DELETE SET NULL
+    CONSTRAINT FOREIGN KEY (mNO) REFERENCES MEMBER (mNO),
+    CONSTRAINT FOREIGN KEY (pNO) REFERENCES PRODUCT(pNO)
 );
 
-INSERT INTO ORDERS (oNO, mNO, pNO, PAYMETHOD, PRICE, REQUESTS) VALUES(0, 2, 1, DEFAULT, 150000, NULL);
+INSERT INTO Orders (oNO, mNO, pNO, PAYMETHOD, PRICE, REQUESTS) VALUES(0, 2, 1, DEFAULT, 150000, NULL);
 
 COMMIT;
 
-SELECT * FROM ORDERS;
+SELECT * FROM Orders;
 
--- DROP TABLE ORDERS;
+DROP TABLE Orders;
 
 ---------------------------------------------------
 ------------------ 장바구니 테이블 ---------------------
 ---------------------------------------------------
 
-CREATE TABLE CART (
+CREATE TABLE Cart (
 	mNO INT,
 	pNO	INT,
 	AMOUNT INT,
     PRICE INT,
-    CONSTRAINT FOREIGN KEY (mNO) REFERENCES MEMBER (mNO) ON DELETE SET NULL,
-    CONSTRAINT FOREIGN KEY (pNO) REFERENCES HEALTHFOOD (pNO) ON DELETE SET NULL
+    CONSTRAINT FOREIGN KEY (mNO) REFERENCES MEMBER (mNO),
+    CONSTRAINT FOREIGN KEY (pNO) REFERENCES PRODUCT (pNO),
+    PRIMARY KEY (mNO, pNO)
 );
 
-INSERT INTO CART (mNO, pNO, AMOUNT, PRICE) VALUES(2, 1, 2, 300000);
+INSERT INTO Cart (mNO, pNO, AMOUNT, PRICE) VALUES(2, 1, 2, 43800);
+UPDATE Cart set amount = 2 AND PRICE = 43800 where mNo = 2 and pNo = 1;
+SELECT * FROM Cart;
 
 COMMIT;
 
-SELECT * FROM CART;
+SELECT * FROM Cart;
 
-DROP TABLE CART;
+DROP TABLE Cart;
 
 ---------------------------------------------------
 --------------- Board 카테고리 테이블 ------------------
@@ -391,6 +416,7 @@ INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('PLAIN', '일반'
 INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('QUESTION', '질문', 3, 3);
 INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('SLETTER', '안전성서한', 3, 4);
 INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('NBOARD', '공지사항', 3, 5);
+INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('NEWS', '뉴스', 3, 6);
 
 COMMIT;
 
@@ -618,28 +644,25 @@ SELECT * FROM MEDICINEREVIEW;
 ---------------------------- 건기식 리뷰 ---------------------------
 ------------------------------------------------------------------
 
-CREATE TABLE PRODUCTREVIEW (
-	rNO INT AUTO_INCREMENT,
+CREATE TABLE ProductReply (
+	rNO INT PRIMARY KEY AUTO_INCREMENT,
 	mNO INT,
 	pNO INT,
     CONTENT VARCHAR(2000),
-    NAME VARCHAR(100),
 	RATING INT DEFAULT '0',
-	CREATE_DATE DATETIME DEFAULT CURRENT_TIMESTAMP,
-	MODIFY_DATE DATETIME DEFAULT CURRENT_TIMESTAMP,
-	CONSTRAINT PK_PRODUCTEREVIEW_NO PRIMARY KEY(rNO),
-    CONSTRAINT FK_PRODUCTEREVIEW_ITEM FOREIGN KEY(pNO) REFERENCES HEALTHFOOD(pNO) ON DELETE SET NULL,
-    CONSTRAINT FK_PRODUCTREVIEW_WRITER FOREIGN KEY(mNO) REFERENCES MEMBER(mNO) ON DELETE SET NULL
+	CREATEDATE TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY(pNO) REFERENCES PRODUCT(pNO),
+	FOREIGN KEY(mNO) REFERENCES MEMBER(mNO)
 );
 
-INSERT INTO PRODUCTREVIEW (rNO, mNO, pNO, CONTENT, NAME, RATING) VALUES(0, 3, 1, '인삼은 역시 고려인삼!', '사람', 5);
-INSERT INTO PRODUCTREVIEW (rNO, mNO, pNO, CONTENT, NAME, RATING) VALUES(0, 4, 1, '선물로도 딱이에요!', '사람', 5);
+INSERT INTO ProductReply (rNO, mNO, pNO, CONTENT, RATING, CREATEDATE) VALUES(0, 3, 1, '선물용 으로 샀어요!', 5, DEFAULT);
+INSERT INTO ProductReply (rNO, mNO, pNO, CONTENT, RATING, CREATEDATE) VALUES(0, 4, 1, '선물로도 딱이에요!', 5, DEFAULT);
 
 COMMIT;
 
-SELECT * FROM PRODUCTREVIEW;
+SELECT * FROM ProductReply;
 
--- DROP TABLE PRODUCTREVIEW;
+DROP TABLE ProductReply; 
 
 -------------------------------------------------
 ------------------ 약국 리뷰  ---------------------
@@ -736,3 +759,34 @@ SELECT * FROM NEWS;
 ------------------------------------ DDL 끝 -------------------------------------------
 
 ------------------------------------ DML 시작-------------------------------------------
+
+SELECT * FROM Cart
+INNER JOIN Product ON Cart.pNo = Product.pNo
+INNER JOIN Member ON Cart.mNo = Member.mNo;
+
+INSERT INTO ProductReply (rNo, mNo, pNo, content, scoreAVG, createDate) values (0,1,1, '좋은 제품입니다.', 5, default);
+SELECT * FROM PRODUCTREPLY;
+
+SELECT * FROM ProductReply 
+INNER JOIN Member ON Reply.mNo = Member.mNo
+WHERE pNo = 1;
+
+commit;
+
+
+SELECT AVG(rating) FROM ProductReply where pno = 1;
+UPDATE product set rating = (SELECT AVG(rating) FROM ProductReply where pno = 1) where pNo = 1;
+select * from product where pno = 1;
+
+SELECT  
+	*
+FROM Product 
+left outer JOIN Cart  ON Cart.pno = Product.pno
+left outer JOIN Member ON Cart.mNo = Member.mNo
+where Cart.mNo = 1;
+
+
+SELECT * FROM Cart 
+INNER JOIN Product ON Cart.pNo = Product.pNo
+INNER JOIN Member ON Cart.mNo = Member.mNo
+where Member.mno = 1;

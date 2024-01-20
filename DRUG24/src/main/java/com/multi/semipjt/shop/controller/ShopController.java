@@ -177,7 +177,7 @@ public class ShopController {
 		int result = 0;
 		List<Cart> list = shopService.getCart(map);
 		if(list == null || list.size() == 0) {
-			Cart cart = new Cart(member.getMno(), pno, 1);
+			Cart cart = new Cart(member.getMno(), pno, 1, 0);
 			result = shopService.insertCart(cart);
 		}else {
 			Cart cart = list.get(0);
@@ -206,7 +206,7 @@ public class ShopController {
 			return "common/msg";
 		}
 		
-		Cart cart = new Cart(member.getMno(), pno, 0);
+		Cart cart = new Cart(member.getMno(), pno, 0, 0);
 		int result = shopService.deleteCart(cart);
 		
 		if(result >0) {

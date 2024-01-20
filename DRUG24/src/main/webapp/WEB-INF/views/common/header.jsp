@@ -15,7 +15,10 @@
     <link rel="stylesheet" media="screen" href="${path}/resources/vendor/tiny-slider/dist/tiny-slider.css"/>
     <!-- Main Theme Styles + Bootstrap-->
     <link rel="stylesheet" media="screen" href="${path}/resources/css/theme.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@800&family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   </head>
   <!-- Body-->
   <body>
@@ -126,10 +129,10 @@
 		<!-- 헤더 시작 -->
 		<header class="bg-dark shadow-sm navbar-sticky container-fluid">
 			<div class="navbar navbar-expand-lg navbar-dark">
-				<div class="container-fluid">
+				<div class="container">
 					<a
 						class="navbar-brand d-none d-sm-block flex-shrink-0 order-lg-1 m-0 p-0"
-						href="main.html"> <img src="imgs/LogoE_r.png" width="55"
+						href="${path}"> <img src="${path}/resources/imgs/LogoE_r.png" width="55"
 						alt=""></a>
 					<!-- Toolbar-->
 					<div class="navbar-toolbar d-flex align-items-center order-lg-3">
@@ -167,7 +170,7 @@
 						<!-- Primary menu-->
 						<ul class="navbar-nav">
 							<li class="nav-item"><a
-								class="nav-link blodFont h4 text-white " href="Main.html">Home</a></li>
+								class="nav-link blodFont h4 text-white " href="${path}">Home</a></li>
 							<li class="nav-item dropdown"><a
 								class="nav-link dropdown-toggle h4 text-white" href="#"
 								data-bs-toggle="dropdown" data-bs-auto-close="outside">Medicine
@@ -182,7 +185,7 @@
 								class="nav-link dropdown-toggle h4 text-white" href="#"
 								data-bs-toggle="dropdown" data-bs-auto-close="outside">Pharmacy</a></li>
 							<li class="nav-item dropdown"><a
-								class="nav-link dropdown-toggle h4 text-white" href="#"
+								class="nav-link dropdown-toggle h4 text-white" href="${path}/shop/main"
 								data-bs-toggle="dropdown" data-bs-auto-close="outside">Shop</a></li>
 							<li class="nav-item dropdown"><a
 								class="nav-link dropdown-toggle h4 text-white" href="#"

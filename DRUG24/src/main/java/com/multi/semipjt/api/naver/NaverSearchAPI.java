@@ -25,7 +25,7 @@ public class NaverSearchAPI {
 				con.setRequestProperty(header.getKey(), header.getValue());
 			}
 			int responseCode = con.getResponseCode();
-			if(responseCode == httpURLConnection.HTTP_OK) {
+			if(responseCode == HttpURLConnection.HTTP_OK) {
 				return readBody(con.getInputStream());
 			} else {
 				return readBody(con.getErrorStream());
@@ -58,7 +58,7 @@ public class NaverSearchAPI {
 		} catch (MalformedURLException e) {
 			throw new RuntimeException("API URL이 잘못되었습니다. : " + apiUrl, e);
 		} catch (IOException e) {
-			throw new RuntimeException("연결이 실피했습니다. : " + apiUrl, e);
+			throw new RuntimeException("연결이 실패했습니다. : " + apiUrl, e);
 		}
 	}
 

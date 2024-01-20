@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+			    pageEncoding="UTF-8"%>
 		<!-- 푸터 시작-->
 		<footer class="footer bg-dark pt-5">
 			<div class="container pt-2 pb-3">
@@ -7,7 +7,7 @@
 					<div class="col-md-6 text-center text-md-start mb-4">
 						<div class="text-nowrap mb-3">
 							<a class="d-inline-block align-middle mt-n2 me-2" href="${path}"><img
-								class="d-block" src="${path}/resources/imgs/LogoE_r.png" width="117" alt="DRUG24"></a><span
+								src="${path}/resources/imgs/home/Logo.png" width="100" alt="DRUG24"></a><span
 								class="d-inline-block align-middle h5 fw-bold text-white mb-0">DRUG24</span>
 						</div>
 						<span class="d-inline-block align-middle h5 fw-bold text-white mb-0">About
@@ -80,13 +80,23 @@
 			</div>
 		</footer>
 		<!-- 푸터 끝 -->
-	    <!-- Back To Top Button--><a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon ci-arrow-up">   </i></a>
-	    <!-- Vendor scrits: js libraries and plugins-->
-	    <script src="${path}/resources/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-	    <script src="${path}/resources/vendor/simplebar/dist/simplebar.min.js"></script>
-	    <script src="${path}/resources/vendor/tiny-slider/dist/min/tiny-slider.js"></script>
-	    <script src="${path}/resources/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
-	    <!-- Main theme script-->
-	    <script src="${path}/resources/js/theme.min.js"></script>
+		<!-- Back To Top Button-->
+		
+		<!-- Back To Top Button-->
+		<a class="btn-scroll-top" href="#top" data-scroll><span
+      	class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon ci-arrow-up">
+    	</i></a>
+	  	<!-- Vendor scrits: js libraries and plugins-->
+	  	<script src="${path}/resources/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	  	<script src="${path}/resources/vendor/simplebar/dist/simplebar.min.js"></script>
+	  	<script src="${path}/resources/vendor/tiny-slider/dist/min/tiny-slider.js"></script>
+	  	<script src="${path}/resources/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+	  	<script src="${path}/resources/vendor/drift-zoom/dist/Drift.min.js"></script>
+	  	<script src="${path}/resources/vendor/lightgallery/lightgallery.min.js"></script>
+	  	<script src="${path}/resources/vendor/lightgallery/plugins/video/lg-video.min.js"></script>
+	  	<!-- Main theme script-->
+	  	<script src="${path}/resources/vendor/nouislider/dist/nouislider.min.js"></script>
+	  	<script src="${path}/resources/vendor/drift-zoom/dist/Drift.min.js"></script>
+	  	<script src="${path}/resources/js/theme.min.js"></script>
 	</body>
 </html>
