@@ -34,7 +34,7 @@
 		p:typeAliasesPackage="**.model.vo"
 		p:dataSource-ref="dataSource"
 	/>
-	<!--  p:typeAliasesPackage="com.multi.mvc.*.model.vo" -->
+	<!--  p:typeAliasesPackage="com.multi.semipjt.*.model.vo" -->
 	
 	<!-- 실제 마이바티스에서 사용할 Session 정의 -->
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" 
@@ -45,7 +45,7 @@
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"
 		p:basePackage="**.model.mapper"	
 	/>
-	<!--  p:basePackage="com.multi.mvc.*.model.mapper"	 -->
+	<!--  p:basePackage="com.multi.semipjt.*.model.mapper"	 -->
 	
 	<!-- 트랜잭션 매니저 설정 -->
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"

@@ -51,7 +51,7 @@
 		
 		<!-- 인터셉터 등록 -->
 <!-- 		<beans:bean id="loginCheckInterceptor"  -->
-<!-- 				class="com.multi.mvc.common.interceptor.LoginCheckInterceptor" /> -->
+<!-- 				class="com.multi.semipjt.common.interceptor.LoginCheckInterceptor" /> -->
 <!-- 		</interceptor> -->
 <!-- 	</interceptors> -->
 	

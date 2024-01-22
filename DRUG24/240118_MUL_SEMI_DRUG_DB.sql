@@ -16,6 +16,7 @@ CREATE TABLE MEMBER (
     PHONE 		VARCHAR(13),
 	EMAIL 		VARCHAR(100),
 	ADDRESS		VARCHAR(100),
+	HOBBY 	 	VARCHAR(100),
 	KAKAOTOKEN 	VARCHAR(1000),
 	STATUS 		VARCHAR(1) DEFAULT 'Y' CHECK(STATUS IN('Y', 'N')),
 	ENROLL_DATE	DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -166,13 +167,14 @@ CREATE TABLE PHARMACY (
     phNAME 		VARCHAR(100),
     phTEL 		VARCHAR(13),
 	phADDRESS 	VARCHAR(1000),
-	phPICURL 	text NULL,
 	phOP1 		VARCHAR(100),
 	phOP2 		VARCHAR(100),
 	phOP3 		VARCHAR(100),
 	phOP4 		VARCHAR(100),
 	phOP5 		VARCHAR(100),
 	phOP6 		VARCHAR(100),
+    phOP7 		VARCHAR(100),
+    phOP8 		VARCHAR(100),
 	phLATI 		VARCHAR(30) DEFAULT '37.49864',
 	phLONG 		VARCHAR(30) DEFAULT '127.02811',
 	REVIEWCOUNT	INT DEFAULT '0',
@@ -182,56 +184,57 @@ CREATE TABLE PHARMACY (
 );
 
 INSERT INTO PHARMACY (
-	phNO, phNAME, phTEL, phADDRESS, phPICURL,
+	phNO, phNAME, phTEL, phADDRESS,
 	phOP1, phOP2, phOP3, phOP4, phOP5,
-    phOP6, phLATI, phLONG, REVIEWCOUNT, FAVCOUNT,
+    phOP6, phOP7, phOP8, phLATI, phLONG, REVIEWCOUNT, FAVCOUNT,
     RATING, STATUS
 ) VALUES(
-	0, '이즈타워약국', '02-501-9489', '서울 강남구 테헤란로', NULL, 
+	0, '그린약국', '041-545-2071', '충청남도 아산시 온천대로 1480, 1층 (온천동)',
     '월 10:00~15:00', '화 10:00~15:00', '수 10:00~15:00', '목 10:00~15:00', '금 10:00~15:00',
-    '토 10:00~18:00', '37.49864', '127.02811', DEFAULT, DEFAULT,
+    '토 10:00~18:00', '일 10:00~20:00', '공휴일 10:00~20:00', '36.78154', '127.00216', DEFAULT, DEFAULT,
     DEFAULT, DEFAULT
 );
 
 INSERT INTO PHARMACY (
-	phNO, phNAME, phTEL, phADDRESS, phPICURL,
+	phNO, phNAME, phTEL, phADDRESS,
 	phOP1, phOP2, phOP3, phOP4, phOP5,
-    phOP6, phLATI, phLONG, REVIEWCOUNT, FAVCOUNT,
+    phOP6, phOP7, phOP8, phLATI, phLONG, REVIEWCOUNT, FAVCOUNT,
     RATING, STATUS
 ) VALUES(
-	0, '미진약국', '02-566-1954', '서울 강남구 강남대로', NULL, 
-    '월 09:30~21:00', '화 09:30~21:00', '수 09:30~21:00', '목 09:00~21:00', '금 09:00~21:00',
-    '토 09:00~18:00', '37.49795', '127.02855', DEFAULT, DEFAULT,
+	0, '희망약국', '02-308-8038', '서울특별시 서대문구 증가로 122',
+    '월 09:00~18:30', '화 09:00~18:30', '수 09:00~18:30', '목 09:00~18:30', '금 09:00~18:30',
+    '토 09:00~16:00', '일 09:00~18:00', NULL, '37.57736', '126.92427', DEFAULT, DEFAULT,
     DEFAULT, DEFAULT
 );
 
 INSERT INTO PHARMACY (
-	phNO, phNAME, phTEL, phADDRESS, phPICURL,
+	phNO, phNAME, phTEL, phADDRESS,
 	phOP1, phOP2, phOP3, phOP4, phOP5,
-    phOP6, phLATI, phLONG, REVIEWCOUNT, FAVCOUNT,
+    phOP6, phOP7, phOP8, phLATI, phLONG, REVIEWCOUNT, FAVCOUNT,
     RATING, STATUS
 ) VALUES(
-	0, '강남역2번출구약국', '02-565-5490', '서울 강남구 강남대로', 'https://www.google.com/maps/place/%EA%B0%95%EB%82%A8%EC%97%AD+2%EB%B2%88%EC%B6%9C%EA%B5%AC+%EC%95%BD%EA%B5%AD/@37.4973576,127.0283168,3a,75y,90t/data=!3m8!1e2!3m6!1sAF1QipPdh1rhxrq1jXj0r4mkjdZKXNNeXOnrhmypXp-u!2e10!3e12!6shttps:%2F%2Flh5.googleusercontent.com%2Fp%2FAF1QipPdh1rhxrq1jXj0r4mkjdZKXNNeXOnrhmypXp-u%3Dw114-h86-k-no!7i4032!8i3024!4m10!1m2!2m1!1z64m07JqV7JW96rWt!3m6!1s0x357ca16bc8f58189:0x5b342f9a8055b1a6!8m2!3d37.4973576!4d127.0283168!10e5!16s%2Fg%2F11pyc1t_zv?hl=ko&entry=ttu#', 
-    '월 09:30~19:30', '화 09:30~19:30', '수 08:30~14:00', '목 09:30~19:30', '금 09:30~20:00',
-    '토일 08:50~12:00', '37.49750', '127.02872', DEFAULT, DEFAULT,
+	0, '효제약국', '02-391-7615', '서울특별시 서대문구 세검정로 32',
+    '월 09:00~18:00', '화 09:00~18:00', '수 09:00~18:00', '목 09:00~18:00', '금 09:00~18:00',
+    '토 09:00~13:00', NULL, NULL, '37.59155', '126.94499', DEFAULT, DEFAULT,
     DEFAULT, DEFAULT
 );
 
 INSERT INTO PHARMACY (
-	phNO, phNAME, phTEL, phADDRESS, phPICURL,
+	phNO, phNAME, phTEL, phADDRESS,
 	phOP1, phOP2, phOP3, phOP4, phOP5,
-    phOP6, phLATI, phLONG, REVIEWCOUNT, FAVCOUNT,
+    phOP6, phOP7, phOP8, phLATI, phLONG, REVIEWCOUNT, FAVCOUNT,
     RATING, STATUS
 ) VALUES(
-	0, '뉴욕약국', '070-4147-3039', '서울 강남구 테헤란로', 'https://www.google.com/maps/place/%EB%89%B4%EC%9A%95%EC%95%BD%EA%B5%AD/@37.4987204,127.0286696,3a,75y,90t/data=!3m8!1e2!3m6!1s5i_rZG4lmLXMPq9OGt6TPGUpKBlZVygxF6ZxeeUEkIcqPln_LUb7fPCVrNo1VJX-!2e9!3e27!6s%2F%2Flh6.googleusercontent.com%2F5i_rZG4lmLXMPq9OGt6TPGUpKBlZVygxF6ZxeeUEkIcqPln_LUb7fPCVrNo1VJX-%3Dw86-h86-k-no!7i2448!8i2448!4m11!1m2!2m1!1z64m07JqV7JW96rWt!3m7!1s0x357ca159db47d5fd:0x7ce8d0aa4d79956c!8m2!3d37.4987204!4d127.0286696!10e5!15sCgzribTsmpXslb3qta1aDyIN64m07JqVIOyVveq1rZIBCWRydWdzdG9yZeABAA!16s%2Fg%2F11h67qs4gl?hl=ko&entry=ttu#', 
-    '월 09:00~21:30', '화 09:00~21:30', '수 09:00~21:30', '목 09:00~21:30', '금 09:00~21:30',
-    '토 09:00~18:30', '37.50179', '127.04018', DEFAULT, DEFAULT,
+	0, '도담약국', '043-218-9295', '충청북도 청주시 청원구 충청대로 179, 1층 (주중동)',
+    '월 09:00~21:00', '화 09:00~21:00', '수 09:00~21:00', '목 09:00~21:00', '금 09:00~21:00',
+    '토 09:00~21:00', '일 09:00~19:00', '공휴일 09:00~19:00', '36.67207', '127.49577', DEFAULT, DEFAULT,
     DEFAULT, DEFAULT
 );
 
 COMMIT;
 
 SELECT * FROM PHARMACY;
+
 
 -- DROP TABLE PHARMACY;
 
@@ -772,6 +775,44 @@ SELECT * FROM NEWS;
 
 ------------------------------------ DML 시작-------------------------------------------
 
+---------------------------- 약국 DML  -----------------------------------------------
+ 
+-- 약국 전체 조회 
+SELECT * FROM PHARMACY;
+
+-- 총 게시글 갯수
+SELECT COUNT(*) FROM PHARMACY WHERE STATUS='Y';
+
+-- 글 상세 조회
+SELECT phNO, phNAME, phTEL, phADDRESS, phOP1, phOP2, phOP3, phOP4,
+		 		phOP5, phOP6, phOP7, phOP8, phLATI, phLONG,
+		 		REVIEWCOUNT, FAVCOUNT, RATING 
+FROM PHARMACY P
+WHERE P.STATUS = 'Y' AND P.phNO = 1;
+
+-- 검색용 쿼리 2 종 세트
+-- 게시판 리스트 용 쿼리 완성  1/20
+SELECT  phNO, phNAME, phTEL, phADDRESS, phOP1, phOP2, phOP3, phOP4,
+		 		phOP5, phOP6, phOP7, phOP8, phLATI, phLONG,
+		 		REVIEWCOUNT, FAVCOUNT, RATING
+FROM PHARMACY P
+WHERE 
+	P.STATUS = 'Y'
+    AND (@holidayck IS NULL OR P.phOP8 IS NOT NULL) 
+	AND (@nightck IS NULL OR (P.phOP1 > '22:00' OR P.phOP2 > '22:00' OR P.phOP3 > '22:00' OR P.phOP4 > '22:00' OR P.phOP5 > '22:00' OR P.phOP6 > '22:00' OR P.phOP7 > '22:00')) 
+    AND P.phNAME LIKE '%그린약국%' 
+    AND P.phADDRESS LIKE '%충청남도 아산시%' 
+ORDER BY P.phNO DESC LIMIT 8 OFFSET 0;
+
+
+SELECT COUNT(*)
+FROM PHARMACY P
+WHERE 
+	P.STATUS = 'Y'
+    AND (@holidayck IS NULL OR P.phOP8 IS NOT NULL) 
+	AND (@nightck IS NULL OR (P.phOP1 > '22:00' OR P.phOP2 > '22:00' OR P.phOP3 > '22:00' OR P.phOP4 > '22:00' OR P.phOP5 > '22:00' OR P.phOP6 > '22:00' OR P.phOP7 > '22:00')) 
+    AND P.phNAME LIKE '%그린약국%' 
+    AND P.phADDRESS LIKE '%충청남도 아산시%'; 
 SELECT * FROM Cart
 INNER JOIN Product ON Cart.pNo = Product.pNo
 INNER JOIN Member ON Cart.mNo = Member.mNo;

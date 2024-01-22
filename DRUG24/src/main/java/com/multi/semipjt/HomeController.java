@@ -44,7 +44,6 @@ public class HomeController {
 //		session.setAttribute("loginMember", loginMember);
 		
 		
-		
 		if(param.get("init") != null) {
 			int result = initDB();
 			model.addAttribute("msg", "초기화 결과 : " + result);

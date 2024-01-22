@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.multi.semipjt.pharmacy.model.mapper.PharmacyMapper">
+
+	<resultMap type="Pharmacy" id="PharmacyResultMap">
+		<result property="phno" column="phNO"/>
+		<result property="phname" column="phNAME"/>
+		<result property="phtel" column="phTEL"/>
+		<result property="phaddress" column="phADDRESS"/>
+		<result property="phop1" column="phOP1"/>
+		<result property="phop2" column="phOP2"/>
+		<result property="phop3" column="phOP3"/>
+		<result property="phop4" column="phOP4"/>
+		<result property="phop5" column="phOP5"/>
+		<result property="phop6" column="phOP6"/>
+		<result property="phop7" column="phOP7"/>
+		<result property="phop8" column="phOP8"/>
+		<result property="phlati" column="phLATI"/>
+		<result property="phlong" column="phLONG"/>
+		<result property="reviewcount" column="REVIEWCOUNT"/>
+		<result property="favcount" column="FAVCOUNT"/>
+		<result property="rating" column="RATING"/>
+		<result property="status" column="STATUS"/>
+	</resultMap>
+	
+
+	<select id="selectPharmacyList" parameterType="PharmacyParam" resultMap="PharmacyResultMap">
+		SELECT  phNO, phNAME, phTEL, phADDRESS, phOP1, phOP2, phOP3, phOP4,
+		 		phOP5, phOP6, phOP7, phOP8, phLATI, phLONG,
+		 		REVIEWCOUNT, FAVCOUNT, RATING
+		FROM PHARMACY P
+		WHERE 
+			P.STATUS = 'Y' 	
+			<if test="holidayck != null">
+				AND P.phOP8 IS NOT NULL 
+			</if>
+			<if test="nightck != null">
+				AND (P.phOP1 > '22:00' OR P.phOP2 > '22:00' OR P.phOP3 > '22:00' 
+						OR P.phOP4 > '22:00' OR P.phOP5 > '22:00' OR P.phOP6 > '22:00' OR P.phOP7 > '22:00') 
+			</if>
+			<if test="name != null">
+			    AND P.phNAME LIKE '%${searchValue}%' 
+			</if>
+			<if test="address != null">
+			    AND P.phADDRESS LIKE '%${searchValue}%' 
+			</if>
+		ORDER BY P.phNO DESC LIMIT ${limit} OFFSET ${offset};
+	</select>
+	
+	
+	<select id="selectPharmacyCount" parameterType="PharmacyParam" resultType="int">
+		SELECT COUNT(*)
+		FROM PHARMACY P
+		WHERE 
+			P.STATUS = 'Y' <!-- 1=1을 사용해도 무관  -->
+			<if test="holidayck != null">
+				AND P.phOP8 IS NOT NULL 
+			</if>
+			<if test="nightck != null">
+				AND (P.phOP1 > '22:00' OR P.phOP2 > '22:00' OR P.phOP3 > '22:00' 
+						OR P.phOP4 > '22:00' OR P.phOP5 > '22:00' OR P.phOP6 > '22:00' OR P.phOP7 > '22:00') 
+			</if>
+			<if test="name != null">
+			    AND P.phNAME LIKE '%${searchValue}%' 
+			</if>
+			<if test="address != null">
+			    AND P.phADDRESS LIKE '%${searchValue}%' 
+			</if>
+	</select>
+	
+	<!-- 상세보기 용도, 모든 인자를 가져와야한다. -->
+	<select id="selectPharmacyByNo" parameterType="int" resultMap="PharmacyResultMap">
+		SELECT  
+			phNO, phNAME, phTEL, phADDRESS, phOP1, phOP2, phOP3, phOP4,
+		 	phOP5, phOP6, phOP7, phOP8, phLATI, phLONG,
+		 	REVIEWCOUNT, FAVCOUNT, RATING
+		FROM PHARMACY P
+		WHERE P.STATUS = 'Y' AND P.phNO = #{phno}
+	</select>
+	
+
+	
+	
+</mapper>
+
+
+
+
