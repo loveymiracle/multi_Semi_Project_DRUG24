@@ -56,6 +56,9 @@ public class ShopService {
 		return mapper.updateProductAVG(pNo);
 	}
 	
+	public int countProductReply(int pNo) {
+		return mapper.countProductReply(pNo);
+	}
 	
 	public List<Cart> getCart(Map<String, String> map){
 		return mapper.selectCart(map);

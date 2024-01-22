@@ -12,7 +12,6 @@
 		<result property="phone" column="PHONE"/>
 		<result property="email" column="EMAIL"/>
 		<result property="address" column="ADDRESS"/>
-		<result property="hobby" column="HOBBY"/>
 		<result property="kakaoToken" column="KAKAOTOKEN"/>
 		<result property="status" column="STATUS"/>
 		<result property="enrollDate" column="ENROLL_DATE"/>
@@ -26,7 +25,7 @@
 	<select id="selectAll" resultMap="memberResultMap" >
 		SELECT  
 			mNO, ID, PASSWORD, ROLE, NAME,  
-		    PHONE, EMAIL, ADDRESS, HOBBY, KAKAOTOKEN, STATUS, 
+		    PHONE, EMAIL, ADDRESS, KAKAOTOKEN, STATUS, 
 		    ENROLL_DATE, MODIFY_DATE
 		FROM MEMBER
 	</select>
@@ -35,7 +34,7 @@
 	<select id="selectMember" resultMap="memberResultMap" parameterType="int">
 		SELECT  
 			mNO, ID, PASSWORD, ROLE, NAME,  
-		    PHONE, EMAIL, ADDRESS, HOBBY,  KAKAOTOKEN, STATUS,
+		    PHONE, EMAIL, ADDRESS, KAKAOTOKEN, STATUS,
 		    ENROLL_DATE, MODIFY_DATE
 		FROM MEMBER WHERE MNO = #{mno}
 	</select>
@@ -44,7 +43,7 @@
 	<select id="selectMemberById" resultMap="memberResultMap" parameterType="String" >
 		SELECT  
 			mNO, ID, PASSWORD, ROLE, NAME,  
-		    PHONE, EMAIL, ADDRESS, HOBBY, KAKAOTOKEN, STATUS, 
+		    PHONE, EMAIL, ADDRESS, KAKAOTOKEN, STATUS, 
 		    ENROLL_DATE, MODIFY_DATE
 		FROM MEMBER WHERE ID = #{id} AND STATUS ='Y' 
 	</select>
@@ -52,7 +51,7 @@
 	 <select id="selectMemberByKakaoToken" parameterType="string" resultMap="memberResultMap">
 		SELECT
 			mNO, ID, PASSWORD, ROLE, NAME,  
-			PHONE, EMAIL, ADDRESS, HOBBY, KAKAOTOKEN, STATUS, 
+			PHONE, EMAIL, ADDRESS, KAKAOTOKEN, STATUS, 
 			ENROLL_DATE, MODIFY_DATE
 		FROM MEMBER 
 		WHERE KAKAOTOKEN = #{kakaoToKen} AND STATUS = 'Y'
@@ -62,11 +61,11 @@
 	<insert id="insertMember" parameterType="Member" >
 		INSERT INTO MEMBER (
 		    mNO, ID, PASSWORD, ROLE, NAME, 
-		    PHONE, EMAIL, ADDRESS, HOBBY, KAKAOTOKEN, STATUS, 
+		    PHONE, EMAIL, ADDRESS, KAKAOTOKEN, STATUS, 
 		    ENROLL_DATE, MODIFY_DATE
 		) VALUES(
 		    0, #{id}, #{password}, DEFAULT, #{name}, 
-		     #{phone}, #{email}, #{address}, #{hobby}, #{kakaoToken}, DEFAULT,
+		     #{phone}, #{email}, #{address}, #{kakaoToken}, DEFAULT,
 		    DEFAULT, DEFAULT
 		)
 	</insert>
@@ -74,7 +73,7 @@
 	<update id="updateMember">
 		UPDATE MEMBER SET 
 			NAME = #{name}, PHONE = #{phone}, EMAIL = #{email}, 
-		    ADDRESS = #{address}, HOBBY = #{hobby}, MODIFY_DATE = CURRENT_TIMESTAMP
+		    ADDRESS = #{address}, MODIFY_DATE = CURRENT_TIMESTAMP
 		WHERE mNO = #{mno}
 	</update>
 	

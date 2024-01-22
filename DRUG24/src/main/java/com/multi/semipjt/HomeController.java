@@ -32,7 +32,7 @@ import com.multi.semipjt.shop.model.service.ShopService;
 public class HomeController {
 	
 	@Autowired
-	private MemberService memberService = null;
+	private MemberService memberService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	@RequestMapping(value = "/", method = RequestMethod.GET)

@@ -399,6 +399,38 @@ SELECT * FROM Cart;
 
 DROP TABLE Cart;
 
+------------------------------------------------------------------
+---------------------------- 건기식 리뷰 ---------------------------
+------------------------------------------------------------------
+
+CREATE TABLE ProductReply (
+	rNO INT PRIMARY KEY AUTO_INCREMENT,
+	mNO INT,
+	pNO INT,
+    CONTENT VARCHAR(2000),
+	RATING INT DEFAULT '0',
+	CREATEDATE TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY(pNO) REFERENCES PRODUCT(pNO),
+	FOREIGN KEY(mNO) REFERENCES MEMBER(mNO)
+);
+
+INSERT INTO ProductReply (rNO, mNO, pNO, CONTENT, RATING, CREATEDATE) VALUES(0, 3, 1, '선물용 으로 샀어요!', 5, DEFAULT);
+INSERT INTO ProductReply (rNO, mNO, pNO, CONTENT, RATING, CREATEDATE) VALUES(0, 4, 1, '선물로도 딱이에요!', 5, DEFAULT);
+INSERT INTO ProductReply (rNO, mNO, pNO, CONTENT, RATING, CREATEDATE) VALUES(0, 5, 1, '선물로도 좋아요!', 4, DEFAULT);
+
+COMMIT;
+
+SELECT * FROM ProductReply;
+
+SELECT COUNT(*) FROM ProductReply WHERE pNO=1 and rating=5;
+
+SELECT round(avg(RATING),1) FROM PRODUCTREPLY where pno=1;
+UPDATE Product set rating = (SELECT round(avg(RATING),1) FROM ProductReply where pno = 1) where pno = 1;
+
+-- DELETE FROM ProductReply WHERE pNO=331;
+
+-- DROP TABLE ProductReply; 
+
 ---------------------------------------------------
 --------------- Board 카테고리 테이블 ------------------
 ---------------------------------------------------
@@ -640,29 +672,7 @@ SELECT * FROM MEDICINEREVIEW;
 
 -- DROP TABLE MEDICINEREVIEW;
 
-------------------------------------------------------------------
----------------------------- 건기식 리뷰 ---------------------------
-------------------------------------------------------------------
 
-CREATE TABLE ProductReply (
-	rNO INT PRIMARY KEY AUTO_INCREMENT,
-	mNO INT,
-	pNO INT,
-    CONTENT VARCHAR(2000),
-	RATING INT DEFAULT '0',
-	CREATEDATE TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY(pNO) REFERENCES PRODUCT(pNO),
-	FOREIGN KEY(mNO) REFERENCES MEMBER(mNO)
-);
-
-INSERT INTO ProductReply (rNO, mNO, pNO, CONTENT, RATING, CREATEDATE) VALUES(0, 3, 1, '선물용 으로 샀어요!', 5, DEFAULT);
-INSERT INTO ProductReply (rNO, mNO, pNO, CONTENT, RATING, CREATEDATE) VALUES(0, 4, 1, '선물로도 딱이에요!', 5, DEFAULT);
-
-COMMIT;
-
-SELECT * FROM ProductReply;
-
-DROP TABLE ProductReply; 
 
 -------------------------------------------------
 ------------------ 약국 리뷰  ---------------------
@@ -730,6 +740,7 @@ SELECT * FROM MYAIDKIT;
 
 CREATE TABLE NEWS (
 	newsNO	INT	PRIMARY KEY AUTO_INCREMENT,
+    mNO INT,
     TYPE VARCHAR(20) DEFAULT 'NEWS',
 	TITLE VARCHAR(100),
 	CONTENT	VARCHAR(500),
@@ -738,6 +749,7 @@ CREATE TABLE NEWS (
 	CREATE_DATE DATETIME DEFAULT CURRENT_TIMESTAMP,
 	MODIFY_DATE DATETIME DEFAULT CURRENT_TIMESTAMP,
 	STATUS VARCHAR(1) DEFAULT 'Y' CHECK (STATUS IN ('Y', 'N')),
+    FOREIGN KEY(mNO) REFERENCES MEMBER,
     CONSTRAINT FK_NEWS_CATEGORY FOREIGN KEY(TYPE) REFERENCES BOARD_CATEGORY(TYPE) ON DELETE SET NULL
 );
 

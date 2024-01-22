@@ -109,6 +109,10 @@
 		WHERE pno = #{pno}
 	</select>
 	
+	<select id="countProductReply" parameterType="int">
+		SELECT COUNT(*) FROM ProductReply
+		WHERE pno = #{pno}
+	</select>
 	
 	<update id="updateProductAVG"  parameterType="int">
 		UPDATE product set scoreAVG = (SELECT AVG(rating) FROM ProductReply where pno = #{pno}) where pNo = #{pno}
