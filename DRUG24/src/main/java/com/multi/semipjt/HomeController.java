@@ -9,8 +9,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,9 +20,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.multi.semipjt.api.naver.NaverSearchAPI;
 import com.multi.semipjt.common.util.PageInfo;
+import com.multi.semipjt.member.model.service.MemberService;
 import com.multi.semipjt.member.model.vo.Member;
-import com.multi.semipjt.shop.model.service.ShopService;
 import com.multi.semipjt.shop.model.vo.Product;
+import com.multi.semipjt.shop.model.service.ShopService;
 
 /**
  * Handles requests for the application home page.
@@ -30,13 +31,20 @@ import com.multi.semipjt.shop.model.vo.Product;
 @Controller
 public class HomeController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	@Autowired
+	private MemberService memberService = null;
 	
+	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model, HttpSession session,
 			@RequestParam Map<String, String> param) {
 		logger.info("Welcome home!");
 		System.out.println("@@@@@@@@@@@@@@@@@");
+//		Member loginMember = memberService.login("admin", "1234");
+//		session.setAttribute("loginMember", loginMember);
+		
+		
+		
 		if(param.get("init") != null) {
 			int result = initDB();
 			model.addAttribute("msg", "초기화 결과 : " + result);
