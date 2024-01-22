@@ -11,14 +11,20 @@
     <!-- Viewport-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Vendor Styles including: Font Icons, Plugins, etc.-->
-    <link rel="stylesheet" media="screen" href="${path}/resources/vendor/simplebar/dist/simplebar.min.css"/>
-    <link rel="stylesheet" media="screen" href="${path}/resources/vendor/tiny-slider/dist/tiny-slider.css"/>
+    <link rel="stylesheet" media="screen" href="${path}/resources/vendor/simplebar/dist/simplebar.min.css" />
+  	<link rel="stylesheet" media="screen" href="${path}/resources/vendor/tiny-slider/dist/tiny-slider.css" />
+  	<link rel="stylesheet" media="screen" href="${path}/resources/vendor/drift-zoom/dist/drift-basic.min.css" />
+  	<link rel="stylesheet" media="screen" href="${path}/resources/vendor/lightgallery.js/dist/css/lightgallery-bundle.min.css" />
+    <!-- Main Theme Styles + Bootstrap-->
+  	<link rel="stylesheet" media="screen" href="${path}/resources/vendor/nouislider/dist/nouislider.min.css"/>
+  	<link rel="stylesheet" media="screen" href="${path}/resources/vendor/drift-zoom/dist/drift-basic.min.css"/>
+  	<link rel="stylesheet" media="screen" href="${path}/resources/css/theme.min.css">
     <!-- Main Theme Styles + Bootstrap-->
     <link rel="stylesheet" media="screen" href="${path}/resources/css/theme.min.css">
-    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@800&family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
   </head>
   <!-- Body-->
   <body>
@@ -132,39 +138,9 @@
 				<div class="container">
 					<a
 						class="navbar-brand d-none d-sm-block flex-shrink-0 order-lg-1 m-0 p-0"
-						href="${path}"> <img src="${path}/resources/imgs/LogoE_r.png" width="55"
-						alt=""></a>
-					<!-- Toolbar-->
-					<div class="navbar-toolbar d-flex align-items-center order-lg-3">
-						<div class="navbar-tool d-none d-lg-flex"
-							href="dashboard-favorites.html">
-							<span class="navbar-tool-tooltip">나의 구급함</span><span
-								class="navbar-tool-icon-box"><i
-								class="navbar-tool-icon ci-basket-alt"></i></span>
-						</div>
-						<div class="navbar-tool d-none d-lg-flex">
-							<a class="navbar-tool-icon-box bg-secondary dropdown-toggle"
-								href="marketplace-cart.html"><span class="navbar-tool-label">3</span><i
-								class="navbar-tool-icon ci-cart"></i></a>
-						</div>
-						<div class="navbar-tool dropdown ms-2">
-							<a class="" href="dashboard-sales.html"></a><a
-								class="navbar-tool-text ms-n1" href="dashboard-sales.html"><small>nickname</small>일반
-								회원</a>
-							<div class="dropdown-menu dropdown-menu-end">
-								<div style="min-width: 14rem;">
-									<h6 class="dropdown-header">계정 정보</h6>
-									<a class="dropdown-item d-flex align-items-center"
-										href="dashboard-settings.html"><i
-										class="ci-settings opacity-60 me-2"></i>마이 페이지</a>
-									<div class="dropdown-divider"></div>
-									<a class="dropdown-item d-flex align-items-center"
-										href="account-signin.html"><i
-										class="ci-sign-out opacity-60 me-2"></i>Sign Out</a>
-								</div>
-							</div>
-						</div>
-					</div>
+						href="${path}"> <img src="${path}/resources/imgs/LogoE_r.png"
+						width="55" alt="">
+					</a>
 					<div class="collapse navbar-collapse me-auto order-lg-2 ms-3"
 						id="navbarCollapse">
 						<!-- Primary menu-->
@@ -185,8 +161,8 @@
 								class="nav-link dropdown-toggle h4 text-white" href="#"
 								data-bs-toggle="dropdown" data-bs-auto-close="outside">Pharmacy</a></li>
 							<li class="nav-item dropdown"><a
-								class="nav-link dropdown-toggle h4 text-white" href="${path}/shop/main"
-								data-bs-toggle="dropdown" data-bs-auto-close="outside">Shop</a></li>
+								class="nav-link dropdown-toggle h4 text-white"
+								href="${path}/shop/main">Shop</a></li>
 							<li class="nav-item dropdown"><a
 								class="nav-link dropdown-toggle h4 text-white" href="#"
 								data-bs-toggle="dropdown" data-bs-auto-close="outside">Community</a>
@@ -197,6 +173,92 @@
 								</ul>
 							</li>
 						</ul>
+						<div class="navbar-tool">
+							<a class="navbar-tool-icon-box bg-secondary"
+								href="${path}/shop/cart"><span class="navbar-tool-label">${cartSize}</span><i
+								class="navbar-tool-icon ci-cart"></i></a><a class="navbar-tool-text"
+								href="shop-cart.html"></a>
+							<!-- Cart dropdown-->
+							<div class="dropdown-menu dropdown-menu-end">
+								<div class="widget widget-cart px-3 pt-2 pb-3"
+									style="width: 20rem;">
+									<div style="height: 15rem;" data-simplebar
+										data-simplebar-auto-hide="false">
+
+										<c:forEach var="item" items="${cartList }">
+											<div class="widget-cart-item pb-2 border-bottom">
+												<button class="btn-close text-danger" type="button"
+													aria-label="Remove"
+													onclick="cartDelete('${item.pno}', '/');">
+													<span aria-hidden="true">&times;</span>
+												</button>
+												<div class="d-flex align-items-center">
+													<a class="d-block flex-shrink-0" href="shop-single-v2.html"><img
+														src="${item.image }" width="64" alt="Product"></a>
+													<div class="ps-2">
+														<h6 class="widget-product-title">
+															<a href="${path}/shop/product?pno=${item.pno}">${item.title }</a>
+														</h6>
+														<div class="widget-product-meta">
+															<span class="text-accent me-2"><fmt:formatNumber
+																	value="${item.lprice }" pattern="#,###" />원 </span><span
+																class="text-muted">x ${item.amount }</span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</c:forEach>
+
+										<script type="text/javascript">
+											function cartDelete(pno, url) {
+												location.href = '${path}/shop/deleteCart?pno='
+														+ pno + '&url=' + url;
+											}
+										</script>
+									</div>
+								</div>
+							</div>
+							<!-- Toolbar-->
+							<div
+								class="navbar-toolbar d-flex flex-shrink-0 align-items-center">
+								<button class="navbar-toggler" type="button"
+									data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+									<span class="navbar-toggler-icon"> </span>
+								</button>
+								<a class="navbar-tool navbar-stuck-toggler" href="#"><span
+									class="navbar-tool-tooltip">Toggle menu</span>
+									<div class="navbar-tool-icon-box">
+										<i class="navbar-tool-icon ci-menu"></i>
+									</div> </a>
+
+								<c:if test="${loginMember == null}">
+									<a class="navbar-tool ms-1 ms-lg-0 me-n1 me-lg-2"
+										href="#signin-modal" data-bs-toggle="modal">
+										<div class="navbar-tool-icon-box">
+											<i class="navbar-tool-icon ci-user"></i>
+										</div>
+										<div class="navbar-tool-text ms-n3">
+											<small>Hello, Sign in</small>My Account
+										</div>
+									</a>
+								</c:if>
+
+								<c:if test="${loginMember != null}">
+									<div class="navbar-tool ms-1 ms-lg-0 me-n1 me-lg-2"
+										data-bs-toggle="modal">
+										<div class="navbar-tool-icon-box">
+											<i class="navbar-tool-icon ci-user"></i>
+										</div>
+										<div class="navbar-tool-text ms-n3">
+											${loginMember.name}님
+											<div>
+												<a href="${path}/logout">logout</a>
+											</div>
+										</div>
+									</div>
+								</c:if>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

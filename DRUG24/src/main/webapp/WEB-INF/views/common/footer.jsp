@@ -1,5 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-			    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<c:set var="path" value="${pageContext.request.contextPath}"/>
 		<!-- 푸터 시작-->
 		<footer class="footer bg-dark pt-5">
 			<div class="container pt-2 pb-3">
@@ -70,7 +73,7 @@
 								<li class="widget-list-item"><a class="widget-list-link"
 									href="#">Pharmacy Reviews</a></li>
 								<li class="widget-list-item"><a class="widget-list-link"
-									href="#">Medicine Reaviews</a></li>
+									href="#">Medicine Reviews</a></li>
 								<li class="widget-list-item"><a class="widget-list-link"
 									href="#">Notice</a></li>
 							</ul>
@@ -92,8 +95,8 @@
 	  	<script src="${path}/resources/vendor/tiny-slider/dist/min/tiny-slider.js"></script>
 	  	<script src="${path}/resources/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
 	  	<script src="${path}/resources/vendor/drift-zoom/dist/Drift.min.js"></script>
-	  	<script src="${path}/resources/vendor/lightgallery/lightgallery.min.js"></script>
-	  	<script src="${path}/resources/vendor/lightgallery/plugins/video/lg-video.min.js"></script>
+	  	<script src="${path}/resources/vendor/lightgallery.js/lightgallery.min.js"></script>
+  		<script src="${path}/resources/vendor/lightgallery.js/plugins/video/lg-video.min.js"></script>
 	  	<!-- Main theme script-->
 	  	<script src="${path}/resources/vendor/nouislider/dist/nouislider.min.js"></script>
 	  	<script src="${path}/resources/vendor/drift-zoom/dist/Drift.min.js"></script>

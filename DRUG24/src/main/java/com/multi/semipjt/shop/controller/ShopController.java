@@ -99,7 +99,7 @@ public class ShopController {
 		model.addAttribute("product", product);
 		model.addAttribute("plist1", plist1);
 		model.addAttribute("replyList", replyList);
-		return "/shop/shop-single3";
+		return "/shop/shop-single";
 	}
 	
 	@PostMapping("/shop/writeReply")
