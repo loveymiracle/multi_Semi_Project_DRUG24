@@ -24,15 +24,10 @@ public class PharmacyController {
 	private PharmacyService service;
 	
 	
-	@GetMapping("/pharmacy/search")
-	public String SearchFORM() {
-		return "pharmacy/pharmacysearch";
-	}
-	
 	@RequestMapping("/pharmacy/search")
 	public String list(Model model, PharmacyParam param) {
 		log.debug("@@ pharmacy list 요청 param :" + param);
-		 log.debug("@@ pharmacy list 요청 param :" + param);
+		log.debug("@@ pharmacy list 요청 param :" + param);
 	        
 		
 		int pharmacyCount = service.getPharmacyCount(param);
@@ -41,6 +36,7 @@ public class PharmacyController {
 		param.setOffset(pageInfo.getStartList()-1);
 		List<Pharmacy> list = service.getPharmacyList(param);
 		
+		System.out.println("@@" + list);
 		
 		model.addAttribute("pageInfo", pageInfo);
 		model.addAttribute("list", list);

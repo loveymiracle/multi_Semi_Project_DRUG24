@@ -177,8 +177,9 @@
 					<td colspan="6">조회된 글이 없습니다.</td>
 				</tr>
 			</c:if>
+			
             <c:if test="${not empty list}">
-				<c:forEach var="item" items="${list}">
+			<c:forEach var="item" items="${list}">
             <!-- Products grid ============================================================  약국 리스트   -->
             <div class="row pt-4 mx-n2"> <!--여백 좌우여백 제거-->
 					
@@ -214,15 +215,30 @@
                                     </h1>
                                 </div>
                                 <div class="d-flex align-items-center">
-                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">월 </div>
+                                    <c:if test="${item.phop1s != null }">
+	                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">월 </div>
+                                    </c:if>
+                                    <c:if test="${item.phop1s == null }">
+                                    <div class="rounded-3 py-1 px-1 h4 me-2" style="color: gray">월 </div>
+                                    </c:if>
+                                    
+                                    
                                     <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">화 </div>
                                     <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">수 </div>
                                     <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">목 </div>
                                     <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">금 </div>
                                     <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">토 </div>
                                     <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">일 </div>
-                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4"> 공휴일
-                                    </div>
+                                    
+                                    <c:if test="${item.phop8s != null }">
+	                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4"> 공휴일</div>
+                                    </c:if>
+                                    <c:if test="${item.phop8s == null }">
+	                                    <div class="rounded-3 py-1 px-1 h4 me-2" style="color: gray"> 공휴일</div>
+                                    </c:if>
+                                    
+                                    
+                                    
                                 </div>
                                 <div class="d-flex h5" style="margin-top: 5px;">
                                     <div class="bg-success text-white rounded-1 py-2 px-3 h5 me-3">
