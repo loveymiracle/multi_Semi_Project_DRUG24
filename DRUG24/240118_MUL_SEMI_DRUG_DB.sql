@@ -193,13 +193,14 @@ CREATE TABLE PHARMACY (
 
 INSERT INTO PHARMACY (
 	phNO, phNAME, phTEL, phADDRESS,
-	phOP1, phOP2, phOP3, phOP4, phOP5,
-    phOP6, phOP7, phOP8, phLATI, phLONG, REVIEWCOUNT, FAVCOUNT,
+	phOP1S, phOP2S, phOP3S, phOP4S, phOP5S, phOP6S, phOP7S, phOP8S, phOP1E, phOP2E,
+	phOP3E, phOP4E, phOP5E, phOP6E, phOP7S, phOP8E,
+    phLATI, phLONG, REVIEWCOUNT, FAVCOUNT,
     RATING, STATUS
 ) VALUES(
-	0, '그린약국', '041-545-2071', '충청남도 아산시 온천대로 1480, 1층 (온천동)',
-    '월 10:00~15:00', '화 10:00~15:00', '수 10:00~15:00', '목 10:00~15:00', '금 10:00~15:00',
-    '토 10:00~18:00', '일 10:00~20:00', '공휴일 10:00~20:00', '36.78154', '127.00216', DEFAULT, DEFAULT,
+	0, '성남약국', '042-672-2957', '대전광역시 동구 계족로 362, 성남약국 1층 (성남동)',
+    '0900',  '0900',  '0900',  '0900', '0900', '0900', NULL, NULL, '1900', '1900', '1900', '1900', '1900',
+    '1300',  NULL, NULL, '36.34442', '127.43406', DEFAULT, DEFAULT,
     DEFAULT, DEFAULT
 );
 
