@@ -43,11 +43,11 @@
 		WHERE 
 			P.STATUS = 'Y' 	
 			<if test="holidayck != null">
-				AND P.phOP8 IS NOT NULL 
+				AND P.phop8s IS NOT NULL 
 			</if>
 			<if test="nightck != null">
-				AND (P.phOP1 > '22:00' OR P.phOP2 > '22:00' OR P.phOP3e >= 2200 
-						OR P.phOP4 > '22:00' OR P.phOP5 > '22:00' OR P.phOP6 > '22:00' OR P.phOP7 > '22:00') 
+				AND (P.phop1e >= 2200 OR P.phop2e >= 2200 OR P.phOP3e >= 2200 
+						OR P.phop4e >= 2200 OR P.phop5e >= 2200 OR P.phop6e >= 2200 OR P.phop7e >= 2200) 
 			</if>
 			<if test="name != null">
 			    AND P.phNAME LIKE '%${searchValue}%' 
@@ -68,8 +68,8 @@
 				AND P.phOP8 IS NOT NULL 
 			</if>
 			<if test="nightck != null">
-				AND (P.phOP1 > '22:00' OR P.phOP2 > '22:00' OR P.phOP3 > '2200' 
-						OR P.phOP4 > '22:00' OR P.phOP5 > '22:00' OR P.phOP6 > '22:00' OR P.phOP7 > '22:00') 
+				AND (P.phop1e >= 2200 OR P.phop2e >= 2200 OR P.phOP3e >= 2200 
+						OR P.phop4e >= 2200 OR P.phop5e >= 2200 OR P.phop6e >= 2200 OR P.phop7e >= 2200) 
 			</if>
 			<if test="name != null">
 			    AND P.phNAME LIKE '%${searchValue}%' 
