@@ -30,4 +30,9 @@ public class PharmacyService {
 		
 		return pharmacy;
 	}
+	
+	@Transactional(rollbackFor = Exception.class)
+	public int savePharmacy(Pharmacy p) {
+		return mapper.insertPharmacy(p);
+	}
 }
