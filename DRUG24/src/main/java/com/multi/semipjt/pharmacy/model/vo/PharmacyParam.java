@@ -18,7 +18,7 @@ public class PharmacyParam {
 			page = 1;
 		}
 
-		public PharmacyParam(String holidayck, String nightck, String searchValue, int page, int limit,
+		public PharmacyParam(String holidayck, String nightck, String name, String address,int page, int limit,
 				int offset) {
 			super();
 			this.holidayck = holidayck;

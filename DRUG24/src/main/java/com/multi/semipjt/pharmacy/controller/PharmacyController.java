@@ -30,7 +30,7 @@ public class PharmacyController {
 	        
 		
 		int pharmacyCount = service.getPharmacyCount(param);
-		PageInfo pageInfo = new PageInfo(param.getPage(), 5, pharmacyCount, 8);
+		PageInfo pageInfo = new PageInfo(param.getPage(), 5, pharmacyCount, 6);
 		param.setLimit(pageInfo.getListLimit());
 		param.setOffset(pageInfo.getStartList()-1);
 		List<Pharmacy> list = service.getPharmacyList(param);
