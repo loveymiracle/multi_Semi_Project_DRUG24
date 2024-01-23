@@ -50,10 +50,10 @@
 						OR P.phop4e >= 2200 OR P.phop5e >= 2200 OR P.phop6e >= 2200 OR P.phop7e >= 2200) 
 			</if>
 			<if test="name != null">
-			    AND P.phNAME LIKE '%${searchValue}%' 
+			    AND P.phNAME LIKE '%${name}%' 
 			</if>
 			<if test="address != null">
-			    AND P.phADDRESS LIKE '%${searchValue}%' 
+			    AND P.phADDRESS LIKE '%${address}%' 
 			</if>
 		ORDER BY P.phNO DESC LIMIT ${limit} OFFSET ${offset};
 	</select>
@@ -72,10 +72,10 @@
 						OR P.phop4e >= 2200 OR P.phop5e >= 2200 OR P.phop6e >= 2200 OR P.phop7e >= 2200) 
 			</if>
 			<if test="name != null">
-			    AND P.phNAME LIKE '%${searchValue}%' 
+			    AND P.phNAME LIKE '%${name}%' 
 			</if>
 			<if test="address != null">
-			    AND P.phADDRESS LIKE '%${searchValue}%' 
+			    AND P.phADDRESS LIKE '%${address}%' 
 			</if>
 	</select>
 	
