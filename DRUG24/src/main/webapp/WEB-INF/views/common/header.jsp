@@ -167,7 +167,7 @@
 								class="nav-link dropdown-toggle h4 text-white" href="#"
 								data-bs-toggle="dropdown" data-bs-auto-close="outside">Community</a>
 								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" href="#">질문과 답변</a></li>
+									<li><a class="dropdown-item" href="${path}/board/list">질문과 답변</a></li>
 									<li><a class="dropdown-item" href="#">공지사항</a></li>
 									<li><a class="dropdown-item" href="#">Newsroom</a></li>
 								</ul>
@@ -177,7 +177,7 @@
 							<a class="navbar-tool-icon-box bg-secondary"
 								href="${path}/shop/cart"><span class="navbar-tool-label">${cartSize}</span><i
 								class="navbar-tool-icon ci-cart"></i></a><a class="navbar-tool-text"
-								href="shop-cart.html"></a>
+								href="${path}shop-cart.html"></a>
 							<!-- Cart dropdown-->
 							<div class="dropdown-menu dropdown-menu-end">
 								<div class="widget widget-cart px-3 pt-2 pb-3"

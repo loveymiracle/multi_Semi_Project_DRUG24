@@ -64,20 +64,13 @@
 							
 								<!--  -->
 								
-								<div class="mb-3">
+								<div class="mb-3 text-center">
 									<span class="h3 fw-normal text-accent me-1"> <fmt:formatNumber
 											value="${product.lprice}" pattern="#,###" />원</span>
 								</div>
 								<form class="mb-grid-gutter" action="${path}/shop/addCart" method="post">
 								<input type="hidden" name="pno" value="${product.pno}">
 								<div class="mb-3 d-flex align-items-center">
-									<select class="form-select me-3" style="width: 5rem;">
-										<option value="1">1</option>
-										<option value="2">2</option>
-										<option value="3">3</option>
-										<option value="4">4</option>
-										<option value="5">5</option>
-									</select>
 									<button class="btn btn-primary btn-shadow d-block w-100"
 											type="submit">
 												<i class="ci-cart fs-lg me-2"></i>장바구니 추가
@@ -135,10 +128,10 @@
 												<i class="ci-card fs-lg me-2"></i>구매 하기
 									</button>
 								</div>
-								<div class="mb-3">
-									<!-- <span class="mb-5">총 구매 개수 : <span id="totlaQuantity">개</span></span><br>
-									<span class="mb-5">총 상품 금액 : <span id="totalPrice"></span></span><br> -->
-									<span id="totalPriceSpan" class="h3 fw-normal text-accent me-1"> <fmt:formatNumber
+								<div class="mb-3 text-center">
+									<span class="mb-6 mt-6">총 구매 개수 : <span id="totalQuantity">개</span></span><br><br>
+									<span class="mb-5 mt-5">총 상품 금액 : </span>
+									<span id="totalPriceSpan" class="h3 fw-normal text-accent me-1 mt-5 ms-3"> <fmt:formatNumber
 											value="${product.lprice}" pattern="#,###" />원</span>
 										﻿
 								</div>
@@ -260,7 +253,7 @@
 									<div class="d-flex mb-3">
 										<div class="d-flex align-items-center me-4 pe-2">
 											<img class="rounded-circle"
-												src="${path}/resources/img/shop/reviews/0${loginMember.mno}.jpg"
+												src="${path}/resources/imgs/review/0${loginMember.mno}.jpg"
 												width="50" alt="Rafael Marquez">
 											<div class="ps-3">
 												<h6 class="fs-sm mb-0">${item.name}</h6>
@@ -400,8 +393,11 @@
 				var totalPriceSpan = document.getElementById("totalPriceSpan");
 				result = quantitySelect.options[quantitySelect.selectedIndex].value;
 				result = result * totalPrice.value;
-				reulst = result.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") + '﻿원';
-				totalPriceSpan.innerText = reulst;
+				result = result.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") + '﻿원';
+				totalPriceSpan.innerText = result;
+				
+				var result1 = quantitySelect.options[quantitySelect.selectedIndex].value;
+				totalQuantitySpan.textContent = result1 + "개";
 			}
 		</script>
 
