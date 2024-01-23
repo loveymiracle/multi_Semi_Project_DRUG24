@@ -156,10 +156,6 @@
 							$("#item_name").val(payStr);
 							$("#total_amount").val(totalPrice);
 							$("#quantity").val(quantity);
-							
-							console.log("payStr:", payStr);
-							console.log("totalPrice:", totalPrice);
-							console.log("quantity:", quantity)
 						}
 						
 						
@@ -178,9 +174,9 @@
 									<h3 class="fw-normal">
 										<span id="totalfee">원</span>
 									</h3>
-									<input type="hidden" id="item_name" value="영양제">
-									<input type="hidden" id="total_amount" value="5000">
-									<input type="hidden" id="quantity" value="1">
+									<input type="hidden" name="item_name" id="item_name" value="영양제">
+									<input type="hidden" name="total_amount" id="total_amount" value="5000">
+									<input type="hidden" name="quantity" id="quantity" value="1">
 									<input type="submit" value="" class="btn_submit">
 								</div>
 								<div class="mb-3 mb-4">
@@ -206,9 +202,6 @@
 										<li>카카오 페이 결제만 가능</li>
 										<li>최대구매 5개(1인)</li>
 									</ul>
-									<h3>물품 명 :<span id="item_name"></span></h3>
-									<h3>가격 :<span id="total_amount"></span></h3>
-									<h3>수량 :<span id="quantity"></span></h3>
 								</div>
 							</div>
 						</form>
@@ -216,15 +209,6 @@
 				</aside>
 			</div>
 		</div>
-		<script>
-			$("#item_name").val(payStr);
-			$("#total_amount").val(totalPrice);
-			$("#quantity").val(quantity);
-			
-			console.log("payStr:", payStr);
-			console.log("totalPrice:", totalPrice);
-			console.log("quantity:", quantity)
-		</script>
 		<br><br><br><br><br><br><br><br><br><br>
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
