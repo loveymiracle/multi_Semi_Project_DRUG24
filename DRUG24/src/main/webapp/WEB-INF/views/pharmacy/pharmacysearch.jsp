@@ -191,12 +191,12 @@
                         <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip"
                             data-bs-placement="left" title="즐겨찾기">
                             <i class="ci-star"></i></button>
-                        <a class="card-img-top d-block overflow-hidden" href="${path}/pharmacy/view">
+                        <a class="card-img-top d-block overflow-hidden" href="${path}/pharmacy/view?phno=${item.phno}">
                             <img src="imgs/pharmacy/phar1.png" style="width: 100%; height: 230px;" alt="Product"></a>
                         <!-- ---------- ---------  약국 이미지 -->
                         <div class="card-body">
                             <div class="d-flex flex-wrap justify-content-between align-items-start pb-2">
-                                <h3 class="product-title mb-2 blodFont"><a href="${path}/pharmacy/view">
+                                <h3 class="product-title mb-2 blodFont"><a href="${path}/pharmacy/view?phno=${item.phno}">
                                        <c:out value="${item.phname}"/>
                                     </a>
                                 </h3>

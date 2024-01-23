@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -46,19 +47,21 @@ public class PharmacyController {
 
 	
 	@RequestMapping("/pharmacy/view")
-	  public String view(Model model, @RequestParam("no") int no) {
+	  public String view(Model model, @RequestParam("phno") int phno) {
 		Pharmacy pharmacy = null;
 		try {
-			pharmacy = service.findPharmacyByNo(no);
+			pharmacy = service.findPharmacyByNo(phno);
 		} catch (Exception e) {}
        if(pharmacy == null) {
-    	   return "redirector:error";
+    	   return "redirect:error";
        }
        
        model.addAttribute("pharmacy", pharmacy);
        
        return "pharmacy/pharmacyview";
     }
+	
+
 	
 	
 

@@ -65,7 +65,7 @@
 		WHERE 
 			P.STATUS = 'Y' <!-- 1=1을 사용해도 무관  -->
 			<if test="holidayck != null">
-				AND P.phOP8 IS NOT NULL 
+				AND P.phOP8 IS NULL 
 			</if>
 			<if test="nightck != null">
 				AND (P.phop1e >= 2200 OR P.phop2e >= 2200 OR P.phOP3e >= 2200 
