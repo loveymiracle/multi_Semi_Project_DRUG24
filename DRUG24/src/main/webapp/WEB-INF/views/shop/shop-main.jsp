@@ -5,9 +5,6 @@
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
-	<style>
-		.select-box {}
-	</style>
 	<!-- Hero 시작!)-->
 	<section class="container mt-4 mb-grid-gutter">
 		<div class="bg-faded-info rounded-3 py-4">

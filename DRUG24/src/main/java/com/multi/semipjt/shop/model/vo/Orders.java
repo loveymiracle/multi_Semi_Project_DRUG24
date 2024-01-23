@@ -14,11 +14,8 @@ public class Orders {
 	private int ono;
 	private int mno;
 	private int pno;
-	private String paymethod;
 	private int price;
 	private String requests;
-	private Date createDate;
-	private Date modifyDate;
 	private String status;
 
 }

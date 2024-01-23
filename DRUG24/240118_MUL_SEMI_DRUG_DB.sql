@@ -359,7 +359,7 @@ SELECT * FROM Product LIMIT 0, 10;
 
 COMMIT;
 
-DROP TABLE Product;
+-- DROP TABLE Product;
 
 ---------------------------------------------------
 ------------------- 주문 테이블 ---------------------
@@ -368,18 +368,15 @@ DROP TABLE Product;
 CREATE TABLE Orders (
 	oNO INT PRIMARY KEY AUTO_INCREMENT,
 	mNO INT,
-	pNO INT,
-	PAYMETHOD VARCHAR(20) DEFAULT 'KAKAOPAY',
 	PRICE INT,
 	REQUESTS VARCHAR(100) NULL,
-	CREATE_DATE DATETIME DEFAULT CURRENT_TIMESTAMP,
-	MODIFY_DATE DATETIME DEFAULT CURRENT_TIMESTAMP,
-	STATUS VARCHAR(1) DEFAULT 'Y' CHECK(STATUS IN('Y', 'N')),
-    CONSTRAINT FOREIGN KEY (mNO) REFERENCES MEMBER (mNO),
-    CONSTRAINT FOREIGN KEY (pNO) REFERENCES PRODUCT(pNO)
+	STATUS VARCHAR(20),
+    CONSTRAINT FOREIGN KEY (mNO) REFERENCES MEMBER (mNO)
 );
 
-INSERT INTO Orders (oNO, mNO, pNO, PAYMETHOD, PRICE, REQUESTS) VALUES(0, 2, 1, DEFAULT, 150000, NULL);
+INSERT INTO Orders (oNO, mNO, PRICE, REQUESTS, STATUS) VALUES(0, 2, 30000, "문앞에 놔주세요", "Delivered");
+INSERT INTO Orders (oNO, mNO, PRICE, REQUESTS, STATUS) VALUES(0, 2, 45000, "초인종 누르지 마세요", "In Progress");
+INSERT INTO Orders (oNO, mNO, PRICE, REQUESTS, STATUS) VALUES(0, 2, 20000, NULL, "Delayed");
 
 COMMIT;
 
@@ -409,7 +406,7 @@ COMMIT;
 
 SELECT * FROM Cart;
 
-DROP TABLE Cart;
+-- DROP TABLE Cart;
 
 ------------------------------------------------------------------
 ---------------------------- 건기식 리뷰 ---------------------------
@@ -476,6 +473,8 @@ INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('NBOARD', '공지
 COMMIT;
 SELECT * FROM BOARD_CATEGORY ORDER BY ORDERNO;
 
+-- drop table BOARD_CATEGORY;
+
 -------------------------------------------------
 --------------- Board 관련 테이블 ------------------
 -------------------------------------------------
@@ -496,6 +495,7 @@ CREATE TABLE BOARD (
     CONSTRAINT FK_BOARD_WRITER FOREIGN KEY(mNO) REFERENCES MEMBER(mNO) ON DELETE SET NULL,
     CONSTRAINT FK_BOARD_CATEGORY FOREIGN KEY(TYPE) REFERENCES BOARD_CATEGORY(TYPE) ON DELETE SET NULL
 );
+
 INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NOTICE','[공지] 클린한 게시판 환경을 만들어주세요.','깨끗한 게시판 환경 유지에 협조 바랍니다.');
 INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'PLAIN','안녕하세요? 처음 가입한 개발자입니다.','잘 부탁드립니다.');
 INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'QUESTION','[질문] 질문 있습니다.','자바 어렵나요?');
@@ -579,7 +579,7 @@ INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,3,'SELL','[판매] �
 COMMIT;
 SELECT * FROM BOARD;
 
-
+drop table BOARD;
 ------------------------------------------------------------------
 --------------------------- 첨부파일 관련 ----------------------------
 ------------------------------------------------------------------
@@ -608,6 +608,7 @@ COMMIT;
 SELECT * FROM BOARD_ATTACH_FILE;
 SELECT * FROM BOARD;
 
+-- drop table BOARD_ATTACH_FILE; 
 ------------------------------------------------------------------
 ------------------------- REPLY 관련 테이블 -------------------------
 ------------------------------------------------------------------
@@ -640,7 +641,7 @@ COMMIT;
 
 SELECT * FROM REPLY;
 
-
+-- drop table REPLY;
 
 -- 게시판 끝
 

@@ -26,7 +26,7 @@ public class KakaoPayService {
 	private KakaoPayApprovalVO kakaoPayApprovalVO;
 
 	public String kakaoPayReady(Map<String, String> param) {
-
+		
 		RestTemplate restTemplate = new RestTemplate();
 
 		// 서버로 요청할 Header
@@ -44,9 +44,9 @@ public class KakaoPayService {
 		params.add("quantity", param.get("quantity"));
 		params.add("total_amount", param.get("total_amount"));
 		params.add("tax_free_amount", "500");
-		params.add("approval_url", "http://localhost/mvc/kakaoPaySuccess");
-		params.add("cancel_url", "http://localhost/mvc/kakaoPayCancel");
-		params.add("fail_url", "http://localhost/mvc/kakaoPaySuccessFail");
+		params.add("approval_url", "http://localhost/semipjt/kakaoPaySuccess");
+		params.add("cancel_url", "http://localhost/semipjt/kakaoPayCancel");
+		params.add("fail_url", "http://localhost/semipjt/kakaoPaySuccessFail");
 		params.add("msg", "결제가 완료되었습니다.");
 
 

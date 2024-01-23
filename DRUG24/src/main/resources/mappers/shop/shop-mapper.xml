@@ -115,7 +115,7 @@
 	</select>
 	
 	<update id="updateProductAVG"  parameterType="int">
-		UPDATE product set scoreAVG = (SELECT AVG(rating) FROM ProductReply where pno = #{pno}) where pNo = #{pno}
+		UPDATE product set rating = (SELECT AVG(rating) FROM ProductReply where pno = #{pno}) where pNo = #{pno}
 	</update>
 	
 	
