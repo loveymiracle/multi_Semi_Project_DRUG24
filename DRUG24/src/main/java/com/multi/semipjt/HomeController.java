@@ -74,17 +74,15 @@ public class HomeController {
 			Map<String, Object> map = new HashMap<>();
 			map.put("title", "프로바이오틱스");
 			int count = shopService.getProductCount(map);
-			PageInfo pageInfo = new PageInfo(1, 10, count, 2);
+			PageInfo pageInfo = new PageInfo(1, 10, count, 4);
 			List<Product> plist1 = shopService.getProductList(pageInfo, map);
-			plist1.addAll(plist1);
-			model.addAttribute("plist1", plist1);
 			
 			map.put("title", "멀티비타민");
 			count = shopService.getProductCount(map);
-			pageInfo = new PageInfo(1, 10, count, 2);
+			pageInfo = new PageInfo(1, 10, count, 4);
 			List<Product> plist2 = shopService.getProductList(pageInfo, map);
 			plist1.addAll(plist2);
-			model.addAttribute("plist2", plist2);
+			model.addAttribute("plist1", plist1);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -110,7 +108,7 @@ public class HomeController {
 		List<Product> plist = new ArrayList<>();
 		plist.addAll(NaverSearchAPI.getProductList("프로바이오틱스", 50, 1));
 		plist.addAll(NaverSearchAPI.getProductList("유산균", 20, 1));
-		plist.addAll(NaverSearchAPI.getProductList("비타민", 20, 1));
+		plist.addAll(NaverSearchAPI.getProductList("비타민", 50, 1));
 		plist.addAll(NaverSearchAPI.getProductList("마그네슘", 20, 1));
 		Collections.shuffle(plist);
 		

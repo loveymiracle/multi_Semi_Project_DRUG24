@@ -51,13 +51,11 @@
 								<li class="widget-list-item"><a class="widget-list-link"
 									href="#">Drug Search</a></li>
 								<li class="widget-list-item"><a class="widget-list-link"
-									href="#">Pharmacy Search</a></li>
+									href="${path}/pharmacy/search">Pharmacy Search</a></li>
 								<li class="widget-list-item"><a class="widget-list-link"
-									href="#">Medicine Info</a></li>
+									href="${path}/shop/main">Shopping Mall</a></li>
 								<li class="widget-list-item"><a class="widget-list-link"
-									href="#">Newsroom</a></li>
-								<li class="widget-list-item"><a class="widget-list-link"
-									href="#">Shopping Mall</a></li>
+									href="${path}/board/list">Community</a></li>
 							</ul>
 						</div>
 					</div>
