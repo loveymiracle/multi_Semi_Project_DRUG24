@@ -170,22 +170,22 @@
             <!-- ===============================================================================================  지도  ================= -->
            
             <br><br><br><br>
-             <div class="gray container d-flex justify-content-between" style="border-bottom: 1px solid #183459;">
-            </div>
+          <div class="gray container d-flex justify-content-between" style="border-bottom: 1px solid #183459;">
+          </div>
+           
+            <!-- Products grid ============================================================  약국 리스트   -->
+          <div class="row pt-4 mx-n2"> <!--여백 좌우여백 제거-->
             <c:if test="${empty list}">
-				<tr>
-					<td colspan="6">조회된 글이 없습니다.</td>
-				</tr>
+			<tr>
+				<td colspan="6">조회된 글이 없습니다.</td>
+			</tr>
 			</c:if>
 			
             <c:if test="${not empty list}">
 			<c:forEach var="item" items="${list}">
-            <!-- Products grid ============================================================  약국 리스트   -->
-            <div class="row pt-4 mx-n2"> <!--여백 좌우여백 제거-->
 					
                 <!--- ==============================================================================-->
                 <!-- Product -------------------------------------------------- -->
-           
                 <div class="col-lg-4 col-md-4 col-sm-6 px-3 mb-grid-gutter">
                     <div class="card product-card">
                         <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip"
@@ -221,41 +221,64 @@
                                     <c:if test="${item.phop1s == null }">
                                     <div class="rounded-3 py-1 px-1 h4 me-2" style="color: gray">월 </div>
                                     </c:if>
-                                    
-                                    
-                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">화 </div>
-                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">수 </div>
-                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">목 </div>
-                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">금 </div>
-                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">토 </div>
-                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">일 </div>
-                                    
+                                    <c:if test="${item.phop2s != null }">
+	                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">화 </div>
+                                    </c:if>
+                                    <c:if test="${item.phop2s == null }">
+                                    <div class="rounded-3 py-1 px-1 h4 me-2" style="color: gray">화 </div>
+                                    </c:if>
+                                    <c:if test="${item.phop3s != null }">
+	                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">수 </div>
+                                    </c:if>
+                                    <c:if test="${item.phop3s == null }">
+                                    <div class="rounded-3 py-1 px-1 h4 me-2" style="color: gray">수 </div>
+                                    </c:if>
+                                    <c:if test="${item.phop4s != null }">
+	                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">목 </div>
+                                    </c:if>
+                                    <c:if test="${item.phop4s == null }">
+                                    <div class="rounded-3 py-1 px-1 h4 me-2" style="color: gray">목 </div>
+                                    </c:if>
+                                    <c:if test="${item.phop5s != null }">
+	                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">금 </div>
+                                    </c:if>
+                                    <c:if test="${item.phop5s == null }">
+                                    <div class="rounded-3 py-1 px-1 h4 me-2" style="color: gray">금 </div>
+                                    </c:if>
+                                     <c:if test="${item.phop6s != null }">
+	                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">토 </div>
+                                    </c:if>
+                                    <c:if test="${item.phop6s == null }">
+                                    <div class="rounded-3 py-1 px-1 h4 me-2" style="color: gray">토 </div>
+                                    </c:if>
+                                     <c:if test="${item.phop7s != null }">
+	                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4 me-2">일 </div>
+                                    </c:if>
+                                    <c:if test="${item.phop7s == null }">
+                                    <div class="rounded-3 py-1 px-1 h4 me-2" style="color: gray">일 </div>
+                                    </c:if>
                                     <c:if test="${item.phop8s != null }">
 	                                    <div class="bg-faded-accent text-accent rounded-3 py-1 px-1 h4"> 공휴일</div>
                                     </c:if>
                                     <c:if test="${item.phop8s == null }">
-	                                    <div class="rounded-3 py-1 px-1 h4 me-2" style="color: gray"> 공휴일</div>
+	                                    <div class="rounded-3 py-1 px-1 h4" style="color: gray"> 공휴일</div>
                                     </c:if>
-                                    
-                                    
-                                    
                                 </div>
                                 <div class="d-flex h5" style="margin-top: 5px;">
-                                    <div class="bg-success text-white rounded-1 py-2 px-3 h5 me-3">
-                                        <i class="ci-moon text-white me-1"></i> 심야 약국
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </div>
-               </c:forEach>
+                                  	<c:if test="${item.phop1e >= 2200 or item.phop2e >= 2200 or item.phop3e >= 2200 or item.phop4e >= 2200 or item.phop5e >= 2200}">
+                                    	<div class="bg-success text-white rounded-1 py-2 px-3 h5 me-3">
+                                        	<i class="ci-moon text-white me-1"></i> 심야 약국
+                                    	</div>
+                                    </c:if>
+                                	</div>
+                            	</div>
+                        	</div>
+                    	</div>
+               		 </div>
+                 <!-- Product -------------------------------------------------- -->
+          	  </c:forEach>
 			</c:if>
-               
-           
-
-            </div>
+        </div>
 
             <hr class="my-3">
             <!-- ===================================================================   Pagination-->
@@ -265,19 +288,25 @@
                     </li>
                 </ul>
                 <ul class="pagination">
-                    <li class="page-item d-sm-none"><span class="page-link page-link-static">1 /
-                            5</span></li>
-                    <li class="page-item active d-none d-sm-block" aria-current="page"><span class="page-link">1<span
-                                class="visually-hidden">(current)</span></span>
-                    </li>
-                    <li class="page-item d-none d-sm-block"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item d-none d-sm-block"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item d-none d-sm-block"><a class="page-link" href="#">4</a></li>
-                    <li class="page-item d-none d-sm-block"><a class="page-link" href="#">5</a></li>
-                </ul>
-                <ul class="pagination">
-                    <li class="page-item"><a class="page-link" href="#" aria-label="Next"><i
-                                class="ci-arrow-right ms-2"></i></a></li>
+                	<!-- 성은님 페이지 -->
+					<c:forEach begin="${pageInfo.startPage}" end="${pageInfo.endPage}"
+						step="1" varStatus="status">
+						<c:if test="${status.current == pageInfo.currentPage}">
+							<li class="page-item active d-none d-sm-block"
+								aria-current="page"><span class="page-link">${status.current}<span
+									class="visually-hidden">(current)</span></span></li>
+						</c:if>
+						<c:if test="${status.current != pageInfo.currentPage}">
+							<li class="page-item d-none d-sm-block"><a class="page-link"
+								onclick="movePage(${status.current});">${status.current}</a></li>
+						</c:if>
+					</c:forEach>
+				</ul>
+				<ul class="pagination">
+					<li class="page-item"><a class="page-link"
+						onclick="movePage(${pageInfo.nextPage});" aria-label="Next">Next<i
+							class="ci-arrow-right ms-2"></i></a></li>
+                   <!-- --========================================================== -->       
                 </ul>
             </nav>
         </div>
