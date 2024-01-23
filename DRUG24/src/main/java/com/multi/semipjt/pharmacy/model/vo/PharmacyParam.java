@@ -18,7 +18,7 @@ public class PharmacyParam {
 			page = 1;
 		}
 
-		public PharmacyParam(String holidayck, String nightck, String name, String address, int page, int limit,
+		public PharmacyParam(String holidayck, String nightck, String name, String address,int page, int limit,
 				int offset) {
 			super();
 			this.holidayck = holidayck;
@@ -32,8 +32,8 @@ public class PharmacyParam {
 
 		@Override
 		public String toString() {
-			return "PharmacyParam [holidayck=" + holidayck + ", Nightck=" + nightck + ", name="
-					+ name + ", address=" + address + ", page=" + page + ", limit=" + limit
+			return "PharmacyParam [holidayck=" + holidayck + ", Nightck=" + nightck + ", name=" + name + ", address="
+					+ address +  ", page=" + page + ", limit=" + limit
 					+ ", offset=" + offset + "]";
 		}
 
@@ -68,7 +68,7 @@ public class PharmacyParam {
 		public void setaddress(String address) {
 			this.address = address;
 		}
-
+		
 		
 		public int getPage() {
 			return page;

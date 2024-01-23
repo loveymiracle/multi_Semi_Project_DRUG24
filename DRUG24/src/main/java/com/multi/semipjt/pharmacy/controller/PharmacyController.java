@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -24,23 +23,19 @@ public class PharmacyController {
 	private PharmacyService service;
 	
 	
-	@GetMapping("/pharmacy/search")
-	public String SearchFORM() {
-		return "pharmacy/pharmacysearch";
-	}
-	
 	@RequestMapping("/pharmacy/search")
 	public String list(Model model, PharmacyParam param) {
 		log.debug("@@ pharmacy list 요청 param :" + param);
-		 log.debug("@@ pharmacy list 요청 param :" + param);
+		log.debug("@@ pharmacy list 요청 param :" + param);
 	        
 		
 		int pharmacyCount = service.getPharmacyCount(param);
-		PageInfo pageInfo = new PageInfo(param.getPage(), 5, pharmacyCount, 8);
+		PageInfo pageInfo = new PageInfo(param.getPage(), 5, pharmacyCount, 6);
 		param.setLimit(pageInfo.getListLimit());
 		param.setOffset(pageInfo.getStartList()-1);
 		List<Pharmacy> list = service.getPharmacyList(param);
 		
+		System.out.println("@@" + list);
 		
 		model.addAttribute("pageInfo", pageInfo);
 		model.addAttribute("list", list);

@@ -26,7 +26,7 @@ public class KakaoPayService {
 	private KakaoPayApprovalVO kakaoPayApprovalVO;
 
 	public String kakaoPayReady(Map<String, String> param) {
-
+		
 		RestTemplate restTemplate = new RestTemplate();
 
 		// 서버로 요청할 Header

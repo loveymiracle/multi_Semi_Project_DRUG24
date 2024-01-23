@@ -19,9 +19,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.multi.semipjt.api.naver.NaverSearchAPI;
+import com.multi.semipjt.api.pharmacy.PharmacyInfoApi;
 import com.multi.semipjt.common.util.PageInfo;
 import com.multi.semipjt.member.model.service.MemberService;
 import com.multi.semipjt.member.model.vo.Member;
+import com.multi.semipjt.pharmacy.model.service.PharmacyService;
+import com.multi.semipjt.pharmacy.model.vo.Pharmacy;
 import com.multi.semipjt.shop.model.vo.Product;
 import com.multi.semipjt.shop.model.service.ShopService;
 
@@ -33,6 +36,9 @@ public class HomeController {
 	
 	@Autowired
 	private MemberService memberService;
+	
+	@Autowired
+	private PharmacyService pharmacyService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -46,6 +52,13 @@ public class HomeController {
 		
 		if(param.get("init") != null) {
 			int result = initDB();
+			model.addAttribute("msg", "초기화 결과 : " + result);
+			model.addAttribute("location", "/");
+			return "/common/msg";
+		}
+		
+		if(param.get("initPharmacy") != null) {
+			int result = initPharmacy();
 			model.addAttribute("msg", "초기화 결과 : " + result);
 			model.addAttribute("location", "/");
 			return "/common/msg";
@@ -107,6 +120,16 @@ public class HomeController {
 		}
 		
 		return result;
+	}
+	
+	
+	public int initPharmacy() {
+		List<Pharmacy> list = PharmacyInfoApi.parsePharmacyByXML();
+		for(Pharmacy p : list) {
+			System.out.println(p);
+			pharmacyService.savePharmacy(p);
+		}
+		return list.size();
 	}
 
 	public int test() {

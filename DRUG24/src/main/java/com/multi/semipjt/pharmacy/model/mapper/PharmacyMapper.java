@@ -12,4 +12,5 @@ public interface PharmacyMapper {
 	 List<Pharmacy> selectPharmacyList(PharmacyParam Param);
 	 int selectPharmacyCount(PharmacyParam param);
 	 Pharmacy selectPharmacyByNo(int phno);
+	 int insertPharmacy(Pharmacy p);
 }

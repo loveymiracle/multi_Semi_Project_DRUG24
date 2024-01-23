@@ -8,14 +8,22 @@
 		<result property="phname" column="phNAME"/>
 		<result property="phtel" column="phTEL"/>
 		<result property="phaddress" column="phADDRESS"/>
-		<result property="phop1" column="phOP1"/>
-		<result property="phop2" column="phOP2"/>
-		<result property="phop3" column="phOP3"/>
-		<result property="phop4" column="phOP4"/>
-		<result property="phop5" column="phOP5"/>
-		<result property="phop6" column="phOP6"/>
-		<result property="phop7" column="phOP7"/>
-		<result property="phop8" column="phOP8"/>
+		<result property="phop1s" column="phOP1s"/>
+		<result property="phop2s" column="phOP2s"/>
+		<result property="phop3s" column="phOP3s"/>
+		<result property="phop4s" column="phOP4s"/>
+		<result property="phop5s" column="phOP5s"/>
+		<result property="phop6s" column="phOP6s"/>
+		<result property="phop7s" column="phOP7s"/>
+		<result property="phop8s" column="phOP8s"/>
+		<result property="phop1e" column="phOP1e"/>
+		<result property="phop2e" column="phOP2e"/>
+		<result property="phop3e" column="phOP3e"/>
+		<result property="phop4e" column="phOP4e"/>
+		<result property="phop5e" column="phOP5e"/>
+		<result property="phop6e" column="phOP6e"/>
+		<result property="phop7e" column="phOP7e"/>
+		<result property="phop8e" column="phOP8e"/>
 		<result property="phlati" column="phLATI"/>
 		<result property="phlong" column="phLONG"/>
 		<result property="reviewcount" column="REVIEWCOUNT"/>
@@ -26,24 +34,26 @@
 	
 
 	<select id="selectPharmacyList" parameterType="PharmacyParam" resultMap="PharmacyResultMap">
-		SELECT  phNO, phNAME, phTEL, phADDRESS, phOP1, phOP2, phOP3, phOP4,
-		 		phOP5, phOP6, phOP7, phOP8, phLATI, phLONG,
+		SELECT  phNO, phNAME, phTEL, phADDRESS, 
+				phOP1s, phOP2s, phOP3s, phOP4s, phOP5s, phOP6s, phOP7s, phOP8s, 
+				phOP1e, phOP2e, phOP3e, phOP4e, phOP5e, phOP6e, phOP7e, phOP8e, 
+				phLATI, phLONG,
 		 		REVIEWCOUNT, FAVCOUNT, RATING
 		FROM PHARMACY P
 		WHERE 
 			P.STATUS = 'Y' 	
 			<if test="holidayck != null">
-				AND P.phOP8 IS NOT NULL 
+				AND P.phop8s IS NOT NULL 
 			</if>
 			<if test="nightck != null">
-				AND (P.phOP1 > '22:00' OR P.phOP2 > '22:00' OR P.phOP3 > '22:00' 
-						OR P.phOP4 > '22:00' OR P.phOP5 > '22:00' OR P.phOP6 > '22:00' OR P.phOP7 > '22:00') 
+				AND (P.phop1e >= 2200 OR P.phop2e >= 2200 OR P.phOP3e >= 2200 
+						OR P.phop4e >= 2200 OR P.phop5e >= 2200 OR P.phop6e >= 2200 OR P.phop7e >= 2200) 
 			</if>
 			<if test="name != null">
-			    AND P.phNAME LIKE '%${searchValue}%' 
+			    AND P.phNAME LIKE '%${name}%' 
 			</if>
 			<if test="address != null">
-			    AND P.phADDRESS LIKE '%${searchValue}%' 
+			    AND P.phADDRESS LIKE '%${address}%' 
 			</if>
 		ORDER BY P.phNO DESC LIMIT ${limit} OFFSET ${offset};
 	</select>
@@ -58,28 +68,43 @@
 				AND P.phOP8 IS NOT NULL 
 			</if>
 			<if test="nightck != null">
-				AND (P.phOP1 > '22:00' OR P.phOP2 > '22:00' OR P.phOP3 > '22:00' 
-						OR P.phOP4 > '22:00' OR P.phOP5 > '22:00' OR P.phOP6 > '22:00' OR P.phOP7 > '22:00') 
+				AND (P.phop1e >= 2200 OR P.phop2e >= 2200 OR P.phOP3e >= 2200 
+						OR P.phop4e >= 2200 OR P.phop5e >= 2200 OR P.phop6e >= 2200 OR P.phop7e >= 2200) 
 			</if>
 			<if test="name != null">
-			    AND P.phNAME LIKE '%${searchValue}%' 
+			    AND P.phNAME LIKE '%${name}%' 
 			</if>
 			<if test="address != null">
-			    AND P.phADDRESS LIKE '%${searchValue}%' 
+			    AND P.phADDRESS LIKE '%${address}%' 
 			</if>
 	</select>
 	
 	<!-- 상세보기 용도, 모든 인자를 가져와야한다. -->
 	<select id="selectPharmacyByNo" parameterType="int" resultMap="PharmacyResultMap">
-		SELECT  
-			phNO, phNAME, phTEL, phADDRESS, phOP1, phOP2, phOP3, phOP4,
-		 	phOP5, phOP6, phOP7, phOP8, phLATI, phLONG,
-		 	REVIEWCOUNT, FAVCOUNT, RATING
+		SELECT  phNO, phNAME, phTEL, phADDRESS, 
+			phOP1s, phOP2s, phOP3s, phOP4s, phOP5s, phOP6s, phOP7s, phOP8s, 
+			phOP1e, phOP2e, phOP3e, phOP4e, phOP5e, phOP6e, phOP7e, phOP8e, 
+			phLATI, phLONG,
+	 		REVIEWCOUNT, FAVCOUNT, RATING
 		FROM PHARMACY P
 		WHERE P.STATUS = 'Y' AND P.phNO = #{phno}
 	</select>
 	
-
+	<insert id="insertPharmacy" parameterType="Pharmacy">
+		INSERT INTO PHARMACY (
+			phNO, phNAME, phTEL, phADDRESS,
+			phOP1s, phOP2s, phOP3s, phOP4s, phOP5s, phOP6s, phOP7s, phOP8s, 
+			phOP1e, phOP2e, phOP3e, phOP4e, phOP5e, phOP6e, phOP7e, phOP8e, 
+			phLATI, phLONG, REVIEWCOUNT, FAVCOUNT,
+		    RATING, STATUS
+		) VALUES(
+			0, #{phname}, #{phtel}, #{phaddress},
+		    #{phop1s}, #{phop2s}, #{phop3s}, #{phop4s}, #{phop5s},#{phop6s}, #{phop7s}, #{phop8s}, 
+		    #{phop1e}, #{phop2e}, #{phop3e}, #{phop4e}, #{phop5e},#{phop6e}, #{phop7e}, #{phop8e}, 
+		    #{phlati}, ${phlong}, DEFAULT, DEFAULT,
+		    DEFAULT, DEFAULT
+		)
+	</insert>
 	
 	
 </mapper>
