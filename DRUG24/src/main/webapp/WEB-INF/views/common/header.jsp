@@ -158,8 +158,8 @@
 									<li class="dropdown-item" href="#">안전 사용</a></li>
 								</ul></li>
 							<li class="nav-item dropdown"><a
-								class="nav-link dropdown-toggle h4 text-white" href="#"
-								data-bs-toggle="dropdown" data-bs-auto-close="outside">Pharmacy</a></li>
+								class="nav-link dropdown-toggle h4 text-white" href="${path}/pharmacy/search"
+								>Pharmacy</a></li>
 							<li class="nav-item dropdown"><a
 								class="nav-link dropdown-toggle h4 text-white"
 								href="${path}/shop/main">Shop</a></li>

@@ -785,8 +785,8 @@ SELECT  phNO, phNAME, phTEL, phADDRESS, phOP1, phOP2, phOP3, phOP4,
 FROM PHARMACY P
 WHERE 
 	P.STATUS = 'Y'
-    AND (@holidayck IS NULL OR P.phOP8 IS NOT NULL) 
-	AND (@nightck IS NULL OR (P.phOP1 > '22:00' OR P.phOP2 > '22:00' OR P.phOP3 > '22:00' OR P.phOP4 > '22:00' OR P.phOP5 > '22:00' OR P.phOP6 > '22:00' OR P.phOP7 > '22:00')) 
+    AND P.phOP8 IS NOT NULL
+	AND (P.phOP1 > '22:00' OR P.phOP2 > '22:00' OR P.phOP3 > '22:00' OR P.phOP4 > '22:00' OR P.phOP5 > '22:00' OR P.phOP6 > '22:00' OR P.phOP7 > '22:00')
     AND P.phNAME LIKE '%그린약국%' 
     AND P.phADDRESS LIKE '%충청남도 아산시%' 
 ORDER BY P.phNO DESC LIMIT 8 OFFSET 0;
@@ -796,10 +796,11 @@ SELECT COUNT(*)
 FROM PHARMACY P
 WHERE 
 	P.STATUS = 'Y'
-    AND (@holidayck IS NULL OR P.phOP8 IS NOT NULL) 
-	AND (@nightck IS NULL OR (P.phOP1 > '22:00' OR P.phOP2 > '22:00' OR P.phOP3 > '22:00' OR P.phOP4 > '22:00' OR P.phOP5 > '22:00' OR P.phOP6 > '22:00' OR P.phOP7 > '22:00')) 
+    AND P.phOP8 IS NOT NULL
+	AND (P.phOP1 > '22:00' OR P.phOP2 > '22:00' OR P.phOP3 > '22:00' OR P.phOP4 > '22:00' OR P.phOP5 > '22:00' OR P.phOP6 > '22:00' OR P.phOP7 > '22:00')
     AND P.phNAME LIKE '%그린약국%' 
     AND P.phADDRESS LIKE '%충청남도 아산시%'; 
+    
 SELECT * FROM Cart
 INNER JOIN Product ON Cart.pNo = Product.pNo
 INNER JOIN Member ON Cart.mNo = Member.mNo;
