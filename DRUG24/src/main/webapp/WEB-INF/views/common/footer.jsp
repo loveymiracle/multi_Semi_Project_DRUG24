@@ -67,7 +67,7 @@
 								<li class="widget-list-item"><a class="widget-list-link"
 									href="#">My First Aid Kit</a></li>
 								<li class="widget-list-item"><a class="widget-list-link"
-									href="#">My Page</a></li>
+									href="#">Expert Q&A</a></li>
 								<li class="widget-list-item"><a class="widget-list-link"
 									href="#">Pharmacy Reviews</a></li>
 								<li class="widget-list-item"><a class="widget-list-link"

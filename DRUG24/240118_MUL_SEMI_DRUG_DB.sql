@@ -470,8 +470,12 @@ INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('SELL', '팝니�
 INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('CMM2', '커뮤니티B', 3, 8);
 INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('CMM3', '커뮤니티C', 3, 9);
 INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('NBOARD', '공지사항', 3, 10);
+<<<<<<< HEAD
+INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('NEWS', '뉴스', 3, 11);
+=======
 INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('NEWS', '뉴스', 3, 7);
 
+>>>>>>> branch 'master' of https://github.com/loveymiracle/mulProject.git
 
 COMMIT;
 SELECT * FROM BOARD_CATEGORY ORDER BY ORDERNO;
@@ -594,8 +598,23 @@ INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 1, 'NEWS', '[카드
 INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 1, 'NEWS', '[카드뉴스]나의 부작용 정보 나누면 안전해집니다.', '11');
 
 
-
-COMMIT;
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NEWS','[일상 정보] 생활속 중금속 섭취 줄이려면',
+ '식품에 들어있는 중금속은 주로 물, 토양 등 환경으로부터 오염돼요.');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NEWS','[건강] 유해물질 바로알기 - 시안화합물편',
+ '시안화합물은 매실, 살구, 사과, 복숭아 등의 씨앗에 자연적으로 존재하며, 미생물에 의한 부패를 막아주는 역할을 해요');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NEWS','[일상 정보] 채소, 과일샐러드 안전하게 섭취하기',
+ '오늘의 키포인트는 냉장보관입니다. 채소샐러드,커팅과일 제품은 가급적 구입 후 바로 드시고 만약 나중에 먹을 거라면 반드시 냉장 보관하세요.');
+COMMIT;INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NEWS','[건강] 연속혈당 측정기 안전사용방법',
+ '연속혈당측정기는? 의료기기이며, 의료기기법에서는 개인용체내연속혈당측정시스템이라는 이름으로 관리 합니다.');
+ INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NEWS','[건강] 유해물질 바로알기 - 프탈레이트편',
+ '프탈레이트는 딱딱한 플라스틱에 유연성을 주기 위해 첨가하는 물질이에요. 프탈레이트 노출을 줄이는 방법을 알아볼까요?');
+ INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NEWS','[건강] 감기 예방을 위한 식생활 요령',
+ '환절기 감기예방은 작은 습관에서 시작돼요. 앞서말씀드린 내용을 모두 숙지하시고 오늘도 건강한 하루 보내세요!');
+ INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NEWS','[건강] 감기 예방을 위한 식생활 요령',
+ '환절기 감기예방은 작은 습관에서 시작돼요. 앞서말씀드린 내용을 모두 숙지하시고 오늘도 건강한 하루 보내세요!');
+ INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NEWS','[일상 정보] 조리법 개선으로 식품 중 중금속 줄일 수 있어요!',
+ '중금속 섭취를 줄일 수 있는 조리법을 활용하여 건강하고 안전하게 식품을 섭취하세요!');
+ 
 SELECT * FROM BOARD;
 
 
