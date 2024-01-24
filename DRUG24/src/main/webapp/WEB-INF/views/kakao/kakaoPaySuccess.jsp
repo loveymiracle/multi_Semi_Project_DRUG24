@@ -9,7 +9,9 @@
 	<jsp:param value="카카오 페이 데모" name="title"/>
 </jsp:include>
 
-
+<section class="bg-position-center mt-n5 mb-5"
+				style="background-image: url(${path}/resources/imgs/pay/paysu.png);">
+</section>
 <section id="container">
 	
 	카카오페이 결제가 정상적으로 완료되었습니다.

@@ -13,6 +13,24 @@
 		height: 90px;
 		border: 0px;
 	}
+	.notice_box{
+		margin-top: 5px;
+		padding: 22px 15px 23px;
+	}
+	.card_promotion{
+		margin-top: 5px;
+		padding: 22px 15px 23px;
+	}
+	.thumb_wrap{
+		width: 80px;
+		height: 20px;
+		margin-right: 12px;
+		text-align: center;
+		flex-shrink: 0;
+	}
+	.no_dot{
+		list-style: none;
+	}
 </style>
 
 		<!-- Page Title-->
@@ -156,10 +174,6 @@
 							$("#item_name").val(payStr);
 							$("#total_amount").val(totalPrice);
 							$("#quantity").val(quantity);
-							
-							console.log("payStr:", payStr);
-							console.log("totalPrice:", totalPrice);
-							console.log("quantity:", quantity)
 						}
 						
 						
@@ -213,6 +227,34 @@
 				</aside>
 			</div>
 		</div>
-		<br><br><br><br><br><br><br><br><br><br>
+		<section>
+		<div class="container" style="background-color:#eee;">
+			<ul class="notice_box">
+				<li>장바구니 상품은  <b style="color:red">최대 30일간 저장</b> 됩니다.</li>
+				<li>가격, 옵션 등 정보가 변경된 경우 주문이 불가할 수 있습니다.</li>
+				<li>오늘 출발 정보는 판매자가 설정한 정보에 의해 제공되며, 물류위탁 상품인 경우 물류사의 사정에 따라 실제와 다를 수 있습니다.</li>
+				<li>일부 상품의 경우 카드 할부기간이 카드사 제공 기간보다 적게 제공될 수 있습니다.</li>
+			</ul>
+		</div>
+		</section>
+		<section>
+			<div class="container" style="background-color:#eee;">
+				<div class="card_promotion">
+					<strong class="promotion_title">지금 카카오 페이 충전하면 가능한 카드 혜택</strong>
+					<div class="promotion_content d-flex align-items-center">
+						<div class="thumb_wrap">
+							<img src="${path}/resources/imgs/pay/sh.png" alt="card">
+						</div>
+						<div class="card_info">
+							<ul class="no_dot"><b>신한카드</b>
+								<li>200,000원 이상 결제 시 최대 3% 추가 할인</li>
+								<li>진행기간 : 2024.01.23 00:00 ~ 2024.01.31 23:59</li>
+								<li>참여대상 : DRUG24 회원 대상</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>

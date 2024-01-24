@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="06_SpringMVC2_KaKao/src/main/java"/>
+	<classpathentry kind="src" path="back-end/API"/>
+	<classpathentry kind="src" path="DRUG24/src/main/java"/>
+	<classpathentry kind="output" path="DRUG24/target/classes"/>
+</classpath>
