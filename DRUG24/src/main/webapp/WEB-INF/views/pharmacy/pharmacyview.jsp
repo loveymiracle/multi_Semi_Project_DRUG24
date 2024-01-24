@@ -78,7 +78,7 @@
          <section class="container mb-2 pb-3" style="margin-top: 10px;">
              <div class="row">
                  <div class="d-flex justify-content-between">
-                     <div class="h1 blodFont mb-5" id="">  <c:out value="${item.phname}"/> </div>
+                     <div class="h1 blodFont mb-5" id="">  <c:out value="${pharmacy.phname}"/> </div>
                      <div class="py-2 me-2">
                          <button class="btn btn-outline-accent" type="button"><i class="ci-star fs-lg me-2"></i>약국
                              즐겨찾기</button>
@@ -87,51 +87,160 @@
                  <div class="mb-3 pb-4">
                      <span class="h3">
                          <i class="ci-location text-success fw-bold  me-2 h2"></i>
-                        	<c:out value="${item.phaddress}"/>
+                        	<c:out value="${pharmacy.phaddress}"/>
                      </span>
                  </div>
                  <!--========================================================= 지도 ===== 지도를 표시할 div 입니다 -->
-                 <div id="map" style="width:100%; height:450px;"></div>
-                 <script type="text/javascript"
-                     src="//dapi.kakao.com/v2/maps/sdk.js?appkey=adce9c041442fa349eecbf8b8bea554d">
-                     </script>
-                 <script>
-                     var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-                         mapOption = {
-                             center: new kakao.maps.LatLng(37.5666103, 126.9783882), // 지도의 중심좌표
-                             level: 2 // 지도의 확대 레벨
-                         };
-                     // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
-                     var map = new kakao.maps.Map(mapContainer, mapOption); 
-                 </script>
+              	
+					<div id="map" style="width:100%;height:450px;"></div>
+				                
+				  <!-- 카카오 토큰 JavaScript 키 -->
+				  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ee850f3227ff38fdb5e4924011797d01"></script>
+				  <script>
+				  	var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+				  	mapOption = { 
+				  	    center: new kakao.maps.LatLng(${pharmacy.phlati}, ${pharmacy.phlong}), // 지도의 중심좌표
+				  	    level: 3 // 지도의 확대 레벨
+				  	};
+				  	
+				  	var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+				  	
+				  	//마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
+				  	var positions = [
+				  		<c:forEach var="map" items="${mapList}" >
+				  			{
+				  			    content: '<div>${map.name}</div>', 
+				  			    latlng: new kakao.maps.LatLng(${map.x}, ${map.y})
+				  			},
+				  		</c:forEach>
+				  	];
+				  	
+				  	for (var i = 0; i < positions.length; i ++) {
+				  	// 마커를 생성합니다
+				  	var marker = new kakao.maps.Marker({
+				  	    map: map, // 마커를 표시할 지도
+				  	    position: positions[i].latlng // 마커의 위치
+				  	});
+				  	
+				  	// 마커에 표시할 인포윈도우를 생성합니다 
+				  	var infowindow = new kakao.maps.InfoWindow({
+				  	    content: positions[i].content // 인포윈도우에 표시할 내용
+				  	});
+				  	
+				  	// 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
+				  	// 이벤트 리스너로는 클로저를 만들어 등록합니다 
+				  	// for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+				  	kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
+				  	kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+				  	}
+				  	
+				  	//인포윈도우를 표시하는 클로저를 만드는 함수입니다 
+				  	function makeOverListener(map, marker, infowindow) {
+				  	return function() {
+				  	    infowindow.open(map, marker);
+				  	};
+				  	}
+				  	
+				  	//인포윈도우를 닫는 클로저를 만드는 함수입니다 
+				  	function makeOutListener(infowindow) {
+				  	return function() {
+				  	    infowindow.close();
+				  	};
+				  	}
+				  </script>
+				                  
                  <div class=" row" style="margin-top: 70px;">
                      <h2 class="mb-4 text-muted blodFont h2" id=""> 상세 정보 </h2>
                      <div class="row h3">
                          <div class="mb-2 pb-4">
-                             <i class="ci-phone me-2 text-success fw-bold h2"></i> 061 - 277 -2100
+                             <i class="ci-phone me-2 text-success fw-bold h2"></i> <c:out value="${pharmacy.phtel}"/>
                          </div>
                          <div class=" d-flex justify-content-between mb-2">
                              <div class="" style="width: 360px;">
                                  <i class="ci-time me-2 text-success fw-bold  h2"></i> 운영 시간
                              </div>
                          </div>
+                        
                          <div class="row d-flex justify-content-between mb-4" style="margin-left: 30px;">
                              <div class="col row mb-1">
-                                 <div> 월요일 &nbsp; 09:00 ~ 20:30 </div>
-                                 <div> 화요일 &nbsp; 09:00 ~ 20:30 </div>
-                                 <div> 수요일 &nbsp; 09:00 ~ 20:30 </div>
-                                 <div> 목요일 &nbsp; 09:00 ~ 20:30 </div>
-                                 <div> 금요일 &nbsp; 09:00 ~ 20:30 </div>
+                                 <div> 월요일 &nbsp;
+                                 			<c:set var="rawTime" value="${pharmacy.phop1s}" />
+											<c:set var="formattedTime" value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
+											<c:out value="${formattedTime}" />  ~
+                               				<c:set var="rawTime" value="${pharmacy.phop1e}" />
+											<c:set var="formattedTime" value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
+											<c:out value="${formattedTime}" />  </div>
+                                 <div> 화요일 &nbsp;
+                                 			<c:set var="rawTime" value="${pharmacy.phop2s}" />
+											<c:set var="formattedTime" value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
+											<c:out value="${formattedTime}" />  ~
+                               				<c:set var="rawTime" value="${pharmacy.phop2e}" />
+											<c:set var="formattedTime" value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
+											<c:out value="${formattedTime}" />  </div>
+                                 <div> 수요일 &nbsp; 
+                                 			<c:set var="rawTime" value="${pharmacy.phop3s}" />
+											<c:set var="formattedTime" value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
+											<c:out value="${formattedTime}" />  ~
+                               				<c:set var="rawTime" value="${pharmacy.phop3e}" />
+											<c:set var="formattedTime" value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
+											<c:out value="${formattedTime}" />  </div>
+                                 <div> 목요일 &nbsp; 
+                                 			<c:set var="rawTime" value="${pharmacy.phop4s}" />
+											<c:set var="formattedTime" value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
+											<c:out value="${formattedTime}" />  ~
+                               				<c:set var="rawTime" value="${pharmacy.phop4e}" />
+											<c:set var="formattedTime" value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
+											<c:out value="${formattedTime}" />  </div>
+                                 <div> 금요일 &nbsp;
+                                 			<c:set var="rawTime" value="${pharmacy.phop5s}" />
+											<c:set var="formattedTime" value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
+											<c:out value="${formattedTime}" />  ~
+                               				<c:set var="rawTime" value="${pharmacy.phop5e}" />
+											<c:set var="formattedTime" value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
+											<c:out value="${formattedTime}" />  </div>
                              </div>
                              <div class="col mb-1" style="margin-right: 500px;">
-                                 <div> 토요일 &nbsp; 09:00 ~ 20:30</div>
-                                 <div> 일요일 &nbsp; 09:00 ~ 20:30</div>
+                             	
+                                  <div> 토요일 &nbsp; 
+                                  	<c:if test="${pharmacy.phop6s != null }"> 
+                                 		<c:set var="rawTime" value="${pharmacy.phop6s}" />
+											<c:set var="formattedTime" value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
+											<c:out value="${formattedTime}" />  ~
+                               				<c:set var="rawTime" value="${pharmacy.phop6e}" />
+											<c:set var="formattedTime" value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
+											<c:out value="${formattedTime}" />  
+								 	</c:if>	
+								 </div>
+                                 <div> 일요일 &nbsp;
+                                 	<c:if test="${pharmacy.phop7s != null }">  
+                                 			<c:set var="rawTime" value="${pharmacy.phop7s}" />
+											<c:set var="formattedTime" value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
+											<c:out value="${formattedTime}" />  ~
+                               				<c:set var="rawTime" value="${pharmacy.phop7e}" />
+											<c:set var="formattedTime" value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
+											<c:out value="${formattedTime}" />  
+								    </c:if>	
+								 </div>
                                  <div> &nbsp;</div>
-                                 <div> 공휴일 &nbsp; 09:00 ~ 20:30</div>
+                               
+                                  <div> 공휴일 &nbsp;
+                                 	 <c:if test="${pharmacy.phop8s != null }"> 
+                                 			<c:set var="rawTime" value="${pharmacy.phop8s}" />
+											<c:set var="formattedTime" value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
+											<c:out value="${formattedTime}" />  ~
+                               				<c:set var="rawTime" value="${pharmacy.phop8e}" />
+											<c:set var="formattedTime" value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
+											<c:out value="${formattedTime}" />  
+								 	 </c:if>		
+								 </div>	
                              </div>
                          </div>
+                       
                          <div class="mb-2 pb-4">
-                             <i class="ci-moon me-2 text-success fw-bold  h2"></i> 심야 약국 , 주말약국
+                             <i class="ci-moon me-2 text-success fw-bold  h2"></i> 
+                              <c:if test="${pharmacy.phop1e >= 2200 or pharmacy.phop2e >= 2200  or pharmacy.phop3e >= 2200  or pharmacy.phop4e >= 2200
+                                          or pharmacy.phop5e >= 2200  or pharmacy.phop6e >= 2200  or pharmacy.phop7e >= 2200  or pharmacy.phop8e >= 2200}">  심야약국  </c:if> 
+                              <c:if test="${pharmacy.phop7s != null }"> &nbsp; 주말약국  </c:if>
                          </div>
                          <div class="mb-2 pb-4">
                              <i class="ci-home me-2 text-success fw-bold  h2"></i> 20년 이상 건강을 책임지고 있는
