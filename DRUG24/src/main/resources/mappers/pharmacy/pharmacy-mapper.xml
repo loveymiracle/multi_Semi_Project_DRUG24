@@ -43,7 +43,7 @@
 		WHERE 
 			P.STATUS = 'Y' 	
 			<if test="holidayck != null">
-				AND P.phop8s IS NULL 
+				AND P.phop8s IS NOT NULL 
 			</if>
 			<if test="nightck != null">
 				AND (P.phop1e >= 2200 OR P.phop2e >= 2200 OR P.phOP3e >= 2200 
@@ -52,8 +52,8 @@
 			<if test="name != null">
 			    AND P.phNAME LIKE '%${name}%' 
 			</if>
-			<if test="address != null">
-			    AND P.phADDRESS LIKE '%${address}%' 
+			<if test="gugun1 != null">
+			    AND P.phADDRESS LIKE '%${gugun1}%' 
 			</if>
 		ORDER BY P.phNO DESC LIMIT ${limit} OFFSET ${offset};
 	</select>
@@ -65,7 +65,7 @@
 		WHERE 
 			P.STATUS = 'Y' <!-- 1=1을 사용해도 무관  -->
 			<if test="holidayck != null">
-				AND P.phOP8 IS NULL 
+				AND P.phop8s IS NOT NULL 
 			</if>
 			<if test="nightck != null">
 				AND (P.phop1e >= 2200 OR P.phop2e >= 2200 OR P.phOP3e >= 2200 
@@ -74,8 +74,8 @@
 			<if test="name != null">
 			    AND P.phNAME LIKE '%${name}%' 
 			</if>
-			<if test="address != null">
-			    AND P.phADDRESS LIKE '%${address}%' 
+			<if test="gugun1 != null">
+			    AND P.phADDRESS LIKE '%${gugun1}%' 
 			</if>
 	</select>
 	
@@ -105,7 +105,6 @@
 		    DEFAULT, DEFAULT
 		)
 	</insert>
-	
 	
 </mapper>
 
