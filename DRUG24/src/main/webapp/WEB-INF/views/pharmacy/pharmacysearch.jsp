@@ -2,9 +2,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 
 <script type="text/javascript" src="${path}/resources/js/jquery-3.7.0.js"></script>
+
+
+   
+        
 
 <style>
       /* 지도 스타일 시작 */
@@ -86,10 +91,10 @@
                 </div>
 
             </div>
-            <div class="d-flex justify-content-between h2">
+            <div class="d-flex justify-content-between h2" >
                 <select class="form-select" name="sido1" id="sido1" style="width: 500px; " >
                 </select>
-                <select class="form-select" name="gugun1" id="gugun1" style="width: 350px; margin-right: 270px;" >
+                <select class="form-select" id="gugun1" name="address" value="${param.address}" style="width: 350px; margin-right: 270px;" >
                 </select>
             </div>
             
@@ -139,7 +144,7 @@
                                 });
                             }
                         });
-
+                        
                     });
                 </script>
             
@@ -161,14 +166,37 @@
         <br><br><br>
         <div class="gray container d-flex justify-content-between" style="border-bottom: 1px solid #183459;">
             <div class="container">
-                <div class="h3 mb-4 text-accent" id="sample5_address_display">  </div>
+                <div class="h3 mb-4 text-accent" id="sample5_address_display">  <c:out value="${item.phaddress}"/>  </div>
             </div>
         </div>
 
         <div class="container pb-5 mb-2 mb-md-4">
             <!-- ===============================================================================================  지도  ================= -->
-           
-            <br><br><br><br>
+          <div id="map" style="width: 100%; height:450px;margin-top:10px;"></div>
+  			<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ee850f3227ff38fdb5e4924011797d01"></script>
+			 
+			 	<script>
+			 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+			    mapOption = { 
+			        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+			        level: 3 // 지도의 확대 레벨
+			    };
+
+				var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+	 
+				// 마커가 표시될 위치입니다 
+				var markerPosition  = new kakao.maps.LatLng(33.450701, 126.570667); 
+	            
+				// 마커를 생성합니다
+				var marker = new kakao.maps.Marker({
+				    position: markerPosition
+				});
+	            
+				// 마커가 지도 위에 표시되도록 설정합니다
+				marker.setMap(map);
+		   
+			   </script>
+	            <br><br><br><br>
           <div class="gray container d-flex justify-content-between" style="border-bottom: 1px solid #183459;">
           </div>
            
@@ -189,9 +217,10 @@
                     <div class="card product-card">
                         <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip"
                             data-bs-placement="left" title="즐겨찾기">
-                            <i class="ci-star"></i></button>
+				            <i class="ci-star"></i></button>
+				         
                         <a class="card-img-top d-block overflow-hidden" href="${path}/pharmacy/view?phno=${item.phno}">
-                            <img src=" ${path}/resources/imgs/pharmacy/pharmacy1.jpg" style="width: 100%; height: 230px;" alt="Product"></a>
+                            <img id="randomImage" src="${path}/resources/imgs/pharmacy/pharmacy1.jpg" style="width: 100%; height: 230px;" alt="Product"></a>
                         <!-- ---------- ---------  약국 이미지 -->
                         <div class="card-body">
                             <div class="d-flex flex-wrap justify-content-between align-items-start pb-2">
@@ -287,7 +316,7 @@
                     </li>
                 </ul>
                 <ul class="pagination">
-                	<!-- 성은님 페이지 -->
+                	<!--  페이지 -->
 					<c:forEach begin="${pageInfo.startPage}" end="${pageInfo.endPage}"
 						step="1" varStatus="status">
 						<c:if test="${status.current == pageInfo.currentPage}">

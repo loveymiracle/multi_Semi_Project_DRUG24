@@ -43,7 +43,7 @@
 		WHERE 
 			P.STATUS = 'Y' 	
 			<if test="holidayck != null">
-				AND P.phop8s IS NOT NULL 
+				AND P.phop8s IS NULL 
 			</if>
 			<if test="nightck != null">
 				AND (P.phop1e >= 2200 OR P.phop2e >= 2200 OR P.phOP3e >= 2200 
