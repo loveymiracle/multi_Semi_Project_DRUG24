@@ -86,11 +86,24 @@ public class BoardController {
 		model.addAttribute("typeList", param.getTypeList());
 		
 		// 공지사항 분류하는 법
+		if(param.getTypeList() != null && param.getTypeList().size() == 1 && param.getTypeList().get(0).equals("NEWS")) {
+			return "/board/newsBoard";
+		}
+
+		
+		// 공지사항 분류하는 법
 		if(param.getTypeList() != null && param.getTypeList().size() == 1 && param.getTypeList().get(0).equals("NBOARD")) {
 			return "/board/noticeList";
 		}
 		
+		// 공지사항 분류하는 법
+		if (param.getTypeList() != null && param.getTypeList().size() == 1 && param.getTypeList().get(0).equals("QUESTION")) {
+			return "/board/question";
+		}		
+
 		return "/board/boardList";
+				
+		
 	}
 	
 	// board/view?no=1

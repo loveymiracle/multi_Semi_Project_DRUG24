@@ -193,8 +193,8 @@ CREATE TABLE PHARMACY (
 
 INSERT INTO PHARMACY (
 	phNO, phNAME, phTEL, phADDRESS,
-	phOP1S, phOP2S, phOP3S, phOP4S, phOP5S, phOP6S, phOP7S, phOP8S, phOP1E, phOP2E,
-	phOP3E, phOP4E, phOP5E, phOP6E, phOP7S, phOP8E,
+	phOP1S, phOP2S, phOP3S, phOP4S, phOP5S, phOP6S, phOP7S, phOP8S, 
+    phOP1E, phOP2E, phOP3E, phOP4E, phOP5E, phOP6E, phOP7E, phOP8E,
     phLATI, phLONG, REVIEWCOUNT, FAVCOUNT,
     RATING, STATUS
 ) VALUES(
@@ -359,7 +359,7 @@ SELECT * FROM Product LIMIT 0, 10;
 
 COMMIT;
 
--- DROP TABLE Product;
+DROP TABLE Product;
 
 ---------------------------------------------------
 ------------------- 주문 테이블 ---------------------
@@ -368,15 +368,18 @@ COMMIT;
 CREATE TABLE Orders (
 	oNO INT PRIMARY KEY AUTO_INCREMENT,
 	mNO INT,
+	pNO INT,
+	PAYMETHOD VARCHAR(20) DEFAULT 'KAKAOPAY',
 	PRICE INT,
 	REQUESTS VARCHAR(100) NULL,
-	STATUS VARCHAR(20),
-    CONSTRAINT FOREIGN KEY (mNO) REFERENCES MEMBER (mNO)
+	CREATE_DATE DATETIME DEFAULT CURRENT_TIMESTAMP,
+	MODIFY_DATE DATETIME DEFAULT CURRENT_TIMESTAMP,
+	STATUS VARCHAR(1) DEFAULT 'Y' CHECK(STATUS IN('Y', 'N')),
+    CONSTRAINT FOREIGN KEY (mNO) REFERENCES MEMBER (mNO),
+    CONSTRAINT FOREIGN KEY (pNO) REFERENCES PRODUCT(pNO)
 );
 
-INSERT INTO Orders (oNO, mNO, PRICE, REQUESTS, STATUS) VALUES(0, 2, 30000, "문앞에 놔주세요", "Delivered");
-INSERT INTO Orders (oNO, mNO, PRICE, REQUESTS, STATUS) VALUES(0, 2, 45000, "초인종 누르지 마세요", "In Progress");
-INSERT INTO Orders (oNO, mNO, PRICE, REQUESTS, STATUS) VALUES(0, 2, 20000, NULL, "Delayed");
+INSERT INTO Orders (oNO, mNO, pNO, PAYMETHOD, PRICE, REQUESTS) VALUES(0, 2, 1, DEFAULT, 150000, NULL);
 
 COMMIT;
 
@@ -406,7 +409,7 @@ COMMIT;
 
 SELECT * FROM Cart;
 
--- DROP TABLE Cart;
+DROP TABLE Cart;
 
 ------------------------------------------------------------------
 ---------------------------- 건기식 리뷰 ---------------------------
@@ -464,16 +467,18 @@ INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('QUESTION', '질�
 INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('TIP', 'TIP', 3, 4);
 INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('BUY', '삽니다', 3, 5);
 INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('SELL', '팝니다', 3, 6);
-INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('CMM1', '커뮤니티A', 3, 7);
 INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('CMM2', '커뮤니티B', 3, 8);
 INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('CMM3', '커뮤니티C', 3, 9);
 INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('NBOARD', '공지사항', 3, 10);
+<<<<<<< HEAD
 INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('NEWS', '뉴스', 3, 11);
+=======
+INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('NEWS', '뉴스', 3, 7);
+
+>>>>>>> branch 'master' of https://github.com/loveymiracle/mulProject.git
 
 COMMIT;
 SELECT * FROM BOARD_CATEGORY ORDER BY ORDERNO;
-
--- drop table BOARD_CATEGORY;
 
 -------------------------------------------------
 --------------- Board 관련 테이블 ------------------
@@ -495,7 +500,6 @@ CREATE TABLE BOARD (
     CONSTRAINT FK_BOARD_WRITER FOREIGN KEY(mNO) REFERENCES MEMBER(mNO) ON DELETE SET NULL,
     CONSTRAINT FK_BOARD_CATEGORY FOREIGN KEY(TYPE) REFERENCES BOARD_CATEGORY(TYPE) ON DELETE SET NULL
 );
-
 INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NOTICE','[공지] 클린한 게시판 환경을 만들어주세요.','깨끗한 게시판 환경 유지에 협조 바랍니다.');
 INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'PLAIN','안녕하세요? 처음 가입한 개발자입니다.','잘 부탁드립니다.');
 INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'QUESTION','[질문] 질문 있습니다.','자바 어렵나요?');
@@ -518,11 +522,6 @@ INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','공지�
 INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','공지사항 게시글 입니다.13','공지 내용입니다.13');
 INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','공지사항 게시글 입니다.14','공지 내용입니다.14');
 INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','공지사항 게시글 입니다.15','공지 내용입니다.15');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'CMM1','커뮤니티 A글입니다. 1','커뮤니티 A활동 글입니다. 1');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'CMM1','커뮤니티 A글입니다. 2','커뮤니티 A활동 글입니다. 2');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'CMM1','커뮤니티 A글입니다. 3','커뮤니티 A활동 글입니다. 3');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'CMM1','커뮤니티 A글입니다. 4','커뮤니티 A활동 글입니다. 4');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,3,'CMM1','커뮤니티 A글입니다. 5','커뮤니티 A활동 글입니다. 5');
 INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,3,'CMM2','커뮤니티 B글입니다. 1','커뮤니티 B활동 글입니다. 1');
 INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,3,'CMM2','커뮤니티 B글입니다. 2','커뮤니티 B활동 글입니다. 2');
 INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,3,'CMM2','커뮤니티 B글입니다. 3','커뮤니티 B활동 글입니다. 3');
@@ -574,6 +573,30 @@ INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'BUY','[구매] �
 INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'BUY','[구매] 삼성 갤럭시 삽니다.','갤럭시 삽니다. 아무 기종이나 상관없어요.');
 INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,3,'SELL','[판매] 애플 노트북 팔아요.','노트북 맥북 최신입니다. 게임하시면 안됩니다');
 INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,3,'SELL','[판매] 삼성 신형 갤럭시북 노트북 팔아요','새로나온 삼성 갤럭시북입니다. 이거 가성비 괜찮습니다.');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'QUESTION','[질문] 질문 있습니다.','파이썬 어렵나요?');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'QUESTION','[질문] 질문 있습니다.','C언어 어렵나요?');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'QUESTION','[질문] 질문 있습니다.','servlet 어렵나요?');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'QUESTION','[질문] 질문 있습니다.','maven 어렵나요?');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'QUESTION','[질문] 질문 있습니다.','front 어렵나요?');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'QUESTION','[질문] 질문 있습니다.','back-end 어렵나요?');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'QUESTION','[질문] 질문 있습니다.','java-script 어렵나요?');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'QUESTION','[질문] 질문 있습니다.','spring 어렵나요?');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'QUESTION','[질문] 질문 있습니다.','mvc 개념 어렵나요?');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'QUESTION','[질문] 질문 있습니다.','html 어렵나요?');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'QUESTION','[질문] 질문 있습니다.','css 어렵나요?');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'QUESTION','[질문] 질문 있습니다.','bootstrap 어렵나요?');
+
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 1, 'NEWS', '[카드뉴스]어르신을 위한 안전한 약물 사용 안내서', '어르신을 위한 안전한 약물 사용 안내');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 1, 'NEWS', '[일상정보] 생활 속 중금속 섭취 줄이려면', '11');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 1, 'NEWS', '[건강]유해물질 바로알기 - 시안화합물편', '11');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 1, 'NEWS', '[일상정보]채소, 과일샐러드 안전하게 섭취하기', '11');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 1, 'NEWS', '[건강]연속 혈당 측정기 안전사용방법', '11');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 1, 'NEWS', '[건강]유해물질 바로알기 - 프탈레이트편', '11');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 1, 'NEWS', '[일상정보]감기 예방을 위한 식생활 요령', '11');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 1, 'NEWS', '[일상정보]조리법 개선으로 식품 내 중금속 줄일 수 있어요!', '11');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 1, 'NEWS', '[카드뉴스]여드름약, 이소트레티노인 안전사용! 엄마와 아기를 지켜주세요!', '11');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 1, 'NEWS', '[카드뉴스]나의 부작용 정보 나누면 안전해집니다.', '11');
+
 
 INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NEWS','[일상 정보] 생활속 중금속 섭취 줄이려면',
  '식품에 들어있는 중금속은 주로 물, 토양 등 환경으로부터 오염돼요.');
@@ -594,7 +617,7 @@ COMMIT;INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NEWS','[�
  
 SELECT * FROM BOARD;
 
-drop table BOARD;
+
 ------------------------------------------------------------------
 --------------------------- 첨부파일 관련 ----------------------------
 ------------------------------------------------------------------
@@ -623,7 +646,6 @@ COMMIT;
 SELECT * FROM BOARD_ATTACH_FILE;
 SELECT * FROM BOARD;
 
--- drop table BOARD_ATTACH_FILE; 
 ------------------------------------------------------------------
 ------------------------- REPLY 관련 테이블 -------------------------
 ------------------------------------------------------------------
@@ -656,7 +678,7 @@ COMMIT;
 
 SELECT * FROM REPLY;
 
--- drop table REPLY;
+
 
 -- 게시판 끝
 

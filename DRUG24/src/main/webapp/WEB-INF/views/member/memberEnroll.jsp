@@ -9,75 +9,52 @@
 </jsp:include>
 
 <style>
-	section #enroll-container {text-align: center;}
-	section #enroll-container input {margin: 3px;}
-	section #enroll-container table {margin: 0 auto;}
-	section #enroll-container table th {padding: 0 10px; text-align: right;}
-	section #enroll-container table td {padding: 0 10px;text-align: left;}
+	section #enroll-container {text-align: ;}
+	section #enroll-container input {margin: 10px;}
+	section #enroll-container input {padding: 10px;}
+	
 </style>
 
-<section id="content">
-	<h3 align="center">회원가입</h3>
-	
-	<form id="enroll-container" name="form1" action="${path}/member/enroll" method="post">
-		<input type="hidden" name="kakaoToken" value="${kakaoMap.id}">
+	<h3 align="center" class="mt-2">회원가입</h3>
+<section id="content">	
+	<form id="enroll-container" name="form1" action="${path}/member/enroll" method="post" class="col-md-4" style="margin-left: 500px;">
+				<div class="mb-2">
+				 <label class="form-label" for="su-name">ID</label>
+				<table>
+					<tr>
+					<th> <input style="width: 850px;  type="text" id="id" name="id" placeholder="아이디 4글자 이상" required></th>
+					<th><input type="button" class="btn btn-primary btn-shadow w-5" id="checkDuplicate" value="중복검사" ></th>
+					</tr>
+				</table>
+				</div>
+				<div class="mb-3 ">
+				 <label class="form-label" for="su-name">password</label>
+					<input style="width: 960px;" type="password" id="password1" name="password" required>
+					</div>
+				<div class="mb-3 ">
+				 <label class="form-label" for="su-name">password check</label>
+					<input style="width: 960px;" type="password" id="password2" required>
+					</div>
+				<div class="mb-3 ">
+				 <label class="form-label" for="su-name">name</label>
+					<input style="width: 960px;" type="text" id="name" name="name" required>
+					</div>
+				<div class="mb-3 ">
+				 <label class="form-label" for="su-name">email</label>
+					<input style="width: 960px;" type="email" name="email" id="email" placeholder="abc@naver.com">
+					</div>
+				<div class="mb-3 ">
+				 <label class="form-label" for="su-name">adress</label>
+					<input class="form-control" style="width: 960px;" type="text" id="address" name="address">
+					</div>
+		<div class="col-md-6">
 		<table>
-			<tr>
-				<th>아이디</th>
-				<td>
-					<input type="text" id="id" name="id" value="${kakaoMap.email}" placeholder="아이디 4글자 이상" required>
-					<input type="button" id="checkDuplicate" value="중복검사" >
-				</td>
-			</tr>		
-			<tr>
-				<th>패스워드</th>
-				<td>
-					<input type="password" id="password1" name="password" required>
-				</td>
-			</tr>
-			<tr>
-				<th>패스워드 확인</th>
-				<td>
-					<input type="password" id="password2" required>
-				</td>
-			</tr>
-			<tr>
-				<th>이름</th>
-				<td>
-					<input type="text" id="name" name="name" value="${kakaoMap.nickname}" required>
-				</td>
-			</tr>
-			<tr>
-				<th>전화번호</th>
-				<td>
-					<input type="tel" id="phone" name="phone" maxlength="13" placeholder="010-1234-5678">
-				</td>
-			</tr>
-			<tr>
-				<th>이메일</th>
-				<td>
-					<input type="email" name="email" id="email">
-				</td>
-			</tr>		
-			<tr>
-				<th>주소</th>
-				<td>
-					<input type="text" id="address" name="address">
-				</td>
-			</tr>
-			<tr>
-				<th>취미</th>
-				<td>
-					<label><input type="checkbox" name="hobby" value="여행">여행</label>
-					<label><input type="checkbox" name="hobby" value="운동">운동</label>
-					<label><input type="checkbox" name="hobby" value="수영">수영</label>
-					<label><input type="checkbox" name="hobby" value="게임">게임</label>
-					<label><input type="checkbox" name="hobby" value="독서">독서</label>
-				</td>
-			</tr>
+		<tr>
+			<th><button class="btn btn-primary btn-shadow d-block mb-5" style="width: 480px;" type="submit">Sign up</button></th>
+			<th><input class="btn btn-primary btn-shadow d-block  pt-2 mt-2 mb-5" style="width: 480px;" type="reset" value="취소"></th>
+		</tr>
 		</table>
-		<input type="submit" id="enrollSubmit" value="가입">
-		<input type="reset" value="취소">
+		</div>
 	</form>
 </section>
 

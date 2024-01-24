@@ -8,7 +8,7 @@
 	section#board-list-container{width:600px; margin:0 auto; text-align:center;}
 	section#board-list-container h2{margin:10px 0;}
 	table#tbl-board{width:100%; margin:0 auto; border:1px solid black; border-collapse:collapse; clear:both; }
-	table#tbl-board th, table#tbl-board td {border:1px solid; padding: 5px 0; text-align:center;} 
+	table#tbl-board th, table#tbl-board td {border:1px solid; padding: 5px 0; text-align:center ;} 
 	input#btn-add{float:right; margin: 0 0 15px;}
 	div#pageBar{margin-top:10px; text-align:center; background-color:rgba(0, 188, 212, 0.3);}
     .blue_window { display: inline-block; width: 366px;  border: 3px solid #6ccaf5; }
@@ -28,47 +28,33 @@
 	<c:set var="searchType" value="title" />
 </c:if>
 
-<section id="content">
-	<div class="container body-content" id='board-list-container'>
-			<h2>자유 게시판</h2>
+<section id="container">
+ <div class="container body-content">
+	<div class="row" style="margin-top: 5px;">
+		<div id='board-list-container'>
+			<h2>NEWS</h2>
+
+			<div class="alert alert-success d-flex fs-md mb-1" role="alert">
+				<div class="alert-icon fs-lg">
+					<i class="ci-announcement"></i>
+				</div>
+				<div>
+					<strong>공지사항 &nbsp;</strong>※ &nbsp; 항상 정확하고, 공정하고, 신속하게 <strong>
+						건강 정보를 &nbsp;</strong>제공하겠습니다. &nbsp;※
+				</div>
+			</div>
+		</div>
+	</div>
 		
-		<!-- 검색창 시작 -->
+		<!-- 페이지 넘기는 데 필요 -->
 		<form name="searchForm" action="${path}/board/list" method="get">
 			<input type="hidden" name="page" value="1">
-			
-			<!-- 카테고리 checkbox -->	
-			<div style="text-align: center;">
-				<c:forEach var="item" items="${categoryList}">
-					<label>
-						<input type="checkbox" name="types" value="${item.type}"
-							${fn:contains(typeList, item.type) ? 'checked' : ''} >
-						${item.name}
-					</label>
-				</c:forEach>
-			</div>
-			
-			<!-- 검색창 -->	
-			<div class="" style="text-align: center;">
-				<label><input type="radio" name="searchType" value="title" 
-											${searchType == 'title' ? 'checked' : ''} />제목</label>
-				<label><input type="radio" name="searchType" value="content"
-											${searchType == 'content' ? 'checked' : ''} />내용</label>
-				<label><input type="radio" name="searchType" value="writer"
-											${searchType == 'writer' ? 'checked' : ''} />작성자</label>
-				
-				<span class="blue_window"> 
-				<input type="text" id="searchValue" name="searchValue" class="input_text" 
-																	value="${param.searchValue}" />
-				</span>
-				<button class="btn btn-primary" type="submit" class="sch_smit">검색</button>
-				<button class="btn btn-primary" type="reset" class="sch_smit">초기화</button>
-			</div>
+			<input type="hidden" name="types" value="NBOARD">
 		</form>
-		<!-- 검색창 끝 -->
-		
-		<!-- 글쓰기 버튼 -->
+
+
+	<!-- 글쓰기 버튼 -->
 		<c:if test="${loginMember != null }">
-			<i style="color: blueviolet;" class="navbar-tool-icon ci-edit-alt"></i>
 			<button type="button" id="btn-add" style="margin-bottom: 3px;" 
 							onclick="location.href='${path}/board/write'">글쓰기</button>
 		</c:if>

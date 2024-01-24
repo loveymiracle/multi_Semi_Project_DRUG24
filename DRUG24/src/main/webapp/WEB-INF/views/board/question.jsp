@@ -28,47 +28,33 @@
 	<c:set var="searchType" value="title" />
 </c:if>
 
-<section id="content">
-	<div class="container body-content" id='board-list-container'>
-			<h2>자유 게시판</h2>
+<section id="container">
+ <div class="container body-content">
+	<div class="row" style="margin-top: 5px;">
+		<div id='board-list-container'>
+			<h2>Q & A</h2>
+
+			<div class="alert alert-danger d-flex fs-md mb-1" role="alert">
+				<div class="alert-icon fs-lg">
+					<i class="ci-announcement"></i>
+				</div>
+				<div>
+					<strong>공지사항 &nbsp; </strong>※ &nbsp; 타인의 명예를 훼손하는 &nbsp; <strong>상업성 및 도배성
+						</strong>게시물은 &nbsp; 삭제될 수 있습니다. &nbsp; ※
+				</div>
+			</div>
+		</div>
+	</div>
 		
-		<!-- 검색창 시작 -->
+		<!-- 페이지 넘기는 데 필요 -->
 		<form name="searchForm" action="${path}/board/list" method="get">
 			<input type="hidden" name="page" value="1">
-			
-			<!-- 카테고리 checkbox -->	
-			<div style="text-align: center;">
-				<c:forEach var="item" items="${categoryList}">
-					<label>
-						<input type="checkbox" name="types" value="${item.type}"
-							${fn:contains(typeList, item.type) ? 'checked' : ''} >
-						${item.name}
-					</label>
-				</c:forEach>
-			</div>
-			
-			<!-- 검색창 -->	
-			<div class="" style="text-align: center;">
-				<label><input type="radio" name="searchType" value="title" 
-											${searchType == 'title' ? 'checked' : ''} />제목</label>
-				<label><input type="radio" name="searchType" value="content"
-											${searchType == 'content' ? 'checked' : ''} />내용</label>
-				<label><input type="radio" name="searchType" value="writer"
-											${searchType == 'writer' ? 'checked' : ''} />작성자</label>
-				
-				<span class="blue_window"> 
-				<input type="text" id="searchValue" name="searchValue" class="input_text" 
-																	value="${param.searchValue}" />
-				</span>
-				<button class="btn btn-primary" type="submit" class="sch_smit">검색</button>
-				<button class="btn btn-primary" type="reset" class="sch_smit">초기화</button>
-			</div>
+			<input type="hidden" name="types" value="NBOARD">
 		</form>
-		<!-- 검색창 끝 -->
-		
-		<!-- 글쓰기 버튼 -->
+
+
+	<!-- 글쓰기 버튼 -->
 		<c:if test="${loginMember != null }">
-			<i style="color: blueviolet;" class="navbar-tool-icon ci-edit-alt"></i>
 			<button type="button" id="btn-add" style="margin-bottom: 3px;" 
 							onclick="location.href='${path}/board/write'">글쓰기</button>
 		</c:if>
@@ -121,7 +107,7 @@
 
 		<!-- page부 시작 -->
 			<div align="center" class="mt-4 mb-4 ">
-				<!-- 가장 단순화된 버전 = 검색어가 없는 경우 -->
+				<!-- 가장 단순화된 버전 검색어가 없는 경우 -->
 <!-- 			처음 페이지로 이동하는 코드 -->
 <%-- 	 			<button onclick="location.href='${path}/board/list?page=1'">&lt;&lt;</button>  --%>
 <!-- 			이전 페이지로 이동하는 코드 -->

@@ -38,15 +38,13 @@
 							href="#signin-tab" data-bs-toggle="tab" role="tab"
 							aria-selected="true"><i class="ci-unlocked me-2 mt-n1"></i>Sign
 								in</a></li>
-						<li class="nav-item"><a class="nav-link fw-medium"
-							href="#signup-tab" data-bs-toggle="tab" role="tab"
-							aria-selected="false"><i class="ci-user me-2 mt-n1"></i>Sign
-								up</a></li>
 					</ul>
 					<button class="btn-close" type="button" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
 				<div class="modal-body tab-content py-4">
+				
+				<!--  로그인 -->
 					<form action="${path}/login" method="post"
 						class="needs-validation tab-pane fade show active"
 						autocomplete="off" novalidate id="signin-tab">
@@ -68,65 +66,12 @@
 								</label>
 							</div>
 						</div>
-						<div class="mb-3 d-flex flex-wrap justify-content-between">
-							<div class="form-check mb-2">
-								<input class="form-check-input" type="checkbox" id="si-remember">
-								<label class="form-check-label" for="si-remember">Remember
-									me</label>
-							</div>
-							<a class="fs-sm" href="#">Forgot password?</a>
-						</div>
-						<button class="btn btn-primary btn-shadow d-block w-100"
+						<button class="btn btn-primary btn-shadow d-block w-100 mb-4"
 							type="submit">Sign in</button>
 					</form>
-					<form action="${path}/member/enroll" method="post"
-						class="needs-validation tab-pane fade" autocomplete="off"
-						novalidate id="signup-tab">
-						<div class="mb-3">
-							<label class="form-label" for="Account">Account</label> <input
-								class="form-control" type="text" name="id" id="Account"
-								placeholder="user id" required>
-							<div class="invalid-feedback">Please fill in your name.</div>
-						</div>
-						<div class="mb-3">
-							<label class="form-label" for="su-name">Full name</label> <input
-								class="form-control" type="text" name="name" id="su-name"
-								placeholder="full name" required>
-							<div class="invalid-feedback">Please fill in your name.</div>
-						</div>
-						<div class="mb-3">
-							<label for="su-email">Email address</label> <input
-								class="form-control" type="email" name="email" id="su-email"
-								placeholder="johndoe@example.com" required>
-							<div class="invalid-feedback">Please provide a valid email
-								address.</div>
-						</div>
-						<div class="mb-3">
-							<label class="form-label" for="su-password">Password</label>
-							<div class="password-toggle">
-								<input class="form-control" type="password" name="password"
-									id="su-password" required> <label
-									class="password-toggle-btn" aria-label="Show/hide password">
-									<input class="password-toggle-check" type="checkbox"><span
-									class="password-toggle-indicator"></span>
-								</label>
-							</div>
-						</div>
-						<div class="mb-3">
-							<label class="form-label" for="su-password-confirm">Confirm
-								password</label>
-							<div class="password-toggle">
-								<input class="form-control" type="password"
-									id="su-password-confirm" required> <label
-									class="password-toggle-btn" aria-label="Show/hide password">
-									<input class="password-toggle-check" type="checkbox"><span
-									class="password-toggle-indicator"></span>
-								</label>
-							</div>
-						</div>
-						<button class="btn btn-primary btn-shadow d-block w-100"
-							type="submit">Sign up</button>
-					</form>
+					<button class="btn btn-primary btn-shadow d-block w-100"
+						 onclick="location.href='${path}/member/enroll';">Sign up</button>
+						
 				</div>
 			</div>
 		</div>
@@ -157,8 +102,8 @@
 									<li><a class="dropdown-item" href="${path}/drug/instruction">안전 사용</a></li>
 								</ul>
 							<li class="nav-item dropdown"><a
-								class="nav-link dropdown-toggle h4 text-white" href="${path}/pharmacy/search"
-								>Pharmacy</a></li>
+								class="nav-link dropdown-toggle h4 text-white" 
+								href="${path}/pharmacy/search">Pharmacy</a></li>
 							<li class="nav-item dropdown"><a
 								class="nav-link dropdown-toggle h4 text-white"
 								href="${path}/shop/main">Shop</a></li>
@@ -166,9 +111,10 @@
 								class="nav-link dropdown-toggle h4 text-white" href="#"
 								data-bs-toggle="dropdown" data-bs-auto-close="outside">Community</a>
 								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" href="${path}/board/list">질문과 답변</a></li>
-									<li><a class="dropdown-item" href="#">공지사항</a></li>
-									<li><a class="dropdown-item" href="#">Newsroom</a></li>
+									<li><a class="dropdown-item" href="${path}/board/list">자유 게시판</a></li>
+									<li><a class="dropdown-item" href="/mvc/board/list?types=QUESTION">질문과 답변</a></li>
+									<li><a class="dropdown-item" href="/mvc/board/list?types=NBOARD">공지사항</a></li>
+									<li><a class="dropdown-item" href="/mvc/board/list?types=NEWS">Newsroom</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -176,7 +122,7 @@
 							<a class="navbar-tool-icon-box bg-secondary"
 								href="${path}/shop/cart"><span class="navbar-tool-label">${cartSize}</span><i
 								class="navbar-tool-icon ci-cart"></i></a><a class="navbar-tool-text"
-								href="${path}shop-cart.html"></a>
+								href="shop-cart.html"></a>
 							<!-- Cart dropdown-->
 							<div class="dropdown-menu dropdown-menu-end">
 								<div class="widget widget-cart px-3 pt-2 pb-3"
