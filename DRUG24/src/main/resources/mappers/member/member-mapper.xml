@@ -12,6 +12,7 @@
 		<result property="phone" column="PHONE"/>
 		<result property="email" column="EMAIL"/>
 		<result property="address" column="ADDRESS"/>
+		<result property="hobby" column="HOBBY"/>
 		<result property="kakaoToken" column="KAKAOTOKEN"/>
 		<result property="status" column="STATUS"/>
 		<result property="enrollDate" column="ENROLL_DATE"/>
