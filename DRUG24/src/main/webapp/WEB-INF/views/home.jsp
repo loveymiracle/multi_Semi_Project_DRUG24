@@ -55,7 +55,7 @@
 									<i
 										class="ci-search position-absolute top-50 translate-middle-y ms-3"></i>
 									<input class="form-control rounded-start" type="text"
-										placeholder="Start your search">
+										placeholder="Search your Medicine">
 									<button class="btn btn-primary btn-lg fs-base" type="button">Search</button>
 								</div>
 							</div>
@@ -112,15 +112,6 @@
 								</div>
 							</div>
 		
-							<c:if test="${loginMember != null }">
-								<div class="card-body card-body-hidden">
-									<button class="btn btn-primary btn-sm d-block w-100 mb-2"
-										type="button"
-										onclick="location.href='${path}/addCart?pno=${item.pno}'">
-										<i class="ci-cart fs-sm me-1"></i>Add to Cart
-									</button>
-								</div>
-							</c:if>
 						</div>
 						<hr class="d-sm-none">
 					</div>
@@ -373,7 +364,7 @@
 						data-carousel-options="{&quot;items&quot;: 2, &quot;gutter&quot;: 15, &quot;controls&quot;: false, &quot;nav&quot;: true, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;500&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3}, &quot;992&quot;:{&quot;items&quot;:3, &quot;gutter&quot;: 30}}}">
 						<div>
 							<div class="card">
-								<a class="blog-entry-thumb" href="blog-single.html"><img
+								<a class="blog-entry-thumb" href="${path}/news/card01"><img
 									class="card-img-top" src="${path}/resources/imgs/blog/cardnews1.png" alt="Post"></a>
 								<div class="card-body">
 									<h2 class="h6 blog-entry-title">
@@ -381,18 +372,12 @@
 									</h2>
 									<p class="fs-sm">어르신은 왜 약물 사용에 주의해야 할까요? 어르신들은 여러가지 약을 복용하시는
 										분들이 많아요. 그리고 약물 부작용 발생 위험이 커요</p>
-									<div class="fs-xs text-nowrap">
-										<a class="blog-entry-meta-link text-nowrap" href="#">Dec 23</a><span
-											class="blog-entry-meta-divider mx-2"></span><a
-											class="blog-entry-meta-link text-nowrap"
-											href="blog-single.html#comments"><i class="ci-message"></i>1</a>
-									</div>
 								</div>
 							</div>
 						</div>
 						<div>
 							<div class="card">
-								<a class="blog-entry-thumb" href="blog-single.html"><img
+								<a class="blog-entry-thumb" href="${path}/news/card02"><img
 									class="card-img-top" src="${path}/resources/imgs/blog/cardnews2.png" alt="Post"></a>
 								<div class="card-body">
 									<h2 class="h6 blog-entry-title">
@@ -400,30 +385,18 @@
 											지켜주세요!</a>
 									</h2>
 									<p class="fs-sm">이소트레티노인은 태아에게 심각한 기형 유발 가능</p>
-									<div class="fs-xs text-nowrap">
-										<a class="blog-entry-meta-link text-nowrap" href="#">Oct 10</a><span
-											class="blog-entry-meta-divider mx-2"></span><a
-											class="blog-entry-meta-link text-nowrap"
-											href="blog-single.html#comments"><i class="ci-message"></i>28</a>
-									</div>
 								</div>
 							</div>
 						</div>
 						<div>
 							<div class="card">
-								<a class="blog-entry-thumb" href="blog-single.html"><img
+								<a class="blog-entry-thumb" href="${path}/news/card03"><img
 									class="card-img-top" src="${path}/resources/imgs/blog/cardnews3.png" alt="Post"></a>
 								<div class="card-body">
 									<h2 class="h6 blog-entry-title">
 										<a href="blog-single.html">나의 부작용 정보 나눌수록 안전해집니다.</a>
 									</h2>
 									<p class="fs-sm">약을 복용한 후 몸에 이상이 있다면 부작용일 수 있습니다.</p>
-									<div class="fs-xs text-nowrap">
-										<a class="blog-entry-meta-link text-nowrap" href="#">Sep 15</a><span
-											class="blog-entry-meta-divider mx-2"></span><a
-											class="blog-entry-meta-link text-nowrap"
-											href="blog-single.html#comments"><i class="ci-message"></i>46</a>
-									</div>
 								</div>
 							</div>
 						</div>

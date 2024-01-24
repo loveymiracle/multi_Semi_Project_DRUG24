@@ -153,10 +153,9 @@
 									Info</a>
 								<ul class="dropdown-menu">
 									<li><a class="dropdown-item" href="#">약 상세검색</a></li>
-									<li><a class="dropdown-item" href="#">복약 정보</a></li>
-									<li><a class="dropdown-item" href="#">안전성 서한</a></li>
-									<li class="dropdown-item" href="#">안전 사용</a></li>
-								</ul></li>
+									<li><a class="dropdown-item" href="${path}/drug/safetyletter">안전성 서한</a></li>
+									<li><a class="dropdown-item" href="${path}/drug/instruction">안전 사용</a></li>
+								</ul>
 							<li class="nav-item dropdown"><a
 								class="nav-link dropdown-toggle h4 text-white" href="${path}/pharmacy/search"
 								>Pharmacy</a></li>

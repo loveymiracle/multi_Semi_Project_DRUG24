@@ -155,6 +155,22 @@ public class ShopController {
 		}
 		
 		List<Product> list = shopService.getCartProductList(member.getMno());
+		
+		Map<String, Object> map = new HashMap<>();
+		map.put("title", "비타민C");
+		int count = shopService.getProductCount(map);
+		System.out.println(count);
+		PageInfo pageInfo = new PageInfo(pageCount++ % 5 + 1, 6, count, 6);
+		List<Product> plist1 = shopService.getProductList(pageInfo, map);
+		
+		map.put("title", "프로바이오틱스");
+		count = shopService.getProductCount(map);
+		System.out.println(count);
+		pageInfo = new PageInfo(pageCount++ % 5 + 1, 6, count, 6);
+		List<Product> plist2 = shopService.getProductList(pageInfo, map);
+		plist1.addAll(plist2);
+		Collections.shuffle(plist1);
+		model.addAttribute("plist1", plist1);
 		model.addAttribute("list", list);
 		return "shop/shop-cart";
 	}
