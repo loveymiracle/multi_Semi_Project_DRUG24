@@ -3,9 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
-<!-- j 쿼리 -->
-<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 
+<script type="text/javascript" src="${path}/resources/js/jquery-3.7.0.js"></script>
 
 <style>
       /* 지도 스타일 시작 */
@@ -192,7 +191,7 @@
                             data-bs-placement="left" title="즐겨찾기">
                             <i class="ci-star"></i></button>
                         <a class="card-img-top d-block overflow-hidden" href="${path}/pharmacy/view?phno=${item.phno}">
-                            <img src="imgs/pharmacy/phar1.png" style="width: 100%; height: 230px;" alt="Product"></a>
+                            <img src=" ${path}/resources/imgs/pharmacy/pharmacy1.jpg" style="width: 100%; height: 230px;" alt="Product"></a>
                         <!-- ---------- ---------  약국 이미지 -->
                         <div class="card-body">
                             <div class="d-flex flex-wrap justify-content-between align-items-start pb-2">
