@@ -21,18 +21,18 @@
 <!-- 글쓰기 에디터 추천 : https://summernote.org/ , https://naver.github.io/smarteditor2/user_guide/ -->
 
 <section id="board-write-container">
-	<h2 align="center">게시글 작성</h2>
+	<h2 class="mt-2" align="center">게시글 작성</h2>
 	
 	<!-- enctype="multipart/form-data" : 파일 첨부를 할수 있는 html 옵션  -->
 	<form action="${path}/board/write" method="post" enctype="multipart/form-data">
-		<table id="tbl-board">
+		<table class="table-success" id="tbl-board">
 			<tr>
 				<th>제목</th>
 				<td><input type="text" name="title" class="input-text"></td>
 			</tr>
 			<tr>
 				<th>카테고리</th>
-				<td>
+				<td >
 					<select name="type">
 						<c:forEach var="item" items="${categoryList}" varStatus="status">
 							<c:if test="${status.first and loginMember.role == 'ROLE_ADMIN'}">
@@ -63,13 +63,13 @@
 			<tr>
 				<th>내용</th>
 				<td>
-					<textarea name="content" rows="15" cols="50"></textarea>
+					<textarea name="content" rows="12" cols="50"></textarea>
 				</td>
 			</tr>
 			<tr>
 				<th colspan="2">
-					<button type="submit">등록</button>
-					<button type="reset">취소</button>
+					<button class="table-info" type="submit">등록</button>
+					<button class="table-danger" type="reset">취소</button>
 				</th>
 			</tr>
 		</table>

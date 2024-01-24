@@ -7,7 +7,7 @@
 <style>
     section>div#board-write-container{width:600px; margin:0 auto; text-align:center;}
     section>div#board-write-container h2{margin:10px 0;}
-    table#tbl-board{width:500px; margin:0 auto; border:1px solid black; border-collapse:collapse; clear:both; }
+    table#tbl-board{width:500px; margin:0 auto; border:1px solid black; border-collapse:collapse; clear:both ; }
     table#tbl-board th {width: 125px; border:1px solid; padding: 5px 0; text-align:center;} 
     table#tbl-board td {border:1px solid; padding: 5px 0 5px 10px; text-align:left;}
     div#comment-container button#btn-insert{width:60px;height:50px; color:white; background-color:#3300FF;position:relative;top:-20px;}
@@ -28,8 +28,8 @@
 	<jsp:param value="게시글 상세조회" name="title"/>
 </jsp:include>
 
-<section id="board-write-container">
-	<h2 align="center">게시글 상세조회</h2>
+<section  id="board-write-container">
+	<h2 class="mt-2" align="center">게시글 상세조회</h2>
 	
 	<table id="tbl-board">
 		<tr>
@@ -120,7 +120,7 @@
 	    		<form action="${path}/board/reply" method="post">
 	    			<input type="hidden" name="bno" value="${board.bno}" />
 	    			<input type="hidden" name="memberId" value="${loginMember.id}" />
-					<textarea name="content" id="replyContent" cols="55" rows="3"></textarea>
+					<textarea class="mt-2" name="content" id="replyContent" cols="45" rows="3"></textarea>
 					<button type="submit" id="btn-insert">등록</button>	  	
 	    		</form>
 	    	</div>
@@ -129,7 +129,8 @@
 	
 	<!-- 리플 리스트 출력 -->
 	<table id="tbl-comment">
-		<c:if test="${empty board.replies }">
+		<c:if test="${empty board.replies}">
+
 			<tr>
 				<td style="text-align: center;">등록된 리플이 없습니다.</td>
 			</tr>
@@ -140,7 +141,7 @@
 			<c:forEach var="reply" items="${board.replies}">
 				<tr>
 					<td>
-						<sub class="comment-writer"><c:out value="${reply.memberName}(${reply.memberId})"/> </sub>
+						<sub class="comment-writer"><c:out value="${reply.memberName}(${reply.memberId})"/></sub>
 						<sub class="comment-date"><fmt:formatDate type="both" value="${reply.createDate}"/></sub>	
 						<br>
 						<c:out value="${reply.content}"/>
