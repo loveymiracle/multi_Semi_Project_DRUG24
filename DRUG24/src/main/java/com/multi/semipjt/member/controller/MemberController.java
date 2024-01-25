@@ -1,8 +1,12 @@
 package com.multi.semipjt.member.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,6 +24,8 @@ import org.springframework.web.bind.support.SessionStatus;
 import com.multi.semipjt.kakao.KaKaoService;
 import com.multi.semipjt.member.model.service.MemberService;
 import com.multi.semipjt.member.model.vo.Member;
+import com.multi.semipjt.shop.model.service.ShopService;
+import com.multi.semipjt.shop.model.vo.Product;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -33,6 +39,9 @@ public class MemberController {
 	
 	@Autowired
 	private KaKaoService kakaoService;
+	
+	@Autowired
+	ShopService shopService; 
 
 	// action : /login, method : POST
 	// 파라메터 : memberId, memberPwd
@@ -153,8 +162,16 @@ public class MemberController {
 
 	// 회원정보 보기 + update
 	@GetMapping("/member/view")
-	public String memberViewPage() {
+	public String memberViewPage(Model model, HttpSession session) {
 		log.debug("회원정보 보기 페이지 요청");
+		
+		Member member = (Member) session.getAttribute("loginMember");
+		List<Product> cartList = new ArrayList<Product>();
+		if(member != null) {
+			cartList = shopService.getCartProductList(member.getMno());
+		}
+		model.addAttribute("cartList", cartList);
+		model.addAttribute("cartSize", cartList.size());
 		return "member/memberView";
 	}
 	
