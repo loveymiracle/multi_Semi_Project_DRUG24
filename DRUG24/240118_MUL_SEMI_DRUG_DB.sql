@@ -359,7 +359,7 @@ SELECT * FROM Product LIMIT 0, 10;
 
 COMMIT;
 
-DROP TABLE Product;
+-- DROP TABLE Product;
 
 ---------------------------------------------------
 ------------------- 주문 테이블 ---------------------
@@ -385,7 +385,7 @@ COMMIT;
 
 SELECT * FROM Orders;
 
-DROP TABLE Orders;
+-- DROP TABLE Orders;
 
 ---------------------------------------------------
 ------------------ 장바구니 테이블 ---------------------
@@ -467,19 +467,16 @@ INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('QUESTION', '질�
 INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('TIP', 'TIP', 3, 4);
 INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('BUY', '삽니다', 3, 5);
 INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('SELL', '팝니다', 3, 6);
+INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('NEWS', '뉴스', 3, 7);
 INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('CMM2', '커뮤니티B', 3, 8);
 INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('CMM3', '커뮤니티C', 3, 9);
 INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('NBOARD', '공지사항', 3, 10);
-<<<<<<< HEAD
-INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('NEWS', '뉴스', 3, 11);
-=======
-INSERT INTO BOARD_CATEGORY (TYPE, NAME, LEVEL, ORDERNO) VALUES('NEWS', '뉴스', 3, 7);
 
->>>>>>> branch 'master' of https://github.com/loveymiracle/mulProject.git
-
-COMMIT;
 SELECT * FROM BOARD_CATEGORY ORDER BY ORDERNO;
 
+COMMIT;
+
+-- DROP TABLE BOARD_CATEGORY;
 -------------------------------------------------
 --------------- Board 관련 테이블 ------------------
 -------------------------------------------------
@@ -501,123 +498,107 @@ CREATE TABLE BOARD (
     CONSTRAINT FK_BOARD_CATEGORY FOREIGN KEY(TYPE) REFERENCES BOARD_CATEGORY(TYPE) ON DELETE SET NULL
 );
 INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NOTICE','[공지] 클린한 게시판 환경을 만들어주세요.','깨끗한 게시판 환경 유지에 협조 바랍니다.');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'PLAIN','안녕하세요? 처음 가입한 개발자입니다.','잘 부탁드립니다.');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'QUESTION','[질문] 질문 있습니다.','자바 어렵나요?');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'PLAIN','오늘 식사메뉴 추천드립니다.','돈까스 드세요.');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'PLAIN','내일 식사메뉴 추천드립니다.','냉면 어떠신가요?');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'PLAIN','모레 식사메뉴 추천드립니다.','스파게티 좋네요.');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'PLAIN','다음주 식사메뉴 추천드립니다.','아무거나 드세요');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','공지사항 게시글 입니다.1','공지 내용입니다.1');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','공지사항 게시글 입니다.2','공지 내용입니다.2');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','공지사항 게시글 입니다.3','공지 내용입니다.3');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','공지사항 게시글 입니다.4','공지 내용입니다.4');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','공지사항 게시글 입니다.5','공지 내용입니다.5');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','공지사항 게시글 입니다.6','공지 내용입니다.6');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','공지사항 게시글 입니다.7','공지 내용입니다.7');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','공지사항 게시글 입니다.8','공지 내용입니다.8');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','공지사항 게시글 입니다.9','공지 내용입니다.9');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','공지사항 게시글 입니다.10','공지 내용입니다.10');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','공지사항 게시글 입니다.11','공지 내용입니다.11');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','공지사항 게시글 입니다.12','공지 내용입니다.12');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','공지사항 게시글 입니다.13','공지 내용입니다.13');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','공지사항 게시글 입니다.14','공지 내용입니다.14');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','공지사항 게시글 입니다.15','공지 내용입니다.15');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,3,'CMM2','커뮤니티 B글입니다. 1','커뮤니티 B활동 글입니다. 1');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,3,'CMM2','커뮤니티 B글입니다. 2','커뮤니티 B활동 글입니다. 2');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,3,'CMM2','커뮤니티 B글입니다. 3','커뮤니티 B활동 글입니다. 3');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,3,'CMM2','커뮤니티 B글입니다. 4','커뮤니티 B활동 글입니다. 4');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,3,'CMM2','커뮤니티 B글입니다. 5','커뮤니티 B활동 글입니다. 5');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'CMM3','커뮤니티 C글입니다. 1','커뮤니티 C활동 글입니다. 1');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'CMM3','커뮤니티 C글입니다. 2','커뮤니티 C활동 글입니다. 2');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'CMM3','커뮤니티 C글입니다. 3','커뮤니티 C활동 글입니다. 3');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'CMM3','커뮤니티 C글입니다. 4','커뮤니티 C활동 글입니다. 4');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'CMM3','커뮤니티 C글입니다. 5','커뮤니티 C활동 글입니다. 5');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,3,'TIP','[팁] 팁글입니다.','java는 쉽습니다. 객체만 아세요.');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,3,'TIP','[팁] 팁글입니다.','c언어는 어렵습니다. ');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,3,'TIP','[팁] 팁글입니다.','프로그래밍은 생각보다 쉽습니다.');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'TIP','[팁] 팁글입니다.','개발일은 어렵습니다. 코딩만 안합니다.');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'TIP','[팁] 팁글입니다.','문서작업은 귀찮습니다. 이게 개발일의 실체입니다.');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'SELL','[판매] 삼성 노트북 팔아요.','삼성 노트북 팝니다. 터치 됩니다.');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,3,'SELL','[판매] 아이폰 팔아요.','아이폰15 팝니다.');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'SELL','[판매] 애플 맥북 노트북 팝니다.','M2 모델입니다. 맥북 게임용으로 잘써요');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,3,'BUY','[구매] 애플 노트북 삽니다.','맥북 게임용으로 삽니다. 이거 게임 잘돌아가나요?');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'BUY','[구매] 삼성 노트북 삽니다','게임용으로 삽니다. ');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'BUY','[구매] 애플 아이폰 삽니다','아이폰14사요. 30만원에 네고합니다. ');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,3,'BUY','[구매] 삼성 갤럭시 삽니다.','갤럭시 삽니다. 아무 기종이나 상관없어요.');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'SELL','[판매] 애플 노트북 팔아요.','노트북 맥북 최신입니다. 게임하시면 안됩니다');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'SELL','[판매] 삼성 신형 갤럭시북 노트북 팔아요','새로나온 삼성 갤럭시북입니다. 이거 가성비 괜찮습니다.');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,3,'SELL','[판매] 삼성 노트북 팔아요.','삼성 노트북 팝니다. 터치 됩니다.');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'SELL','[판매] 아이폰 팔아요.','아이폰15 팝니다.');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,3,'SELL','[판매] 애플 맥북 노트북 팝니다.','M2 모델입니다. 맥북 게임용으로 잘써요');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'BUY','[구매] 애플 노트북 삽니다.','맥북 게임용으로 삽니다. 이거 게임 잘돌아가나요?');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,3,'BUY','[구매] 삼성 노트북 삽니다','게임용으로 삽니다. ');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'BUY','[구매] 애플 아이폰 삽니다','아이폰14사요. 30만원에 네고합니다. ');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'BUY','[구매] 삼성 갤럭시 삽니다.','갤럭시 삽니다. 아무 기종이나 상관없어요.');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,3,'SELL','[판매] 애플 노트북 팔아요.','노트북 맥북 최신입니다. 게임하시면 안됩니다');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,3,'SELL','[판매] 삼성 신형 갤럭시북 노트북 팔아요','새로나온 삼성 갤럭시북입니다. 이거 가성비 괜찮습니다.');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'SELL','[판매] 삼성 노트북 팔아요.','삼성 노트북 팝니다. 터치 됩니다.');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'SELL','[판매] 아이폰 팔아요.','아이폰15 팝니다.');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'SELL','[판매] 애플 맥북 노트북 팝니다.','M2 모델입니다. 맥북 게임용으로 잘써요');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'BUY','[구매] 애플 노트북 삽니다.','맥북 게임용으로 삽니다. 이거 게임 잘돌아가나요?');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,3,'BUY','[구매] 삼성 노트북 삽니다','게임용으로 삽니다. ');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'BUY','[구매] 애플 아이폰 삽니다','아이폰14사요. 30만원에 네고합니다. ');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,3,'BUY','[구매] 삼성 갤럭시 삽니다.','갤럭시 삽니다. 아무 기종이나 상관없어요.');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'SELL','[판매] 애플 노트북 팔아요.','노트북 맥북 최신입니다. 게임하시면 안됩니다');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'SELL','[판매] 삼성 신형 갤럭시북 노트북 팔아요','새로나온 삼성 갤럭시북입니다. 이거 가성비 괜찮습니다.');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,3,'SELL','[판매] 삼성 노트북 팔아요.','삼성 노트북 팝니다. 터치 됩니다.');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'SELL','[판매] 아이폰 팔아요.','아이폰15 팝니다.');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,3,'SELL','[판매] 애플 맥북 노트북 팝니다.','M2 모델입니다. 맥북 게임용으로 잘써요');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'BUY','[구매] 애플 노트북 삽니다.','맥북 게임용으로 삽니다. 이거 게임 잘돌아가나요?');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,3,'BUY','[구매] 삼성 노트북 삽니다','게임용으로 삽니다. ');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'BUY','[구매] 애플 아이폰 삽니다','아이폰14사요. 30만원에 네고합니다. ');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'BUY','[구매] 삼성 갤럭시 삽니다.','갤럭시 삽니다. 아무 기종이나 상관없어요.');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,3,'SELL','[판매] 애플 노트북 팔아요.','노트북 맥북 최신입니다. 게임하시면 안됩니다');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,3,'SELL','[판매] 삼성 신형 갤럭시북 노트북 팔아요','새로나온 삼성 갤럭시북입니다. 이거 가성비 괜찮습니다.');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'QUESTION','[질문] 질문 있습니다.','파이썬 어렵나요?');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'QUESTION','[질문] 질문 있습니다.','C언어 어렵나요?');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'QUESTION','[질문] 질문 있습니다.','servlet 어렵나요?');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'QUESTION','[질문] 질문 있습니다.','maven 어렵나요?');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'QUESTION','[질문] 질문 있습니다.','front 어렵나요?');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'QUESTION','[질문] 질문 있습니다.','back-end 어렵나요?');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'QUESTION','[질문] 질문 있습니다.','java-script 어렵나요?');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'QUESTION','[질문] 질문 있습니다.','spring 어렵나요?');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'QUESTION','[질문] 질문 있습니다.','mvc 개념 어렵나요?');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'QUESTION','[질문] 질문 있습니다.','html 어렵나요?');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'QUESTION','[질문] 질문 있습니다.','css 어렵나요?');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'QUESTION','[질문] 질문 있습니다.','bootstrap 어렵나요?');
 
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 1, 'NEWS', '[카드뉴스]어르신을 위한 안전한 약물 사용 안내서', '어르신을 위한 안전한 약물 사용 안내');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 1, 'NEWS', '[일상정보] 생활 속 중금속 섭취 줄이려면', '11');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 1, 'NEWS', '[건강]유해물질 바로알기 - 시안화합물편', '11');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 1, 'NEWS', '[일상정보]채소, 과일샐러드 안전하게 섭취하기', '11');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 1, 'NEWS', '[건강]연속 혈당 측정기 안전사용방법', '11');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 1, 'NEWS', '[건강]유해물질 바로알기 - 프탈레이트편', '11');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 1, 'NEWS', '[일상정보]감기 예방을 위한 식생활 요령', '11');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 1, 'NEWS', '[일상정보]조리법 개선으로 식품 내 중금속 줄일 수 있어요!', '11');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 1, 'NEWS', '[카드뉴스]여드름약, 이소트레티노인 안전사용! 엄마와 아기를 지켜주세요!', '11');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0, 1, 'NEWS', '[카드뉴스]나의 부작용 정보 나누면 안전해집니다.', '11');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','사이트 폐쇄 안내','DRUG24 사이트를 폐쇄 합니다. 운영상 어려움으로 인해 사이트를 폐쇄합니다. 감사합니다.');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','쇼핑몰 철수 안내','운영상 어려움으로 인해 더 이상 사업을 이어나가기 어렵다고 판단하여 쇼핑몰을 철수하기로 하였습니다. 그동안 성원에 감사드립니다.');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','서버 정상화 안내','쇼핑몰 이용 가능합니다. 감사합니다.');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','서버 연장 점검','쇼핑몰 서버 연장 점검 입니다. 이용에 불편을 드려 죄송합니다. 다른 기능은 정상 사용 가능합니다.');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','서버 이전 작업 안내','원활한 쇼핑몰 운영을 위해 서버 작업을 실시합니다. 해당 기간 동안 쇼핑몰 이용 불가합니다.');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','쇼핑몰 오픈 안내','건강기능식품을 DRUG24 쇼핑몰을 통해 판매하게 되었습니다. 많은 이용 부탁드립니다. 감사합니다.');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','안정성 서한 속보 게시 알림','의약품 안정성 소식을 발빠르게 전달해드립니다.');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','서버 정상화 안내','서버 정상화 안내 드립니다. 2023-03-09 08:00 부로 이용 가능합니다. 감사합니다.');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','서버 연장 점검 안내','서버 증설 작업 연장 되었습니다. 이용에 불편을 드려 죄송합니다.');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','서버 증설 작업','트래픽 과부하로 서버 증설 작업 진행합니다. 2023-03-08 22:00 ~ 24:00 까지 이용 불가합니다.');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','상세검색, 약국찾기 검색 기능이 추가 되었습니다.','의약품 상세 조회 및 심야, 공휴일 운영중인 약국 찾기 기능이 추가 되었습니다.');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','DRUG24 웹사이트 오픈','올바른 의약정보를 알리고자 DRUG24 웹사이트 오픈합니다. 많은 이용 관심 부탁드립니다.');
 
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'QUESTION','[질문] 목시타산안약과 참훌루 안약 사용 문의',
+'두 가지를 다 눈에 넣고 있습니다. 잘못된 방법인가요?');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,3,'QUESTION','[질문] 에소메졸 자기전에 먹어도 될까요?',
+'자기전에 먹어도 될까요? 아니면 일어나서 먹어도 괜찮을까요 ?');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,4,'QUESTION','[질문] 40대 남성 영양제 관련 문의',
+'40대 초반이고, 피로감을 자주 느낍니다. 복용 중인 약은 메가트루파워, 밀크씨슬, 소팔메토 입니다. 오메가3, 코큐텐, 콘트로이친 더 먹으려고 하는데 너무 많은 것 같아서 문의 드립니다.');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,5,'QUESTION','[질문] 겔비스톤과 순아리정 병용 문의',
+'maven 어렵나요?');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,6,'QUESTION','[질문] 영양제 질문드립니다',
+'잠을 많이 못자는 30대 중반 남자가 꼭 먹어야 할 영양제 추천 부탁드립니다.');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,7,'QUESTION','[질문] 보충제와 항생제 병용 문의',
+'감기로 인해 세프바정 과 알레르기 약을 먹고 있는데 보충제 같이 먹어도 될까요?');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,8,'QUESTION','[질문] 탈모약 질문.. 심각합니다.',
+'탈모약은 외부 코팅이 되어있다는데 입안에 잔류 할 수 있나요 ?');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,9,'QUESTION','[질문] 피부과, 외과 처방받은 같이 복용?',
+'피부과에서 4정 외과에서 8정 받은 약이 있는데 같이 먹어도 괜찮은걸까요?');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,10,'QUESTION','[질문] 알약을 가루로 셀프제조',
+'알약 삼키기 힘들어서 가루로 만들어 먹으려는데 괜찮을까요?');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,11,'QUESTION','[질문] 관리자님 문의 드립니다.',
+'해외 약품 판매 문의 드립니다.');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'QUESTION','[질문] 모낭염 항생제 감기약 병용 질문',
+'미노씬캡슐, 뮤코라민정 먹고 있는데 감기 걸려서 타이레놀, 에르도캡슐 처방 받았는데 어떻게 먹어야 할까요?');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,3,'QUESTION','[질문] 알레르기 비염이 심해요',
+'외용제 안약만 넣었는데 알약은 보관했다 나중에 먹어도 될까요?');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,4,'QUESTION','[질문] 외이도염 약 부작용 문의',
+'이 약들 중 부작용으로 폐렴이나 심혈관 질환 일으키는 약이 있을까요?');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,5,'QUESTION','[질문] 약 보관케이스에 약이.',
+'언제 였는지 모르는 약이 있는데 먹어도 될까요?');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,6,'QUESTION','[질문] 디쿠알론 비슷한 약 문의',
+'재처방을 못받아서 비슷한 약을 찾습니다.');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,7,'QUESTION','[질문] 집에 약이 있는데 먹어도 될까요?',
+'성분이 배농산급탕, 브로멜라인, 결정트립신 인데 진통효과 있을까요?');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,8,'QUESTION','[질문] 지사제 보관 문의',
+'냉동보관 해도 될까요?');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,9,'QUESTION','[질문] 소화불량과 역류성식도염',
+'케이캡 어떤가요? 거담제도 같이 먹어보려구요');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,10,'QUESTION','[질문] 성인 해열 진통제 동시 복용 문의',
+'6일째 먹었고 증상이 남아 있어 1주치 더 받아 먹으려고 합니다. 괜찮을까요?');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,11,'QUESTION','[질문] 프로몬크림 성분 문의',
+'스테로이드 성분 있나요?');
 
 INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NEWS','[일상 정보] 생활속 중금속 섭취 줄이려면',
- '식품에 들어있는 중금속은 주로 물, 토양 등 환경으로부터 오염돼요.');
+'식품에 들어있는 중금속은 주로 물, 토양 등 환경으로부터 오염돼요.');
 INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NEWS','[건강] 유해물질 바로알기 - 시안화합물편',
- '시안화합물은 매실, 살구, 사과, 복숭아 등의 씨앗에 자연적으로 존재하며, 미생물에 의한 부패를 막아주는 역할을 해요');
+'시안화합물은 매실, 살구, 사과, 복숭아 등의 씨앗에 자연적으로 존재하며, 미생물에 의한 부패를 막아주는 역할을 해요');
 INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NEWS','[일상 정보] 채소, 과일샐러드 안전하게 섭취하기',
- '오늘의 키포인트는 냉장보관입니다. 채소샐러드,커팅과일 제품은 가급적 구입 후 바로 드시고 만약 나중에 먹을 거라면 반드시 냉장 보관하세요.');
-COMMIT;INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NEWS','[건강] 연속혈당 측정기 안전사용방법',
- '연속혈당측정기는? 의료기기이며, 의료기기법에서는 개인용체내연속혈당측정시스템이라는 이름으로 관리 합니다.');
- INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NEWS','[건강] 유해물질 바로알기 - 프탈레이트편',
- '프탈레이트는 딱딱한 플라스틱에 유연성을 주기 위해 첨가하는 물질이에요. 프탈레이트 노출을 줄이는 방법을 알아볼까요?');
- INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NEWS','[건강] 감기 예방을 위한 식생활 요령',
- '환절기 감기예방은 작은 습관에서 시작돼요. 앞서말씀드린 내용을 모두 숙지하시고 오늘도 건강한 하루 보내세요!');
- INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NEWS','[건강] 감기 예방을 위한 식생활 요령',
- '환절기 감기예방은 작은 습관에서 시작돼요. 앞서말씀드린 내용을 모두 숙지하시고 오늘도 건강한 하루 보내세요!');
- INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NEWS','[일상 정보] 조리법 개선으로 식품 중 중금속 줄일 수 있어요!',
- '중금속 섭취를 줄일 수 있는 조리법을 활용하여 건강하고 안전하게 식품을 섭취하세요!');
- 
+'오늘의 키포인트는 냉장보관입니다. 채소샐러드,커팅과일 제품은 가급적 구입 후 바로 드시고 만약 나중에 먹을 거라면 반드시 냉장 보관하세요.');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NEWS','[건강] 연속혈당 측정기 안전사용방법',
+'연속혈당측정기는? 의료기기이며, 의료기기법에서는 개인용체내연속혈당측정시스템이라는 이름으로 관리 합니다.');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NEWS','[건강] 유해물질 바로알기 - 프탈레이트편',
+'프탈레이트는 딱딱한 플라스틱에 유연성을 주기 위해 첨가하는 물질이에요. 프탈레이트 노출을 줄이는 방법을 알아볼까요?');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NEWS','[건강] 감기 예방을 위한 식생활 요령',
+'환절기 감기예방은 작은 습관에서 시작돼요. 앞서말씀드린 내용을 모두 숙지하시고 오늘도 건강한 하루 보내세요!');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NEWS','[건강] 감기 예방을 위한 식생활 요령',
+'환절기 감기예방은 작은 습관에서 시작돼요. 앞서말씀드린 내용을 모두 숙지하시고 오늘도 건강한 하루 보내세요!');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NEWS','[일상 정보] 조리법 개선으로 식품 중 중금속 줄일 수 있어요!',
+'중금속 섭취를 줄일 수 있는 조리법을 활용하여 건강하고 안전하게 식품을 섭취하세요!');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NEWS','[일상 정보] 내 몸에 이식한 의료기기 정보 이렇게 확인하세요',
+'1. 내 몸에 이식한 의료기기에 부작용 등 새로운 안전성 정보가 생겼다면? 2.환자 안전성 정보 시스템에 등록한 환자라면 누구나 확인 할 수 있습니다.');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NEWS','[일상 정보] 일교차 큰 가을철 나들이, 식중독 주의하세요!',
+'식중독 예방 6대 수칙 : 손씻기, 세척소독하기, 익혀먹기, 구분 사용하기, 끓여먹기, 보관온도 지키기 명심하세요!');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NEWS','[일상 정보] 뷔페음식 안심하고 먹어도 될까?위생 가이드라인 알아보기',
+'진열 제공 되었던 음식물은 다시 사용하거나 조리 또는 보관하는 등 재사용할 수 없어요 , 뷔페 음식을 안심하고 즐길 수 있도록 위생 가이드라인을 꼭 준수하세요!');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NEWS','[건강] 영양 결핍에 의한 질병, 식품으로 예방하기',
+'식품을 통한 충분한 영양소 섭취로 영양결핍에 의한 질병을 예방하고 건강을 지키세요.');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NEWS','[일상 정보]여름 대표과일 수박의 비밀',
+'수박씨의 효능 : 성장발달 , 성인병 예방, 노폐물 배출 및 방광염 완화, 피부미용 및 변비 예방');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NEWS','[일상 정보] 몸에 좋다고? 농산물 제대로 확인하고 구매하세요',
+'우리나라는 사용할 수 있는 식품원료를 목록화하고, 목록에 없는 것은 판매, 사용할 수 없어요.');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NEWS','[일상 정보]겨울에도 발생하는 노로바이러스 식중독 예방법',
+'비누를사용하여 30초 손씻기, 채소 과일은 깨끗한 물로 세척하기, 생식 하지 않기');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NEWS','[건강] 독감치료제 타미플루 안전하게 사용하려면',
+'의사의 처방전이 필요하며 , 해열진통제와 함께 복용 가능합니다.');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NEWS','[건강] 달콤한 꿀! 1세 미만 어린아이에게는 먹이지 마세요!',
+'벌꿀에는 피롤리지딘 알칼로이드, 보툴리누스균 등 아기에게 해로운 물질이 함유되어 있을 수 있어 각별한 주의가 필요합니다.');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NEWS','[일상 정보] 톡 쏘는 물 탄산수를 아시나요?',
+'탄산수란 천연적으로 탄산가스를 함유한 물이거나 물에 인위적으로 탄산가스를 첨가한 물입니다. 톡 쏘는 탄산수 제대로 알고 마셔요!');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NEWS','[일상 정보] 수산물 먹을 떄 알아야 할 기생충 정보',
+'회, 굴 등 자연산 수산물을 섭취하기 전 꼭 알아두어야 할 상식, 그대로 먹게 되면 복통, 설사 등을 일으킬 수 있으니 주의하세요');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NEWS','[건강] 매실주 안전하게 담그세요',
+'매실주 에틸카바메이트 줄이기 방안 -> 더 자세한 정보는 www.주류안전.kr 을 참고하여 주세요.');
+
+COMMIT;
+
 SELECT * FROM BOARD;
 
-
+-- DROP TABLE BOARD;
 ------------------------------------------------------------------
 --------------------------- 첨부파일 관련 ----------------------------
 ------------------------------------------------------------------
@@ -643,9 +624,11 @@ INSERT INTO BOARD_ATTACH_FILE (fNO, bNO, ORIGINAL_FILENAME, RENAMED_FILENAME, CR
 UPDATE BOARD SET ATTACHCOUNT =(SELECT COUNT(*) FROM BOARD_ATTACH_FILE WHERE BNO=3) WHERE BNO=3;
 
 COMMIT;
+
 SELECT * FROM BOARD_ATTACH_FILE;
 SELECT * FROM BOARD;
 
+-- DROP TABLE BOARD_ATTACH_FILE;
 ------------------------------------------------------------------
 ------------------------- REPLY 관련 테이블 -------------------------
 ------------------------------------------------------------------
@@ -678,7 +661,7 @@ COMMIT;
 
 SELECT * FROM REPLY;
 
-
+-- DROP TABLE REPLY;
 
 -- 게시판 끝
 

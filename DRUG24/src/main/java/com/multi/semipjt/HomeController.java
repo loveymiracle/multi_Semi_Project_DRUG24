@@ -3,15 +3,19 @@ package com.multi.semipjt;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Vector;
+import java.util.concurrent.ConcurrentHashMap;
 
 import javax.servlet.http.HttpSession;
 
-import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,13 +24,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.multi.semipjt.api.naver.NaverSearchAPI;
 import com.multi.semipjt.api.pharmacy.PharmacyInfoApi;
+import com.multi.semipjt.board.controller.BoardController;
+import com.multi.semipjt.board.model.service.BoardService;
+import com.multi.semipjt.board.model.vo.Board;
+import com.multi.semipjt.board.model.vo.BoardCategory;
+import com.multi.semipjt.board.model.vo.BoardParam;
 import com.multi.semipjt.common.util.PageInfo;
 import com.multi.semipjt.member.model.service.MemberService;
 import com.multi.semipjt.member.model.vo.Member;
 import com.multi.semipjt.pharmacy.model.service.PharmacyService;
 import com.multi.semipjt.pharmacy.model.vo.Pharmacy;
-import com.multi.semipjt.shop.model.vo.Product;
 import com.multi.semipjt.shop.model.service.ShopService;
+import com.multi.semipjt.shop.model.vo.Product;
 
 /**
  * Handles requests for the application home page.
@@ -35,14 +44,23 @@ import com.multi.semipjt.shop.model.service.ShopService;
 public class HomeController {
 	
 	@Autowired
+	BoardController boardController;
+	
+	@Autowired
 	private MemberService memberService;
 	
 	@Autowired
+	private BoardService service;
+	
+	@Autowired
 	private PharmacyService pharmacyService;
+
+	private Vector<BoardCategory> categoryList;
+	private ConcurrentHashMap<String, String> typeMap;
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model, HttpSession session,
+	public String home(Locale locale, Model model, HttpSession session, BoardParam param1,
 			@RequestParam Map<String, String> param) {
 		logger.info("Welcome home!");
 		System.out.println("@@@@@@@@@@@@@@@@@");
@@ -84,10 +102,45 @@ public class HomeController {
 			plist1.addAll(plist2);
 			model.addAttribute("plist1", plist1);
 			
+			System.out.println(param.getClass().getName());
+			
+			
+			int boardCount = service.getBoardCount(param1);
+			PageInfo pageInfo1 = new PageInfo((param1).getPage(), 10, boardCount, 5); // page가 보여질 갯수 : 10, 게시글 목록은 12개
+			(param1).setLimit(pageInfo1.getListLimit());
+			(param1).setOffset(pageInfo1.getStartList() - 1);
+			List<Board> blist1 = service.getBoardList(param1);
+			System.out.println(blist1);
+			model.addAttribute("pageInfo", pageInfo);
+			model.addAttribute("blist1", blist1);
+			model.addAttribute("categoryList", categoryList);
+			model.addAttribute("typeMap", typeMap);
+			model.addAttribute("param", param1);
+			model.addAttribute("typeList", param1.getTypeList());
+			if((param1).getTypeList() != null && (param1).getTypeList().size() == 10 && (param1).getTypeList().get(0).equals("QUESTION")) {
+				blist1 = service.getBoardList(param1);
+			}
+			System.out.println(blist1);
+			
+			boardCount = service.getBoardCount(param1);
+			pageInfo = new PageInfo((param1).getPage(), 10, boardCount, 5); // page가 보여질 갯수 : 10, 게시글 목록은 12개
+			(param1).setLimit(pageInfo1.getListLimit());
+			(param1).setOffset(pageInfo1.getStartList() - 1);
+			List<Board> blist2 = service.getBoardList(param1);
+			
+			model.addAttribute("pageInfo", pageInfo);
+			model.addAttribute("blist2", blist2);
+			model.addAttribute("categoryList", categoryList);
+			model.addAttribute("typeMap", typeMap);
+			model.addAttribute("param", param1);
+			model.addAttribute("typeList", param1.getTypeList());
+			if((param1).getTypeList() != null && (param1).getTypeList().size() == 1 && (param1).getTypeList().get(0).equals("NBOARD")) {
+				blist2 = service.getBoardList(param1);
+			}
+			System.out.println(blist2);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 		
 		Member member = (Member) session.getAttribute("loginMember");
 		List<Product> cartList = new ArrayList<Product>();
@@ -102,6 +155,15 @@ public class HomeController {
 	
 	@Autowired
 	ShopService shopService;
+	
+	@Bean(initMethod = "init")
+	public void init() {
+		categoryList = service.getBoardCategory();
+		typeMap = new ConcurrentHashMap<String, String>();
+		for(BoardCategory item : categoryList) {
+			typeMap.put(item.getType(), item.getName());
+		}
+	}
 	
 	private int initDB() {
 		int result = 0;

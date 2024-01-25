@@ -404,7 +404,7 @@
 				</div>
 				<!-- More button-->
 				<div class="text-center pt-4 mt-md-2">
-					<a class="btn btn-outline-accent" href="${path}/news}">뉴스
+					<a class="btn btn-outline-accent" href="${path}/board/list?types=NEWS">뉴스
 						보러 가기<i class="ci-arrow-right fs-ms ms-1"></i>
 					</a>
 				</div>
@@ -469,10 +469,11 @@
           </div>
           <!-- More button-->
 				<div class="text-center pt-4 mt-md-2">
-					<a class="btn btn-outline-accent" href="${path}/board/list}">커뮤니티
+					<a class="btn btn-outline-accent" href="${path}/board/list">커뮤니티
 						게시판 가기<i class="ci-arrow-right fs-ms ms-1"></i>
 					</a>
 				</div>
+				<div>${blist1}</div>
       </section>
 	</main>
 
