@@ -106,6 +106,31 @@
 		)
 	</insert>
 	
+	<insert id="insertPharmacyReply" parameterType="com.multi.semipjt.pharmacy.model.vo.PharmacyReply">
+		insert into PharmacyReply (rNo, mNo, phNo, content, rating, createDate) 
+		values (0, #{mno}, #{phno}, #{content}, #{rating}, default)
+	</insert>
+	
+	<delete id="deletePharmacyReply" parameterType="int">
+		delete from PharmacyReply where rno = #{rno}
+	</delete>
+	
+	
+	<select id="selectPharmacyReplyList" resultType="PharmacyReply" parameterType="int">
+		SELECT * FROM PharmacyReply 
+		INNER JOIN Member ON PharmacyReply.mNo = Member.mNo
+		WHERE phno = #{phno}
+	</select>
+	
+	<select id="countPharmacyReply" parameterType="int">
+		SELECT COUNT(*) FROM PharmacyReply
+		WHERE phno = #{phno}
+	</select>
+	
+	<update id="updatePharmacyAVG"  parameterType="int">
+		UPDATE product set rating = (SELECT AVG(rating) FROM PharmacyReply where phno = #{phno}) where phNo = #{phno}
+	</update>
+	
 </mapper>
 
 

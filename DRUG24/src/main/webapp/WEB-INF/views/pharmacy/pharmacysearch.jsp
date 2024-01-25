@@ -266,9 +266,6 @@
                 <!-- Product -------------------------------------------------- -->
                 <div class="col-lg-4 col-md-4 col-sm-6 px-3 mb-grid-gutter">
                     <div class="card product-card">
-                        <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip"
-                            data-bs-placement="left" title="즐겨찾기">
-				            <i class="ci-star"></i></button>
 				   
 						<%
 					    	String path = request.getContextPath();

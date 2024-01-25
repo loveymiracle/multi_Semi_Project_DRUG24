@@ -12,7 +12,7 @@
 	
 	<!-- Application Loggers -->
 	<logger name="com.multi.semipjt">
-		<level value="trace" />
+		<level value="info" />
 	</logger>
 	
 	<!-- 3rdparty Loggers -->
