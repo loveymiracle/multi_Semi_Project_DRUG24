@@ -25,10 +25,10 @@ public class KaKaoController {
 	@RequestMapping("/kakaoMap1")
 	String kakaoMap1(Model model) {
 		List<MapInfo> mapList = new ArrayList<>();
-		mapList.add(new MapInfo("카카오","제주시 어쩌구",33.450705,126.570677));
-		mapList.add(new MapInfo("생태연못","제주시 어쩌구",33.450936,126.569477));
-		mapList.add(new MapInfo("텃밭","제주시 어쩌구",33.450879,126.569940));
-		mapList.add(new MapInfo("근린공원","제주시 어쩌구",33.451393,126.570738));
+		mapList.add(new MapInfo("카카오","제주시 어쩌구",33.450705,126.570677,null));
+		mapList.add(new MapInfo("생태연못","제주시 어쩌구",33.450936,126.569477,null));
+		mapList.add(new MapInfo("텃밭","제주시 어쩌구",33.450879,126.569940,null));
+		mapList.add(new MapInfo("근린공원","제주시 어쩌구",33.451393,126.570738,null));
 
 		double x = 0.0;
 		double y = 0.0;
@@ -49,10 +49,10 @@ public class KaKaoController {
 	@RequestMapping("/kakaoMap2")
 	String kakaoMap2(Model model) {
 		List<MapInfo> mapList = new ArrayList<>();
-		mapList.add(new MapInfo("카카오","제주시 어쩌구",33.450705,126.570677));
-		mapList.add(new MapInfo("생태연못","제주시 어쩌구",33.450936,126.569477));
-		mapList.add(new MapInfo("텃밭","제주시 어쩌구",33.450879,126.569940));
-		mapList.add(new MapInfo("근린공원","제주시 어쩌구",33.451393,126.570738));
+		mapList.add(new MapInfo("카카오","제주시 어쩌구",33.450705,126.570677,null));
+		mapList.add(new MapInfo("생태연못","제주시 어쩌구",33.450936,126.569477,null));
+		mapList.add(new MapInfo("텃밭","제주시 어쩌구",33.450879,126.569940,null));
+		mapList.add(new MapInfo("근린공원","제주시 어쩌구",33.451393,126.570738,null));
 
 		double x = 0.0;
 		double y = 0.0;

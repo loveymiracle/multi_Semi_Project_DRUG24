@@ -7,9 +7,9 @@
 
 <script type="text/javascript" src="${path}/resources/js/jquery-3.7.0.js"></script>
 
+<%@ page import="java.util.Random" %>
 
-   
-        
+
 
 <style>
       /* 지도 스타일 시작 */
@@ -76,94 +76,112 @@
         <form name="searchForm" action="${path}/pharmacy/search" method="get">
 			<input type="hidden" name="page" value="1">
         <!-----------------------------------------------------------      체크 박스 ----------------------->
-        <div class="container h2"
-            style=" border-top: 1px solid #183459; border-bottom: 1px solid #183459; padding: 30px; margin-top: 40px;">
-            <!--name : 라디오를 그룹핑할 네임으로 중복해서 사용-->
-            <!--value : 실제 서버로 넘어갈 값-->
-            <div class="col-md-4 mb-4 h2">
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="nightck" name="nightck" value="${param.nightck}" ${nightck == true ? 'checked' : ''}>
-                    <label class="form-check-label fs-5" for="nightck"> 심야 약국 </label>
+        <div class="container h2" style=" border-top: 1px solid #183459; border-bottom: 1px solid #183459; padding: 30px; margin-top: 40px;">
+            <div class="row" style="margin-top: 30px;">
+                <h5 class="col-3"> 약국 이름 </h5>
+                <div class="d-flex ">
+                    <input class="form-control" type="text" id="name"  name="name"  placeholder="약국 이름을 입력하세요" value="${param.name}" style="width: 800px;">
+                    <button class="btn btn-primary ms-2" type="submit" style=""> 
+                    <i class="ci-search me-1"></i> 검색 </button>
                 </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="holidayck" name="holidayck" value="${param.holidayck}" ${holidayck == true ? 'checked' : ''}>
-                    <label class="form-check-label fs-5" for="holidayck"> 공휴일</label>
-                </div>
-
             </div>
-            <div class="d-flex justify-content-between h2" >
-                <select class="form-select" name="sido1" id="sido1" style="width: 500px; " >
-                </select>
-                <select class="form-select" id="gugun1" name="address" value="${param.address}" style="width: 350px; margin-right: 270px;" >
-                </select>
-            </div>
-            
-            
-                <script>
-                    $(function () {
-                        var area0 = ["시/도 선택", "서울특별시", "인천광역시", "대전광역시", "광주광역시", "대구광역시", "울산광역시", "부산광역시", "경기도", "강원도", "충청북도", "충청남도", "전라북도", "전라남도", "경상북도", "경상남도", "제주도"];
-                        var area1 = ["강남구", "강동구", "강북구", "강서구", "관악구", "광진구", "구로구", "금천구", "노원구", "도봉구", "동대문구", "동작구", "마포구", "서대문구", "서초구", "성동구", "성북구", "송파구", "양천구", "영등포구", "용산구", "은평구", "종로구",
-										"중구", "중랑구"];
-                        var area2 = ["계양구", "남구", "남동구", "동구", "부평구", "서구", "연수구", "중구", "강화군", "옹진군"];
-                        var area3 = ["대덕구", "동구", "서구", "유성구", "중구"];
-                        var area4 = ["광산구", "남구", "동구", "북구", "서구"];
-                        var area5 = ["남구", "달서구", "동구", "북구", "서구", "수성구", "중구", "달성군"];
-                        var area6 = ["남구", "동구", "북구", "중구", "울주군"];
-                        var area7 = ["강서구", "금정구", "남구", "동구", "동래구", "부산진구", "북구", "사상구", "사하구", "서구", "수영구", "연제구", "영도구", "중구", "해운대구", "기장군"];
-                        var area8 = ["고양시", "과천시", "광명시", "광주시", "구리시", "군포시", "김포시", "남양주시", "동두천시", "부천시", "성남시", "수원시", "시흥시", "안산시", "안성시", "안양시", "양주시", "오산시", "용인시", "의왕시", "의정부시", "이천시", "파주시",
-										"평택시", "포천시", "하남시", "화성시", "가평군", "양평군", "여주군", "연천군"];
-                        var area9 = ["강릉시", "동해시", "삼척시", "속초시", "원주시", "춘천시", "태백시", "고성군", "양구군", "양양군", "영월군", "인제군", "정선군", "철원군", "평창군", "홍천군", "화천군", "횡성군"];
-                        var area10 = ["제천시", "청주시", "충주시", "괴산군", "단양군", "보은군", "영동군", "옥천군", "음성군", "증평군", "진천군", "청원군"];
-                        var area11 = ["계룡시", "공주시", "논산시", "보령시", "서산시", "아산시", "천안시", "금산군", "당진군", "부여군", "서천군", "연기군", "예산군", "청양군", "태안군", "홍성군"];
-                        var area12 = ["군산시", "김제시", "남원시", "익산시", "전주시", "정읍시", "고창군", "무주군", "부안군", "순창군", "완주군", "임실군", "장수군", "진안군"];
-                        var area13 = ["광양시", "나주시", "목포시", "순천시", "여수시", "강진군", "고흥군", "곡성군", "구례군", "담양군", "무안군", "보성군", "신안군", "영광군", "영암군", "완도군", "장성군", "장흥군", "진도군", "함평군", "해남군", "화순군"];
-                        var area14 = ["경산시", "경주시", "구미시", "김천시", "문경시", "상주시", "안동시", "영주시", "영천시", "포항시", "고령군", "군위군", "봉화군", "성주군", "영덕군", "영양군", "예천군", "울릉군", "울진군", "의성군", "청도군", "청송군", "칠곡군"];
-                        var area15 = ["거제시", "김해시", "마산시", "밀양시", "사천시", "양산시", "진주시", "진해시", "창원시", "통영시", "거창군", "고성군", "남해군", "산청군", "의령군", "창녕군", "하동군", "함안군", "함양군", "합천군"];
-                        var area16 = ["서귀포시", "제주시", "남제주군", "북제주군"];
-
-                        // 시/도 선택 박스 초기화
-                        $("select[name^=sido]").each(function () {
-                            $selsido = $(this);
-                            $.each(eval(area0), function () {
-                                $selsido.append("<option value='" + this + "'>" + this + "</option>");
-                            });
-                            $selsido.next().append("<option value=''> 구/군 선택 </option>");
-                        });
-
-                        // 시/도 선택시 구/군 설정
-                        $("select[name^=sido]").change(function () {
-                            var area = "area" + $("option", $(this)).index($("option:selected", $(this))); // 선택지역의 구군 Array
-                            var $gugun = $(this).next(); // 선택영역 군구 객체
-                            $("option", $gugun).remove(); // 구군 초기화
-
-                            if (area == "area0")
-                                $gugun.append("<option value=''> 구/군 선택 </option>");
-                            else {
-                                $.each(eval(area), function () {
-                                    $gugun.append("<option value='" + this + "'>" + this + "</option>");
-                                });
-                            }
-                        });
-                        
-                    });
-                </script>
-            
-        
-            
-           
-            <div class="col-md-3 mb-3 h2" style="margin-top: 30px;">
-                <h5> 약국 이름 </h5>
-                <div class="d-flex justify-content-between">
-                    <input class="form-control" type="text" id="name"  name="name"  placeholder="약국 이름을 입력하세요" value="${param.name}" style="width: 700px;"
-                        >
-                    <button class="btn btn-primary" type="submit" style="margin-left: 20px;"> <i
-                            class="ci-search me-1"></i> 검색
-                    </button>
-                </div>
+            <div class="row mt-3">
+	            <div class="col-6 d-flex justify-content-between h2"  style="height: 50px">
+	                <select class="form-select" name="sido1" id="sido1" style="width: 300px; " >
+	                </select>
+	                <select class="form-select ms-2" name="gugun1" id="gugun1" style="width: 300px; " >
+	                </select>
+	            </div>
+	            <div class="col-6 mb-3 h5" style="height: 50px; margin-top: 10px;">
+	                <div class="form-check form-check-inline" >
+	<%--                     <input class="form-check-input" type="checkbox" id="nightck" name="nightck" value="${param.nightck}" ${nightck == true ? 'checked' : ''}> --%>
+	                    <input class="form-check-input" type="checkbox" id="nightck" name="nightck" ${not empty param.nightck ? 'checked' : ''}>
+	                    <label class="form-check-label fs-5" for="nightck"> 심야 약국 </label>
+	                </div>
+	                <div class="form-check form-check-inline">
+	<%--                     <input class="form-check-input" type="checkbox" id="holidayck" name="holidayck" value="${param.holidayck}" ${holidayck == true ? 'checked' : ''}> --%>
+	                    <input class="form-check-input" type="checkbox" id="holidayck" name="holidayck" ${not empty param.holidayck ? 'checked' : ''} >
+	                    <label class="form-check-label fs-5" for="holidayck"> 공휴일 </label>
+	                </div>
+	            </div>
             </div>
         </div>
         </form>
-        <br><br><br>
+        
+         <script>
+             $(function () {
+                 var area0 = ["시/도 선택", "서울", "인천", "대전", "광주", "대구", "울산", "부산", "경기도", "강원도", "충청북도", "충청남도", "전라북도", "전라남도", "경상북도", "경상남도", "제주도"];
+                 var area1 = ["강남구", "강동구", "강북구", "강서구", "관악구", "광진구", "구로구", "금천구", "노원구", "도봉구", "동대문구", "동작구", "마포구", "서대문구", "서초구", "성동구", "성북구", "송파구", "양천구", "영등포구", "용산구", "은평구", "종로구",
+			"중구", "중랑구"];
+                 var area2 = ["계양구", "남구", "남동구", "동구", "부평구", "서구", "연수구", "중구", "강화군", "옹진군"];
+                 var area3 = ["대덕구", "동구", "서구", "유성구", "중구"];
+                 var area4 = ["광산구", "남구", "동구", "북구", "서구"];
+                 var area5 = ["남구", "달서구", "동구", "북구", "서구", "수성구", "중구", "달성군"];
+                 var area6 = ["남구", "동구", "북구", "중구", "울주군"];
+                 var area7 = ["강서구", "금정구", "남구", "동구", "동래구", "부산진구", "북구", "사상구", "사하구", "서구", "수영구", "연제구", "영도구", "중구", "해운대구", "기장군"];
+                 var area8 = ["고양시", "과천시", "광명시", "광주시", "구리시", "군포시", "김포시", "남양주시", "동두천시", "부천시", "성남시", "수원시", "시흥시", "안산시", "안성시", "안양시", "양주시", "오산시", "용인시", "의왕시", "의정부시", "이천시", "파주시",
+			"평택시", "포천시", "하남시", "화성시", "가평군", "양평군", "여주군", "연천군"];
+                 var area9 = ["강릉시", "동해시", "삼척시", "속초시", "원주시", "춘천시", "태백시", "고성군", "양구군", "양양군", "영월군", "인제군", "정선군", "철원군", "평창군", "홍천군", "화천군", "횡성군"];
+                 var area10 = ["제천시", "청주시", "충주시", "괴산군", "단양군", "보은군", "영동군", "옥천군", "음성군", "증평군", "진천군", "청원군"];
+                 var area11 = ["계룡시", "공주시", "논산시", "보령시", "서산시", "아산시", "천안시", "금산군", "당진군", "부여군", "서천군", "연기군", "예산군", "청양군", "태안군", "홍성군"];
+                 var area12 = ["군산시", "김제시", "남원시", "익산시", "전주시", "정읍시", "고창군", "무주군", "부안군", "순창군", "완주군", "임실군", "장수군", "진안군"];
+                 var area13 = ["광양시", "나주시", "목포시", "순천시", "여수시", "강진군", "고흥군", "곡성군", "구례군", "담양군", "무안군", "보성군", "신안군", "영광군", "영암군", "완도군", "장성군", "장흥군", "진도군", "함평군", "해남군", "화순군"];
+                 var area14 = ["경산시", "경주시", "구미시", "김천시", "문경시", "상주시", "안동시", "영주시", "영천시", "포항시", "고령군", "군위군", "봉화군", "성주군", "영덕군", "영양군", "예천군", "울릉군", "울진군", "의성군", "청도군", "청송군", "칠곡군"];
+                 var area15 = ["거제시", "김해시", "마산시", "밀양시", "사천시", "양산시", "진주시", "진해시", "창원시", "통영시", "거창군", "고성군", "남해군", "산청군", "의령군", "창녕군", "하동군", "함안군", "함양군", "합천군"];
+                 var area16 = ["서귀포시", "제주시", "남제주군", "북제주군"];
+
+                 // 시/도 선택 박스 초기화
+                 $("select[name^=sido1]").each(function () {
+                     $selsido = $(this);
+                    	count = 0; 
+                     $.each(eval(area0), function () {
+                     	if(count++ == 0){
+                          $selsido.append("<option value=''>" + this + "</option>");
+                     	}else{
+                          $selsido.append("<option value='" + this + "'>" + this + "</option>");
+                     	}
+                     });
+                     $selsido.next().append("<option value=''> 구/군 선택 </option>");
+                 });
+
+                 // 시/도 선택시 구/군 설정
+                 $("select[name^=sido1]").change(function(){
+                     var area = "area" + $("option", $(this)).index($("option:selected", $(this))); // 선택지역의 구군 Array
+                     var $gugun = $(this).next(); // 선택영역 군구 객체
+                     $("option", $gugun).remove(); // 구군 초기화
+
+                     if (area == "area0")
+                         $gugun.append("<option value=''> 구/군 선택 </option>");
+                     else {
+                         $.each(eval(area), function () {
+                             $gugun.append("<option value='" + this + "'>" + this + "</option>");
+                         });
+                     }
+                 });
+                 
+       <c:if test="${not empty param.gugun1}">
+        	let sido1 = '${param.sido1}';
+        	let gugun1 = '${param.gugun1}';
+        	$("select[name=sido1] option:contains("+sido1+")").prop("selected", true);
+         var area = "area" + $("option", $('select[name^=sido1')).index($("option:selected", $('select[name^=sido1'))); // 선택지역의 구군 Array
+         var $gugun = $('#gugun1'); // 선택영역 군구 객체
+                     $("option", $gugun).remove(); // 구군 초기화
+                     if (area == "area0")
+                         $gugun.append("<option value=''> 구/군 선택 </option>");
+                     else {
+                         $.each(eval(area), function () {
+                         	if(this == gugun1){
+                              $gugun.append("<option selected value='" + this + "'>" + this + "</option>");
+                         	}else{
+                              $gugun.append("<option value='" + this + "'>" + this + "</option>");
+                         	}
+                         });
+                     }
+       </c:if>
+             });
+         </script>
+        
+        <br><br>
         <div class="gray container d-flex justify-content-between" style="border-bottom: 1px solid #183459;">
             <div class="container">
                 <div class="h3 mb-4 text-accent" id="sample5_address_display">  <c:out value="${item.phaddress}"/>  </div>
@@ -172,30 +190,63 @@
 
         <div class="container pb-5 mb-2 mb-md-4">
             <!-- ===============================================================================================  지도  ================= -->
+		 <style>
+			.customoverlay {position:relative;bottom:58px;border-radius:6px;float:left;}
+			.customoverlay:nth-of-type(n) {border:0;}
+			.customoverlay a {display:block;text-decoration:none;color:#000;text-align:center;border-radius:6px;font-size:14px;font-weight:bold;overflow:hidden;background: #d95050;background: #d95050 url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png) no-repeat right 14px center;}
+			.customoverlay .title {display:block;text-align:center;background:#fff;margin-right:35px;padding:10px 20px;font-size:14px;font-weight:bold;}
+		</style>
           <div id="map" style="width: 100%; height:450px;margin-top:10px;"></div>
-  			<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ee850f3227ff38fdb5e4924011797d01"></script>
-			 
-			 	<script>
-			 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+  			
+			<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ee850f3227ff38fdb5e4924011797d01"></script>
+			<script>
+			var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 			    mapOption = { 
-			        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-			        level: 3 // 지도의 확대 레벨
-			    };
+				        center: new kakao.maps.LatLng(${x}, ${y}), // 지도의 중심좌표
+				        level: 5 // 지도의 확대 레벨
+				    };
+				
+				var map = new kakao.maps.Map(mapContainer, mapOption);
+				
+				<c:forEach var="map" items="${mapList}" >
+					var imageSrc = '${path}/resources/imgs/phmarker.png', // 마커이미지의 주소입니다    
+					    imageSize = new kakao.maps.Size(54, 50), // 마커이미지의 크기입니다
+					    imageOption = {offset: new kakao.maps.Point(25, 60)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+					
+					// 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+					var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
+					    markerPosition = new kakao.maps.LatLng(${map.x}, ${map.y}); // 마커가 표시될 위치입니다
+					
+					// 마커를 생성합니다
+					var marker = new kakao.maps.Marker({
+					  position: markerPosition,
+					  image: markerImage // 마커이미지 설정 
+					});
+					
+					// 마커가 지도 위에 표시되도록 설정합니다
+					marker.setMap(map);  
+					
+					// 커스텀 오버레이에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+					var content = '<div class="customoverlay">' +
+					    '  <a href="${path}/${map.url}" >' +
+					    '    <span class="title">${map.name}</span>' +
+					    '  </a>' +
+					    '</div>';
+					
+					// 커스텀 오버레이가 표시될 위치입니다 
+					var position = new kakao.maps.LatLng(${map.x}, ${map.y});  
+					
+					// 커스텀 오버레이를 생성합니다
+					var customOverlay = new kakao.maps.CustomOverlay({
+					    map: map,
+					    position: position,
+					    content: content,
+					    yAnchor: 1 
+					});
+				</c:forEach>
+			
+			</script>
 
-				var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-	 
-				// 마커가 표시될 위치입니다 
-				var markerPosition  = new kakao.maps.LatLng(33.450701, 126.570667); 
-	            
-				// 마커를 생성합니다
-				var marker = new kakao.maps.Marker({
-				    position: markerPosition
-				});
-	            
-				// 마커가 지도 위에 표시되도록 설정합니다
-				marker.setMap(map);
-		   
-			   </script>
 	            <br><br><br><br>
           <div class="gray container d-flex justify-content-between" style="border-bottom: 1px solid #183459;">
           </div>
@@ -218,9 +269,26 @@
                         <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip"
                             data-bs-placement="left" title="즐겨찾기">
 				            <i class="ci-star"></i></button>
-				         
-                        <a class="card-img-top d-block overflow-hidden" href="${path}/pharmacy/view?phno=${item.phno}">
-                            <img id="randomImage" src="${path}/resources/imgs/pharmacy/pharmacy1.jpg" style="width: 100%; height: 230px;" alt="Product"></a>
+				   
+						<%
+					    	String path = request.getContextPath();
+					    	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+					    
+					   	    String[] imageArray = {"pha1.jpg", "pha2.jpg", "pha3.jpg","pha4.jpg", "pha5.jpg", "pha6.jpg", "pha7.jpg", 
+					   	    					   "pha8.jpg", "pha9.jpg","pha10.jpg","pha11.jpg","pha12.jpg","pha13.jpg","pha14.jpg","pha15.jpg",
+					   	    					   "pha16.jpg", "pha17.jpg","pha18.jpg","pha19.jpg","pha20.jpg","pha21.jpg","pha22.jpg","pha23.jpg",
+					   	    					   "pha24.jpg", "pha25.jpg","pha26.jpg","pha27.jpg","pha28.jpg","pha29.jpg","pha30.jpg","pha31.jpg",
+					   	    					   "pha32.jpg", "pha33.jpg","pha34.jpg","pha35.jpg","pha36.jpg","pha37.jpg","pha38.jpg","pha39.jpg",
+					   	    					   "pha40.jpg", "pha41.jpg","pha42.jpg","pha43.jpg","pha44.jpg","pha45.jpg","pha46.jpg","pha47.jpg",
+					   	    					   "pha48.jpg", "pha49.jpg","pha50.jpg","pha51.jpg","pha52.jpg","pha53.jpg","pha54.jpg","pha55.jpg",
+					   	    					   "pha56.jpg", "pha57.jpg"
+					   	   							 };
+					   		Random rand = new Random();
+					   		int randomIndex = rand.nextInt(imageArray.length);
+					    	String randomImage = basePath + "resources/imgs/pharmacy/" + imageArray[randomIndex];
+						%>
+	                        <a class="card-img-top d-block overflow-hidden" href="${path}/pharmacy/view?phno=${item.phno}">
+                            <img src="<%= randomImage%>" style="width: 100%; height: 230px;" alt="Product"></a> 
                         <!-- ---------- ---------  약국 이미지 -->
                         <div class="card-body">
                             <div class="d-flex flex-wrap justify-content-between align-items-start pb-2">
@@ -229,7 +297,7 @@
                                     </a>
                                 </h3>
                                 <!-- 별 -->
-                                <div class="h5 text-warning"> 이용후기 (3) </div>
+                                <div class="h5 text-warning">  </div>
                                 <div class="Pharmacy-name">
                                     <div class="h5 me-1">
                                         <i class="ci-location me-1"></i> <c:out value="${item.phaddress}"/>
@@ -238,7 +306,7 @@
                                         <i class="ci-phone me-1"></i> <c:out value="${item.phtel}"/>
                                     </div>
                                     <h1 class="product-title h5 mb-3 me-1">
-                                        <i class="ci-time text-muted me-1"></i> 영업시간
+                                        <i class="ci-time text-muted me-1"></i> 영업일
                                         <span class="h6 ms-2 text-muted"></span>
                                     </h1>
                                 </div>
