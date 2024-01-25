@@ -411,7 +411,6 @@
 			</div>
 		</section>
 		<!-- 뉴스룸 끝 -->
-		
 		<section class="container mb-3 ">
         <div class="row row-cols-2">
           <div class="col">
@@ -425,18 +424,15 @@
               </div>
               <div class="pb-1">
                 <div class="my-1">
-                  <dl>
-                    <dt class="border-top mt-2">2024.01.31 - 폐쇄 안내</dt>
-                    <dd class="pb-3 border-bottom">적자 운영으로 사이트 폐쇄합니다. 그동안 감사합니다.</dd>
-                    <dt>2024.01.31 - 쇼핑몰 철수 안내</dt>
-                    <dd class="pb-3 border-bottom">성원에 감사드립니다.</dd>
-                    <dt>2023.05.06 - 서버 정상화 안내</dt>
-                    <dd class="pb-3 border-bottom">서비스 재개 되었습니다.</dd>
-                    <dt>2023.05.05 - 서버 이전 작업 안내</dt>
-                    <dd class="pb-3 border-bottom">22:00 ~ 2024.01.01 08:00 서버 이전 작업으로 서비스가 잠시 중단됩니다.</dd>
-                    <dt>2023.03.31 - 쇼핑몰 오픈 안내 <a href="#" target="_blank" rel="noopener">Official website</a></dt>
-                    <dd class="pb-3 border-bottom">증상별 추천 아이템, 카테고리별 아이템 판매를 시작합니다.</dd>
-                  </dl>
+                  <c:forEach var="item" items="${blist1}" >
+		            <div class="d-flex align-items-center pt-2 pb-2 border-bottom">
+		              <div class="ps-2">
+		                <h2 class="widget-product-title" style="font-size: 25px;"><a href="${path}/board/view?no=${item.bno}">
+		                	${item.title}</a>
+		                </h2>
+		              </div>
+		            </div>
+				  </c:forEach> 
                 </div>
               </div>
             </div>
@@ -448,20 +444,15 @@
               <div class="pb-1">
                 <div class="pb-1">
                   <div class="my-1">
-                    <dl>
-                      <dt class="border-top mt-2">2024.01.31 - 폐쇄 안내</dt>
-                      <dd class="pb-3 border-bottom">적자 운영으로 사이트 폐쇄합니다. 그동안 감사합니다.</dd>
-                      <dt>2024.01.31 - 쇼핑몰 철수 안내</dt>
-                      <dd class="pb-3 border-bottom">성원에 감사드립니다.</dd>
-                      <dt>2023.05.06 - 서버 정상화 안내</dt>
-                      <dd class="pb-3 border-bottom">서비스 재개 되었습니다.</dd>
-                      <dt>2023.05.05 - 서버 이전 작업 안내</dt>
-                      <dd class="pb-3 border-bottom">22:00 ~ 2024.01.01 08:00 서버 이전 작업으로 서비스가 잠시 중단됩니다.</dd>
-                      <dt>2023.03.31 - 쇼핑몰 오픈 안내 <a href="#" target="_blank" rel="noopener">Official website</a></dt>
-                      <dd class="pb-3 border-bottom">증상별 추천 아이템, 카테고리별 아이템 판매를 시작합니다.</dd>
-                      <dt>2023.03.31 - 쇼핑몰 오픈 안내 <a href="#" target="_blank" rel="noopener">Official website</a></dt>
-                      <dd class="pb-3 border-bottom">증상별 추천 아이템, 카테고리별 아이템 판매를 시작합니다.</dd>
-                    </dl>
+                    <c:forEach var="item" items="${blist2}" >
+		            <div class="d-flex align-items-center pt-2 pb-2 border-bottom">
+		              <div class="ps-2">
+		                <h2 class="widget-product-title" style="font-size: 25px;"><a href="${path}/board/view?no=${item.bno}">
+		                	${item.title}</a>
+		                </h2>
+		              </div>
+		            </div>
+				  </c:forEach> 
                   </div>
                 </div>
               </div>
@@ -473,8 +464,9 @@
 						게시판 가기<i class="ci-arrow-right fs-ms ms-1"></i>
 					</a>
 				</div>
-				<div>${blist1}</div>
       </section>
+	  
+	  
 	</main>
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>

@@ -54,13 +54,10 @@ public class HomeController {
 	
 	@Autowired
 	private PharmacyService pharmacyService;
-
-	private Vector<BoardCategory> categoryList;
-	private ConcurrentHashMap<String, String> typeMap;
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model, HttpSession session, BoardParam param1,
+	public String home(Locale locale, Model model, HttpSession session,
 			@RequestParam Map<String, String> param) {
 		logger.info("Welcome home!");
 		System.out.println("@@@@@@@@@@@@@@@@@");
@@ -102,42 +99,12 @@ public class HomeController {
 			plist1.addAll(plist2);
 			model.addAttribute("plist1", plist1);
 			
-			System.out.println(param.getClass().getName());
-			
-			
-			int boardCount = service.getBoardCount(param1);
-			PageInfo pageInfo1 = new PageInfo((param1).getPage(), 10, boardCount, 5); // page가 보여질 갯수 : 10, 게시글 목록은 12개
-			(param1).setLimit(pageInfo1.getListLimit());
-			(param1).setOffset(pageInfo1.getStartList() - 1);
+			BoardParam param1 = new BoardParam(null, null, new String[]{"NBOARD"}, 1, 6, 0);
 			List<Board> blist1 = service.getBoardList(param1);
-			System.out.println(blist1);
-			model.addAttribute("pageInfo", pageInfo);
 			model.addAttribute("blist1", blist1);
-			model.addAttribute("categoryList", categoryList);
-			model.addAttribute("typeMap", typeMap);
-			model.addAttribute("param", param1);
-			model.addAttribute("typeList", param1.getTypeList());
-			if((param1).getTypeList() != null && (param1).getTypeList().size() == 10 && (param1).getTypeList().get(0).equals("QUESTION")) {
-				blist1 = service.getBoardList(param1);
-			}
-			System.out.println(blist1);
-			
-			boardCount = service.getBoardCount(param1);
-			pageInfo = new PageInfo((param1).getPage(), 10, boardCount, 5); // page가 보여질 갯수 : 10, 게시글 목록은 12개
-			(param1).setLimit(pageInfo1.getListLimit());
-			(param1).setOffset(pageInfo1.getStartList() - 1);
+			param1 = new BoardParam(null, null, new String[]{"QUESTION"}, 1, 8, 0);
 			List<Board> blist2 = service.getBoardList(param1);
-			
-			model.addAttribute("pageInfo", pageInfo);
 			model.addAttribute("blist2", blist2);
-			model.addAttribute("categoryList", categoryList);
-			model.addAttribute("typeMap", typeMap);
-			model.addAttribute("param", param1);
-			model.addAttribute("typeList", param1.getTypeList());
-			if((param1).getTypeList() != null && (param1).getTypeList().size() == 1 && (param1).getTypeList().get(0).equals("NBOARD")) {
-				blist2 = service.getBoardList(param1);
-			}
-			System.out.println(blist2);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -155,15 +122,6 @@ public class HomeController {
 	
 	@Autowired
 	ShopService shopService;
-	
-	@Bean(initMethod = "init")
-	public void init() {
-		categoryList = service.getBoardCategory();
-		typeMap = new ConcurrentHashMap<String, String>();
-		for(BoardCategory item : categoryList) {
-			typeMap.put(item.getType(), item.getName());
-		}
-	}
 	
 	private int initDB() {
 		int result = 0;

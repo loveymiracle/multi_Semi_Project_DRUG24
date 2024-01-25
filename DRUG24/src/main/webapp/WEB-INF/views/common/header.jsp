@@ -194,11 +194,21 @@
 										<div class="navbar-tool-icon-box">
 											<i class="navbar-tool-icon ci-user"></i>
 										</div>
-										<div class="navbar-tool-text ms-n3">
-											${loginMember.name}님
-											<div>
-												<a href="${path}/logout">logout</a>
-											</div>
+										<div class="navbar-tool dropdown">
+							              <div class="navbar-tool dropdown"><a class="" href="dashboard-sales.html"></a><a class="navbar-tool-text ms-n1" href="dashboard-sales.html">${loginMember.name}님</a>
+							                <div class="dropdown-menu dropdown-menu-end">
+							                  <div style="min-width: 14rem;">
+							                    <h6 class="dropdown-header">계정 정보</h6><a class="dropdown-item d-flex align-items-center" href="${path}/member/view"><i class="ci-settings opacity-60 me-2"></i>마이 페이지</a>
+							                    <div class="dropdown-divider"></div>
+							                    <a class="dropdown-item d-flex align-items-center" href="${path}/logout"><i class="ci-sign-out opacity-60 me-2"></i>Sign Out</a>
+							                  </div>
+							                </div>
+							              </div>
+											
+											
+											
+											
+											
 										</div>
 									</div>
 								</c:if>

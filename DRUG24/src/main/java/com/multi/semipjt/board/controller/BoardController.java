@@ -117,7 +117,8 @@ public class BoardController {
 		// 질문답변 분류하는 법
 		if (param.getTypeList() != null && param.getTypeList().size() == 1 && param.getTypeList().get(0).equals("QUESTION")) {
 			return "/board/question";
-		}		
+		}
+		
 
 		return "/board/boardList";
 				

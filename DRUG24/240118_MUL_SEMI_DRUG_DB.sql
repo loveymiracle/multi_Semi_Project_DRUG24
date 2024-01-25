@@ -499,18 +499,18 @@ CREATE TABLE BOARD (
 );
 INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NOTICE','[공지] 클린한 게시판 환경을 만들어주세요.','깨끗한 게시판 환경 유지에 협조 바랍니다.');
 
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','사이트 폐쇄 안내','DRUG24 사이트를 폐쇄 합니다. 운영상 어려움으로 인해 사이트를 폐쇄합니다. 감사합니다.');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','쇼핑몰 철수 안내','운영상 어려움으로 인해 더 이상 사업을 이어나가기 어렵다고 판단하여 쇼핑몰을 철수하기로 하였습니다. 그동안 성원에 감사드립니다.');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','서버 정상화 안내','쇼핑몰 이용 가능합니다. 감사합니다.');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','서버 연장 점검','쇼핑몰 서버 연장 점검 입니다. 이용에 불편을 드려 죄송합니다. 다른 기능은 정상 사용 가능합니다.');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','서버 이전 작업 안내','원활한 쇼핑몰 운영을 위해 서버 작업을 실시합니다. 해당 기간 동안 쇼핑몰 이용 불가합니다.');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','쇼핑몰 오픈 안내','건강기능식품을 DRUG24 쇼핑몰을 통해 판매하게 되었습니다. 많은 이용 부탁드립니다. 감사합니다.');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','안정성 서한 속보 게시 알림','의약품 안정성 소식을 발빠르게 전달해드립니다.');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','서버 정상화 안내','서버 정상화 안내 드립니다. 2023-03-09 08:00 부로 이용 가능합니다. 감사합니다.');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','서버 연장 점검 안내','서버 증설 작업 연장 되었습니다. 이용에 불편을 드려 죄송합니다.');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','서버 증설 작업','트래픽 과부하로 서버 증설 작업 진행합니다. 2023-03-08 22:00 ~ 24:00 까지 이용 불가합니다.');
-INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','상세검색, 약국찾기 검색 기능이 추가 되었습니다.','의약품 상세 조회 및 심야, 공휴일 운영중인 약국 찾기 기능이 추가 되었습니다.');
 INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','DRUG24 웹사이트 오픈','올바른 의약정보를 알리고자 DRUG24 웹사이트 오픈합니다. 많은 이용 관심 부탁드립니다.');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','상세검색, 약국찾기 검색 기능이 추가 되었습니다.','의약품 상세 조회 및 심야, 공휴일 운영중인 약국 찾기 기능이 추가 되었습니다.');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','서버 증설 작업','트래픽 과부하로 서버 증설 작업 진행합니다. 2023-03-08 22:00 ~ 24:00 까지 이용 불가합니다.');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','서버 연장 점검 안내','서버 증설 작업 연장 되었습니다. 이용에 불편을 드려 죄송합니다.');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','서버 정상화 안내','서버 정상화 안내 드립니다. 2023-03-09 08:00 부로 이용 가능합니다. 감사합니다.');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','안정성 서한 속보 게시 알림','의약품 안정성 소식을 발빠르게 전달해드립니다.');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','쇼핑몰 오픈 안내','건강기능식품을 DRUG24 쇼핑몰을 통해 판매하게 되었습니다. 많은 이용 부탁드립니다. 감사합니다.');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','서버 이전 작업 안내','원활한 쇼핑몰 운영을 위해 서버 작업을 실시합니다. 해당 기간 동안 쇼핑몰 이용 불가합니다.');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','서버 연장 점검','쇼핑몰 서버 연장 점검 입니다. 이용에 불편을 드려 죄송합니다. 다른 기능은 정상 사용 가능합니다.');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','서버 정상화 안내','쇼핑몰 이용 가능합니다. 감사합니다.');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','쇼핑몰 철수 안내','운영상 어려움으로 인해 더 이상 사업을 이어나가기 어렵다고 판단하여 쇼핑몰을 철수하기로 하였습니다. 그동안 성원에 감사드립니다.');
+INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,1,'NBOARD','사이트 폐쇄 안내','DRUG24 사이트를 폐쇄 합니다. 운영상 어려움으로 인해 사이트를 폐쇄합니다. 감사합니다.');
 
 INSERT INTO BOARD (bNO, mNO, TYPE, TITLE, CONTENT) VALUES(0,2,'QUESTION','[질문] 목시타산안약과 참훌루 안약 사용 문의',
 '두 가지를 다 눈에 넣고 있습니다. 잘못된 방법인가요?');
@@ -715,7 +715,7 @@ COMMIT;
 
 SELECT * FROM PharmacyReply;
 
-DROP TABLE PharmacyReply;
+-- DROP TABLE PharmacyReply;
 
 -------------------------------------------------
 --------------- 나의 구급함(=즐겨찾기) ----------------
