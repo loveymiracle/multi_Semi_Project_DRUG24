@@ -7,9 +7,9 @@
 
 <script type="text/javascript" src="${path}/resources/js/jquery-3.7.0.js"></script>
 
+<%@ page import="java.util.Random" %>
 
-   
-        
+
 
 <style>
       /* 지도 스타일 시작 */
@@ -92,8 +92,8 @@
 	                <select class="form-select ms-2" name="gugun1" id="gugun1" style="width: 300px; " >
 	                </select>
 	            </div>
-	            <div class="col-6 mb-4 h2" style="height: 50px">
-	                <div class="form-check form-check-inline">
+	            <div class="col-6 mb-3 h5" style="height: 50px; margin-top: 10px;">
+	                <div class="form-check form-check-inline" >
 	<%--                     <input class="form-check-input" type="checkbox" id="nightck" name="nightck" value="${param.nightck}" ${nightck == true ? 'checked' : ''}> --%>
 	                    <input class="form-check-input" type="checkbox" id="nightck" name="nightck" ${not empty param.nightck ? 'checked' : ''}>
 	                    <label class="form-check-label fs-5" for="nightck"> 심야 약국 </label>
@@ -101,7 +101,7 @@
 	                <div class="form-check form-check-inline">
 	<%--                     <input class="form-check-input" type="checkbox" id="holidayck" name="holidayck" value="${param.holidayck}" ${holidayck == true ? 'checked' : ''}> --%>
 	                    <input class="form-check-input" type="checkbox" id="holidayck" name="holidayck" ${not empty param.holidayck ? 'checked' : ''} >
-	                    <label class="form-check-label fs-5" for="holidayck"> 공휴일</label>
+	                    <label class="form-check-label fs-5" for="holidayck"> 공휴일 </label>
 	                </div>
 	            </div>
             </div>
@@ -181,7 +181,7 @@
              });
          </script>
         
-        <br><br><br>
+        <br><br>
         <div class="gray container d-flex justify-content-between" style="border-bottom: 1px solid #183459;">
             <div class="container">
                 <div class="h3 mb-4 text-accent" id="sample5_address_display">  <c:out value="${item.phaddress}"/>  </div>
@@ -269,9 +269,26 @@
                         <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip"
                             data-bs-placement="left" title="즐겨찾기">
 				            <i class="ci-star"></i></button>
-				         
-                        <a class="card-img-top d-block overflow-hidden" href="${path}/pharmacy/view?phno=${item.phno}">
-                            <img id="randomImage" src="${path}/resources/imgs/pharmacy/pharmacy1.jpg" style="width: 100%; height: 230px;" alt="Product"></a>
+				   
+						<%
+					    	String path = request.getContextPath();
+					    	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+					    
+					   	    String[] imageArray = {"pha1.jpg", "pha2.jpg", "pha3.jpg","pha4.jpg", "pha5.jpg", "pha6.jpg", "pha7.jpg", 
+					   	    					   "pha8.jpg", "pha9.jpg","pha10.jpg","pha11.jpg","pha12.jpg","pha13.jpg","pha14.jpg","pha15.jpg",
+					   	    					   "pha16.jpg", "pha17.jpg","pha18.jpg","pha19.jpg","pha20.jpg","pha21.jpg","pha22.jpg","pha23.jpg",
+					   	    					   "pha24.jpg", "pha25.jpg","pha26.jpg","pha27.jpg","pha28.jpg","pha29.jpg","pha30.jpg","pha31.jpg",
+					   	    					   "pha32.jpg", "pha33.jpg","pha34.jpg","pha35.jpg","pha36.jpg","pha37.jpg","pha38.jpg","pha39.jpg",
+					   	    					   "pha40.jpg", "pha41.jpg","pha42.jpg","pha43.jpg","pha44.jpg","pha45.jpg","pha46.jpg","pha47.jpg",
+					   	    					   "pha48.jpg", "pha49.jpg","pha50.jpg","pha51.jpg","pha52.jpg","pha53.jpg","pha54.jpg","pha55.jpg",
+					   	    					   "pha56.jpg", "pha57.jpg"
+					   	   							 };
+					   		Random rand = new Random();
+					   		int randomIndex = rand.nextInt(imageArray.length);
+					    	String randomImage = basePath + "resources/imgs/pharmacy/" + imageArray[randomIndex];
+						%>
+	                        <a class="card-img-top d-block overflow-hidden" href="${path}/pharmacy/view?phno=${item.phno}">
+                            <img src="<%= randomImage%>" style="width: 100%; height: 230px;" alt="Product"></a> 
                         <!-- ---------- ---------  약국 이미지 -->
                         <div class="card-body">
                             <div class="d-flex flex-wrap justify-content-between align-items-start pb-2">
@@ -280,7 +297,7 @@
                                     </a>
                                 </h3>
                                 <!-- 별 -->
-                                <div class="h5 text-warning"> 이용후기 (3) </div>
+                                <div class="h5 text-warning">  </div>
                                 <div class="Pharmacy-name">
                                     <div class="h5 me-1">
                                         <i class="ci-location me-1"></i> <c:out value="${item.phaddress}"/>
@@ -289,7 +306,7 @@
                                         <i class="ci-phone me-1"></i> <c:out value="${item.phtel}"/>
                                     </div>
                                     <h1 class="product-title h5 mb-3 me-1">
-                                        <i class="ci-time text-muted me-1"></i> 영업시간
+                                        <i class="ci-time text-muted me-1"></i> 영업일
                                         <span class="h6 ms-2 text-muted"></span>
                                     </h1>
                                 </div>
