@@ -252,46 +252,57 @@ SELECT * FROM PHARMACY;
 ---------------------------------------------------
 
 CREATE TABLE MEDICINE (
-	dNO	INT	PRIMARY KEY,
-	dNAME VARCHAR(100),
-	dEFFECT	VARCHAR(500),
-	dUSAGE VARCHAR(500),
-	dWARNC	VARCHAR(500),
-	dWARN VARCHAR(500),
-	dNEGATIVE VARCHAR(500),
-	dSAVE VARCHAR(500),
-	dIMGURL	TEXT NULL,
-    dTYPE VARCHAR(10) COMMENT 'DUR',
-	dPROHBT	VARCHAR(500) COMMENT 'DUR',
-	dPROHBTNAME VARCHAR(500) COMMENT 'DUR',
+	dNO	INT	PRIMARY KEY NOT NULL,
+	dNAME VARCHAR(100) NOT NULL,
+	dCOMPANY VARCHAR(50),
+	PRICE INT,
+	dEFFECT VARCHAR(500) NULL,
+	dUSAGE VARCHAR(500) NULL,
+	dWARNC VARCHAR(500) NULL,
+	dWARN VARCHAR(1000) NULL,
+	dINTERACTION VARCHAR(500) NULL,
+    dNEGATIVE VARCHAR(1000) NULL,
+	dSAVE VARCHAR(500) NULL,
+	dIMGURL TEXT NULL,
+    d1TYPE VARCHAR(10) NULL,
+    d1PROHBT VARCHAR(500) NULL,
+    d2TYPE VARCHAR(255) NULL,
+    d2PROHBT VARCHAR(500) NULL,
+    d3TYPE VARCHAR(255) NULL,
+    d3PROHBT VARCHAR(255) NULL,
+    d4TYPE VARCHAR(255) NULL,
+    d4PROHBT VARCHAR(255) NULL,
+    d5TYPE VARCHAR(255) NULL,
+    d5PROHBT VARCHAR(255) NULL,
 	CREATE_DATE	DATETIME DEFAULT CURRENT_TIMESTAMP,
 	MODIFY_DATE DATETIME DEFAULT CURRENT_TIMESTAMP,
-	STATUS VARCHAR(1) DEFAULT 'Y' CHECK (STATUS IN ('Y', 'N'))
+	STATUS VARCHAR(1) DEFAULT 'Y' CHECK (STATUS IN ('Y', 'N')),
+    dOTC_CODE VARCHAR(100) NOT NULL
 );
 
-INSERT INTO MEDICINE (
-	dNO, dNAME, dEFFECT, dUSAGE, dWARNC,
-    dWARN, dNEGATIVE, dSAVE,
-    dIMGURL, dTYPE, dPROHBT, dPROHBTNAME,
-    CREATE_DATE, MODIFY_DATE, STATUS
-) VALUES(
-	195700020, '활명수', '이 약은 식욕감퇴(식욕부진), 위부팽만감, 소화불량, 과식, 체함, 구역, 구토에 사용합니다.', '만 15세 이상 및 성인은 1회 1병(75 mL), 만 11세이상~만 15세미만은 1회 2/3병(50 mL), 만 8세 이상~만 11세 미만은 1회 1/2병(37.5 mL), 만 5세 이상~만 8세 미만은 1회 1/3병(25 mL), 만 3세 이상~만 5세 미만은 1회 1/4병(18.75 mL), 만 1세 이상~만 3세 미만은 1회 1/5병(15 mL), 1일 3회 식후에 복용합니다. 복용간격은 4시간 이상으로 합니다.', NULL,
-    '만 3개월 미만의 젖먹이는 이 약을 복용하지 마십시오.', NULL, '습기와 빛을 피해 실온에서 보관하십시오.',
-    NULL, NULL, NULL, NULL,
-    DEFAULT, DEFAULT, DEFAULT
-);
+-- INSERT INTO MEDICINE (
+-- 	dNO, dNAME, dEFFECT, dUSAGE, dWARNC,
+--     dWARN, dNEGATIVE, dSAVE,
+--     dIMGURL, dTYPE, dPROHBT, dPROHBTNAME,
+--     CREATE_DATE, MODIFY_DATE, STATUS
+-- ) VALUES(
+-- 	195700020, '활명수', '이 약은 식욕감퇴(식욕부진), 위부팽만감, 소화불량, 과식, 체함, 구역, 구토에 사용합니다.', '만 15세 이상 및 성인은 1회 1병(75 mL), 만 11세이상~만 15세미만은 1회 2/3병(50 mL), 만 8세 이상~만 11세 미만은 1회 1/2병(37.5 mL), 만 5세 이상~만 8세 미만은 1회 1/3병(25 mL), 만 3세 이상~만 5세 미만은 1회 1/4병(18.75 mL), 만 1세 이상~만 3세 미만은 1회 1/5병(15 mL), 1일 3회 식후에 복용합니다. 복용간격은 4시간 이상으로 합니다.', NULL,
+--     '만 3개월 미만의 젖먹이는 이 약을 복용하지 마십시오.', NULL, '습기와 빛을 피해 실온에서 보관하십시오.',
+--     NULL, NULL, NULL, NULL,
+--     DEFAULT, DEFAULT, DEFAULT
+-- );
 
-INSERT INTO MEDICINE (
-	dNO, dNAME, dEFFECT, dUSAGE, dWARNC,
-    dWARN, dNEGATIVE, dSAVE,
-    dIMGURL, dTYPE, dPROHBT, dPROHBTNAME,
-    CREATE_DATE, MODIFY_DATE, STATUS
-) VALUES(
-	201307928, '에이스린장용정(아스피린)', '이 약은 심근경색, 뇌경색, 불안정형 협심증에서 혈전 생성 억제와 관상동맥 우회술(CABG) 또는 경피경관 관상동맥 성형술(PTCA) 후 혈전 생성 억제와 고위험군환자(허혈성 심장질환의 가족력, 고혈압, 고콜레스테롤혈증, 비만, 당뇨 등 복합적 위험인자를 가진 환자)에서 심혈관계 위험성 감소에 사용합니다.', '성인은 1회 1정, 1일 1회 복용합니다.', '임신 1기와 2기에는 반드시 필요한 경우가 아니라면 이 약을 복용하지 마십시오.',
-    '다른 비스테로이드성 소염진통제 및 살리실산 제제, 일주일 동안 메토트렉세이트 15밀리그람(15mg/주) 이상의 용량은 이 약과 병용 투여 시 출혈이 증가되거나 신기능이 감소될 수 있으므로 함께 사용하지 않습니다.', '식욕부진, 가슴쓰림, 위통, 구역, 구토 등이 나타날 수 있습니다.', '습기와 빛을 피해 실온에서 보관하십시오.',
-    NULL, '노인주의', NULL, NULL,
-    DEFAULT, DEFAULT, DEFAULT
-);
+-- INSERT INTO MEDICINE (
+-- 	dNO, dNAME, dEFFECT, dUSAGE, dWARNC,
+--     dWARN, dNEGATIVE, dSAVE,
+--     dIMGURL, dTYPE, dPROHBT, dPROHBTNAME,
+--     CREATE_DATE, MODIFY_DATE, STATUS
+-- ) VALUES(
+-- 	201307928, '에이스린장용정(아스피린)', '이 약은 심근경색, 뇌경색, 불안정형 협심증에서 혈전 생성 억제와 관상동맥 우회술(CABG) 또는 경피경관 관상동맥 성형술(PTCA) 후 혈전 생성 억제와 고위험군환자(허혈성 심장질환의 가족력, 고혈압, 고콜레스테롤혈증, 비만, 당뇨 등 복합적 위험인자를 가진 환자)에서 심혈관계 위험성 감소에 사용합니다.', '성인은 1회 1정, 1일 1회 복용합니다.', '임신 1기와 2기에는 반드시 필요한 경우가 아니라면 이 약을 복용하지 마십시오.',
+--     '다른 비스테로이드성 소염진통제 및 살리실산 제제, 일주일 동안 메토트렉세이트 15밀리그람(15mg/주) 이상의 용량은 이 약과 병용 투여 시 출혈이 증가되거나 신기능이 감소될 수 있으므로 함께 사용하지 않습니다.', '식욕부진, 가슴쓰림, 위통, 구역, 구토 등이 나타날 수 있습니다.', '습기와 빛을 피해 실온에서 보관하십시오.',
+--     NULL, '노인주의', NULL, NULL,
+--     DEFAULT, DEFAULT, DEFAULT
+-- );
 
 COMMIT;
 
@@ -669,22 +680,19 @@ SELECT * FROM REPLY;
 ------------------ 약 리뷰  ------------------------
 -------------------------------------------------
 
-CREATE TABLE MEDICINEREVIEW (
-	rNO INT AUTO_INCREMENT,
+CREATE TABLE MedicineReply (
+	rNO INT PRIMARY KEY AUTO_INCREMENT,
 	mNO INT,
 	dNO INT,
     CONTENT VARCHAR(2000),
-    NAME VARCHAR(100),
 	RATING INT DEFAULT '0',
 	CREATE_DATE DATETIME DEFAULT CURRENT_TIMESTAMP,
-	MODIFY_DATE DATETIME DEFAULT CURRENT_TIMESTAMP,
-	CONSTRAINT PK_MEDICINEREVIEW_NO PRIMARY KEY(rNO),
-    CONSTRAINT FK_MEDICINEREVIEW_ITEM FOREIGN KEY(dNO) REFERENCES MEDICINE(dNO) ON DELETE SET NULL,
-    CONSTRAINT FK_MEDICINEREVIEW_WRITER FOREIGN KEY(mNO) REFERENCES MEMBER(mNO) ON DELETE SET NULL
+	FOREIGN KEY(mNO) REFERENCES MEMBER(mNO),
+    FOREIGN KEY(dNO) REFERENCES MEIDICINE(dNO)
 );
 
-INSERT INTO MEDICINEREVIEW (rNO, mNO, dNO, CONTENT, NAME, RATING) VALUES(0, 2, 195700020, '소화 불량엔 역시', '사람', 5);
-INSERT INTO MEDICINEREVIEW (rNO, mNO, dNO, CONTENT, NAME, RATING) VALUES(0, 2, 195700020, '날마다 복용잘하고 있습니다! 고맙습니다!', '사람', 5);
+INSERT INTO MEDICINEREVIEW (rNO, mNO, dNO, CONTENT, RATING) VALUES(0, 2, 195700020, '소화 불량엔 역시', 5);
+INSERT INTO MEDICINEREVIEW (rNO, mNO, dNO, CONTENT, RATING) VALUES(0, 2, 195700020, '날마다 복용잘하고 있습니다! 고맙습니다!',5);
 
 COMMIT;
 

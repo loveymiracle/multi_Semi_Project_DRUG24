@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.multi.semipjt.medicine.model.mapper.MedicineMapper">
+
+	<resultMap type="Medicine" id="MedicineResultMap">
+		<result property="dno" column="dNO"/>
+		<result property="dname" column="dNAME"/>
+		<result property="dcompany" column="dCOMPANY"/>
+		<result property="price" column="price"/>
+		<result property="deffect" column="dEFFECT"/>
+		<result property="dusage" column="dUSAGE"/>
+		<result property="dwarn" column="dWARN"/>
+		<result property="dinteraction" column="dINTERACTION"/>
+		<result property="dnegative" column="dNEGATIVE"/>
+		<result property="dsave" column="dSAVE"/>
+		<result property="dimgurl" column="dIMGURL"/>
+		<result property="d1type" column="d1TYPE"/>
+		<result property="d2type" column="d2TYPE"/>
+		<result property="d3type" column="d3TYPE"/>
+		<result property="d4type" column="d4TYPE"/>
+		<result property="d5type" column="d5TYPE"/>
+		<result property="create_date" column="CREATE_DATE"/>
+		<result property="modify_date" column="MODIFY_DATE"/>
+		<result property="status" column="STATUS"/>
+		<result property="dotc_code" column="dOTC_CODE"/>
+	</resultMap>
+	
+
+	<select id="selectMedicineList" parameterType="MedicineParam" resultMap="MedicineResultMap">
+		SELECT dNO, dNAME, dCOMPANY, price, dIMGURL, d1TYPE, d2TYPE, 
+			   d3TYPE, d4TYPE, d5TYPE
+		FROM MEDICINE M
+		WHERE 
+			1=1
+			<if test="searchValue != null">
+				AND M.dNAME LIKE '%${searchValue}%'
+			</if>
+		ORDER BY M.dNO DESC LIMIT ${limit} OFFSET ${offset};
+	</select>
+	
+	
+	<select id="selectMedicineCount" parameterType="MedicineParam" resultType="int">
+		SELECT COUNT(*)
+		FROM MEDICINE M
+		WHERE 
+			1=1 <!-- 1=1을 사용해도 무관  -->
+			<if test="searchValue != null">
+				AND M.dNAME LIKE '%${searchValue}%'
+			</if>
+	</select>
+	
+	<!-- 상세보기 용도, 모든 인자를 가져와야한다. -->
+	<select id="selectMedicineByNo" parameterType="int" resultMap="MedicineResultMap">
+		SELECT dNO, dNAME, dCOMPANY, price, dEFFECT, dUSAGE, dWARN, dintERACTION, dNEGATIVE, dSAVE, dIMGURL, d1TYPE, d1PROHBT, d2TYPE, 
+				d2PROHBT, d3TYPE, d3PROHBT, d4TYPE, d4PROHBT, d5TYPE, d5PROHBT, CREATE_DATE, MODIFY_DATE, status, dOTC_CODE
+		FROM MEDICINE M
+		WHERE 1=1 AND M.dNO = #{dno}
+	</select>
+	
+	
+</mapper>
+
+
+
+
