@@ -97,7 +97,7 @@
 								data-bs-toggle="dropdown" data-bs-auto-close="outside">Medicine
 									Info</a>
 								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" href="#">약 상세검색</a></li>
+									<li><a class="dropdown-item" href="${path}/medicine/search">약 상세검색</a></li>
 									<li><a class="dropdown-item" href="#">복약 정보</a></li>
 									<li><a class="dropdown-item" href="#">안전성 서한</a></li>
 									<li class="dropdown-item" href="#">안전 사용</a></li>
