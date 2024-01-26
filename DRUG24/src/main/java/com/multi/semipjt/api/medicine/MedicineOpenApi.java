@@ -45,21 +45,14 @@ public class MedicineOpenApi {
     public static final String DUR6_INFO_XML_URL = "https://apis.data.go.kr/1471000/DURPrdlstInfoService03/getCpctyAtentInfoList03"; 		// 용량주의 -  745 페이지
     public static final String DUR7_INFO_XML_URL = "https://apis.data.go.kr/1471000/DURPrdlstInfoService03/getSpcifyAgrdeTabooInfoList03"; 	// 연령 금기 -  290 페이지
     
-//	public static final int DUR1_AMMOUNT = (int) Math.ceil(469 / 10);
-//	public static final int DUR2_AMMOUNT = (int) Math.ceil(500 / 10); //다하면 너무많아서 줄임 (원래 30975페이지)
-//	public static final int DUR3_AMMOUNT = (int) Math.ceil(227 / 10);
-//	public static final int DUR4_AMMOUNT = (int) Math.ceil(500 / 10); //다하면 너무많아서 줄임 (원래 1705페이지)
-//	public static final int DUR5_AMMOUNT = (int) Math.ceil(74 / 10);
-//	public static final int DUR6_AMMOUNT = (int) Math.ceil(500 / 10); //다하면 너무많아서 줄임 (원래 745페이지)
-//	public static final int DUR7_AMMOUNT = (int) Math.ceil(290 / 10);
-	
-	public static final int DUR1_AMMOUNT = 10;
-	public static final int DUR2_AMMOUNT = 10;
-	public static final int DUR3_AMMOUNT = 10;
-	public static final int DUR4_AMMOUNT = 10;
-	public static final int DUR5_AMMOUNT = 10;
-	public static final int DUR6_AMMOUNT = 10;
-	public static final int DUR7_AMMOUNT = 10;
+	public static final int DUR1_AMMOUNT = (int) Math.ceil(469 / 10) + 1;
+	public static final int DUR2_AMMOUNT = (int) Math.ceil(500 / 10) + 1; //다하면 너무많아서 줄임 (원래 30975페이지)
+	public static final int DUR3_AMMOUNT = (int) Math.ceil(227 / 10) + 1;
+	public static final int DUR4_AMMOUNT = (int) Math.ceil(500 / 10) + 1; //다하면 너무많아서 줄임 (원래 1705페이지)
+	public static final int DUR5_AMMOUNT = (int) Math.ceil(74 / 10) + 1;
+	public static final int DUR6_AMMOUNT = (int) Math.ceil(500 / 10) + 1; //다하면 너무많아서 줄임 (원래 745페이지)
+	public static final int DUR7_AMMOUNT = (int) Math.ceil(290 / 10) + 1;
+
     
     public static void main(String[] args) {
     	Map<Integer, Medicine> map = new HashMap<>();
@@ -151,7 +144,12 @@ public class MedicineOpenApi {
 			}
 		}
 		
-		System.out.println("insert 성공: " + countSuccess + "개, 실패: " + countFail +"개");
+		try {
+			System.out.println("insert 성공: " + countSuccess + "개, 실패: " + countFail +"개");
+			conn.commit();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
     }
     
 	
