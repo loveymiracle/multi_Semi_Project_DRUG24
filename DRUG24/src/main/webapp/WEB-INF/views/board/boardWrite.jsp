@@ -19,10 +19,10 @@
                 <nav aria-label="breadcrumb">
                     <ol
                         class="breadcrumb breadcrumb-light flex-lg-nowrap justify-content-center justify-content-lg-start">
-                        <li class="breadcrumb-item"><a class="text-nowrap" href="index.html"><i
+                        <li class="breadcrumb-item"><a class="text-nowrap" href="${path}"><i
                                     class="ci-home"></i>Home</a></li>
                         <li class="breadcrumb-item text-nowrap">
-                            <a href="BoardMain.html"> Community</a>
+                            <a href="${path}/board/list"> Community</a>
                         </li>
                         <li class="breadcrumb-item text-nowrap active" aria-current="page"> 게시글 작성하기 </li>
                     </ol>
@@ -120,48 +120,6 @@
 
             </form>
             <!-- Preview =============================================================-->
-            <aside class="col-lg-3 offset-lg-1 col-md-4 position-relative">
-                <div class="sticky-top" style="top: 100px;">
-                    <h4 class="h5 mb-3 text-md-start text-center">Preview</h4>
-                    <!-- Preview item-->
-                    <div class="card border-0 shadow mx-auto" style="max-width: 500px; pointer-events: none;">
-                        <div class="card-img-top position-relative overflow-hidden">
-                            <img src="imgs/review/blueimg.png" alt="Product image" style="height: 170px;">
-                        </div>
-                        <div class="card-body">
-                            <div class="product-review pb-4 mb-4 border-bottom">
-                                <div class="d-flex mb-3">
-                                    <div class="d-flex align-items-center me-4 pe-2">
-                                        <div class="ps-3">
-                                            <h6 class="fs-sm mb-0"> 나경원 </h6><span class="fs-ms text-muted">May 8,
-                                                2019</span>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="star-rating">
-                                            <i class="star-rating-icon 
-                           ci-star-filled active"></i>
-                                            <i class="star-rating-icon ci-star-filled 
-                           active"></i>
-                                            <i class="star-rating-icon ci-star-filled 
-                           active"></i>
-                                            <i class="star-rating-icon ci-star"></i><i
-                                                class="star-rating-icon ci-star"></i>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <p class="fs-md mb-2">Sed ut perspiciatis unde omnis iste
-                                    natus error sit voluptatem
-                                    accusantium doloremque laudantium, totam rem aperiam,
-                                    eaque ipsa quae ab illo inventore
-                                    veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </aside>
         </div>
     </section>
 </main>

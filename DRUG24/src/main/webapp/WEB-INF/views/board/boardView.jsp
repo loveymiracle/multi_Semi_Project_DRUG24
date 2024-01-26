@@ -121,8 +121,8 @@
 				  <!-- Review-->
 		          <div class="product-review pb-4 mb-4 border-bottom">
 		            <div class="d-flex mb-3">
-		              <div class="d-flex align-items-center me-4 pe-2"><img class="rounded-circle" src="img/shop/reviews/01.jpg"
-		                  width="50" alt="Rafael Marquez">
+		              <div class="d-flex align-items-center me-4 pe-2"><img class="rounded-circle" src="${path}/resources/imgs/profile/02.png"
+		                  width="50" alt="name">
 		                <div class="ps-3">
 		                  <h6 class="fs-sm mb-0">
 		                  	<c:out value="${reply.memberName}(${reply.memberId})"/>
@@ -166,10 +166,10 @@
 	              <div class="mb-3">
 	                <label class="form-label" for="review-text">답변<span class="text-danger">*</span></label>
 	                <textarea class="form-control" name="content" rows="6" required id="review-text"></textarea>
-	                <div class="invalid-feedback">Please write a review!</div><small class="form-text text-muted">Your
-	                  review must be at least 50 characters.</small>
+	                <div class="invalid-feedback">Please write a reply!</div><small class="form-text text-muted">Your
+	                  reply must be at least 50 characters.</small>
 	              </div>
-	              <button class="btn btn-primary btn-shadow d-block w-100" type="submit">Submit a Review</button>
+	              <button class="btn btn-primary btn-shadow d-block w-100" type="submit">Submit a Reply</button>
 	            </form>
 	          </div>
 	        </div>

@@ -127,7 +127,7 @@ public class BoardController {
 	
 	// board/view?no=1
 	@RequestMapping("/board/view")
-	public String view(Model model, @RequestParam("no") int no) {
+	public String view(Model model, @RequestParam("no") int no, HttpSession session) {
 		Board board = null;
 		try {
 			board = service.findBoardByBNo(no);
@@ -139,14 +139,31 @@ public class BoardController {
 		model.addAttribute("typeMap", typeMap);
 		model.addAttribute("board", board);
 		
+		Member member = (Member) session.getAttribute("loginMember");
+		List<Product> cartList = new ArrayList<Product>();
+		if(member != null) {
+			cartList = shopService.getCartProductList(member.getMno());
+		}
+		model.addAttribute("cartList", cartList);
+		model.addAttribute("cartSize", cartList.size());
+		
 		return "board/boardView";
 	}
 	
 	
 	@GetMapping("/board/write")
-	public String writeView(Model model) {
+	public String writeView(Model model, HttpSession session) {
 		model.addAttribute("typeMap", typeMap);
 		model.addAttribute("categoryList", categoryList);
+		
+		Member member = (Member) session.getAttribute("loginMember");
+		List<Product> cartList = new ArrayList<Product>();
+		if(member != null) {
+			cartList = shopService.getCartProductList(member.getMno());
+		}
+		model.addAttribute("cartList", cartList);
+		model.addAttribute("cartSize", cartList.size());
+		
 		return "board/boardWrite";
 	}
 	

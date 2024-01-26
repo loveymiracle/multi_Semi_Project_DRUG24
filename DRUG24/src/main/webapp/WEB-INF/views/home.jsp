@@ -51,13 +51,16 @@
 						</div>
 						<div class="row pb-lg-5  mb-sm-5">
 							<div class="col-lg-6 col-md-8">
-								<div class="input-group input-group-lg flex-nowrap">
-									<i
-										class="ci-search position-absolute top-50 translate-middle-y ms-3"></i>
-									<input class="form-control rounded-start" type="text"
-										placeholder="Search your Medicine">
-									<button class="btn btn-primary btn-lg fs-base" type="button">Search</button>
-								</div>
+								<form action="${path}/shop/main?page=&title=" method="get">
+									<div class="input-group input-group-lg flex-nowrap">
+										<i
+											class="ci-search position-absolute top-50 translate-middle-y ms-3"></i>
+										<input class="form-control rounded-start" id="title" name="title" type="text"
+											value="" 
+											placeholder="Search your Healthfood">
+										<button class="btn btn-primary btn-lg fs-base" type="submit">Search</button>
+									</div>
+								</form>
 							</div>
 						</div>
 					</div>
@@ -468,6 +471,11 @@
 	  
 	  
 	</main>
-
+<script type="text/javascript">
+		function movePage(page){
+			searchForm.page.value = page;
+			searchForm.submit();
+		}
+</script>
 <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
 

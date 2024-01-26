@@ -34,7 +34,7 @@
             <div class="bg-white rounded-3 shadow-lg pt-1 mb-5 mb-lg-0">
               <div class="d-md-flex justify-content-between align-items-center text-center text-md-start p-4">
                 <div class="d-md-flex align-items-center">
-                  <div class="img-thumbnail rounded-circle position-relative flex-shrink-0 mx-auto mb-2 mx-md-0 mb-md-0" style="width: 6.375rem;"><img class="rounded-circle" src="${path}/resources/imgs/review/0${loginMember.mno}.jpg" alt="profile"></div>
+                  <div class="img-thumbnail rounded-circle position-relative flex-shrink-0 mx-auto mb-2 mx-md-0 mb-md-0" style="width: 6.375rem;"><img class="rounded-circle" src="${path}/resources/imgs/profile/0${loginMember.mno}.png" alt="profile"></div>
                   <div class="ps-md-3">
                     <h3 class="fs-base mb-0">${loginMember.name}님</h3><span class="text-accent fs-sm">${loginMember.email}</span>
                   </div>
@@ -81,9 +81,13 @@
                   <label class="form-label">Phone Number</label>
                   <input class="form-control" type="tel" id="phone" name="phone" maxlength="13" value="${loginMember.phone}" placeholder="010-1234-5678">
                 </div>
+                <div class="col-sm-12">
+                  <label class="form-label">Address</label>
+                  <input class="form-control" type="text" id="address" name="address" value="${loginMember.address}">
+                </div>
                 <div class="col-12">
                   <hr class="mt-2 mb-3">
-                  <div class="d-flex flex-wrap justify-content-between align-items-center">
+                  <div class="d-flex flex-wrap justify-content-around align-items-center">
                     <button class="btn btn-primary mt-3 mt-sm-0" type="submit" value="정보수정">Update profile</button>
                     <button class="btn btn-primary mt-3 mt-sm-0" type="submit" value="비밀번호변경" id="updatePwd">Change password</button>
                     <button class="btn btn-primary mt-3 mt-sm-0" type="submit" value="탈퇴" id="deleteMember">Withdrawal account</button>

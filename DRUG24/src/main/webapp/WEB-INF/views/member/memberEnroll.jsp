@@ -51,7 +51,7 @@
 		<table>
 		<tr>
 			<th><button class="btn btn-primary btn-shadow d-block mb-5" style="width: 480px;" type="submit">Sign up</button></th>
-			<th><input class="btn btn-primary btn-shadow d-block  pt-2 mt-2 mb-5" style="width: 480px;" type="reset" value="취소"></th>
+			<th><input class="btn btn-primary btn-shadow d-block  pt-2 mt-2 mb-5" style="width: 480px;" type="reset" value="취소">Cancle</th>
 		</tr>
 		</table>
 		</div>
