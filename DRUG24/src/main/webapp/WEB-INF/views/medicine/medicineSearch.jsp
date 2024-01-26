@@ -14,6 +14,7 @@
     <!-- Page Title (Shop Alt)-->
     <!-- used for shop templates with filters on top-->
     <form name="searchForm" action="${path}/medicine/search" method="get">
+    	<input type="hidden" name="page" value="1">
 	
 	    <div class="bg-dark pt-4 pb-5">
 	      <div class="container pt-2 pb-3 pt-lg-3 pb-lg-4">
@@ -49,7 +50,7 @@
 	                  <div class="accordion-body">
 	                    <div class="widget widget-links widget-filter">
 	                      <div class="searchMed-div input-group-sm mb-2">
-	                        <input class="filter-search" type="text" id="filter-search" placeholder="검색어를 입력해주세요" value="${param.searchValue}">
+	                        <input class="filter-search" type="text" name="searchValue" id="filter-search" placeholder="검색어를 입력해주세요" value="${param.searchValue}">
 	                        <i class="ci-search position-absolute top-50 end-0 translate-middle-y fs-sm me-3"></i>
 	                        <div class="autocomplete"></div>
 	                        <span class="span"></span>
@@ -80,82 +81,7 @@
                         class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span
                           class="widget-filter-item-text">제약회사1</span><span class="fs-xs text-muted ms-3">232
                           제품</span></a></li>
-                    <li class="widget-list-item widget-filter-item"><a
-                        class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span
-                          class="widget-filter-item-text">제약회사2</span><span class="fs-xs text-muted ms-3">235
-                          제품</span></a></li>
-                    <li class="widget-list-item widget-filter-item"><a
-                        class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span
-                          class="widget-filter-item-text">제약회사3</span><span class="fs-xs text-muted ms-3">410
-                          제품</span></a></li>
-                    <li class="widget-list-item widget-filter-item"><a
-                        class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span
-                          class="widget-filter-item-text">제약회사4</span><span class="fs-xs text-muted ms-3">107
-                          제품</span></a></li>
-                    <li class="widget-list-item widget-filter-item"><a
-                        class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span
-                          class="widget-filter-item-text">제약회사5</span><span class="fs-xs text-muted ms-3">93
-                          제품</span></a></li>
-                    <li class="widget-list-item widget-filter-item"><a
-                        class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span
-                          class="widget-filter-item-text">제약회사6</span><span class="fs-xs text-muted ms-3">122
-                          제품</span></a></li>
-                    <li class="widget-list-item widget-filter-item"><a
-                        class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span
-                          class="widget-filter-item-text">제약회사7</span><span class="fs-xs text-muted ms-3">116
-                          제품</span></a></li>
-                    <li class="widget-list-item widget-filter-item"><a
-                        class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span
-                          class="widget-filter-item-text">제약회사8</span><span class="fs-xs text-muted ms-3">215
-                          제품</span></a></li>
-                    <li class="widget-list-item widget-filter-item"><a
-                        class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span
-                          class="widget-filter-item-text">제약회사9</span><span class="fs-xs text-muted ms-3">150
-                          제품</span></a></li>
-                    <li class="widget-list-item widget-filter-item"><a
-                        class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span
-                          class="widget-filter-item-text">제약회사10</span><span class="fs-xs text-muted ms-3">8
-                          제품</span></a></li>
-                    <li class="widget-list-item widget-filter-item"><a
-                        class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span
-                          class="widget-filter-item-text">제약회사11</span><span class="fs-xs text-muted ms-3">26
-                          제품</span></a></li>
-                    <li class="widget-list-item widget-filter-item"><a
-                        class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span
-                          class="widget-filter-item-text">제약회사12</span><span class="fs-xs text-muted ms-3">164
-                          제품</span></a></li>
-                    <li class="widget-list-item widget-filter-item"><a
-                        class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span
-                          class="widget-filter-item-text">제약회사13</span><span class="fs-xs text-muted ms-3">147
-                          제품</span></a></li>
-                    <li class="widget-list-item widget-filter-item"><a
-                        class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span
-                          class="widget-filter-item-text">제약회사14</span><span class="fs-xs text-muted ms-3">139
-                          제품</span></a></li>
-                    <li class="widget-list-item widget-filter-item"><a
-                        class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span
-                          class="widget-filter-item-text">제약회사15</span><span class="fs-xs text-muted ms-3">65
-                          제품</span></a></li>
-                    <li class="widget-list-item widget-filter-item"><a
-                        class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span
-                          class="widget-filter-item-text">제약회사16</span><span class="fs-xs text-muted ms-3">18
-                          제품</span></a></li>
-                    <li class="widget-list-item widget-filter-item"><a
-                        class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span
-                          class="widget-filter-item-text">제약회사17</span><span class="fs-xs text-muted ms-3">209
-                          제품</span></a></li>
-                    <li class="widget-list-item widget-filter-item"><a
-                        class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span
-                          class="widget-filter-item-text">제약회사18</span><span class="fs-xs text-muted ms-3">132
-                          제품</span></a></li>
-                    <li class="widget-list-item widget-filter-item"><a
-                        class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span
-                          class="widget-filter-item-text">제약회사19</span><span class="fs-xs text-muted ms-3">105
-                          제품</span></a></li>
-                    <li class="widget-list-item widget-filter-item"><a
-                        class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span
-                          class="widget-filter-item-text">제약회사20</span><span class="fs-xs text-muted ms-3">87
-                          제품</span></a></li>
+                    
                   </ul>
                 </div>
               </div>
@@ -327,122 +253,149 @@
         <div class="bg-light shadow-lg rounded-3 pb-4 mt-n5 mb-4"></div>
         <div class="row justify-content-center">
           <!-- Products list-->
+		<c:if test="${empty list}">
+			<tr>
+				<td colspan="6">조회된 글이 없습니다.</td>
+			</tr>
+		</c:if>
+
 		<c:if test="${not empty list}">
 			<c:forEach var="item" items="${list}">
 				<section class="itemRow col-lg-12 pt-2">
-                <div class="card product-card product-list mt-2 height: 200px;">
-                  <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip" data-bs-placement="left"
-                    title="Add to wishlist"><i class="ci-heart"></i></button>
-                   <div class="d-sm-flex align-items-center"><a class="product-list-thumb" href="productdetail.html?name=타치온정50밀리그램(글루타티온(환원형))"><img
-                       src="${item.dimgurl}" alt="Product"></a>
-                  <div class="card-body py-2 row m-lg-2">
-                <div class="col-5">
-                  <a class="product-meta d-block fs-xs pb-1 " href="#">${item.dcompany}</a>
-                  <h3 class="product-title fs-base"><a class="bold" href="productdetail.html?name=타치온정50밀리그램(글루타티온(환원형))">${item.dname}</a></h3>
-                  <div class="product-price mt-n3">
-                    <span class="text-accent">₩ ${item.price}</span>
-                  </div>
-                    <div class="star-rating star-rating-fill" style="width: ${item.dno/50000000}%; float: left;">
-                      <i class="star-rating-icon ci-star-filled active"></i>
-                      <i class="star-rating-icon ci-star-filled active"></i> <i class="star-rating-icon ci-star-filled active"></i>
-                      <i class="star-rating-icon ci-star-filled active"></i> <i class="star-rating-icon ci-star-filled active"></i>
-                    </div>
+					<div class="card product-card product-list mt-2 height: 200px;">
+						<button class="btn-wishlist btn-sm" type="button"
+							data-bs-toggle="tooltip" data-bs-placement="left"
+							title="Add to wishlist">
+							<i class="ci-heart"></i>
+						</button>
+						<div class="d-sm-flex align-items-center">
+							<a class="product-list-thumb"
+								href="${path}/medicine/view?dno=${item.dno}"><img
+								src="${item.dimgurl}" alt="Product"></a>
+							<div class="card-body py-2 row m-lg-2">
+								<div class="col-5">
+									<a class="product-meta d-block fs-xs pb-1 " href="#">${item.dcompany}</a>
+									<h3 class="product-title fs-base">
+										<a class="bold" href="${path}/medicine/view?dno=${item.dno}">${item.dname}</a>
+									</h3>
+									<div class="product-price mt-n3">
+										<span class="text-accent">₩ ${item.price}</span>
+									</div>
+									<div class="star-rating star-rating-fill"
+										style="width: ${item.dno/50000000}%; float: left;">
+										<i class="star-rating-icon ci-star-filled active"></i> <i
+											class="star-rating-icon ci-star-filled active"></i> <i
+											class="star-rating-icon ci-star-filled active"></i> <i
+											class="star-rating-icon ci-star-filled active"></i> <i
+											class="star-rating-icon ci-star-filled active"></i>
+									</div>
 
-                    <div class="star-rating" style="float: left;">
-                      <i class="star-rating-icon ci-star"></i>
-                      <i class="star-rating-icon ci-star"></i> <i class="star-rating-icon ci-star"></i>
-                      <i class="star-rating-icon ci-star"></i> <i class="star-rating-icon ci-star"></i>
-                    </div>
-                  </div>
-                  <div class="col-7  align-items-center row">
-                  	<c:choose>
-                  		<c:when test="${item.d1type == null}">
-                  			<button class="col ms-1 warn-btn btn-dark">병용금기</button>
-                  		</c:when>
-                  		<c:otherwise>
-                  			<button class="col ms-1 warn-btn btn-primary">병용금기</button>
-                  		</c:otherwise>
-                  	</c:choose>
-                  	
-                  	<c:choose>
-                  		<c:when test="${item.d2type == null}">
-                  			<button class="col ms-1 warn-btn btn-dark">노인금기</button>
-                  		</c:when>
-                  		<c:otherwise>
-                  			<button class="col ms-1 warn-btn btn-warning">노인금기</button>
-                  		</c:otherwise>
-                  	</c:choose>
-                  	
-                  	<c:choose>
-                  		<c:when test="${item.d3type == null}">
-                  			<button class="col ms-1 warn-btn btn-dark">임부금기</button>
-                  		</c:when>
-                  		<c:otherwise>
-                  			<button class="col ms-1 warn-btn btn-success">임부금기</button>
-                  		</c:otherwise>
-                  	</c:choose>
-                  	
-                  	<c:choose>
-                  		<c:when test="${item.d4type == null}">
-                  			<button class="col ms-1 warn-btn btn-dark">용량주의</button>
-                  		</c:when>
-                  		<c:otherwise>
-                  			<button class="col ms-1 warn-btn btn-info">용량주의</button>
-                  		</c:otherwise>
-                  	</c:choose>
-                  	
-                  	<c:choose>
-                  		<c:when test="${item.d5type == null}">
-                  			<button class="col ms-1 warn-btn btn-dark">연령금기</button>
-                  		</c:when>
-                  		<c:otherwise>
-                  			<button class="col ms-1 warn-btn btn-accent">연령금기</button>
-                  		</c:otherwise>
-                  	</c:choose>
-                  	
-                      </div>
-                    </div>
-                  </div>
-                </div> <br>
-          </c:forEach>
+									<div class="star-rating" style="float: left;">
+										<i class="star-rating-icon ci-star"></i> <i
+											class="star-rating-icon ci-star"></i> <i
+											class="star-rating-icon ci-star"></i> <i
+											class="star-rating-icon ci-star"></i> <i
+											class="star-rating-icon ci-star"></i>
+									</div>
+								</div>
+								<div class="col-7  align-items-center row">
+									<c:choose>
+										<c:when test="${item.d1type == null}">
+											<button class="col ms-1 warn-btn btn-dark">병용금기</button>
+										</c:when>
+										<c:otherwise>
+											<button class="col ms-1 warn-btn btn-primary">병용금기</button>
+										</c:otherwise>
+									</c:choose>
+
+									<c:choose>
+										<c:when test="${item.d2type == null}">
+											<button class="col ms-1 warn-btn btn-dark">노인금기</button>
+										</c:when>
+										<c:otherwise>
+											<button class="col ms-1 warn-btn btn-warning">노인금기</button>
+										</c:otherwise>
+									</c:choose>
+
+									<c:choose>
+										<c:when test="${item.d3type == null}">
+											<button class="col ms-1 warn-btn btn-dark">임부금기</button>
+										</c:when>
+										<c:otherwise>
+											<button class="col ms-1 warn-btn btn-success">임부금기</button>
+										</c:otherwise>
+									</c:choose>
+
+									<c:choose>
+										<c:when test="${item.d4type == null}">
+											<button class="col ms-1 warn-btn btn-dark">용량주의</button>
+										</c:when>
+										<c:otherwise>
+											<button class="col ms-1 warn-btn btn-info">용량주의</button>
+										</c:otherwise>
+									</c:choose>
+
+									<c:choose>
+										<c:when test="${item.d5type == null}">
+											<button class="col ms-1 warn-btn btn-dark">연령금기</button>
+										</c:when>
+										<c:otherwise>
+											<button class="col ms-1 warn-btn btn-accent">연령금기</button>
+										</c:otherwise>
+									</c:choose>
+
+								</div>
+							</div>
+						</div>
+					</div>
+					<br>
+			</c:forEach>
 		</c:if>
 
 		<!-- Pagination-->
-		<nav class="d-flex justify-content-between pt-2"
+		<script type="text/javascript">
+			function movePage(page){
+				searchForm.page.value = page;
+				searchForm.submit();
+			}
+		</script>
+
+		<hr class="my-3">
+            <!-- ===================================================================   Pagination-->
+            <!-- Pagination-->
+		<nav class="d-flex justify-content-between pt-2 mb-4 "
 			aria-label="Page navigation">
+			
 			<ul class="pagination">
-				<li class="page-item"><a class="page-link" href="#"><i
-						class="ci-arrow-left me-2"></i>이전 페이지</a></li>
+				<li class="page-item">
+				<a class="page-link" onclick="movePage(${pageInfo.prevPage});"> 
+					<i class="ci-arrow-left me-2"></i>Prev</a></li>
 			</ul>
+			
 			<ul class="pagination">
 				<li class="page-item d-sm-none"><span
-					class="page-link page-link-static">1 / 5</span></li>
-				<li class="page-item active d-none d-sm-block"
-					aria-current="page"><span class="page-link">1<span
-						class="visually-hidden">(current)</span></span></li>
-				<li class="page-item d-none d-sm-block"><a class="page-link"
-					href="#">2</a></li>
-				<li class="page-item d-none d-sm-block"><a class="page-link"
-					href="#">3</a></li>
-				<li class="page-item d-none d-sm-block"><a class="page-link"
-					href="#">4</a></li>
-				<li class="page-item d-none d-sm-block"><a class="page-link"
-					href="#">5</a></li><c:forEach begin="${pageInfo.startPage}" end="${pageInfo.endPage}"
-						step="1" varStatus="status">
-						<c:if test="${status.current == pageInfo.currentPage}">
-							<li class="page-item active d-none d-sm-block"
-								aria-current="page"><span class="page-link">${status.current}<span
-									class="visually-hidden">(current)</span></span></li>
-						</c:if>
-						<c:if test="${status.current != pageInfo.currentPage}">
-							<li class="page-item d-none d-sm-block"><a class="page-link"
-								onclick="movePage(${status.current});">${status.current}</a></li>
-						</c:if>
-					</c:forEach>
+					class="page-link page-link-static">1 / 10</span></li>
+				
+				<!-- 10개의 페이지가 보이는 영역 -->
+				<c:forEach begin="${pageInfo.startPage}" end="${pageInfo.endPage}"
+					varStatus="status" step="1">
+					<!-- 현재 페이지 일때 button을 다르게 표기 하기 위한 영역 -->
+					<c:if test="${status.current == pageInfo.currentPage}">
+						<li class="page-item active d-none d-sm-block" aria-current="page">
+						<span class="page-link">${status.current}<span class="visually-hidden">(current)</span></span></li>
+					</c:if>
+					<c:if test="${status.current != pageInfo.currentPage}">
+						<li class="page-item d-none d-sm-block"><a class="page-link"
+							onclick="movePage(${status.current});">${status.current}</a></li>
+					</c:if>
+				</c:forEach>	
+				
 			</ul>
+			
 			<ul class="pagination">
-				<li class="page-item"><a class="page-link" href="#"
-					aria-label="Next">다음 페이지<i class="ci-arrow-right ms-2"></i></a></li>
+				<li class="page-item">
+					<a class="page-link" onclick="movePage(${pageInfo.nextPage});"
+						aria-label="Next">Next<i class="ci-arrow-right ms-2"></i></a></li>
 			</ul>
 		</nav>
 	</section>
@@ -522,10 +475,3 @@
 </section>
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
-
-<script type="text/javascript">
-	function movePage(page){
-		searchForm.page.value = page;
-		searchForm.submit();
-	}
-</script>

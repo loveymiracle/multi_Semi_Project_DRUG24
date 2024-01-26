@@ -33,27 +33,27 @@
 		FROM MEDICINE M
 		WHERE 
 			1=1
-			AND M.dNAME LIKE '%${searchValue}%
+			<if test="searchValue != null">
+				AND M.dNAME LIKE '%${searchValue}%'
+			</if>
 		ORDER BY M.dNO DESC LIMIT ${limit} OFFSET ${offset};
 	</select>
 	
 	
 	<select id="selectMedicineCount" parameterType="MedicineParam" resultType="int">
 		SELECT COUNT(*)
-		FROM MEDICINE P
+		FROM MEDICINE M
 		WHERE 
 			1=1 <!-- 1=1을 사용해도 무관  -->
-			AND M.dNAME LIKE '%${searchValue}%
-		<!-- <if test="name != null">
-			    AND P.phNAME LIKE '%${name}%' 
-			</if> -->
+			<if test="searchValue != null">
+				AND M.dNAME LIKE '%${searchValue}%'
+			</if>
 	</select>
 	
 	<!-- 상세보기 용도, 모든 인자를 가져와야한다. -->
 	<select id="selectMedicineByNo" parameterType="int" resultMap="MedicineResultMap">
-		SELECT dNO, dNAME, dCOMPANY, price, dEFFECT, dUSAGE, dWARNC, dWARN, dintERACTION, dNEGATIVE, dSAVE, dIMGURL, d1TYPE, d1PROHBT, d2TYPE, 
+		SELECT dNO, dNAME, dCOMPANY, price, dEFFECT, dUSAGE, dWARN, dintERACTION, dNEGATIVE, dSAVE, dIMGURL, d1TYPE, d1PROHBT, d2TYPE, 
 				d2PROHBT, d3TYPE, d3PROHBT, d4TYPE, d4PROHBT, d5TYPE, d5PROHBT, CREATE_DATE, MODIFY_DATE, status, dOTC_CODE
-	 		REVIEWCOUNT, FAVCOUNT, RATING
 		FROM MEDICINE M
 		WHERE 1=1 AND M.dNO = #{dno}
 	</select>

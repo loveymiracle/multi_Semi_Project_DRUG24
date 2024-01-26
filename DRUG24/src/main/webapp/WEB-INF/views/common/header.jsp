@@ -97,10 +97,11 @@
 								data-bs-toggle="dropdown" data-bs-auto-close="outside">Medicine
 									Info</a>
 								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" href="#">약 상세검색</a></li>
-									<li><a class="dropdown-item" href="${path}/drug/safetyletter">안전성 서한</a></li>
-									<li><a class="dropdown-item" href="${path}/drug/instruction">안전 사용</a></li>
-								</ul>
+									<li><a class="dropdown-item" href="${path}/medicine/search">약 상세검색</a></li>
+									<li><a class="dropdown-item" href="#">복약 정보</a></li>
+									<li><a class="dropdown-item" href="#">안전성 서한</a></li>
+									<li class="dropdown-item" href="#">안전 사용</a></li>
+								</ul></li>
 							<li class="nav-item dropdown"><a
 								class="nav-link dropdown-toggle h4 text-white" 
 								href="${path}/pharmacy/search">Pharmacy</a></li>
@@ -111,10 +112,10 @@
 								class="nav-link dropdown-toggle h4 text-white" href="#"
 								data-bs-toggle="dropdown" data-bs-auto-close="outside">Community</a>
 								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" href="${path}/board/list">Community Board</a></li>
-									<li><a class="dropdown-item" href="${path}/board/list?types=QUESTION">질문과 답변</a></li>
-									<li><a class="dropdown-item" href="${path}/board/list?types=NBOARD">공지사항</a></li>
-									<li><a class="dropdown-item" href="${path}/board/list?types=NEWS">Newsroom</a></li>
+									<li><a class="dropdown-item" href="${path}/board/list">자유 게시판</a></li>
+									<li><a class="dropdown-item" href="/mvc/board/list?types=QUESTION">질문과 답변</a></li>
+									<li><a class="dropdown-item" href="/mvc/board/list?types=NBOARD">공지사항</a></li>
+									<li><a class="dropdown-item" href="/mvc/board/list?types=NEWS">Newsroom</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -194,21 +195,11 @@
 										<div class="navbar-tool-icon-box">
 											<i class="navbar-tool-icon ci-user"></i>
 										</div>
-										<div class="navbar-tool dropdown">
-							              <div class="navbar-tool dropdown"><a class="" href="dashboard-sales.html"></a><a class="navbar-tool-text ms-n1" href="dashboard-sales.html">${loginMember.name}님</a>
-							                <div class="dropdown-menu dropdown-menu-end">
-							                  <div style="min-width: 14rem;">
-							                    <h6 class="dropdown-header">계정 정보</h6><a class="dropdown-item d-flex align-items-center" href="${path}/member/view"><i class="ci-settings opacity-60 me-2"></i>마이 페이지</a>
-							                    <div class="dropdown-divider"></div>
-							                    <a class="dropdown-item d-flex align-items-center" href="${path}/logout"><i class="ci-sign-out opacity-60 me-2"></i>Sign Out</a>
-							                  </div>
-							                </div>
-							              </div>
-											
-											
-											
-											
-											
+										<div class="navbar-tool-text ms-n3">
+											${loginMember.name}님
+											<div>
+												<a href="${path}/logout">logout</a>
+											</div>
 										</div>
 									</div>
 								</c:if>

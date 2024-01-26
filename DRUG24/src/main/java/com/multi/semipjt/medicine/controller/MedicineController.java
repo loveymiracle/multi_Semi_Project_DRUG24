@@ -2,19 +2,17 @@ package com.multi.semipjt.medicine.controller;
 
 import java.util.List;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.multi.semipjt.common.util.PageInfo;
+import com.multi.semipjt.medicine.model.service.MedicineService;
 import com.multi.semipjt.medicine.model.vo.Medicine;
 import com.multi.semipjt.medicine.model.vo.MedicineParam;
-import com.multi.semipjt.medicine.model.service.MedicineService;
-
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -26,7 +24,12 @@ public class MedicineController {
 	private MedicineService service;
 	
 	
-	@RequestMapping("/medicine/search")
+	@Bean(initMethod = "init")
+	void test() {
+		System.out.println("!!!");
+	}
+	
+	@RequestMapping("medicine/search")
 	public String list(Model model, MedicineParam param) {
 		log.debug("@@ medicine list param :" + param);
 		log.debug("@@ medicine list param :" + param);

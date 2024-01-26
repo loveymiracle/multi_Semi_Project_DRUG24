@@ -17,7 +17,6 @@ public class Medicine {
 	private String deffect;
 	private String dusage;
 	private String dwarn;
-	private String dWARN;
 	private String dinteraction;
 	private String dnegative;
 	private String dsave;
