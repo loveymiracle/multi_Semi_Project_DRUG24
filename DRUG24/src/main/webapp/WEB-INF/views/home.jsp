@@ -55,7 +55,7 @@
 									<i
 										class="ci-search position-absolute top-50 translate-middle-y ms-3"></i>
 									<input class="form-control rounded-start" type="text"
-										placeholder="Start your search">
+										placeholder="Search your Medicine">
 									<button class="btn btn-primary btn-lg fs-base" type="button">Search</button>
 								</div>
 							</div>
@@ -112,15 +112,6 @@
 								</div>
 							</div>
 		
-							<c:if test="${loginMember != null }">
-								<div class="card-body card-body-hidden">
-									<button class="btn btn-primary btn-sm d-block w-100 mb-2"
-										type="button"
-										onclick="location.href='${path}/addCart?pno=${item.pno}'">
-										<i class="ci-cart fs-sm me-1"></i>Add to Cart
-									</button>
-								</div>
-							</c:if>
 						</div>
 						<hr class="d-sm-none">
 					</div>
@@ -373,7 +364,7 @@
 						data-carousel-options="{&quot;items&quot;: 2, &quot;gutter&quot;: 15, &quot;controls&quot;: false, &quot;nav&quot;: true, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;500&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3}, &quot;992&quot;:{&quot;items&quot;:3, &quot;gutter&quot;: 30}}}">
 						<div>
 							<div class="card">
-								<a class="blog-entry-thumb" href="blog-single.html"><img
+								<a class="blog-entry-thumb" href="${path}/news/card01"><img
 									class="card-img-top" src="${path}/resources/imgs/blog/cardnews1.png" alt="Post"></a>
 								<div class="card-body">
 									<h2 class="h6 blog-entry-title">
@@ -381,18 +372,12 @@
 									</h2>
 									<p class="fs-sm">어르신은 왜 약물 사용에 주의해야 할까요? 어르신들은 여러가지 약을 복용하시는
 										분들이 많아요. 그리고 약물 부작용 발생 위험이 커요</p>
-									<div class="fs-xs text-nowrap">
-										<a class="blog-entry-meta-link text-nowrap" href="#">Dec 23</a><span
-											class="blog-entry-meta-divider mx-2"></span><a
-											class="blog-entry-meta-link text-nowrap"
-											href="blog-single.html#comments"><i class="ci-message"></i>1</a>
-									</div>
 								</div>
 							</div>
 						</div>
 						<div>
 							<div class="card">
-								<a class="blog-entry-thumb" href="blog-single.html"><img
+								<a class="blog-entry-thumb" href="${path}/news/card02"><img
 									class="card-img-top" src="${path}/resources/imgs/blog/cardnews2.png" alt="Post"></a>
 								<div class="card-body">
 									<h2 class="h6 blog-entry-title">
@@ -400,30 +385,18 @@
 											지켜주세요!</a>
 									</h2>
 									<p class="fs-sm">이소트레티노인은 태아에게 심각한 기형 유발 가능</p>
-									<div class="fs-xs text-nowrap">
-										<a class="blog-entry-meta-link text-nowrap" href="#">Oct 10</a><span
-											class="blog-entry-meta-divider mx-2"></span><a
-											class="blog-entry-meta-link text-nowrap"
-											href="blog-single.html#comments"><i class="ci-message"></i>28</a>
-									</div>
 								</div>
 							</div>
 						</div>
 						<div>
 							<div class="card">
-								<a class="blog-entry-thumb" href="blog-single.html"><img
+								<a class="blog-entry-thumb" href="${path}/news/card03"><img
 									class="card-img-top" src="${path}/resources/imgs/blog/cardnews3.png" alt="Post"></a>
 								<div class="card-body">
 									<h2 class="h6 blog-entry-title">
 										<a href="blog-single.html">나의 부작용 정보 나눌수록 안전해집니다.</a>
 									</h2>
 									<p class="fs-sm">약을 복용한 후 몸에 이상이 있다면 부작용일 수 있습니다.</p>
-									<div class="fs-xs text-nowrap">
-										<a class="blog-entry-meta-link text-nowrap" href="#">Sep 15</a><span
-											class="blog-entry-meta-divider mx-2"></span><a
-											class="blog-entry-meta-link text-nowrap"
-											href="blog-single.html#comments"><i class="ci-message"></i>46</a>
-									</div>
 								</div>
 							</div>
 						</div>
@@ -431,14 +404,13 @@
 				</div>
 				<!-- More button-->
 				<div class="text-center pt-4 mt-md-2">
-					<a class="btn btn-outline-accent" href="${path}/news}">뉴스
+					<a class="btn btn-outline-accent" href="${path}/board/list?types=NEWS">뉴스
 						보러 가기<i class="ci-arrow-right fs-ms ms-1"></i>
 					</a>
 				</div>
 			</div>
 		</section>
 		<!-- 뉴스룸 끝 -->
-		
 		<section class="container mb-3 ">
         <div class="row row-cols-2">
           <div class="col">
@@ -452,18 +424,15 @@
               </div>
               <div class="pb-1">
                 <div class="my-1">
-                  <dl>
-                    <dt class="border-top mt-2">2024.01.31 - 폐쇄 안내</dt>
-                    <dd class="pb-3 border-bottom">적자 운영으로 사이트 폐쇄합니다. 그동안 감사합니다.</dd>
-                    <dt>2024.01.31 - 쇼핑몰 철수 안내</dt>
-                    <dd class="pb-3 border-bottom">성원에 감사드립니다.</dd>
-                    <dt>2023.05.06 - 서버 정상화 안내</dt>
-                    <dd class="pb-3 border-bottom">서비스 재개 되었습니다.</dd>
-                    <dt>2023.05.05 - 서버 이전 작업 안내</dt>
-                    <dd class="pb-3 border-bottom">22:00 ~ 2024.01.01 08:00 서버 이전 작업으로 서비스가 잠시 중단됩니다.</dd>
-                    <dt>2023.03.31 - 쇼핑몰 오픈 안내 <a href="#" target="_blank" rel="noopener">Official website</a></dt>
-                    <dd class="pb-3 border-bottom">증상별 추천 아이템, 카테고리별 아이템 판매를 시작합니다.</dd>
-                  </dl>
+                  <c:forEach var="item" items="${blist1}" >
+		            <div class="d-flex align-items-center pt-2 pb-2 border-bottom">
+		              <div class="ps-2">
+		                <h2 class="widget-product-title" style="font-size: 25px;"><a href="${path}/board/view?no=${item.bno}">
+		                	${item.title}</a>
+		                </h2>
+		              </div>
+		            </div>
+				  </c:forEach> 
                 </div>
               </div>
             </div>
@@ -475,20 +444,15 @@
               <div class="pb-1">
                 <div class="pb-1">
                   <div class="my-1">
-                    <dl>
-                      <dt class="border-top mt-2">2024.01.31 - 폐쇄 안내</dt>
-                      <dd class="pb-3 border-bottom">적자 운영으로 사이트 폐쇄합니다. 그동안 감사합니다.</dd>
-                      <dt>2024.01.31 - 쇼핑몰 철수 안내</dt>
-                      <dd class="pb-3 border-bottom">성원에 감사드립니다.</dd>
-                      <dt>2023.05.06 - 서버 정상화 안내</dt>
-                      <dd class="pb-3 border-bottom">서비스 재개 되었습니다.</dd>
-                      <dt>2023.05.05 - 서버 이전 작업 안내</dt>
-                      <dd class="pb-3 border-bottom">22:00 ~ 2024.01.01 08:00 서버 이전 작업으로 서비스가 잠시 중단됩니다.</dd>
-                      <dt>2023.03.31 - 쇼핑몰 오픈 안내 <a href="#" target="_blank" rel="noopener">Official website</a></dt>
-                      <dd class="pb-3 border-bottom">증상별 추천 아이템, 카테고리별 아이템 판매를 시작합니다.</dd>
-                      <dt>2023.03.31 - 쇼핑몰 오픈 안내 <a href="#" target="_blank" rel="noopener">Official website</a></dt>
-                      <dd class="pb-3 border-bottom">증상별 추천 아이템, 카테고리별 아이템 판매를 시작합니다.</dd>
-                    </dl>
+                    <c:forEach var="item" items="${blist2}" >
+		            <div class="d-flex align-items-center pt-2 pb-2 border-bottom">
+		              <div class="ps-2">
+		                <h2 class="widget-product-title" style="font-size: 25px;"><a href="${path}/board/view?no=${item.bno}">
+		                	${item.title}</a>
+		                </h2>
+		              </div>
+		            </div>
+				  </c:forEach> 
                   </div>
                 </div>
               </div>
@@ -496,11 +460,13 @@
           </div>
           <!-- More button-->
 				<div class="text-center pt-4 mt-md-2">
-					<a class="btn btn-outline-accent" href="${path}/board/list}">커뮤니티
+					<a class="btn btn-outline-accent" href="${path}/board/list">커뮤니티
 						게시판 가기<i class="ci-arrow-right fs-ms ms-1"></i>
 					</a>
 				</div>
       </section>
+	  
+	  
 	</main>
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>

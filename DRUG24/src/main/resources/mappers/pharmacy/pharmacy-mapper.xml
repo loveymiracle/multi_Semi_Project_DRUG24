@@ -52,8 +52,8 @@
 			<if test="name != null">
 			    AND P.phNAME LIKE '%${name}%' 
 			</if>
-			<if test="address != null">
-			    AND P.phADDRESS LIKE '%${address}%' 
+			<if test="gugun1 != null">
+			    AND P.phADDRESS LIKE '%${gugun1}%' 
 			</if>
 		ORDER BY P.phNO DESC LIMIT ${limit} OFFSET ${offset};
 	</select>
@@ -65,7 +65,7 @@
 		WHERE 
 			P.STATUS = 'Y' <!-- 1=1을 사용해도 무관  -->
 			<if test="holidayck != null">
-				AND P.phOP8 IS NULL 
+				AND P.phop8s IS NOT NULL 
 			</if>
 			<if test="nightck != null">
 				AND (P.phop1e >= 2200 OR P.phop2e >= 2200 OR P.phOP3e >= 2200 
@@ -74,8 +74,8 @@
 			<if test="name != null">
 			    AND P.phNAME LIKE '%${name}%' 
 			</if>
-			<if test="address != null">
-			    AND P.phADDRESS LIKE '%${address}%' 
+			<if test="gugun1 != null">
+			    AND P.phADDRESS LIKE '%${gugun1}%' 
 			</if>
 	</select>
 	
@@ -106,6 +106,30 @@
 		)
 	</insert>
 	
+	<insert id="insertPharmacyReply" parameterType="com.multi.semipjt.pharmacy.model.vo.PharmacyReply">
+		insert into PharmacyReply (rNo, mNo, phNo, content, rating, createDate) 
+		values (0, #{mno}, #{phno}, #{content}, #{rating}, default)
+	</insert>
+	
+	<delete id="deletePharmacyReply" parameterType="int">
+		delete from PharmacyReply where rno = #{rno}
+	</delete>
+	
+	
+	<select id="selectPharmacyReplyList" resultType="PharmacyReply" parameterType="int">
+		SELECT * FROM PharmacyReply 
+		INNER JOIN Member ON PharmacyReply.mNo = Member.mNo
+		WHERE phno = #{phno}
+	</select>
+	
+	<select id="countPharmacyReply" parameterType="int">
+		SELECT COUNT(*) FROM PharmacyReply
+		WHERE phno = #{phno}
+	</select>
+	
+	<update id="updatePharmacyAVG"  parameterType="int">
+		UPDATE product set rating = (SELECT AVG(rating) FROM PharmacyReply where phno = #{phno}) where phNo = #{phno}
+	</update>
 	
 </mapper>
 

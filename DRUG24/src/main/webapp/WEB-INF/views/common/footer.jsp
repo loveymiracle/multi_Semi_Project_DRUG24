@@ -65,15 +65,11 @@
 							<h3 class="widget-title text-light">For members</h3>
 							<ul class="widget-list">
 								<li class="widget-list-item"><a class="widget-list-link"
-									href="#">My First Aid Kit</a></li>
+									href="${path}/board/list?types=NEWS">Health Info & News</a></li>
 								<li class="widget-list-item"><a class="widget-list-link"
-									href="#">My Page</a></li>
+									href="${path}/board/list?types=QUESTION">Expert Q&A</a></li>
 								<li class="widget-list-item"><a class="widget-list-link"
-									href="#">Pharmacy Reviews</a></li>
-								<li class="widget-list-item"><a class="widget-list-link"
-									href="#">Medicine Reviews</a></li>
-								<li class="widget-list-item"><a class="widget-list-link"
-									href="#">Notice</a></li>
+									href="${path}/board/list?types=NBOARD">Notice</a></li>
 							</ul>
 						</div>
 					</div>

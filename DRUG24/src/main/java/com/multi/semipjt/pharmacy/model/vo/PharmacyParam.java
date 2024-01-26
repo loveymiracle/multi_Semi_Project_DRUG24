@@ -5,7 +5,8 @@ public class PharmacyParam {
 		private String holidayck;
 		private String nightck;
 		private String name;
-		private String address;
+		private String sido1;
+		private String gugun1;
 		
 
 		// 페이징 인자
@@ -18,24 +19,27 @@ public class PharmacyParam {
 			page = 1;
 		}
 
-		public PharmacyParam(String holidayck, String nightck, String name, String address,int page, int limit,
-				int offset) {
+		
+		public PharmacyParam(String holidayck, String nightck, String name, String sido1, String gugun1, int page,
+				int limit, int offset) {
 			super();
 			this.holidayck = holidayck;
 			this.nightck = nightck;
 			this.name = name;
-			this.address = address;
+			this.sido1 = sido1;
+			this.gugun1 = gugun1;
 			this.page = page;
 			this.limit = limit;
 			this.offset = offset;
 		}
 
+
 		@Override
 		public String toString() {
-			return "PharmacyParam [holidayck=" + holidayck + ", Nightck=" + nightck + ", name=" + name + ", address="
-					+ address +  ", page=" + page + ", limit=" + limit
-					+ ", offset=" + offset + "]";
+			return "PharmacyParam [holidayck=" + holidayck + ", nightck=" + nightck + ", name=" + name + ", sido1="
+					+ sido1 + ", gugun1=" + gugun1 + ", page=" + page + ", limit=" + limit + ", offset=" + offset + "]";
 		}
+
 
 		public String getholidayck() {
 			return holidayck;
@@ -61,15 +65,27 @@ public class PharmacyParam {
 			this.name = name;
 		}
 		
-		public String getaddress() {
-			return address;
+		
+		public String getSido1() {
+			return sido1;
 		}
 
-		public void setaddress(String address) {
-			this.address = address;
+
+		public void setSido1(String sido1) {
+			this.sido1 = sido1;
 		}
-		
-		
+
+
+		public String getGugun1() {
+			return gugun1;
+		}
+
+
+		public void setGugun1(String gugun1) {
+			this.gugun1 = gugun1;
+		}
+
+
 		public int getPage() {
 			return page;
 		}

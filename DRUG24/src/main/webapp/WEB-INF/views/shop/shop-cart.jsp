@@ -256,5 +256,52 @@
 				</div>
 			</div>
 		</section>
+		
+		<!-- Product carousel (Style with)-->
+		<section>
+			<div class="container pt-5">
+				<h2 class="h3 text-center pb-4">다른 영양제 보러 가기</h2>
+				<div class="tns-carousel tns-controls-static tns-controls-outside">
+					<div class="tns-carousel-inner"
+						data-carousel-options="{&quot;items&quot;: 2, &quot;controls&quot;: true, &quot;nav&quot;: false, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;500&quot;:{&quot;items&quot;:2, &quot;gutter&quot;: 18},&quot;768&quot;:{&quot;items&quot;:3, &quot;gutter&quot;: 20}, &quot;1100&quot;:{&quot;items&quot;:4, &quot;gutter&quot;: 30}}}">
+
+						<c:forEach var="item" items="${plist1}">
+							<!-- Product-->
+							<div>
+								<div class="card product-card card-static">
+									<a class="card-img-top d-block overflow-hidden"
+										style="width: 200px"
+										href="${path}/shop/product?pno=${item.pno}"><img
+										src="${item.image}" alt="Product"></a>
+									<div class="card-body py-2">
+										<a class="product-meta d-block fs-xs pb-1"
+											href="${path}/shop/product?pno=${item.pno}">${item.brand}</a>
+										<h3 class="product-title fs-sm">
+											<a href="${path}/shop/product?pno=${item.pno}">${item.title}</a>
+										</h3>
+										<div class="d-flex justify-content-between">
+											<div class="product-price">
+												<span class="text-accent"> <fmt:formatNumber
+														value="${item.lprice}" pattern="#,###" />원
+												</span>
+											</div>
+											<div class="star-rating">
+												<i class="star-rating-icon ci-star-filled active"></i><i
+													class="star-rating-icon ci-star-filled active"></i><i
+													class="star-rating-icon ci-star-filled active"></i><i
+													class="star-rating-icon ci-star-filled active"></i><i
+													class="star-rating-icon ci-star"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</c:forEach>
+
+
+					</div>
+				</div>
+			</div>
+		</section>
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>

@@ -1,5 +1,6 @@
 package com.multi.semipjt.shop.controller;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
@@ -30,7 +31,7 @@ public class ShopController {
 	ShopService shopService;
 	
 	@GetMapping("/shop/main")
-	public String mainPage(Model model,
+	public String mainPage(Model model, HttpSession session,
 			@RequestParam Map<String, Object> paramMap,
 			@RequestParam(required = false) String[] kinds,
 			@RequestParam(required = false) String[] brands
@@ -67,13 +68,21 @@ public class ShopController {
 		model.addAttribute("pageInfo", pageInfo);
 		model.addAttribute("parammap", paramMap);
 		
+		Member member = (Member) session.getAttribute("loginMember");
+		List<Product> cartList = new ArrayList<Product>();
+		if(member != null) {
+			cartList = shopService.getCartProductList(member.getMno());
+		}
+		model.addAttribute("cartList", cartList);
+		model.addAttribute("cartSize", cartList.size());
+		
 		return "/shop/shop-main";
 	}
 	
 	public static int pageCount = 0;
 	
 	@GetMapping("/shop/product")
-	public String productView(Model model, int pno) {
+	public String productView(Model model, int pno, HttpSession session) {
 		Product product = shopService.getProductById(pno);
 		List<ProductReply> replyList = shopService.getProductReplyList(pno);
 		
@@ -99,6 +108,14 @@ public class ShopController {
 		model.addAttribute("product", product);
 		model.addAttribute("plist1", plist1);
 		model.addAttribute("replyList", replyList);
+		
+		Member member = (Member) session.getAttribute("loginMember");
+		List<Product> cartList = new ArrayList<Product>();
+		if(member != null) {
+			cartList = shopService.getCartProductList(member.getMno());
+		}
+		model.addAttribute("cartList", cartList);
+		model.addAttribute("cartSize", cartList.size());
 		return "/shop/shop-single";
 	}
 	
@@ -155,7 +172,30 @@ public class ShopController {
 		}
 		
 		List<Product> list = shopService.getCartProductList(member.getMno());
+		
+		Map<String, Object> map = new HashMap<>();
+		map.put("title", "비타민C");
+		int count = shopService.getProductCount(map);
+		System.out.println(count);
+		PageInfo pageInfo = new PageInfo(pageCount++ % 5 + 1, 6, count, 6);
+		List<Product> plist1 = shopService.getProductList(pageInfo, map);
+		
+		map.put("title", "프로바이오틱스");
+		count = shopService.getProductCount(map);
+		System.out.println(count);
+		pageInfo = new PageInfo(pageCount++ % 5 + 1, 6, count, 6);
+		List<Product> plist2 = shopService.getProductList(pageInfo, map);
+		plist1.addAll(plist2);
+		Collections.shuffle(plist1);
+		model.addAttribute("plist1", plist1);
 		model.addAttribute("list", list);
+		
+		List<Product> cartList = new ArrayList<Product>();
+		if(member != null) {
+			cartList = shopService.getCartProductList(member.getMno());
+		}
+		model.addAttribute("cartList", cartList);
+		model.addAttribute("cartSize", cartList.size());
 		return "shop/shop-cart";
 	}
 	

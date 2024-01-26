@@ -6,12 +6,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>비밀번호변경</title>
-<script src="${path}/resources/js/jquery-3.7.0.js"></script>
+<jsp:include page="/WEB-INF/views/common/header.jsp">
+	<jsp:param value="회원가입" name="title"/>
+</jsp:include>
 <style>
     div#updatePassword-container{
         background:yellowgreen;
@@ -28,29 +25,36 @@
 <body>
 	<div id="updatePassword-container">
 		<form action="${path}/member/updatePwd" method="POST">
-			<table>
-				<tr>
-					<th>변경할 비밀번호</th>
-					<td>
-						<input type="password" name="password" id="pass1" required>
-					</td>
-				</tr>
-				<tr>
-					<th>비밀번호확인</th>
-					<td>
-						<input type="password" id="pass2">
-					</td>
-				</tr>
-				<tr>
-					<td colspan="2">
-						<input type="submit" value="변경" id="updateSubmit"onclick="return validate();">
-						&nbsp;
-						<input type="button" value="닫기" onclick="self.close();">
-					</td>
-				</tr>
-			</table>
+			<div class="row gx-4 gy-3">
+				<div class="col-sm-6">
+	                  <label class="form-label">New Password</label>
+	                  <div class="password-toggle">
+	                    <label class="password-toggle-btn" aria-label="Show/hide password">
+	                    </label>
+	                    	<input class="form-control" type="password" id="pass1" required>
+	                  </div>
+	                </div>
+	                <div class="col-sm-6">
+	                  <label class="form-label" for="account-confirm-pass">Confirm Password</label>
+	                  <div class="password-toggle">
+	                    <label class="password-toggle-btn" aria-label="Show/hide password">
+	                    </label>
+	                    	<input class="form-control" type="password" id="pass2">
+	                  </div>
+	                </div>
+	               </div>
+	               <div class="col-12">
+                  	<hr class="mt-2 mb-3">
+                  	<div class="d-flex flex-wrap justify-content-between align-items-center">
+                    	<button class="btn btn-primary mt-3 mt-sm-0" type="submit" value="변경" id="updateSubmit" onclick="return validate();">Change password</button>
+                    	<button class="btn btn-primary mt-3 mt-sm-0" type="submit" value="닫기" onclick="self.close();">Withdrawal account</button>
+                  	</div>
+                </div>
 		</form>
 	</div>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 	<script>
 		$(document).ready(() => {
 			$("#updateSubmit").on("click", (e) => {
@@ -72,7 +76,7 @@
 </body>
 </html>
 
-
+<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
 
 

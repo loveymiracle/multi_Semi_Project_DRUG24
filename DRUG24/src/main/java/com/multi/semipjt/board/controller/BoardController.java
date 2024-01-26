@@ -35,6 +35,8 @@ import com.multi.semipjt.board.model.vo.BoardParam;
 import com.multi.semipjt.board.model.vo.BoardReply;
 import com.multi.semipjt.common.util.PageInfo;
 import com.multi.semipjt.member.model.vo.Member;
+import com.multi.semipjt.shop.model.service.ShopService;
+import com.multi.semipjt.shop.model.vo.Product;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -48,6 +50,9 @@ public class BoardController {
 
 	@Autowired
 	private ResourceLoader resourceLoader; // 파일 업로드 기능시 활용하는 loader
+	
+	@Autowired
+	ShopService shopService;
 	
 	
 	// 카테고리를 공용적으로 사용할때 사용할 Map, List 멤버변수
@@ -66,17 +71,23 @@ public class BoardController {
 	}
 	//http://localhost/mvc/board/list?page=1&searchType=title&searchValue=%EB%85%B8%ED%8A%B8%EB%B6%81
 	@RequestMapping("/board/list")
-	public String list(Model model, BoardParam param) {
+	public String list(Model model, BoardParam param, HttpSession session) {
 		log.debug("@@ board list 요청 param : " + param);
 		
 		int boardCount = service.getBoardCount(param);
 //		PageInfo pageInfo = new PageInfo(param.getPage(), 10, boardCount, 15); // page가 보여질 갯수 : 10, 게시글 목록은 15개
-		PageInfo pageInfo = new PageInfo(param.getPage(), 10, boardCount, 12); // page가 보여질 갯수 : 10, 게시글 목록은 12개
+		PageInfo pageInfo = new PageInfo(param.getPage(), 10, boardCount, 10); // page가 보여질 갯수 : 10, 게시글 목록은 12개
 		param.setLimit(pageInfo.getListLimit());
 		param.setOffset(pageInfo.getStartList() - 1);
 		List<Board> list = service.getBoardList(param);
 		
-		System.out.println(categoryList);
+//		System.out.println(categoryList);
+//		System.out.println("--");
+//		System.out.println(typeMap);
+//		System.out.println("==");
+//		System.out.println(param);
+//		System.out.println("@@");
+//		System.out.println(param.getTypeList());
 		
 		model.addAttribute("pageInfo", pageInfo);
 		model.addAttribute("list", list);
@@ -85,7 +96,14 @@ public class BoardController {
 		model.addAttribute("param", param);
 		model.addAttribute("typeList", param.getTypeList());
 		
-		// 공지사항 분류하는 법
+		Member member = (Member) session.getAttribute("loginMember");
+		List<Product> cartList = new ArrayList<Product>();
+		if(member != null) {
+			cartList = shopService.getCartProductList(member.getMno());
+		}
+		model.addAttribute("cartList", cartList);
+		model.addAttribute("cartSize", cartList.size());
+		// 뉴스 분류하는 법
 		if(param.getTypeList() != null && param.getTypeList().size() == 1 && param.getTypeList().get(0).equals("NEWS")) {
 			return "/board/newsBoard";
 		}
@@ -96,10 +114,11 @@ public class BoardController {
 			return "/board/noticeList";
 		}
 		
-		// 공지사항 분류하는 법
+		// 질문답변 분류하는 법
 		if (param.getTypeList() != null && param.getTypeList().size() == 1 && param.getTypeList().get(0).equals("QUESTION")) {
 			return "/board/question";
-		}		
+		}
+		
 
 		return "/board/boardList";
 				

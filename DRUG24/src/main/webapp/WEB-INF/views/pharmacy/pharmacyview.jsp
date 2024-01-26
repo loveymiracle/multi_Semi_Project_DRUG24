@@ -41,502 +41,421 @@
 <jsp:include page="/WEB-INF/views/common/header.jsp">
 	<jsp:param value="약국찾기 상세페이지" name="title"/>
 </jsp:include>
-	     <!-- Hero section  히어로 섹션 =============================================================-->
-     <section class="mt-n5 mb-5 bg-dark"
-         style="background-color: white; background-image: url(); background-repeat: no-repeat; background-position: 85% center; height: 250px;">
-         <div class="pb-lg-1 mb-lg-3">
-             <div class="container d-lg-flex justify-content-between py-2 py-lg-5 my-lg-5">
-                 <div class="order-lg-2 mb-3 mb-lg-0 pt-lg-2">
-                     <nav aria-label="breadcrumb">
-                         <ol class="breadcrumb flex-lg-nowrap justify-content-center justify-content-lg-start fs-5">
-                             <li class="breadcrumb-item "><a class="text-nowrap text-light" href="main.html"><i
-                                         class="ci-home"></i>Home</a></li>
-                             <li class="breadcrumb-item text-nowrap"><a class="text-light" href="#"> 약국 찾기 </a>
-                             </li>
-                             <li class="breadcrumb-item text-nowrap">
-                                 <span class=" fs-5 text-danger"> 약국 상세보기 </span>
-                             </li>
-                         </ol>
-                     </nav>
-                 </div>
-                 <div class="order-lg-1 pe-lg-4 text-center text-lg-start">
-                     <h1 class="blodFont mb-0 text-light"> 약국 상세보기 </h1>
-                     <br>
-                     <p class="h5 mb-1 text-light">
-                         운영시간이 변동될 수 있으므로 약국에 전화 확인 후 방문해주시기 바랍니다.
-                     <p class="h5 mb-0 text-light">약국 운영시간은 대한약사회에서 제공하는 정보입니다.</p>
-                 </div>
-             </div>
-         </div>
-     </section>
-     <!-- Body-->
-     <!--------------------------------------------------------  툴바 -->
-     <br>
-     <body class="handheld-toolbar-enabled">
-         <!-- Shadow box-->
-         <section class="container mb-2 pb-3" style="margin-top: 10px;">
-             <div class="row">
-                 <div class="d-flex justify-content-between">
-                     <div class="h1 blodFont mb-5" id="">  <c:out value="${pharmacy.phname}"/> </div>
-                     <div class="py-2 me-2">
-                         <button class="btn btn-outline-accent" type="button"><i class="ci-star fs-lg me-2"></i>약국
-                             즐겨찾기</button>
-                     </div>
-                 </div>
-                 <div class="mb-3 pb-4">
-                     <span class="h3">
-                         <i class="ci-location text-success fw-bold  me-2 h2"></i>
-                        	<c:out value="${pharmacy.phaddress}"/>
-                     </span>
-                 </div>
-                 <!--========================================================= 지도 ===== 지도를 표시할 div 입니다 -->
-              	  <div id="map" style="width:100%; height:450px;"></div>
-  					<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ee850f3227ff38fdb5e4924011797d01"></script>
+		<!-- Hero section  히어로 섹션 =============================================================-->
+		<section class="mt-n5 mb-5 bg-dark"
+			style="background-color: white; background-image: url(); background-repeat: no-repeat; background-position: 85% center; height: 250px;">
+			<div class="pb-lg-1 mb-lg-3">
+				<div
+					class="container d-lg-flex justify-content-between py-2 py-lg-5 my-lg-5">
+					<div class="order-lg-2 mb-3 mb-lg-0 pt-lg-2">
+						<nav aria-label="breadcrumb">
+							<ol
+								class="breadcrumb flex-lg-nowrap justify-content-center justify-content-lg-start fs-5">
+								<li class="breadcrumb-item "><a
+									class="text-nowrap text-light" href="main.html"><i
+										class="ci-home"></i>Home</a></li>
+								<li class="breadcrumb-item text-nowrap"><a class="text-light"
+									href="${path}/pharmacy/search"> 약국 찾기 </a></li>
+								<li class="breadcrumb-item text-nowrap"><span
+									class=" fs-5 text-danger"> 약국 상세보기 </span></li>
+							</ol>
+						</nav>
+					</div>
+					<div class="order-lg-1 pe-lg-4 text-center text-lg-start">
+						<h1 class="blodFont mb-0 text-light">약국 상세보기</h1>
+						<br>
+						<p class="h5 mb-1 text-light">운영시간이 변동될 수 있으므로 약국에 확인 후
+							방문해주시기 바랍니다.
+						<p class="h5 mb-2 text-light">약국 운영시간은 대한약사회에서 제공하는 정보입니다.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Body-->
+		<!--------------------------------------------------------  툴바 -->
+		<br>
+		<body class="handheld-toolbar-enabled">
+			<!-- Shadow box-->
+			<section class="container mb-2 pb-3" style="margin-top: 10px;">
+				<div class="row">
+					<div class="d-flex justify-content-between">
+						<div class="h1 blodFont mb-5" id="">
+							<c:out value="${pharmacy.phname}" />
+						</div>
+					</div>
+					<div class="mb-3 pb-4">
+						<span class="h3"> <i
+							class="ci-location text-success fw-bold  me-2 h2"></i> <c:out
+								value="${pharmacy.phaddress}" />
+						</span>
+					</div>
+					<!--========================================================= 지도 ===== 지도를 표시할 div 입니다 -->
+					<div id="map" style="width: 100%; height: 450px;"></div>
+					<script type="text/javascript"
+						src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ee850f3227ff38fdb5e4924011797d01"></script>
 					<script>
-							var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-							    mapOption = { 
-							        center: new kakao.maps.LatLng(value= "${pharmacy.phlati}", "${pharmacy.phlong}"), // 지도의 중심좌표
-							        level: 3 // 지도의 확대 레벨
-							    };
-							
-							var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-   						  
-							var imageSrc = '${path}/resources/imgs/phmarker.png', // 마커이미지의 주소입니다    
-						    imageSize = new kakao.maps.Size(64, 69), // 마커이미지의 크기입니다
-						    imageOption = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
-		                         
-						  	 // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
-						    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
-						  	     markerPosition = new kakao.maps.LatLng("${pharmacy.phlati}", "${pharmacy.phlong}"); // 마커가 표시될 위치입니다
-			                         
-						  	 // 마커를 생성합니다
-						   var marker = new kakao.maps.Marker({
-						  	   position: markerPosition,
-						  	   image: markerImage // 마커이미지 설정 
-						  	 });
-			                         
-						  	 // 마커가 지도 위에 표시되도록 설정합니다
-						  	 marker.setMap(map);  
-		              
-				    </script>
-				                  
-                 <div class=" row" style="margin-top: 70px;">
-                     <h2 class="mb-4 text-muted blodFont h2" id=""> 상세 정보 </h2>
-                     <div class="row h3">
-                         <div class="mb-2 pb-4">
-                             <i class="ci-phone me-2 text-success fw-bold h2"></i> <c:out value="${pharmacy.phtel}"/>
-                         </div>
-                         <div class=" d-flex justify-content-between mb-2">
-                             <div class="" style="width: 360px;">
-                                 <i class="ci-time me-2 text-success fw-bold  h2"></i> 운영 시간
-                             </div>
-                         </div>
-                        
-                         <div class="row d-flex justify-content-between mb-4" style="margin-left: 30px;">
-                             <div class="col row mb-1">
-                                 <div> 월요일 &nbsp;
-                                 			<c:set var="rawTime" value="${pharmacy.phop1s}" />
-											<c:set var="formattedTime" value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
+									var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+									    mapOption = { 
+									        center: new kakao.maps.LatLng(value= "${pharmacy.phlati}", "${pharmacy.phlong}"), // 지도의 중심좌표
+									        level: 3 // 지도의 확대 레벨
+									    };
+									
+									var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+		   						  
+									var imageSrc = '${path}/resources/imgs/phmarker.png', // 마커이미지의 주소입니다    
+								    imageSize = new kakao.maps.Size(64, 69), // 마커이미지의 크기입니다
+								    imageOption = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+				                         
+								  	 // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+								    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
+								  	     markerPosition = new kakao.maps.LatLng("${pharmacy.phlati}", "${pharmacy.phlong}"); // 마커가 표시될 위치입니다
+					                         
+								  	 // 마커를 생성합니다
+								   var marker = new kakao.maps.Marker({
+								  	   position: markerPosition,
+								  	   image: markerImage // 마커이미지 설정 
+								  	 });
+					                         
+								  	 // 마커가 지도 위에 표시되도록 설정합니다
+								  	 marker.setMap(map);  
+				              
+						    </script>
+		
+					<div class=" row" style="margin-top: 70px;">
+						<h2 class="mb-4 text-muted blodFont h2" id="">상세 정보</h2>
+						<div class="row h3">
+							<div class="mb-2 pb-4">
+								<i class="ci-phone me-2 text-success fw-bold h2"></i>
+								<c:out value="${pharmacy.phtel}" />
+							</div>
+							<div class=" d-flex justify-content-between mb-2">
+								<div class="" style="width: 360px;">
+									<i class="ci-time me-2 text-success fw-bold  h2"></i> 운영 시간
+								</div>
+							</div>
+		
+							<div class="row d-flex justify-content-between mb-4"
+								style="margin-left: 30px;">
+								<div class="col row mb-1">
+									<div>
+										월요일 &nbsp;
+										<c:set var="rawTime" value="${pharmacy.phop1s}" />
+										<c:set var="formattedTime"
+											value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
+										<c:out value="${formattedTime}" />
+										~
+										<c:set var="rawTime" value="${pharmacy.phop1e}" />
+										<c:set var="formattedTime"
+											value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
+										<c:out value="${formattedTime}" />
+									</div>
+									<div>
+										화요일 &nbsp;
+										<c:set var="rawTime" value="${pharmacy.phop2s}" />
+										<c:set var="formattedTime"
+											value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
+										<c:out value="${formattedTime}" />
+										~
+										<c:set var="rawTime" value="${pharmacy.phop2e}" />
+										<c:set var="formattedTime"
+											value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
+										<c:out value="${formattedTime}" />
+									</div>
+									<div>
+										수요일 &nbsp;
+										<c:set var="rawTime" value="${pharmacy.phop3s}" />
+										<c:set var="formattedTime"
+											value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
+										<c:out value="${formattedTime}" />
+										~
+										<c:set var="rawTime" value="${pharmacy.phop3e}" />
+										<c:set var="formattedTime"
+											value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
+										<c:out value="${formattedTime}" />
+									</div>
+									<div>
+										목요일 &nbsp;
+										<c:set var="rawTime" value="${pharmacy.phop4s}" />
+										<c:set var="formattedTime"
+											value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
+										<c:out value="${formattedTime}" />
+										~
+										<c:set var="rawTime" value="${pharmacy.phop4e}" />
+										<c:set var="formattedTime"
+											value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
+										<c:out value="${formattedTime}" />
+									</div>
+									<div>
+										금요일 &nbsp;
+										<c:set var="rawTime" value="${pharmacy.phop5s}" />
+										<c:set var="formattedTime"
+											value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
+										<c:out value="${formattedTime}" />
+										~
+										<c:set var="rawTime" value="${pharmacy.phop5e}" />
+										<c:set var="formattedTime"
+											value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
+										<c:out value="${formattedTime}" />
+									</div>
+								</div>
+								<div class="col mb-1" style="margin-right: 500px;">
+		
+									<div>
+										토요일 &nbsp;
+										<c:if test="${pharmacy.phop6s != null }">
+											<c:set var="rawTime" value="${pharmacy.phop6s}" />
+											<c:set var="formattedTime"
+												value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
 											<c:out value="${formattedTime}" />  ~
-                               				<c:set var="rawTime" value="${pharmacy.phop1e}" />
-											<c:set var="formattedTime" value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
-											<c:out value="${formattedTime}" />  </div>
-                                 <div> 화요일 &nbsp;
-                                 			<c:set var="rawTime" value="${pharmacy.phop2s}" />
-											<c:set var="formattedTime" value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
+		                               				<c:set var="rawTime"
+												value="${pharmacy.phop6e}" />
+											<c:set var="formattedTime"
+												value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
+											<c:out value="${formattedTime}" />
+										</c:if>
+									</div>
+									<div>
+										일요일 &nbsp;
+										<c:if test="${pharmacy.phop7s != null }">
+											<c:set var="rawTime" value="${pharmacy.phop7s}" />
+											<c:set var="formattedTime"
+												value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
 											<c:out value="${formattedTime}" />  ~
-                               				<c:set var="rawTime" value="${pharmacy.phop2e}" />
-											<c:set var="formattedTime" value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
-											<c:out value="${formattedTime}" />  </div>
-                                 <div> 수요일 &nbsp; 
-                                 			<c:set var="rawTime" value="${pharmacy.phop3s}" />
-											<c:set var="formattedTime" value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
+		                               				<c:set var="rawTime"
+												value="${pharmacy.phop7e}" />
+											<c:set var="formattedTime"
+												value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
+											<c:out value="${formattedTime}" />
+										</c:if>
+									</div>
+									<div>&nbsp;</div>
+		
+									<div>
+										공휴일 &nbsp;
+										<c:if test="${pharmacy.phop8s != null }">
+											<c:set var="rawTime" value="${pharmacy.phop8s}" />
+											<c:set var="formattedTime"
+												value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
 											<c:out value="${formattedTime}" />  ~
-                               				<c:set var="rawTime" value="${pharmacy.phop3e}" />
-											<c:set var="formattedTime" value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
-											<c:out value="${formattedTime}" />  </div>
-                                 <div> 목요일 &nbsp; 
-                                 			<c:set var="rawTime" value="${pharmacy.phop4s}" />
-											<c:set var="formattedTime" value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
-											<c:out value="${formattedTime}" />  ~
-                               				<c:set var="rawTime" value="${pharmacy.phop4e}" />
-											<c:set var="formattedTime" value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
-											<c:out value="${formattedTime}" />  </div>
-                                 <div> 금요일 &nbsp;
-                                 			<c:set var="rawTime" value="${pharmacy.phop5s}" />
-											<c:set var="formattedTime" value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
-											<c:out value="${formattedTime}" />  ~
-                               				<c:set var="rawTime" value="${pharmacy.phop5e}" />
-											<c:set var="formattedTime" value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
-											<c:out value="${formattedTime}" />  </div>
-                             </div>
-                             <div class="col mb-1" style="margin-right: 500px;">
-                             	
-                                  <div> 토요일 &nbsp; 
-                                  	<c:if test="${pharmacy.phop6s != null }"> 
-                                 		<c:set var="rawTime" value="${pharmacy.phop6s}" />
-											<c:set var="formattedTime" value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
-											<c:out value="${formattedTime}" />  ~
-                               				<c:set var="rawTime" value="${pharmacy.phop6e}" />
-											<c:set var="formattedTime" value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
-											<c:out value="${formattedTime}" />  
-								 	</c:if>	
-								 </div>
-                                 <div> 일요일 &nbsp;
-                                 	<c:if test="${pharmacy.phop7s != null }">  
-                                 			<c:set var="rawTime" value="${pharmacy.phop7s}" />
-											<c:set var="formattedTime" value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
-											<c:out value="${formattedTime}" />  ~
-                               				<c:set var="rawTime" value="${pharmacy.phop7e}" />
-											<c:set var="formattedTime" value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
-											<c:out value="${formattedTime}" />  
-								    </c:if>	
-								 </div>
-                                 <div> &nbsp;</div>
-                               
-                                  <div> 공휴일 &nbsp;
-                                 	 <c:if test="${pharmacy.phop8s != null }"> 
-                                 			<c:set var="rawTime" value="${pharmacy.phop8s}" />
-											<c:set var="formattedTime" value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
-											<c:out value="${formattedTime}" />  ~
-                               				<c:set var="rawTime" value="${pharmacy.phop8e}" />
-											<c:set var="formattedTime" value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
-											<c:out value="${formattedTime}" />  
-								 	 </c:if>		
-								 </div>	
-                             </div>
-                         </div>
-                       
-                         <div class="mb-2 pb-4">
-                             <i class="ci-moon me-2 text-success fw-bold  h2"></i> 
-                              <c:if test="${pharmacy.phop1e >= 2200 or pharmacy.phop2e >= 2200  or pharmacy.phop3e >= 2200  or pharmacy.phop4e >= 2200
-                                          or pharmacy.phop5e >= 2200  or pharmacy.phop6e >= 2200  or pharmacy.phop7e >= 2200  or pharmacy.phop8e >= 2200}">  심야약국  </c:if> 
-                              <c:if test="${pharmacy.phop7s != null }"> &nbsp; 주말약국  </c:if>
-                         </div>
-                         <div class="mb-2 pb-4">
-                             <i class="ci-home me-2 text-success fw-bold  h2"></i> 20년 이상 건강을 책임지고 있는
-                             약국입니다. 1년
-                             365일 연중무휴, 야간 운영합니다
-                         </div>
-                     </div>
-                 </div>
-             </div>
-             <hr class="mb-4">
-         </section>
-         <!---- 이용 후기 ========================================== -->
-         <!-- Product description + Reviews + Comments-->
-         <section class="container mb-4 mb-lg-5" style="margin-top: 30px;">
-             <div class="container d-flex justify-content-between">
-                 <div class=" h2 mb-4 blodFont" id=""> 약국 이용후기
-                     <div class="d-inline-block h3 text-accent"> (3)
-                     </div>
-                 </div>
-                 <div>
-                     <a class="btn btn-accent" type="button" href="BoardReviewWrite.html">
-                         <i class="ci-edit-alt me-2"></i> 이용후기 작성
-                     </a>
-                 </div>
-             </div>
-             <hr class="mb-4 text-accent">
-             <div class="card col mb-4">
-                 <div class="card-body">
-                     <!-- Product review -->
-                     <div class="product-review">
-                         <div class="d-flex mb-3">
-                             <div class="d-flex align-items-center me-0 pe-0">
-                                 <img class="rounded-circle" width="50" src="img/blog/meta/04.jpg"
-                                     alt="Rafael Marquez" />
-                                 <div class="ps-3">
-                                     <h6 class="h5 mb-1"> 나경원</h6>
-                                     <span class="h6 text-muted">2022년 8월 20일 </span>
-                                 </div>
-                             </div>
-                             <div style="margin-left: 40px;">
-                                 <div class="star-rating">
-                                     <i class="fs-5 star-rating-icon ci-star-filled active"></i>
-                                     <i class="fs-5 star-rating-icon ci-star-filled active"></i>
-                                     <i class="fs-5 star-rating-icon ci-star-filled active"></i>
-                                     <i class="fs-5 star-rating-icon ci-star-filled active"></i>
-                                     <i class="fs-5 star-rating-icon ci-star"></i>
-                                 </div>
-                             </div>
-                             <div class="text-nowrap" style="margin-left: 700px;">
-                                 <button class="btn-like" type="button">15</button>
-                                 <button class="btn-dislike" type="button">3</button>
-                             </div>
-                         </div>
-                         <p class="h3 mb-3">
-                             복약지도 친절ㅎ해요
-                         </p>
-                     </div>
-                 </div>
-             </div>
-             <div class="card col mb-4">
-                 <div class="card-body">
-                     <!-- Product review -->
-                     <div class="product-review">
-                         <div class="d-flex mb-3">
-                             <div class="d-flex align-items-center me-0 pe-0">
-                                 <img class="rounded-circle" width="50" src="img/blog/meta/04.jpg"
-                                     alt="Rafael Marquez" />
-                                 <div class="ps-3">
-                                     <h6 class="h5 mb-1"> 나경원</h6>
-                                     <span class="h6 text-muted">2022년 8월 20일 </span>
-                                 </div>
-                             </div>
-                             <div style="margin-left: 40px;">
-                                 <div class="star-rating">
-                                     <i class="fs-5 star-rating-icon ci-star-filled active"></i>
-                                     <i class="fs-5 star-rating-icon ci-star-filled active"></i>
-                                     <i class="fs-5 star-rating-icon ci-star-filled active"></i>
-                                     <i class="fs-5 star-rating-icon ci-star-filled active"></i>
-                                     <i class="fs-5 star-rating-icon ci-star"></i>
-                                 </div>
-                             </div>
-                             <div class="text-nowrap" style="margin-left: 700px;">
-                                 <button class="btn-like" type="button">15</button>
-                                 <button class="btn-dislike" type="button">3</button>
-                             </div>
-                         </div>
-                         <p class="h3 mb-3">
-                             복약지도 친절ㅎ해요
-                         </p>
-                     </div>
-                 </div>
-             </div>
-             <div class="card col mb-4">
-                 <div class="card-body">
-                     <!-- Product review -->
-                     <div class="product-review">
-                         <div class="d-flex mb-3">
-                             <div class="d-flex align-items-center me-0 pe-0">
-                                 <img class="rounded-circle" width="50" src="img/blog/meta/04.jpg"
-                                     alt="Rafael Marquez" />
-                                 <div class="ps-3">
-                                     <h6 class="h5 mb-1"> 나경원</h6>
-                                     <span class="h6 text-muted">2022년 8월 20일 </span>
-                                 </div>
-                             </div>
-                             <div style="margin-left: 40px;">
-                                 <div class="star-rating">
-                                     <i class="fs-5 star-rating-icon ci-star-filled active"></i>
-                                     <i class="fs-5 star-rating-icon ci-star-filled active"></i>
-                                     <i class="fs-5 star-rating-icon ci-star-filled active"></i>
-                                     <i class="fs-5 star-rating-icon ci-star-filled active"></i>
-                                     <i class="fs-5 star-rating-icon ci-star"></i>
-                                 </div>
-                             </div>
-                             <div class="text-nowrap" style="margin-left: 700px;">
-                                 <button class="btn-like" type="button">15</button>
-                                 <button class="btn-dislike" type="button">3</button>
-                             </div>
-                         </div>
-                         <p class="h3 mb-3">
-                             복약지도 친절ㅎ해요
-                         </p>
-                     </div>
-                 </div>
-             </div>
-             <div class="d-flex justify-content-between">
-                 <div class=""> </div>
-                 <a class="btn btn-outline-accent" type="button" href="BoardPharmacyreview.html">
-                     <i class="ci-arrow-right me-2"></i> 이용후기 더 보기
-                 </a>
-             </div>
-             </div>
-             <br><br><br>
-             <!-- Related posts-->
-             <div class="bg-secondary py-4">
-                 <div class="container py-4 mb-lg-5">
-                     <h2 class="h2 text-center pb-4"> 주변 다른 약국 </h2>
-                     <div class="tns-carousel">
-                         <div class="tns-carousel-inner"
-                             data-carousel-options="{&quot;items&quot;: 2, &quot;controls&quot;: false, &quot;autoHeight&quot;: true, &quot;responsive&quot;: {&quot;0&quot;:
-{&quot;items&quot;:1},&quot;500&quot;:{&quot;items&quot;:2, &quot;gutter&quot;: 20},&quot;900&quot;:{&quot;items&quot;:3, &quot;gutter&quot;: 
-20}, &quot;1100&quot;:{&quot;items&quot;:3, &quot;gutter&quot;: 30}}}">
-                             <!-- article-->
-                             <div>
-                                 <div class="card product-card">
-                                     <a class="card-img-top d-block overflow-hidden" href="FindPharmacy.html">
-                                         <img src="imgs/pharmacy/phar1.png" style="width: 100%; height: 230px;"
-                                             alt="Product"></a>
-                                     <!-- ---------- ---------  약국 이미지 -->
-                                     <div class="card-body">
-                                         <div
-                                             class="d-flex flex-wrap justify-content-between align-items-start pb-2">
-                                             <h3 class="product-title mb-2 blodFont"><a href="FindPharmacy.html">
-                                                     논현튼튼 싱싱약국
-                                                 </a>
-                                             </h3>
-                                             <!-- 별 -->
-                                             <div class="h5 text-warning"> 이용후기 (3) </div>
-                                             <div class="Pharmacy-name">
-                                                 <div class="h5 me-1">
-                                                     <i class="ci-location me-1"></i> 서울 논현역
-                                                 </div>
-                                                 <div class="h5 me-1">
-                                                     <i class="ci-phone me-1"></i> 054-834-0015
-                                                 </div>
-                                                 <h1 class="product-title h5 mb-3 me-1">
-                                                     <i class="ci-time text-muted me-1"></i> 영업시간
-                                                     <span class="h6 ms-2 text-muted">08:00 - 19:00</span>
-                                                 </h1>
-                                             </div>
-                                             <div class="d-flex h5" style="margin-top: 5px;">
-                                                 <div class="bg-success text-white rounded-1 py-2 px-3 h5 me-3">
-                                                     <i class="ci-moon text-white me-1"></i> 심야 약국
-                                                 </div>
-                                             </div>
-                                         </div>
-                                     </div>
-                                 </div>
-                             </div>
-                             <!-- article-->
-                             <div>
-                                 <div class="card product-card">
-                                     <a class="card-img-top d-block overflow-hidden" href="FindPharmacy.html">
-                                         <img src="imgs/pharmacy/phar1.png" style="width: 100%; height: 230px;"
-                                             alt="Product"></a>
-                                     <!-- ---------- ---------  약국 이미지 -->
-                                     <div class="card-body">
-                                         <div
-                                             class="d-flex flex-wrap justify-content-between align-items-start pb-2">
-                                             <h3 class="product-title mb-2 blodFont"><a href="FindPharmacy.html">
-                                                     논현튼튼 싱싱약국
-                                                 </a>
-                                             </h3>
-                                             <!-- 별 -->
-                                             <div class="h5 text-warning"> 이용후기 (3) </div>
-                                             <div class="Pharmacy-name">
-                                                 <div class="h5 me-1">
-                                                     <i class="ci-location me-1"></i> 서울 논현역
-                                                 </div>
-                                                 <div class="h5 me-1">
-                                                     <i class="ci-phone me-1"></i> 054-834-0015
-                                                 </div>
-                                                 <h1 class="product-title h5 mb-3 me-1">
-                                                     <i class="ci-time text-muted me-1"></i> 영업시간
-                                                     <span class="h6 ms-2 text-muted">08:00 - 19:00</span>
-                                                 </h1>
-                                             </div>
-                                             <div class="d-flex h5" style="margin-top: 5px;">
-                                                 <div class="bg-success text-white rounded-1 py-2 px-3 h5 me-3">
-                                                     <i class="ci-moon text-white me-1"></i> 심야 약국
-                                                 </div>
-                                             </div>
-                                         </div>
-                                     </div>
-                                 </div>
-                             </div>
-                             <!-- article-->
-                             <div>
-                                 <div class="card product-card">
-                                     <a class="card-img-top d-block overflow-hidden" href="FindPharmacy.html">
-                                         <img src="imgs/pharmacy/phar1.png" style="width: 100%; height: 230px;"
-                                             alt="Product"></a>
-                                     <!-- ---------- ---------  약국 이미지 -->
-                                     <div class="card-body">
-                                         <div
-                                             class="d-flex flex-wrap justify-content-between align-items-start pb-2">
-                                             <h3 class="product-title mb-2 blodFont"><a href="FindPharmacy.html">
-                                                     논현튼튼 싱싱약국
-                                                 </a>
-                                             </h3>
-                                             <!-- 별 -->
-                                             <div class="h5 text-warning"> 이용후기 (3) </div>
-                                             <div class="Pharmacy-name">
-                                                 <div class="h5 me-1">
-                                                     <i class="ci-location me-1"></i> 서울 논현역
-                                                 </div>
-                                                 <div class="h5 me-1">
-                                                     <i class="ci-phone me-1"></i> 054-834-0015
-                                                 </div>
-                                                 <h1 class="product-title h5 mb-3 me-1">
-                                                     <i class="ci-time text-muted me-1"></i> 영업시간
-                                                     <span class="h6 ms-2 text-muted">08:00 - 19:00</span>
-                                                 </h1>
-                                             </div>
-                                             <div class="d-flex h5" style="margin-top: 5px;">
-                                                 <div class="bg-success text-white rounded-1 py-2 px-3 h5 me-3">
-                                                     <i class="ci-moon text-white me-1"></i> 심야 약국
-                                                 </div>
-                                             </div>
-                                         </div>
-                                     </div>
-                                 </div>
-                             </div>
-                             <!-- article-->
-                             <div>
-                                 <div class="card product-card">
-                                     <a class="card-img-top d-block overflow-hidden" href="FindPharmacy.html">
-                                         <img src="imgs/pharmacy/phar1.png" style="width: 100%; height: 230px;"
-                                             alt="Product"></a>
-                                     <!-- ---------- ---------  약국 이미지 -->
-                                     <div class="card-body">
-                                         <div
-                                             class="d-flex flex-wrap justify-content-between align-items-start pb-2">
-                                             <h3 class="product-title mb-2 blodFont"><a href="FindPharmacy.html">
-                                                     논현튼튼 싱싱약국
-                                                 </a>
-                                             </h3>
-                                             <!-- 별 -->
-                                             <div class="h5 text-warning"> 이용후기 (3) </div>
-                                             <div class="Pharmacy-name">
-                                                 <div class="h5 me-1">
-                                                     <i class="ci-location me-1"></i> 서울 논현역
-                                                 </div>
-                                                 <div class="h5 me-1">
-                                                     <i class="ci-phone me-1"></i> 054-834-0015
-                                                 </div>
-                                                 <h1 class="product-title h5 mb-3 me-1">
-                                                     <i class="ci-time text-muted me-1"></i> 영업시간
-                                                     <span class="h6 ms-2 text-muted">08:00 - 19:00</span>
-                                                 </h1>
-                                             </div>
-                                             <div class="d-flex h5" style="margin-top: 5px;">
-                                                 <div class="bg-success text-white rounded-1 py-2 px-3 h5 me-3">
-                                                     <i class="ci-moon text-white me-1"></i> 심야 약국
-                                                 </div>
-                                             </div>
-                                         </div>
-                                     </div>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-         </section>
-     </body>
-     
-         <!-- ===================================================================   Pagination-->
-            <nav class="d-flex justify-content-between pt-2" aria-label="Page navigation">
-                <ul class="pagination">
-                    <li class="page-item"><a class="page-link" href="#"><i class="ci-arrow-left me-2"></i></a>
-                    </li>
-                </ul>
-                <ul class="pagination">
-                	<!-- 페이지 -->
-					<c:forEach begin="${pageInfo.startPage}" end="${pageInfo.endPage}"
-						step="1" varStatus="status">
-						<c:if test="${status.current == pageInfo.currentPage}">
-							<li class="page-item active d-none d-sm-block"
-								aria-current="page"><span class="page-link">${status.current}<span
-									class="visually-hidden">(current)</span></span></li>
-						</c:if>
-						<c:if test="${status.current != pageInfo.currentPage}">
-							<li class="page-item d-none d-sm-block"><a class="page-link"
-								onclick="movePage(${status.current});">${status.current}</a></li>
-						</c:if>
-					</c:forEach>
-				</ul>
-				<ul class="pagination">
-					<li class="page-item"><a class="page-link"
-						onclick="movePage(${pageInfo.nextPage});" aria-label="Next">Next<i
-							class="ci-arrow-right ms-2"></i></a></li>
-                   <!-- --========================================================== -->       
-                </ul>
-            </nav>
+		                               				<c:set var="rawTime"
+												value="${pharmacy.phop8e}" />
+											<c:set var="formattedTime"
+												value="${fn:substring(rawTime, 0, 2)}:${fn:substring(rawTime, 2, 4)}" />
+											<c:out value="${formattedTime}" />
+										</c:if>
+									</div>
+								</div>
+							</div>
+		
+							<div class="mb-2 pb-4">
+								<i class="ci-moon me-2 text-success fw-bold  h2"></i>
+								<c:if
+									test="${pharmacy.phop1e >= 2200 or pharmacy.phop2e >= 2200  or pharmacy.phop3e >= 2200  or pharmacy.phop4e >= 2200
+		                                          or pharmacy.phop5e >= 2200  or pharmacy.phop6e >= 2200  or pharmacy.phop7e >= 2200  or pharmacy.phop8e >= 2200}">  심야약국  </c:if>
+								<c:if test="${pharmacy.phop7s != null }"> &nbsp; 주말약국  </c:if>
+							</div>
+							<div class="mb-2 pb-4">
+								<i class="ci-home me-2 text-success fw-bold  h2"></i> 편안한 분위기와
+								전문적인 상담으로, 약물 복용에 대한 궁금증을 해결해 드립니다.
+							</div>
+						</div>
+					</div>
+				</div>
+				<hr class="mb-4">
+				<br>
+			</section>
+		
+		
+			<!-- Reviews-->
+			<section>
+				<div class="border-top border-bottom my-lg-3 py-5">
+					<div class="container pt-md-2" id="reviews">
+						<div class="row pb-3">
+							<div class="col-lg-4 col-md-5">
+								<h2 class="h3 mb-4">74 Reviews</h2>
+								<div class="star-rating me-2">
+									<i class="ci-star-filled fs-sm text-accent me-1"></i><i
+										class="ci-star-filled fs-sm text-accent me-1"></i><i
+										class="ci-star-filled fs-sm text-accent me-1"></i><i
+										class="ci-star-filled fs-sm text-accent me-1"></i><i
+										class="ci-star fs-sm text-muted me-1"></i>
+								</div>
+								<span class="d-inline-block align-middle">4.1 Overall
+									rating</span>
+								<p class="pt-3 fs-sm text-muted">
+									58 out of 74 (77%)<br>Customers recommended this pharmacy
+								</p>
+							</div>
+							<div class="col-lg-8 col-md-7">
+								<div class="d-flex align-items-center mb-2">
+									<div class="text-nowrap me-3">
+										<span class="d-inline-block align-middle text-muted">5</span><i
+											class="ci-star-filled fs-xs ms-1"></i>
+									</div>
+									<div class="w-100">
+										<div class="progress" style="height: 4px;">
+											<div class="progress-bar bg-success" role="progressbar"
+												style="width: 60%;" aria-valuenow="60" aria-valuemin="0"
+												aria-valuemax="100"></div>
+										</div>
+									</div>
+									<span class="text-muted ms-3">43</span>
+								</div>
+								<div class="d-flex align-items-center mb-2">
+									<div class="text-nowrap me-3">
+										<span class="d-inline-block align-middle text-muted">4</span><i
+											class="ci-star-filled fs-xs ms-1"></i>
+									</div>
+									<div class="w-100">
+										<div class="progress" style="height: 4px;">
+											<div class="progress-bar" role="progressbar"
+												style="width: 27%; background-color: #a7e453;"
+												aria-valuenow="27" aria-valuemin="0" aria-valuemax="100">
+											</div>
+										</div>
+									</div>
+									<span class="text-muted ms-3">16</span>
+								</div>
+								<div class="d-flex align-items-center mb-2">
+									<div class="text-nowrap me-3">
+										<span class="d-inline-block align-middle text-muted">3</span><i
+											class="ci-star-filled fs-xs ms-1"></i>
+									</div>
+									<div class="w-100">
+										<div class="progress" style="height: 4px;">
+											<div class="progress-bar" role="progressbar"
+												style="width: 17%; background-color: #ffda75;"
+												aria-valuenow="17" aria-valuemin="0" aria-valuemax="100">
+											</div>
+										</div>
+									</div>
+									<span class="text-muted ms-3">9</span>
+								</div>
+								<div class="d-flex align-items-center mb-2">
+									<div class="text-nowrap me-3">
+										<span class="d-inline-block align-middle text-muted">2</span><i
+											class="ci-star-filled fs-xs ms-1"></i>
+									</div>
+									<div class="w-100">
+										<div class="progress" style="height: 4px;">
+											<div class="progress-bar" role="progressbar"
+												style="width: 9%; background-color: #fea569;"
+												aria-valuenow="9" aria-valuemin="0" aria-valuemax="100">
+											</div>
+										</div>
+									</div>
+									<span class="text-muted ms-3">4</span>
+								</div>
+								<div class="d-flex align-items-center">
+									<div class="text-nowrap me-3">
+										<span class="d-inline-block align-middle text-muted">1</span><i
+											class="ci-star-filled fs-xs ms-1"></i>
+									</div>
+									<div class="w-100">
+										<div class="progress" style="height: 4px;">
+											<div class="progress-bar bg-danger" role="progressbar"
+												style="width: 4%;" aria-valuenow="4" aria-valuemin="0"
+												aria-valuemax="100"></div>
+										</div>
+									</div>
+									<span class="text-muted ms-3">2</span>
+								</div>
+							</div>
+						</div>
+						<hr class="mt-4 mb-3">
+						<div class="row pt-4">
+							<!-- Reviews list-->
+							<div class="col-md-7">
+								<div class="d-flex justify-content-end pb-4"></div>
+		
+								<c:forEach var="item" items="${replyList}">
+									<!-- Review-->
+									<div class="pharmacy-review pb-4 mb-4 border-bottom">
+										<div class="d-flex mb-3">
+											<div class="d-flex align-items-center me-4 pe-2">
+												<img class="rounded-circle"
+													src="${path}/resources/imgs/review/0${loginMember.mno}.jpg"
+													width="50" alt="Rafael Marquez">
+												<div class="ps-3">
+													<h6 class="fs-sm mb-0">${item.name}</h6>
+													<span class="fs-ms text-muted"> <fmt:formatDate
+															type="both" value="${item.createDate}" />
+													</span>
+												</div>
+											</div>
+											<div>
+												<div class="star-rating">
+													<c:forEach begin="1" end="${item.rating}">
+														<i class="star-rating-icon ci-star-filled active"></i>
+													</c:forEach>
+													<c:forEach begin="1" end="${5 - item.rating}">
+														<i class="star-rating-icon ci-star"></i>
+													</c:forEach>
+												</div>
+											</div>
+										</div>
+										<p class="fs-md mb-2">${item.content}</p>
+										<c:if
+											test="${loginMember != null && loginMember.mno == item.mno}">
+											<form class="text-end" action="${path}/pharmacy/deleteReply"
+												method="post">
+												<input type="hidden" name="rno" value="${item.rno}"> <input
+													type="hidden" name="phno" value="${item.phno}">
+												<button class="btn">삭제</button>
+											</form>
+										</c:if>
+									</div>
+								</c:forEach>
+							</div>
+							<!--  -->
+		
+							<!-- Leave review form-->
+							<div class="col-md-5 mt-2 pt-4 mt-md-0 pt-md-0">
+								<div class="bg-secondary py-grid-gutter px-grid-gutter rounded-3">
+									<h3 class="h4 pb-2">리뷰 쓰기</h3>
+									<form class="needs-validation"
+										action="${path}/pharmacy/writeReply" method="post" novalidate>
+										<input type="hidden" name="phno" value="${pharmacy.phno}">
+										<div class="mb-3">
+											<label class="form-label" for="review-rating">Rating<span
+												class="text-danger">*</span></label> <select name="score"
+												class="form-select" required id="review-rating">
+												<option value="">Choose rating</option>
+												<option value="5">5 stars</option>
+												<option value="4">4 stars</option>
+												<option value="3">3 stars</option>
+												<option value="2">2 stars</option>
+												<option value="1">1 star</option>
+											</select>
+											<div class="invalid-feedback">Please choose rating!</div>
+										</div>
+										<div class="mb-3">
+											<label class="form-label" for="review-text">Review<span
+												class="text-danger">*</span></label>
+											<textarea name="content" class="form-control" rows="6" required
+												id="review-text"></textarea>
+											<div class="invalid-feedback">Please write a review!</div>
+											<small class="form-text text-muted">Your review must be
+												at least 50 characters.</small>
+										</div>
+										<c:if test="${loginMember == null}">
+											<button class="btn btn-primary btn-shadow d-block w-100"
+												disabled type="submit">Submit a Review</button>
+										</c:if>
+										<c:if test="${loginMember != null}">
+											<button class="btn btn-primary btn-shadow d-block w-100"
+												type="submit">Submit a Review</button>
+										</c:if>
+		
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+</body>
 
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>

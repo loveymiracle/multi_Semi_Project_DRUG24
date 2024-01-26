@@ -345,11 +345,6 @@
 							<!-- Product-->
 							<div>
 								<div class="card product-card card-static">
-									<button class="btn-wishlist btn-sm" type="button"
-										data-bs-toggle="tooltip" data-bs-placement="left"
-										title="Add to wishlist">
-										<i class="ci-heart"></i>
-									</button>
 									<a class="card-img-top d-block overflow-hidden"
 										style="width: 200px"
 										href="${path}/shop/product?pno=${item.pno}"><img
