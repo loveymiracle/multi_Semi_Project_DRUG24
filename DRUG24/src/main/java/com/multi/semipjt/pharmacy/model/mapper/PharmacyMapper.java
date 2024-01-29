@@ -21,4 +21,10 @@ public interface PharmacyMapper {
 	 List<PharmacyReply> selectPharmacyReplyList(int pNo);
 	 int updatePharmacyAVG(int pNo);
 	 int countPharmacyReply(int pNo);
+	 
+	 int countPharmacyReply5(int pNo);
+	 int countPharmacyReply4(int pNo);
+	 int countPharmacyReply3(int pNo);
+	 int countPharmacyReply2(int pNo);
+	 int countPharmacyReply1(int pNo);
 }

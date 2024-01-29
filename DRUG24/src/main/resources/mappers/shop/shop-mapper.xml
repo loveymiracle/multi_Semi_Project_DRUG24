@@ -94,7 +94,7 @@
 	
 	
 	<insert id="insertProductReply" parameterType="com.multi.semipjt.shop.model.vo.ProductReply">
-		insert into ProductReply (rNo, mNo, pNo, content, rating, createDate) 
+		insert into ProductReply (rNo, mNo, pno, content, rating, createDate) 
 		values (0, #{mno}, #{pno}, #{content}, #{rating}, default)
 	</insert>
 	
@@ -109,10 +109,32 @@
 		WHERE pno = #{pno}
 	</select>
 	
-	<select id="countProductReply" parameterType="int">
+	<select id="countProductReply" resultType="int" parameterType="int">
 		SELECT COUNT(*) FROM ProductReply
 		WHERE pno = #{pno}
 	</select>
+	
+	<select id="countProductReply5" resultType="int" parameterType="int">
+		SELECT COUNT(*) FROM ProductReply
+		WHERE pno = #{pno} AND rating = 5
+	</select>
+	<select id="countProductReply4" resultType="int" parameterType="int">
+		SELECT COUNT(*) FROM ProductReply
+		WHERE pno = #{pno} AND rating = 4
+	</select>
+	<select id="countProductReply3" resultType="int" parameterType="int">
+		SELECT COUNT(*) FROM ProductReply
+		WHERE pno = #{pno} AND rating = 3
+	</select>
+	<select id="countProductReply2" resultType="int" parameterType="int">
+		SELECT COUNT(*) FROM ProductReply
+		WHERE pno = #{pno} AND rating = 2
+	</select>
+	<select id="countProductReply1" resultType="int" parameterType="int">
+		SELECT COUNT(*) FROM ProductReply
+		WHERE pno = #{pno} AND rating = 1
+	</select>
+	
 	
 	<update id="updateProductAVG"  parameterType="int">
 		UPDATE product set rating = (SELECT AVG(rating) FROM ProductReply where pno = #{pno}) where pNo = #{pno}

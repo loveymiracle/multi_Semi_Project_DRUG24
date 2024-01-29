@@ -492,10 +492,10 @@
             });
             </script> 
 
-<<<<<<< HEAD
+
           
           <!-- Sidebar with banners-->
-=======
+
           <!--  가장 잘팔린의약품
           <aside class="col-lg-4 d-none d-lg-block">
             <div class="d-lg-block p-4 ms-auto w-100" id=scroll style="position:absolute;right:0;top:0; max-width: 15%; margin-top:20rem; background-color:white; border-radius: 2rem">
@@ -541,7 +541,6 @@
           </aside>
           -->
           
->>>>>>> branch 'master' of https://github.com/loveymiracle/mulProject.git
         </div>
       </div>
   </main>

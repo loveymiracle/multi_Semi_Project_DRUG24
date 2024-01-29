@@ -150,19 +150,20 @@
 				<div class="container pt-md-2" id="reviews">
 					<div class="row pb-3">
 						<div class="col-lg-4 col-md-5">
-							<h2 class="h3 mb-4">74 Reviews</h2>
-							<div class="star-rating me-2">
-								<i class="ci-star-filled fs-sm text-accent me-1"></i><i
-									class="ci-star-filled fs-sm text-accent me-1"></i><i
-									class="ci-star-filled fs-sm text-accent me-1"></i><i
-									class="ci-star-filled fs-sm text-accent me-1"></i><i
-									class="ci-star fs-sm text-muted me-1"></i>
+							<h3 class="h4 mb-4">총 리뷰 갯수: ${replyCount}개</h3> 
+			                <div>
+								<div class="star-rating">
+									<c:forEach begin="1" end="${average}">
+										<i class="ci-star-filled fs-sm text-accent me-1"></i>
+									</c:forEach>
+									<c:forEach begin="1" end="${5 - average}">
+										<i class="ci-star fs-sm text-muted me-1"></i>
+									</c:forEach>
+								</div>
 							</div>
-							<span class="d-inline-block align-middle">4.1 Overall rating</span>
-							<p class="pt-3 fs-sm text-muted">
-								58 out of 74 (77%)<br>Customers recommended this product
-							</p>
-						</div>
+							<span class="d-inline-block align-middle">${average} 총 평점</span>
+			                <p class="pt-3 fs-sm text-muted">${replyCount} 명중 ${reply5 + reply4}명 (${recommand}%)<br>의 고객이 이 제품을 추천합니다</p>
+			              </div>
 						<div class="col-lg-8 col-md-7">
 							<div class="d-flex align-items-center mb-2">
 								<div class="text-nowrap me-3">
@@ -170,74 +171,42 @@
 										class="ci-star-filled fs-xs ms-1"></i>
 								</div>
 								<div class="w-100">
-									<div class="progress" style="height: 4px;">
-										<div class="progress-bar bg-success" role="progressbar"
-											style="width: 60%;" aria-valuenow="60" aria-valuemin="0"
-											aria-valuemax="100">
-										</div>
-									</div>
-								</div>
-								<span class="text-muted ms-3">43</span>
-							</div>
-							<div class="d-flex align-items-center mb-2">
-								<div class="text-nowrap me-3">
-									<span class="d-inline-block align-middle text-muted">4</span><i
-										class="ci-star-filled fs-xs ms-1"></i>
-								</div>
-								<div class="w-100">
-									<div class="progress" style="height: 4px;">
-										<div class="progress-bar" role="progressbar"
-											style="width: 27%; background-color: #a7e453;"
-											aria-valuenow="27" aria-valuemin="0" aria-valuemax="100">
-										</div>
-									</div>
-								</div>
-								<span class="text-muted ms-3">16</span>
-							</div>
-							<div class="d-flex align-items-center mb-2">
-								<div class="text-nowrap me-3">
-									<span class="d-inline-block align-middle text-muted">3</span><i
-										class="ci-star-filled fs-xs ms-1"></i>
-								</div>
-								<div class="w-100">
-									<div class="progress" style="height: 4px;">
-										<div class="progress-bar" role="progressbar"
-											style="width: 17%; background-color: #ffda75;"
-											aria-valuenow="17" aria-valuemin="0" aria-valuemax="100">
-										</div>
-									</div>
-								</div>
-								<span class="text-muted ms-3">9</span>
-							</div>
-							<div class="d-flex align-items-center mb-2">
-								<div class="text-nowrap me-3">
-									<span class="d-inline-block align-middle text-muted">2</span><i
-										class="ci-star-filled fs-xs ms-1"></i>
-								</div>
-								<div class="w-100">
-									<div class="progress" style="height: 4px;">
-										<div class="progress-bar" role="progressbar"
-											style="width: 9%; background-color: #fea569;" aria-valuenow="9"
-											aria-valuemin="0" aria-valuemax="100">
-										</div>
-									</div>
-								</div>
-								<span class="text-muted ms-3">4</span>
-							</div>
-							<div class="d-flex align-items-center">
-								<div class="text-nowrap me-3">
-									<span class="d-inline-block align-middle text-muted">1</span><i
-										class="ci-star-filled fs-xs ms-1"></i>
-								</div>
-								<div class="w-100">
-									<div class="progress" style="height: 4px;">
-										<div class="progress-bar bg-danger" role="progressbar"
-											style="width: 4%;" aria-valuenow="4" aria-valuemin="0"
-											aria-valuemax="100">
-										</div>
-									</div>
-								</div>
-								<span class="text-muted ms-3">2</span>
+			                    <div class="progress" style="height: 4px;">
+			                      <div class="progress-bar bg-success" role="progressbar" style="width: ${rate5}%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+			                    </div>
+			                  </div><span class="text-muted ms-3">${reply5}</span>
+			                </div>
+			                <div class="d-flex align-items-center mb-2">
+			                  <div class="text-nowrap me-3"><span class="d-inline-block align-middle text-muted">4</span><i class="ci-star-filled fs-xs ms-1"></i></div>
+			                  <div class="w-100">
+			                    <div class="progress" style="height: 4px;">
+			                      <div class="progress-bar" role="progressbar" style="width: ${rate4}%; background-color: #a7e453;" aria-valuenow="27" aria-valuemin="0" aria-valuemax="100"></div>
+			                    </div>
+			                  </div><span class="text-muted ms-3">${reply4}</span>
+			                </div>
+			                <div class="d-flex align-items-center mb-2">
+			                  <div class="text-nowrap me-3"><span class="d-inline-block align-middle text-muted">3</span><i class="ci-star-filled fs-xs ms-1"></i></div>
+			                  <div class="w-100">
+			                    <div class="progress" style="height: 4px;">
+			                      <div class="progress-bar" role="progressbar" style="width: ${rate3}%; background-color: #ffda75;" aria-valuenow="17" aria-valuemin="0" aria-valuemax="100"></div>
+			                    </div>
+			                  </div><span class="text-muted ms-3">${reply3}</span>
+			                </div>
+			                <div class="d-flex align-items-center mb-2">
+			                  <div class="text-nowrap me-3"><span class="d-inline-block align-middle text-muted">2</span><i class="ci-star-filled fs-xs ms-1"></i></div>
+			                  <div class="w-100">
+			                    <div class="progress" style="height: 4px;">
+			                      <div class="progress-bar" role="progressbar" style="width: ${rate2}%; background-color: #fea569;" aria-valuenow="9" aria-valuemin="0" aria-valuemax="100"></div>
+			                    </div>
+			                  </div><span class="text-muted ms-3">${reply2}</span>
+			                </div>
+			                <div class="d-flex align-items-center">
+			                  <div class="text-nowrap me-3"><span class="d-inline-block align-middle text-muted">1</span><i class="ci-star-filled fs-xs ms-1"></i></div>
+			                  <div class="w-100">
+			                    <div class="progress" style="height: 4px;">
+			                      <div class="progress-bar bg-danger" role="progressbar" style="width: ${rate1}%;" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100"></div>
+			                    </div>
+			                  </div><span class="text-muted ms-3">${reply1}</span>
 							</div>
 						</div>
 					</div>
@@ -254,7 +223,7 @@
 										<div class="d-flex align-items-center me-4 pe-2">
 											<img class="rounded-circle"
 												src="${path}/resources/imgs/profile/0${item.mno}.png"
-												width="50" alt="Rafael Marquez">
+												width="50" alt="${item.name}">
 											<div class="ps-3">
 												<h6 class="fs-sm mb-0">${item.name}</h6>
 												<span class="fs-ms text-muted"> <fmt:formatDate
@@ -287,45 +256,39 @@
 						</div>
 						<!--  -->
 	
-						<!-- Leave review form-->
-						<div class="col-md-5 mt-2 pt-4 mt-md-0 pt-md-0">
-							<div class="bg-secondary py-grid-gutter px-grid-gutter rounded-3">
-								<h3 class="h4 pb-2">리뷰 쓰기</h3>
-								<form class="needs-validation" action="${path}/shop/writeReply"
-									method="post" novalidate>
-									<input type="hidden" name="pno" value="${product.pno}">
-									<div class="mb-3">
-										<label class="form-label" for="review-rating">Rating<span
-											class="text-danger">*</span></label> <select name="score"
-											class="form-select" required id="review-rating">
-											<option value="">Choose rating</option>
-											<option value="5">5 stars</option>
-											<option value="4">4 stars</option>
-											<option value="3">3 stars</option>
-											<option value="2">2 stars</option>
-											<option value="1">1 star</option>
-										</select>
-										<div class="invalid-feedback">Please choose rating!</div>
-									</div>
-									<div class="mb-3">
-										<label class="form-label" for="review-text">Review<span
-											class="text-danger">*</span></label>
-										<textarea name="content" class="form-control" rows="6" required
-											id="review-text"></textarea>
-										<div class="invalid-feedback">Please write a review!</div>
-										<small class="form-text text-muted">Your review must be
-											at least 50 characters.</small>
-									</div>
-									<c:if test="${loginMember == null}">
-										<button class="btn btn-primary btn-shadow d-block w-100" disabled
-											type="submit">Submit a Review</button>
-									</c:if>
-									<c:if test="${loginMember != null}">
-										<button class="btn btn-primary btn-shadow d-block w-100"
-											type="submit">Submit a Review</button>
-									</c:if>
+						<!-- 리뷰 작성하기 writereply-->
+			              <div class="col-md-5 mt-2 pt-4 mt-md-0 pt-md-0">
+			                <div class="bg-secondary py-grid-gutter px-grid-gutter rounded-3">
+			                  <h3 class="h4 pb-2">리뷰 작성하기</h3>
+			                  <form class="needs-validation" action="${path}/shop/writeReply" method="post" novalidate>
+			                    <input type="hidden" name="dno" value="${product.pno}">
 			
-								</form>
+			                    <div class="mb-3">
+			                      <label class="form-label" for="review-rating">평점<span class="text-danger">*</span></label>
+			                      <select class="form-select" required id="review-rating" name="rating">
+			                        <option value="">평점을 고르세요</option>
+			                        <option value="5">5 점</option>
+			                        <option value="4">4 점</option>
+			                        <option value="3">3 점</option>
+			                        <option value="2">2 점</option>
+			                        <option value="1">1 점</option>
+			                      </select>
+			                      <div class="invalid-feedback">평점을 골라주세요</div>
+			                    </div>
+			                    <div class="mb-3">
+			                      <label class="form-label" for="review-text">리뷰<span class="text-danger">*</span></label>
+			                      <textarea class="form-control" rows="6" required id="review-text" name="content"></textarea>
+			                      <div class="invalid-feedback">리뷰를 작성해주세요</div><small class="form-text text-muted">리뷰가 최소 50자를 넘어야 합니다.</small>
+			                    </div>
+			                    <c:if test="${loginMember == null}">
+								<button class="btn btn-primary btn-shadow d-block w-100"
+									disabled type="submit">리뷰 작성하기</button>
+								</c:if>
+								<c:if test="${loginMember != null}">
+								<button class="btn btn-primary btn-shadow d-block w-100"
+									type="submit">리뷰 작성하기</button>
+								</c:if>
+			                  </form>
 							</div>
 						</div>
 					</div>

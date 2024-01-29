@@ -60,4 +60,20 @@ public class PharmacyService {
 	public int countPharmacyReply(int phNo) {
 		return mapper.countPharmacyReply(phNo);
 	}
+	
+	public int countPharmacyReply5(int phNo) {
+		return mapper.countPharmacyReply5(phNo);
+	}
+	public int countPharmacyReply4(int phNo) {
+		return mapper.countPharmacyReply4(phNo);
+	}
+	public int countPharmacyReply3(int phNo) {
+		return mapper.countPharmacyReply3(phNo);
+	}
+	public int countPharmacyReply2(int phNo) {
+		return mapper.countPharmacyReply2(phNo);
+	}
+	public int countPharmacyReply1(int phNo) {
+		return mapper.countPharmacyReply1(phNo);
+	}
 }

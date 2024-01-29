@@ -18,10 +18,15 @@ public interface ShopMapper {
 	
 	
 	int insertProductReply(ProductReply reply);
-	int deleteProductReply(int rNO);
-	List<ProductReply> selectProductReplyList(int pNo);
-	int updateProductAVG(int pNo);
-	int countProductReply(int pNo);
+	int deleteProductReply(int rNo);
+	List<ProductReply> selectProductReplyList(int pNO);
+	int updateProductAVG(int pNO);
+	int countProductReply(int pNO);
+	int countProductReply5(int pNO);
+	int countProductReply4(int pNO);
+	int countProductReply3(int pNO);
+	int countProductReply2(int pNO);
+	int countProductReply1(int pNO);
 	
 	
 	List<Cart> selectCart(Map<String, String> map);

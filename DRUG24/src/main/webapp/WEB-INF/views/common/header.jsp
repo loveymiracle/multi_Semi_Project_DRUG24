@@ -203,12 +203,7 @@
 							                    <a class="dropdown-item d-flex align-items-center" href="${path}/logout"><i class="ci-sign-out opacity-60 me-2"></i>Sign Out</a>
 							                  </div>
 							                </div>
-							              </div>
-											
-											
-											
-											
-											
+							              </div>				
 										</div>
 									</div>
 								</c:if>
