@@ -12,8 +12,16 @@ public class MedicineParam {
 		private String searchValue4; 
 		
 		private String searchType2; 
-		private String searchType3; 
-		private String searchType4; 
+		private String content; 
+		
+		public String getContent() {
+			return content;
+		}
+
+		public void setContent(String content) {
+			this.content = content;
+		}
+		private int rating;
 
 		private int page = 1;
 		private int limit;
@@ -34,20 +42,32 @@ public class MedicineParam {
 			this.searchValue3 = searchValue3;
 			this.searchValue4 = searchValue4;
 			this.searchType2 = searchType2;
-			this.searchType3 = searchType3;
-			this.searchType4 = searchType4;
+			this.content = content;
+			this.rating = rating;
 			this.page = page;
 			this.limit = limit;
 			this.offset = offset;
 		}
+		
+		
 
 		@Override
 		public String toString() {
 			return "MedicineParam [searchValue=" + searchValue + ", searchValue1=" + searchValue1 + ", searchValue2="
 					+ searchValue2 + ", searchValue3=" + searchValue3 + ", searchValue4=" + searchValue4
-					+ ", searchType2=" + searchType2 + ", searchType3=" + searchType3 + ", searchType4=" + searchType4
-					+ ", page=" + page + ", limit=" + limit + ", offset=" + offset + "]";
+					+ ", searchType2=" + searchType2 + ", content=" + content + ", rating=" + rating + ", page=" + page
+					+ ", limit=" + limit + ", offset=" + offset + "]";
 		}
+
+		public int getRating() {
+			return rating;
+		}
+
+		public void setRating(int rating) {
+			this.rating = rating;
+		}
+
+
 		public String getSearchValue() {
 			return searchValue;
 		}
@@ -84,18 +104,7 @@ public class MedicineParam {
 		public void setSearchType2(String searchType2) {
 			this.searchType2 = searchType2;
 		}
-		public String getSearchType3() {
-			return searchType3;
-		}
-		public void setSearchType3(String searchType3) {
-			this.searchType3 = searchType3;
-		}
-		public String getSearchType4() {
-			return searchType4;
-		}
-		public void setSearchType4(String searchType4) {
-			this.searchType4 = searchType4;
-		}
+
 		public int getPage() {
 			return page;
 		}
