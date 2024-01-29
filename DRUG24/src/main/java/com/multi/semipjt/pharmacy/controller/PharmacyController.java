@@ -98,9 +98,41 @@ public class PharmacyController {
     	   return "redirect:error";
        }
        List<PharmacyReply> replyList = service.getPharmacyReplyList(phno);
+       int reviewCount = service.countPharmacyReply(phno);
+       int review5 = service.countPharmacyReply5(phno);
+       int review4 = service.countPharmacyReply4(phno);
+       int review3 = service.countPharmacyReply3(phno);
+       int review2 = service.countPharmacyReply2(phno);
+       int review1 = service.countPharmacyReply1(phno);
+       
+       double rate5 = (review5 + 1) / (double)reviewCount * 100;
+       double rate4 = (review4 + 1) / (double)reviewCount * 100;
+       double rate3 = (review3 + 1) / (double)reviewCount * 100;
+       double rate2 = (review2 + 1) / (double)reviewCount * 100;
+       double rate1 = (review1 + 1) / (double)reviewCount * 100;
+       
+       double average = Math.round(((review5 * 5) + (review4 * 4) + (review3 * 3) + (review2 * 2) + (review1 * 1))/(double)reviewCount * 100) / 100.0;
+       System.out.println("dbg1, rate5:" + rate5 +" review5:" + review5 + " reviewCount:" + reviewCount);
+       int recommand = (int)((review5+review4)/ (double)reviewCount * 100);
+       
        
        model.addAttribute("pharmacy", pharmacy);
        model.addAttribute("replyList", replyList);
+       model.addAttribute("replyCount", reviewCount);
+       model.addAttribute("reply5", review5);
+       model.addAttribute("reply4", review4);
+       model.addAttribute("reply3", review3);
+       model.addAttribute("reply2", review2);
+       model.addAttribute("reply1", review1);
+       model.addAttribute("rate5", rate5);
+       model.addAttribute("rate4", rate4);
+       model.addAttribute("rate3", rate3);
+       model.addAttribute("rate2", rate2);
+       model.addAttribute("rate1", rate1);
+       model.addAttribute("average", average);
+       model.addAttribute("recommand", recommand);
+       
+       
        
        Member member = (Member) session.getAttribute("loginMember");
        List<Product> cartList = new ArrayList<Product>();
@@ -110,7 +142,7 @@ public class PharmacyController {
        model.addAttribute("cartList", cartList);
        model.addAttribute("cartSize", cartList.size());
        
-       return "pharmacy/pharmacyView";
+       return "pharmacy/pharmacyview";
     }
 	
 	@PostMapping("/pharmacy/writeReply")

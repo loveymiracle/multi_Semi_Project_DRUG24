@@ -48,16 +48,32 @@ public class ShopService {
 		return mapper.deleteProductReply(rNo);
 	}
 	
-	public List<ProductReply> getProductReplyList(int pNo){
-		return mapper.selectProductReplyList(pNo);
+	public List<ProductReply> getProductReplyList(int pNO){
+		return mapper.selectProductReplyList(pNO);
 	}
 	
-	public int updateProductAVG(int pNo) {
-		return mapper.updateProductAVG(pNo);
+	public int updateProductAVG(int pNO) {
+		return mapper.updateProductAVG(pNO);
 	}
 	
-	public int countProductReply(int pNo) {
-		return mapper.countProductReply(pNo);
+	public int countProductReply(int pNO) {
+		return mapper.countProductReply(pNO);
+	}
+	
+	public int countProductReply5(int pNO) {
+		return mapper.countProductReply5(pNO);
+	}
+	public int countProductReply4(int pNO) {
+		return mapper.countProductReply4(pNO);
+	}
+	public int countProductReply3(int pNO) {
+		return mapper.countProductReply3(pNO);
+	}
+	public int countProductReply2(int pNO) {
+		return mapper.countProductReply2(pNO);
+	}
+	public int countProductReply1(int pNO) {
+		return mapper.countProductReply1(pNO);
 	}
 	
 	public List<Cart> getCart(Map<String, String> map){

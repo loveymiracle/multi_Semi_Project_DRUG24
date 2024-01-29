@@ -102,12 +102,40 @@ public class ShopController {
 		List<Product> plist2 = shopService.getProductList(pageInfo, map);
 		plist1.addAll(plist2);
 		Collections.shuffle(plist1);
+		
+		int reviewCount = shopService.countProductReply(pno);
+        int review5 = shopService.countProductReply5(pno);
+        int review4 = shopService.countProductReply4(pno);
+        int review3 = shopService.countProductReply3(pno);
+        int review2 = shopService.countProductReply2(pno);
+        int review1 = shopService.countProductReply1(pno);
+       
+        double rate5 = (review5 + 1) / (double)reviewCount * 100;
+        double rate4 = (review4 + 1) / (double)reviewCount * 100;
+        double rate3 = (review3 + 1) / (double)reviewCount * 100;
+        double rate2 = (review2 + 1) / (double)reviewCount * 100;
+        double rate1 = (review1 + 1) / (double)reviewCount * 100;
+       
+        double average = Math.round(((review5 * 5) + (review4 * 4) + (review3 * 3) + (review2 * 2) + (review1 * 1))/(double)reviewCount * 100) / 100.0;
+        System.out.println("dbg1, rate5:" + rate5 +" review5:" + review5 + " reviewCount:" + reviewCount);
+        int recommand = (int)((review5+review4)/ (double)reviewCount * 100);
+		
 		model.addAttribute("plist1", plist1);
-		
-		
 		model.addAttribute("product", product);
-		model.addAttribute("plist1", plist1);
 		model.addAttribute("replyList", replyList);
+		model.addAttribute("replyCount", reviewCount);
+        model.addAttribute("reply5", review5);
+        model.addAttribute("reply4", review4);
+        model.addAttribute("reply3", review3);
+        model.addAttribute("reply2", review2);
+        model.addAttribute("reply1", review1);
+        model.addAttribute("rate5", rate5);
+        model.addAttribute("rate4", rate4);
+        model.addAttribute("rate3", rate3);
+        model.addAttribute("rate2", rate2);
+        model.addAttribute("rate1", rate1);
+        model.addAttribute("average", average);
+        model.addAttribute("recommand", recommand);
 		
 		Member member = (Member) session.getAttribute("loginMember");
 		List<Product> cartList = new ArrayList<Product>();

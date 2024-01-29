@@ -122,7 +122,7 @@
 		WHERE phno = #{phno}
 	</select>
 	
-	<select id="countPharmacyReply" parameterType="int">
+	<select id="countPharmacyReply" resultType="int" parameterType="int">
 		SELECT COUNT(*) FROM PharmacyReply
 		WHERE phno = #{phno}
 	</select>
@@ -130,6 +130,27 @@
 	<update id="updatePharmacyAVG"  parameterType="int">
 		UPDATE product set rating = (SELECT AVG(rating) FROM PharmacyReply where phno = #{phno}) where phNo = #{phno}
 	</update>
+	
+	<select id="countPharmacyReply5" resultType="int" parameterType="int">
+		SELECT COUNT(*) FROM PharmacyReply
+		WHERE phno = #{phno} AND rating = 5
+	</select>
+	<select id="countPharmacyReply4" resultType="int" parameterType="int">
+		SELECT COUNT(*) FROM PharmacyReply
+		WHERE phno = #{phno} AND rating = 4
+	</select>
+	<select id="countPharmacyReply3" resultType="int" parameterType="int">
+		SELECT COUNT(*) FROM PharmacyReply
+		WHERE phno = #{phno} AND rating = 3
+	</select>
+	<select id="countPharmacyReply2" resultType="int" parameterType="int">
+		SELECT COUNT(*) FROM PharmacyReply
+		WHERE phno = #{phno} AND rating = 2
+	</select>
+	<select id="countPharmacyReply1" resultType="int" parameterType="int">
+		SELECT COUNT(*) FROM PharmacyReply
+		WHERE phno = #{phno} AND rating = 1
+	</select>
 	
 </mapper>
 

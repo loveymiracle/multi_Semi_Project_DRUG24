@@ -541,7 +541,10 @@
           </aside>
           -->
           
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of https://github.com/loveymiracle/mulProject.git
         </div>
       </div>
   </main>

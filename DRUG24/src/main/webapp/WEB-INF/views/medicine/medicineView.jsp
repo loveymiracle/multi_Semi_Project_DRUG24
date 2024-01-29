@@ -61,12 +61,15 @@
               <div class="bg-white h-100 p-4 ms-auto border-start">
 
                 <div class="px-lg-2">
+<<<<<<< HEAD
                   <div class="accordion-header d-flex justify-content-between align-items-center py-3">
                     <div class="form-check" data-bs-toggle="collapse" data-bs-target="#standard-license">
                       <input class="form-check-input" type="radio" name="license" id="license-std" checked>
                       <label class="form-check-label fw-medium text-dark" for="license-std">${medicine.dname}</label>
                     </div>
                   </div>
+=======
+>>>>>>> branch 'master' of https://github.com/loveymiracle/mulProject.git
 
 
                   <ul class="list-unstyled fs-sm">
@@ -77,12 +80,15 @@
                     <li class="d-flex justify-content-between mb-3 pb-3 border-bottom"><span class="text-dark fw-medium">유통기간</span><span class="text-muted">제조일로부터 24개월</span></li>
                     <li class="d-flex justify-content-between mb-3 pb-3 border-bottom"><span class="text-dark fw-medium">제형</span><span class="text-muted">타블렛</span></li>
 
+<<<<<<< HEAD
                     <li class="d-flex justify-content-between mb-3 pb-3 border-bottom"><span class="text-dark fw-medium fs-5">판매처</span><span class="text-muted">${medicine.dcompany}</span></li>
                     <li class="d-flex justify-content-between mb-3 pb-3 border-bottom"><span class="text-dark fw-medium fs-5">분류</span><span class="text-muted">${medicine.dotc_code}</span></li>
                     <li class="d-flex justify-content-between mb-3 pb-3 border-bottom"><span class="text-dark fw-medium fs-5">주요성분</span><a class="product-meta" href="#">건조수산화알루미늄겔</a></li>
                     <li class="d-flex justify-content-between mb-3 pb-3 border-bottom"><span class="text-dark fw-medium fs-5">유통기간</span><span class="text-muted">제조일로부터 36개월</span></li>
                     <li class="d-flex justify-content-between mb-3 pb-3 border-bottom"><span class="text-dark fw-medium fs-5">제형</span><span class="text-muted">밀폐용기</span></li>
 
+=======
+>>>>>>> branch 'master' of https://github.com/loveymiracle/mulProject.git
                   </ul>
                 </div>
               </div>
@@ -266,8 +272,14 @@
                       <textarea class="form-control" rows="6" required id="review-text" name="content"></textarea>
                       <div class="invalid-feedback">리뷰를 작성해주세요</div><small class="form-text text-muted">리뷰가 최소 50자를 넘어야 합니다.</small>
                     </div>
-                    <button class="btn btn-primary btn-shadow d-block w-100" type="submit">리뷰 작성하기
-                    </button>
+                    <c:if test="${loginMember == null}">
+					<button class="btn btn-primary btn-shadow d-block w-100"
+						disabled type="submit">리뷰 작성하기</button>
+					</c:if>
+					<c:if test="${loginMember != null}">
+					<button class="btn btn-primary btn-shadow d-block w-100"
+						type="submit">리뷰 작성하기</button>
+					</c:if>
                   </form>
                 </div>
               </div>
