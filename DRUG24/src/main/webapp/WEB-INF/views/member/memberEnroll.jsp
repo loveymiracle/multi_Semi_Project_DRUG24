@@ -44,14 +44,18 @@
 					<input style="width: 960px;" type="email" name="email" id="email" placeholder="abc@naver.com">
 					</div>
 				<div class="mb-3 ">
+				 <label class="form-label" for="su-name">phone</label>
+					<input style="width: 960px;" type="phone" name="phone" id="phone" placeholder="010-1111-2222">
+					</div>
+				<div class="mb-3 ">
 				 <label class="form-label" for="su-name">adress</label>
 					<input class="form-control" style="width: 960px;" type="text" id="address" name="address">
 					</div>
 		<div class="col-md-6">
 		<table>
 		<tr>
-			<th><button class="btn btn-primary btn-shadow d-block mb-5" style="width: 480px;" type="submit">Sign up</button></th>
-			<th><input class="btn btn-primary btn-shadow d-block  pt-2 mt-2 mb-5" style="width: 480px;" type="reset" value="취소">Cancle</th>
+			<th><button class="btn btn-primary btn-shadow d-block mt-2 mb-5" style="width: 480px; height:50px;" type="submit">Sign up</button></th>
+			<th><input class="btn btn-primary btn-shadow d-block mb-5" style="width: 480px; height:50px;" type="reset" value="취소"></th>
 		</tr>
 		</table>
 		</div>

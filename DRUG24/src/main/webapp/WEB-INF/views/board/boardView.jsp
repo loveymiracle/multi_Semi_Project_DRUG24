@@ -121,7 +121,7 @@
 				  <!-- Review-->
 		          <div class="product-review pb-4 mb-4 border-bottom">
 		            <div class="d-flex mb-3">
-		              <div class="d-flex align-items-center me-4 pe-2"><img class="rounded-circle" src="${path}/resources/imgs/profile/02.png"
+		              <div class="d-flex align-items-center me-4 pe-2"><img class="rounded-circle" src="${path}/resources/imgs/profile/0${loginmember.mno}.png"
 		                  width="50" alt="name">
 		                <div class="ps-3">
 		                  <h6 class="fs-sm mb-0">

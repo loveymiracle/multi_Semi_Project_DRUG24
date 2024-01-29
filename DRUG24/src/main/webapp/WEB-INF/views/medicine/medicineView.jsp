@@ -44,9 +44,6 @@
                 </div>
                 <!-- Wishlist + Sharing-->
                 <div class="d-flex flex-wrap justify-content-between align-items-center border-top pt-3">
-                  <div class="py-2 me-2">
-                    <button class="btn btn-outline-accent" type="button"><i class="ci-heart fs-lg me-2"></i>즐겨찾기 추가</button>
-                  </div>
                   <div class="py-2"><i class="ci-share-alt fs-lg align-middle text-muted me-2"></i><a class="btn-social bs-outline bs-facebook bs-sm ms-2" href="#"><i class="ci-facebook"></i></a><a class="btn-social bs-outline bs-twitter bs-sm ms-2" href="#"><i class="ci-twitter"></i></a><a class="btn-social bs-outline bs-pinterest bs-sm ms-2" href="#"><i class="ci-pinterest"></i></a><a class="btn-social bs-outline bs-instagram bs-sm ms-2" href="#"><i class="ci-instagram"></i></a></div>
                 </div>
               </div>
@@ -56,44 +53,18 @@
               <hr class="d-lg-none">
               <div class="bg-white h-100 p-4 ms-auto border-start">
                 <div class="px-lg-2">
-                  <div class="accordion accordion-flush" id="licenses">
-                    <div class="accordion-item border-bottom">
-                      <div class="accordion-header d-flex justify-content-between align-items-center py-3">
-                        <div class="form-check" data-bs-toggle="collapse" data-bs-target="#standard-license">
-                          <input class="form-check-input" type="radio" name="license" id="license-std" checked>
-                          <label class="form-check-label fw-medium text-dark" for="license-std">${medicine.dname}</label>
-                        </div>
-                        <hr>
-                        <h5 class="mb-0 text-accent fw-normal" id="price">${medicine.price}원</h5>
-                      </div>
-                      <div class="accordion-collapse collapse show" id="standard-license" data-bs-parent="#licenses">
-                        <div class="accordion-body py-0 pb-2">
-                          <label class="form-label" for="quantity1">구매 수량</label>
-                          <input class="form-control" type="number" id="quantity1" min="1" value="1">
-                          <button class="btn btn-link px-0 text-danger" type="button"></button>
-                        </div>
-                      </div>
+                  <div class="accordion-header d-flex justify-content-between align-items-center py-3">
+                    <div class="form-check" data-bs-toggle="collapse" data-bs-target="#standard-license">
+                      <input class="form-check-input" type="radio" name="license" id="license-std" checked>
+                      <label class="form-check-label fw-medium text-dark" for="license-std">${medicine.dname}</label>
                     </div>
-                    
-                  </div>
-                  <hr>
-                  <button class="btn btn-primary btn-shadow d-block w-100 mt-4" type="button"><i class="ci-cart fs-lg me-2"></i>장바구니 추가</button>
-                  <div class="bg-secondary rounded p-3 mt-4 mb-2"><a class="d-flex align-items-center" href="#"><img class="rounded-circle" src="imgs/account/Boryung_logo.png" width="50">
-                      <div class="ps-2"><span class="fs-ms text-muted">보령제약(hard coding)</span>
-                        <h6 class="fs-sm mb-0">기업회원</h6>
-                      </div></a></div>
-                  <div class="bg-secondary rounded p-3 mb-2"><i class="ci-download h5 text-muted align-middle mb-0 mt-n1 me-2"></i><span class="d-inline-block h6 mb-0 me-1">715</span><span class="fs-sm">(개) 판매완료</span></div>
-                  <div class="bg-secondary rounded p-3 mb-4">
-                    <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star"></i>
-                    </div><span class="fs-ms ms-2">4.1/5</span>
-                    <div class="fs-ms text-muted">총 74개의 리뷰(hard coding)</div>
                   </div>
                   <ul class="list-unstyled fs-sm">
-                    <li class="d-flex justify-content-between mb-3 pb-3 border-bottom"><span class="text-dark fw-medium">판매처</span><span class="text-muted">${medicine.dcompany}</span></li>
+                    <li class="d-flex justify-content-between mb-3 pb-3 border-bottom"><span class="text-dark fw-medium">제조사</span><span class="text-muted">${medicine.dcompany}</span></li>
                     <li class="d-flex justify-content-between mb-3 pb-3 border-bottom"><span class="text-dark fw-medium">분류</span><span class="text-muted">${medicine.dotc_code}</span></li>
                     <li class="d-flex justify-content-between mb-3 pb-3 border-bottom"><span class="text-dark fw-medium">주요성분</span><a class="product-meta" href="#">건조수산화알루미늄겔</a></li>
-                    <li class="d-flex justify-content-between mb-3 pb-3 border-bottom"><span class="text-dark fw-medium">유통기간</span><span class="text-muted">제조일로부터 36개월</span></li>
-                    <li class="d-flex justify-content-between mb-3 pb-3 border-bottom"><span class="text-dark fw-medium">제형</span><span class="text-muted">밀폐용기</span></li>
+                    <li class="d-flex justify-content-between mb-3 pb-3 border-bottom"><span class="text-dark fw-medium">유통기간</span><span class="text-muted">제조일로부터 24개월</span></li>
+                    <li class="d-flex justify-content-between mb-3 pb-3 border-bottom"><span class="text-dark fw-medium">제형</span><span class="text-muted">타블렛</span></li>
                   </ul>
                 </div>
               </div>
@@ -359,8 +330,6 @@
                   </div>
                   <h3 class="product-title fs-sm mb-2"><a href="#">에바치온캡슐(글루타티온)</a></h3>
                   <div class="d-flex flex-wrap justify-content-between align-items-center">
-                    <div class="fs-sm me-2"><i class="ci-download text-muted me-1"></i>109<span class="fs-xs ms-1">판매</span></div>
-                    <div class="bg-faded-accent text-accent rounded-1 py-1 px-2">₩15,000</small></div>
                   </div>
                 </div>
               </div>
@@ -382,8 +351,6 @@
                   </div>
                   <h3 class="product-title fs-sm mb-2"><a href="#">아로나민골드정</a></h3>
                   <div class="d-flex flex-wrap justify-content-between align-items-center">
-                    <div class="fs-sm me-2"><i class="ci-download text-muted me-1"></i>95<span class="fs-xs ms-1">판매완료</span></div>
-                    <div class="bg-faded-accent text-accent rounded-1 py-1 px-2">₩18,000</small></div>
                   </div>
                 </div>
               </div>
@@ -407,8 +374,6 @@
                   </div>
                   <h3 class="product-title fs-sm mb-2"><a href="#">에이스린장용정(아스피린)</a></h3>
                   <div class="d-flex flex-wrap justify-content-between align-items-center">
-                    <div class="fs-sm me-2"><i class="ci-download text-muted me-1"></i>95<span class="fs-xs ms-1">판매완료</span></div>
-                    <div class="bg-faded-accent text-accent rounded-1 py-1 px-2">₩18,000</small></div>
                   </div>
                 </div>
               </div>
@@ -432,8 +397,6 @@
                   </div>
                   <h3 class="product-title fs-sm mb-2"><a href="#">크린조</a></h3>
                   <div class="d-flex flex-wrap justify-content-between align-items-center">
-                    <div class="fs-sm me-2"><i class="ci-download text-muted me-1"></i>95<span class="fs-xs ms-1">판매완료</span></div>
-                    <div class="bg-faded-accent text-accent rounded-1 py-1 px-2">₩18,000</small></div>
                   </div>
                 </div>
               </div>

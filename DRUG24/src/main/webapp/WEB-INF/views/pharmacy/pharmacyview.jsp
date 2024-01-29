@@ -134,9 +134,9 @@
 								</div>
 							</div>
 		
-							<div class="row d-flex justify-content-between mb-4"
-								style="margin-left: 30px;">
-								<div class="col row mb-1">
+							<div class="row d-flex justify-content-around mb-4 ms-5"
+								>
+								<div class="col-6 row mb-1 ms-1">
 									<div>
 										월요일 &nbsp;
 										<c:set var="rawTime" value="${pharmacy.phop1s}" />
@@ -198,7 +198,7 @@
 										<c:out value="${formattedTime}" />
 									</div>
 								</div>
-								<div class="col mb-1" style="margin-right: 500px;">
+								<div class="col-6 mb-1 ms-1">
 		
 									<div>
 										토요일 &nbsp;
@@ -261,8 +261,6 @@
 						</div>
 					</div>
 				</div>
-				<hr class="mb-4">
-				<br>
 			</section>
 		
 		

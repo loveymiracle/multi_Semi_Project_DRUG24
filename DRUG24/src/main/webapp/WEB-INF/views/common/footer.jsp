@@ -49,7 +49,7 @@
 							<h3 class="widget-title text-light">Categories</h3>
 							<ul class="widget-list">
 								<li class="widget-list-item"><a class="widget-list-link"
-									href="#">Drug Search</a></li>
+									href="${path}/medicine/search">Drug Search</a></li>
 								<li class="widget-list-item"><a class="widget-list-link"
 									href="${path}/pharmacy/search">Pharmacy Search</a></li>
 								<li class="widget-list-item"><a class="widget-list-link"
@@ -66,6 +66,8 @@
 							<ul class="widget-list">
 								<li class="widget-list-item"><a class="widget-list-link"
 									href="${path}/board/list?types=NEWS">Health Info & News</a></li>
+								<li class="widget-list-item"><a class="widget-list-link"
+									href="${path}/member/view">My Page</a></li>
 								<li class="widget-list-item"><a class="widget-list-link"
 									href="${path}/board/list?types=QUESTION">Expert Q&A</a></li>
 								<li class="widget-list-item"><a class="widget-list-link"

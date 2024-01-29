@@ -98,10 +98,9 @@
 									Info</a>
 								<ul class="dropdown-menu">
 									<li><a class="dropdown-item" href="${path}/medicine/search">약 상세검색</a></li>
-									<li><a class="dropdown-item" href="#">복약 정보</a></li>
-									<li><a class="dropdown-item" href="#">안전성 서한</a></li>
-									<li class="dropdown-item" href="#">안전 사용</a></li>
-								</ul></li>
+									<li><a class="dropdown-item" href="${path}/drug/safetyletter">안전성 서한</a></li>
+									<li><a class="dropdown-item" href="${path}/drug/instruction">안전 사용</a></li>
+								</ul>
 							<li class="nav-item dropdown"><a
 								class="nav-link dropdown-toggle h4 text-white" 
 								href="${path}/pharmacy/search">Pharmacy</a></li>
@@ -112,10 +111,10 @@
 								class="nav-link dropdown-toggle h4 text-white" href="#"
 								data-bs-toggle="dropdown" data-bs-auto-close="outside">Community</a>
 								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" href="${path}/board/list">자유 게시판</a></li>
-									<li><a class="dropdown-item" href="/mvc/board/list?types=QUESTION">질문과 답변</a></li>
-									<li><a class="dropdown-item" href="/mvc/board/list?types=NBOARD">공지사항</a></li>
-									<li><a class="dropdown-item" href="/mvc/board/list?types=NEWS">Newsroom</a></li>
+									<li><a class="dropdown-item" href="${path}/board/list">Community Board</a></li>
+									<li><a class="dropdown-item" href="${path}/board/list?types=QUESTION">질문과 답변</a></li>
+									<li><a class="dropdown-item" href="${path}/board/list?types=NBOARD">공지사항</a></li>
+									<li><a class="dropdown-item" href="${path}/board/list?types=NEWS">Newsroom</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -195,7 +194,6 @@
 										<div class="navbar-tool-icon-box">
 											<i class="navbar-tool-icon ci-user"></i>
 										</div>
-<<<<<<< HEAD
 										<div class="navbar-tool dropdown">
 							              <div class="navbar-tool dropdown"><a class="" href="#"></a><a class="navbar-tool-text ms-n1" href="#">${loginMember.name}님</a>
 							                <div class="dropdown-menu dropdown-menu-end">
@@ -211,13 +209,6 @@
 											
 											
 											
-=======
-										<div class="navbar-tool-text ms-n3">
-											${loginMember.name}님
-											<div>
-												<a href="${path}/logout">logout</a>
-											</div>
->>>>>>> branch 'master' of https://github.com/loveymiracle/mulProject.git
 										</div>
 									</div>
 								</c:if>

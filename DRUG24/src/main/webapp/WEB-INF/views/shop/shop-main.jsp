@@ -18,7 +18,7 @@
 							<b>공유</b>가 선택한 <b style="color:red;">탁! </b><br> 소리나는 유산균<br><br>
 							<b style="color:red;">Tak!! 은 덴마크어로 고맙습니다.</b>
 						</p>
-						<a class="btn btn-accent" href="${path}/shop/product?pno=236">구경하러 가기<i
+						<a class="btn btn-accent" href="${path}/shop/product?pno=1536">구경하러 가기<i
 							class="ci-arrow-right fs-ms ms-1"></i></a>
 					</div>
 				</div>

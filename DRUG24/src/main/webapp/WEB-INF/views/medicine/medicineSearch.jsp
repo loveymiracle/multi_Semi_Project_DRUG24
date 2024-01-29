@@ -422,50 +422,6 @@
 
           
           <!-- Sidebar with banners-->
-          <!-- 가장 잘 팔린 의약품-->
-          <aside class="col-lg-4 d-none d-lg-block">
-            <div class="d-lg-block p-4 ms-auto w-100" id=scroll style="position:absolute;right:0;top:0; max-width: 15%; margin-top:20rem; background-color:white; border-radius: 2rem">
-              <div class="widget mb-4">
-                <h3 class="smallsearch-title">가장 잘 팔린 의약품</h3>
-                <div class="d-flex align-items-center pb-2 border-bottom"><a class="d-block" href="shop-single-v1.html"><img
-                      src="${path}/resources/imgs/default.jpg" width="64" alt="Product"></a>
-                  <div class="ps-2">
-                    <h6 class="widget-product-title"><a href="shop-single-v1.html">활명수</a></h6>
-                    <div class="widget-product-meta"><span class="text-accent me-2">3,400원</small></span></div>
-                  </div>
-                </div>
-                <div class="d-flex align-items-center py-2 border-bottom"><a class="d-block" href="shop-single-v1.html"><img
-                      src="https://nedrug.mfds.go.kr/pbp/cmn/itemImageDownload/151577167067000087" width="64" alt="Product"></a>
-                  <div class="ps-2">
-                    <h6 class="widget-product-title"><a href="shop-single-v1.html">에바치온캡슐(글루타티온)</a></h6>
-                    <div class="widget-product-meta"><span class="text-accent me-2">14,500원</span></div>
-                  </div>
-                </div>
-                <div class="d-flex align-items-center py-2 border-bottom"><a class="d-block" href="shop-single-v1.html"><img
-                      src="https://nedrug.mfds.go.kr/pbp/cmn/itemImageDownload/154609810414600027" width="64" alt="Product"></a>
-                  <div class="ps-2">
-                    <h6 class="widget-product-title"><a href="shop-single-v1.html">아로나민골드정</a></h6>
-                    <div class="widget-product-meta"><span class="text-accent me-2">7,800원</span></div>
-                  </div>
-                </div>
-                <div class="d-flex align-items-center py-2 border-bottom"><a class="d-block" href="shop-single-v1.html"><img
-                      src="https://nedrug.mfds.go.kr/pbp/cmn/itemImageDownload/1NOwp2F68-A" width="64" alt="Product"></a>
-                  <div class="ps-2">
-                    <h6 class="widget-product-title"><a href="shop-single-v1.html">대웅우루사연질캡슐</a></h6>
-                    <div class="widget-product-meta"><span class="text-accent me-2">17,900원</span></div>
-                  </div>
-                </div>
-                <div class="d-flex align-items-center py-2"><a class="d-block" href="shop-single-v1.html"><img
-                      src="https://nedrug.mfds.go.kr/pbp/cmn/itemImageDownload/151369816808500002" width="64" alt="Product"></a>
-                  <div class="ps-2">
-                    <h6 class="widget-product-title"><a href="shop-single-v1.html">액티피드정</a></h6>
-                    <div class="widget-product-meta"><span class="text-accent me-2">12,400원</small></span></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </aside>
         </div>
       </div>
   </main>
