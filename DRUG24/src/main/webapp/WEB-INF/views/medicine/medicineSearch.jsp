@@ -48,13 +48,12 @@
 	                <!-- 의약품 이름 검색-->
 	                <div class="accordion-item">
 	                  <div class="accordion-body">
-	                    <div class="widget widget-links widget-filter">
+	                    <div class="widget widget-links">
 	                      <div class="searchMed-div input-group-sm mb-2">
 	                        <input class="filter-search" type="text" name="searchValue" id="filter-search" placeholder="검색어를 입력해주세요" value="${param.searchValue}">
 	                        <i class="ci-search position-absolute top-50 end-0 translate-middle-y fs-sm me-3"></i>
 	                        <div class="autocomplete"></div>
 	                        <span class="span"></span>
-	                        <script src="js/search.js"></script>
 	                      </div>
 	                    </div>
 	                  </div>
@@ -65,28 +64,139 @@
 	        </div>
 		</form>
           <div class="col-lg-4 col-sm-6 mb-grid-gutter">
-            <!-- 제약 회사명 검색-->
-            <div class="accordion-item">
-              <br>
-              <h3 class="smallsearch-title" style="margin-left:1.5rem">제약회사</h3> <!-- to do: select count -->
-              <div class="accordion-body">
-                <div class="widget widget-links widget-filter">
-                  <div class="input-group input-group-sm mb-2">
-                    <input class="widget-filter-search form-control rounded-end" type="text" placeholder="검색"><i
-                      class="ci-search position-absolute top-50 end-0 translate-middle-y fs-sm me-3"></i>
+            <!-- 의약품 종류 검색 -->
+              <div class="med-classify">
+                <br>
+                    <h3 class="smallsearch-title">제약회사</h3>
+                    <div class="input-group input-group-sm mb-2">
+                      <input class="widget-filter-search form-control rounded-end" name="searchValue1" type="text" placeholder="검색" value="${param.searchValue1}">
+                      <i class="ci-search position-absolute top-50 end-0 translate-middle-y fs-sm me-3"></i>
+                    </div>
+                    <ul class="widget-list widget-filter-list list-unstyled pt-1" style="max-height: 6rem;"
+                      data-simplebar data-simplebar-auto-hide="false"><li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+	                        <div class="form-check">
+	                          <input class="form-check-input" type="radio" name="search1">
+	                          <label class="form-check-label widget-filter-item-text">태극제약(주)</label>
+	                        </div><span class="fs-xs text-muted">118</span>
+	                     </li>
+	                     <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+	                        <div class="form-check">
+	                          <input class="form-check-input" type="radio" name="search1">
+	                          <label class="form-check-label widget-filter-item-text">일양약품(주)</label>
+	                        </div><span class="fs-xs text-muted">101</span>
+	                     </li>
+	                     <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+	                        <div class="form-check">
+	                          <input class="form-check-input" type="radio" name="search1">
+	                          <label class="form-check-label widget-filter-item-text">조아제약(주)</label>
+	                        </div><span class="fs-xs text-muted">98</span>
+	                     </li>
+	                     <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+	                        <div class="form-check">
+	                          <input class="form-check-input" type="radio" name="search1">
+	                          <label class="form-check-label widget-filter-item-text">(주)알피바이오</label>
+	                        </div><span class="fs-xs text-muted">97</span>
+	                     </li>
+	                     <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+	                        <div class="form-check">
+	                          <input class="form-check-input" type="radio" name="search1">
+	                          <label class="form-check-label widget-filter-item-text">(주)유한양행</label>
+	                        </div><span class="fs-xs text-muted">95</span>
+	                     </li>
+	                     <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+	                        <div class="form-check">
+	                          <input class="form-check-input" type="radio" name="search1">
+	                          <label class="form-check-label widget-filter-item-text">신일제약(주)</label>
+	                        </div><span class="fs-xs text-muted">84</span>
+	                     </li>
+	                     <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+	                        <div class="form-check">
+	                          <input class="form-check-input" type="radio" name="search1">
+	                          <label class="form-check-label widget-filter-item-text">(주)에이프로젠바이오로직스</label>
+	                        </div><span class="fs-xs text-muted">82</span>
+	                     </li>
+	                     <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+	                        <div class="form-check">
+	                          <input class="form-check-input" type="radio" name="search1">
+	                          <label class="form-check-label widget-filter-item-text">일동제약(주)</label>
+	                        </div><span class="fs-xs text-muted">80</span>
+	                     </li>
+	                     <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+	                        <div class="form-check">
+	                          <input class="form-check-input" type="radio" name="search1">
+	                          <label class="form-check-label widget-filter-item-text">(주)마더스제약</label>
+	                        </div><span class="fs-xs text-muted">69</span>
+	                     </li>
+	                     <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+	                        <div class="form-check">
+	                          <input class="form-check-input" type="radio" name="search1">
+	                          <label class="form-check-label widget-filter-item-text">경남제약(주)</label>
+	                        </div><span class="fs-xs text-muted">66</span>
+	                     </li>
+						<li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+	                        <div class="form-check">
+	                          <input class="form-check-input" type="radio" name="search1">
+	                          <label class="form-check-label widget-filter-item-text">태극제약(주)</label>
+	                        </div><span class="fs-xs text-muted">118</span>
+	                     </li>
+	                     <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+	                        <div class="form-check">
+	                          <input class="form-check-input" type="radio" name="search1">
+	                          <label class="form-check-label widget-filter-item-text">일양약품(주)</label>
+	                        </div><span class="fs-xs text-muted">101</span>
+	                     </li>
+	                     <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+	                        <div class="form-check">
+	                          <input class="form-check-input" type="radio" name="search1">
+	                          <label class="form-check-label widget-filter-item-text">조아제약(주)</label>
+	                        </div><span class="fs-xs text-muted">98</span>
+	                     </li>
+	                     <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+	                        <div class="form-check">
+	                          <input class="form-check-input" type="radio" name="search1">
+	                          <label class="form-check-label widget-filter-item-text">(주)알피바이오</label>
+	                        </div><span class="fs-xs text-muted">97</span>
+	                     </li>
+	                     <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+	                        <div class="form-check">
+	                          <input class="form-check-input" type="radio" name="search1">
+	                          <label class="form-check-label widget-filter-item-text">(주)유한양행</label>
+	                        </div><span class="fs-xs text-muted">95</span>
+	                     </li>
+	                     <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+	                        <div class="form-check">
+	                          <input class="form-check-input" type="radio" name="search1">
+	                          <label class="form-check-label widget-filter-item-text">신일제약(주)</label>
+	                        </div><span class="fs-xs text-muted">84</span>
+	                     </li>
+	                     <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+	                        <div class="form-check">
+	                          <input class="form-check-input" type="radio" name="search1">
+	                          <label class="form-check-label widget-filter-item-text">(주)에이프로젠바이오로직스</label>
+	                        </div><span class="fs-xs text-muted">82</span>
+	                     </li>
+	                     <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+	                        <div class="form-check">
+	                          <input class="form-check-input" type="radio" name="search1">
+	                          <label class="form-check-label widget-filter-item-text">일동제약(주)</label>
+	                        </div><span class="fs-xs text-muted">80</span>
+	                     </li>
+	                     <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+	                        <div class="form-check">
+	                          <input class="form-check-input" type="radio" name="search1">
+	                          <label class="form-check-label widget-filter-item-text">(주)마더스제약</label>
+	                        </div><span class="fs-xs text-muted">69</span>
+	                     </li>
+	                     <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
+	                        <div class="form-check">
+	                          <input class="form-check-input" type="radio" name="search1">
+	                          <label class="form-check-label widget-filter-item-text">경남제약(주)</label>
+	                        </div><span class="fs-xs text-muted">66</span>
+	                     </li>
+                       
+                    </ul>
                   </div>
-                  <ul class="widget-list widget-filter-list pt-1" style="height: 12rem;" data-simplebar
-                    data-simplebar-auto-hide="false">
-                    <li class="widget-list-item widget-filter-item"><a
-                        class="widget-list-link d-flex justify-content-between align-items-center" href="#"><span
-                          class="widget-filter-item-text">제약회사1</span><span class="fs-xs text-muted ms-3">232
-                          제품</span></a></li>
-                    
-                  </ul>
-                </div>
               </div>
-            </div>
-          </div>
 
           
           <div class="col-lg-4 col-sm-6 mb-grid-gutter">
@@ -95,156 +205,105 @@
                 <br>
                     <h3 class="smallsearch-title">의약품 분류</h3>
                     <div class="input-group input-group-sm mb-2">
-                      <input class="widget-filter-search form-control rounded-end" type="text" placeholder="검색"><i
-                      class="ci-search position-absolute top-50 end-0 translate-middle-y fs-sm me-3"></i>
+                      <input class="widget-filter-search form-control rounded-end" name="searchValue2" type="text" placeholder="검색" value="${param.searchValue2}">
+                      <i class="ci-search position-absolute top-50 end-0 translate-middle-y fs-sm me-3"></i>
                     </div>
                     <ul class="widget-list widget-filter-list list-unstyled pt-1" style="max-height: 6rem;"
                       data-simplebar data-simplebar-auto-hide="false">
+                      
                       <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
                         <div class="form-check">
-                          <input class="form-check-input" type="checkbox" id="normal-med">
+                          <input class="form-check-input" type="radio" name="search2" id="normal-med">
                           <label class="form-check-label widget-filter-item-text" for="adidas">일반의약품</label>
                         </div><span class="fs-xs text-muted">425</span>
                       </li>
                       <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
                         <div class="form-check">
-                          <input class="form-check-input" type="checkbox" id="pro-med">
+                          <input class="form-check-input" type="radio" name="search2" id="pro-med">
                           <label class="form-check-label widget-filter-item-text" for="ataylor">전문의약품</label>
                         </div><span class="fs-xs text-muted">15</span>
                       </li>
-                      <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" id="classify3-med">
-                          <label class="form-check-label widget-filter-item-text" for="armani">의약품 분류3</label>
-                        </div><span class="fs-xs text-muted">18</span>
-                      </li>
-                      <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" id="classify4-med">
-                          <label class="form-check-label widget-filter-item-text" for="banana">의약품 분류4</label>
-                        </div><span class="fs-xs text-muted">103</span>
-                      </li>
-                      <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" id="classify5-med">
-                          <label class="form-check-label widget-filter-item-text" for="bilabong">의약품 분류5</label>
-                        </div><span class="fs-xs text-muted">27</span>
-                      </li>
+                      
                     </ul>
                   </div>
               </div>
 
           <div class="col-lg-4 col-sm-6 mb-grid-gutter">
             <br>
-            <h3 class="smallsearch-title">주요 성분</h3>
+            <h3 class="smallsearch-title">약 효능 검색</h3>
             <div class="input-group input-group-sm mb-2">
-              <input class="widget-filter-search form-control rounded-end" type="text" placeholder="검색"><i
+              <input class="widget-filter-search form-control rounded-end" name="searchValue3" type="text" placeholder="검색" value="${param.searchValue3}"><i
                       class="ci-search position-absolute top-50 end-0 translate-middle-y fs-sm me-3"></i>
             </div>
             <ul class="widget-list widget-filter-list list-unstyled pt-1" style="max-height: 12rem;" data-simplebar
               data-simplebar-auto-hide="false">
-              <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="Cyclophosphamide">
-                  <label class="form-check-label widget-filter-item-text" for="Cyclophosphamide">시클로포스파미드</label>
-                </div><span class="fs-xs text-muted">34</span>
-              </li>
-              <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="Disodium">
-                  <label class="form-check-label widget-filter-item-text" for="Disodium">디소디움아데노신-5-트리포스페이트</label>
-                </div><span class="fs-xs text-muted">57</span>
-              </li>
-              <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="Gentamicin">
-                  <label class="form-check-label widget-filter-item-text" for="Gentamicin">황산겐타마이신</label>
-                </div><span class="fs-xs text-muted">198</span>
-              </li>
-              <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="Cefoxitine">
-                  <label class="form-check-label widget-filter-item-text" for="Cefoxitine">세팔로틴나트륨</label>
-                </div><span class="fs-xs text-muted">72</span>
-              </li>
-              <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="size-xl">
-                  <label class="form-check-label widget-filter-item-text" for="size-xl">디클록사실린나트륨</label>
-                </div><span class="fs-xs text-muted">46</span>
-              </li>
-              <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="size-39">
-                  <label class="form-check-label widget-filter-item-text" for="size-39">코바마미드(코엔자임비12)</label>
-                </div><span class="fs-xs text-muted">112</span>
-              </li>
-              <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="size-40">
-                  <label class="form-check-label widget-filter-item-text" for="size-40">아미노카프론산</label>
-                </div><span class="fs-xs text-muted">85</span>
-              </li>
-              <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="size-41">
-                  <label class="form-check-label widget-filter-item-text" for="size-40">마행감석탕연조엑스</label>
-                </div><span class="fs-xs text-muted">210</span>
-              </li>
-              <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="size-42">
-                  <label class="form-check-label widget-filter-item-text" for="size-42">십미패독산연조엑스(7.88→1)</label>
-                </div><span class="fs-xs text-muted">57</span>
-              </li>
-              <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="size-43">
-                  <label class="form-check-label widget-filter-item-text" for="size-43">옥수수전분</label>
-                </div><span class="fs-xs text-muted">30</span>
-              </li>
-              <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="size-44">
-                  <label class="form-check-label widget-filter-item-text" for="size-44">유당수화물</label>
-                </div><span class="fs-xs text-muted">61</span>
-              </li>
-              <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="size-45">
-                  <label class="form-check-label widget-filter-item-text" for="size-45">목단피</label>
-                </div><span class="fs-xs text-muted">23</span>
-              </li>
-              <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="size-46">
-                  <label class="form-check-label widget-filter-item-text" for="size-46">복령</label>
-                </div><span class="fs-xs text-muted">19</span>
-              </li>
-              <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="size-47">
-                  <label class="form-check-label widget-filter-item-text" for="size-47">산수유</label>
-                </div><span class="fs-xs text-muted">15</span>
-              </li>
-              <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="size-48">
-                  <label class="form-check-label widget-filter-item-text" for="size-48">산약</label>
-                </div><span class="fs-xs text-muted">12</span>
-              </li>
-              <li class="widget-filter-item d-flex justify-content-between align-items-center mb-1">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="size-49">
-                  <label class="form-check-label widget-filter-item-text" for="size-49">택사</label>
-                </div><span class="fs-xs text-muted">8</span>
-              </li>
+
               <li class="widget-filter-item d-flex justify-content-between align-items-center">
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="size-50">
-                  <label class="form-check-label widget-filter-item-text" for="size-50">숙지황</label>
-                </div><span class="fs-xs text-muted">6</span>
-              </li>
+                  <input class="form-check-input" type="radio" name="search3">
+                  <label class="form-check-label widget-filter-item-text">기침</label>
+                </div> </li> <li class="widget-filter-item d-flex justify-content-between align-items-center">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="search3">
+                  <label class="form-check-label widget-filter-item-text">가래</label>
+                </div> </li> <li class="widget-filter-item d-flex justify-content-between align-items-center">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="search3">
+                  <label class="form-check-label widget-filter-item-text">육체피로</label>
+                </div> </li> <li class="widget-filter-item d-flex justify-content-between align-items-center">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="search3">
+                  <label class="form-check-label widget-filter-item-text">설사</label>
+                </div> </li> <li class="widget-filter-item d-flex justify-content-between align-items-center">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="search3">
+                  <label class="form-check-label widget-filter-item-text">체함</label>
+                </div> </li> <li class="widget-filter-item d-flex justify-content-between align-items-center">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="search3">
+                  <label class="form-check-label widget-filter-item-text">멀미</label>
+                </div> </li> <li class="widget-filter-item d-flex justify-content-between align-items-center">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="search3">
+                  <label class="form-check-label widget-filter-item-text">위산과다</label>
+                </div> </li> <li class="widget-filter-item d-flex justify-content-between align-items-center">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="search3">
+                  <label class="form-check-label widget-filter-item-text">위부불쾌함</label>
+                </div> </li> <li class="widget-filter-item d-flex justify-content-between align-items-center">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="search3">
+                  <label class="form-check-label widget-filter-item-text">속쓰림</label>
+                </div> </li> <li class="widget-filter-item d-flex justify-content-between align-items-center">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="search3">
+                  <label class="form-check-label widget-filter-item-text">임신</label>
+                </div> </li> <li class="widget-filter-item d-flex justify-content-between align-items-center">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="search3">
+                  <label class="form-check-label widget-filter-item-text">소화불량</label>
+                </div> </li> <li class="widget-filter-item d-flex justify-content-between align-items-center">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="search3">
+                  <label class="form-check-label widget-filter-item-text">약물중독</label>
+                </div> </li> <li class="widget-filter-item d-flex justify-content-between align-items-center">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="search3">
+                  <label class="form-check-label widget-filter-item-text">두통</label>
+                </div> </li> <li class="widget-filter-item d-flex justify-content-between align-items-center">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="search3">
+                  <label class="form-check-label widget-filter-item-text">치통</label>
+                </div> </li> <li class="widget-filter-item d-flex justify-content-between align-items-center">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="search3">
+                  <label class="form-check-label widget-filter-item-text">변비</label>
+                </div> </li> <li class="widget-filter-item d-flex justify-content-between align-items-center">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="search3">
+                  <label class="form-check-label widget-filter-item-text">인후통</label>
+                </div> </li>
+              
             </ul>
           </div>
 
@@ -258,7 +317,7 @@
 				<td colspan="6">조회된 글이 없습니다.</td>
 			</tr>
 		</c:if>
-
+		
 		<c:if test="${not empty list}">
 			<c:forEach var="item" items="${list}">
 				<section class="itemRow col-lg-12 pt-2">
@@ -269,33 +328,46 @@
 							<i class="ci-heart"></i>
 						</button>
 						<div class="d-sm-flex align-items-center">
-							<a class="product-list-thumb"
-								href="${path}/medicine/view?dno=${item.dno}"><img
-								src="${item.dimgurl}" alt="Product"></a>
+							<a class="product-list-thumb" href="${path}/medicine/view?dno=${item.dno}">
+							<c:choose>
+								<c:when test="${!empty item.dimgurl}">
+									<img src="${item.dimgurl}" alt="Product"></a>
+								</c:when>
+								<c:otherwise>
+									<img src="${path}/resources/imgs/default.jpg" alt="Product"></a>
+								</c:otherwise>
+							</c:choose>
+					
 							<div class="card-body py-2 row m-lg-2">
 								<div class="col-5">
 									<a class="product-meta d-block fs-xs pb-1 " href="#">${item.dcompany}</a>
 									<h3 class="product-title fs-base">
 										<a class="bold" href="${path}/medicine/view?dno=${item.dno}">${item.dname}</a>
 									</h3>
-									<div class="product-price mt-n3">
-										<span class="text-accent">₩ ${item.price}</span>
-									</div>
-									<div class="star-rating star-rating-fill"
-										style="width: ${item.dno/50000000}%; float: left;">
-										<i class="star-rating-icon ci-star-filled active"></i> <i
-											class="star-rating-icon ci-star-filled active"></i> <i
-											class="star-rating-icon ci-star-filled active"></i> <i
-											class="star-rating-icon ci-star-filled active"></i> <i
-											class="star-rating-icon ci-star-filled active"></i>
-									</div>
-
-									<div class="star-rating" style="float: left;">
-										<i class="star-rating-icon ci-star"></i> <i
-											class="star-rating-icon ci-star"></i> <i
-											class="star-rating-icon ci-star"></i> <i
-											class="star-rating-icon ci-star"></i> <i
-											class="star-rating-icon ci-star"></i>
+									<div style="position:relative;">
+										<div class="star-rating star-rating-fill" style="position:absolute; float: left;">
+											<i class="star-rating-icon ci-star-filled active"></i>
+											<c:if test="${item.price > 10000}">
+												<i class="star-rating-icon ci-star-filled active"></i> 
+											</c:if> 
+											<c:if test="${item.price > 20000}">
+												<i class="star-rating-icon ci-star-filled active"></i> 
+											</c:if>
+											<c:if test="${item.price > 30000}">
+												<i class="star-rating-icon ci-star-filled active"></i> 
+											</c:if> 
+											<c:if test="${item.price > 40000}">
+												<i class="star-rating-icon ci-star-filled active"></i> 
+											</c:if> 
+										</div>
+	
+										<div class="star-rating" style="position:absolute; float: left;">
+											<i class="star-rating-icon ci-star"></i> <i
+												class="star-rating-icon ci-star"></i> <i
+												class="star-rating-icon ci-star"></i> <i
+												class="star-rating-icon ci-star"></i> <i
+												class="star-rating-icon ci-star"></i>
+										</div>
 									</div>
 								</div>
 								<div class="col-7  align-items-center row">
@@ -420,9 +492,7 @@
             });
             </script> 
 
-          
-          <!-- Sidebar with banners-->
-          <!-- 가장 잘 팔린 의약품-->
+          <!--  가장 잘팔린의약품
           <aside class="col-lg-4 d-none d-lg-block">
             <div class="d-lg-block p-4 ms-auto w-100" id=scroll style="position:absolute;right:0;top:0; max-width: 15%; margin-top:20rem; background-color:white; border-radius: 2rem">
               <div class="widget mb-4">
@@ -464,8 +534,9 @@
                 </div>
               </div>
             </div>
-
           </aside>
+          -->
+          
         </div>
       </div>
   </main>

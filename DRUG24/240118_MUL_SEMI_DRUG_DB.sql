@@ -252,7 +252,7 @@ SELECT * FROM PHARMACY;
 ---------------------------------------------------
 
 CREATE TABLE MEDICINE (
-	dNO	INT	PRIMARY KEY NOT NULL,
+	dNO	VARCHAR(30)	PRIMARY KEY NOT NULL,
 	dNAME VARCHAR(100) NOT NULL,
 	dCOMPANY VARCHAR(50),
 	PRICE INT,
@@ -307,6 +307,13 @@ CREATE TABLE MEDICINE (
 COMMIT;
 
 SELECT * FROM MEDICINE;
+
+-- 제약회사 제품 많은순으로 정렬
+select dCOMPANY, count(dCOMPANY)as coun FROM MEDICINE M GROUP BY dCOMPANY ORDER BY coun desc;
+
+-- SET SQL_SAFE_UPDATES = 0; -- 세이프모드 비활성화
+-- DELETE FROM MEDICINE; -- medicine 테이블 초기화
+-- SET SQL_SAFE_UPDATES = 1;
 
 ---------------------------------------------------
 ------------------- 건기식 테이블 ----------------------
@@ -683,7 +690,7 @@ SELECT * FROM REPLY;
 CREATE TABLE MedicineReply (
 	rNO INT PRIMARY KEY AUTO_INCREMENT,
 	mNO INT,
-	dNO INT,
+	dNO VARCHAR(30),
     CONTENT VARCHAR(2000),
 	RATING INT DEFAULT '0',
 	CREATE_DATE DATETIME DEFAULT CURRENT_TIMESTAMP,

@@ -26,7 +26,6 @@
 		<result property="dotc_code" column="dOTC_CODE"/>
 	</resultMap>
 	
-
 	<select id="selectMedicineList" parameterType="MedicineParam" resultMap="MedicineResultMap">
 		SELECT dNO, dNAME, dCOMPANY, price, dIMGURL, d1TYPE, d2TYPE, 
 			   d3TYPE, d4TYPE, d5TYPE
@@ -35,6 +34,15 @@
 			1=1
 			<if test="searchValue != null">
 				AND M.dNAME LIKE '%${searchValue}%'
+			</if>
+			<if test="searchValue1 != null">
+				AND M.dCOMPANY LIKE '%${searchValue1}%'
+			</if>
+			<if test="searchValue2 != null">
+				AND M.dOTC_CODE LIKE '%${searchValue2}%'
+			</if>
+			<if test="searchValue3 != null">
+				AND M.dEFFECT LIKE '%${searchValue3}%'
 			</if>
 		ORDER BY M.dNO DESC LIMIT ${limit} OFFSET ${offset};
 	</select>
@@ -58,7 +66,52 @@
 		WHERE 1=1 AND M.dNO = #{dno}
 	</select>
 	
+	<insert id="insertMedicineReply" parameterType="com.multi.semipjt.medicine.model.vo.MedicineReply">
+		insert into MedicineReply (rNo, mNo, dNo, content, rating, create_date) 
+		values (0, #{mno}, #{dno}, #{content}, ${rating}, default)
+	</insert>
 	
+	<delete id="deleteMedicineReply" parameterType="int">
+		delete from MedicineReply where rno = #{rno}
+	</delete>
+	
+	
+	<select id="selectMedicineReplyList" resultType="MedicineReply" parameterType="int">
+		SELECT * FROM MedicineReply 
+		INNER JOIN Member ON MedicineReply.mNo = Member.mNo
+		WHERE dno = #{dno}
+	</select>
+	
+	<select id="countMedicineReply" resultType="int" parameterType="int">
+		SELECT COUNT(*) FROM MedicineReply
+		WHERE dno = #{dno}
+	</select>
+	
+	<select id="countMedicineReply5" resultType="int" parameterType="int">
+		SELECT COUNT(*) FROM MedicineReply
+		WHERE dno = #{dno} AND rating = 5
+	</select>
+	<select id="countMedicineReply4" resultType="int" parameterType="int">
+		SELECT COUNT(*) FROM MedicineReply
+		WHERE dno = #{dno} AND rating = 4
+	</select>
+	<select id="countMedicineReply3" resultType="int" parameterType="int">
+		SELECT COUNT(*) FROM MedicineReply
+		WHERE dno = #{dno} AND rating = 3
+	</select>
+	<select id="countMedicineReply2" resultType="int" parameterType="int">
+		SELECT COUNT(*) FROM MedicineReply
+		WHERE dno = #{dno} AND rating = 2
+	</select>
+	<select id="countMedicineReply1" resultType="int" parameterType="int">
+		SELECT COUNT(*) FROM MedicineReply
+		WHERE dno = #{dno} AND rating = 1
+	</select>
+	
+	<update id="updateMedicineAVG"  parameterType="int">
+		UPDATE product set rating = (SELECT AVG(rating) FROM MedicineReply where dno = #{dno}) where dNo = #{dno}
+	</update>
+		
 </mapper>
 
 
