@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.multi.semipjt.pharmacy.model.mapper.PharmacyMapper">
+
+	<resultMap type="Pharmacy" id="PharmacyResultMap">
+		<result property="phno" column="phNO"/>
+		<result property="phname" column="phNAME"/>
+		<result property="phtel" column="phTEL"/>
+		<result property="phaddress" column="phADDRESS"/>
+		<result property="phop1s" column="phOP1s"/>
+		<result property="phop2s" column="phOP2s"/>
+		<result property="phop3s" column="phOP3s"/>
+		<result property="phop4s" column="phOP4s"/>
+		<result property="phop5s" column="phOP5s"/>
+		<result property="phop6s" column="phOP6s"/>
+		<result property="phop7s" column="phOP7s"/>
+		<result property="phop8s" column="phOP8s"/>
+		<result property="phop1e" column="phOP1e"/>
+		<result property="phop2e" column="phOP2e"/>
+		<result property="phop3e" column="phOP3e"/>
+		<result property="phop4e" column="phOP4e"/>
+		<result property="phop5e" column="phOP5e"/>
+		<result property="phop6e" column="phOP6e"/>
+		<result property="phop7e" column="phOP7e"/>
+		<result property="phop8e" column="phOP8e"/>
+		<result property="phlati" column="phLATI"/>
+		<result property="phlong" column="phLONG"/>
+		<result property="reviewcount" column="REVIEWCOUNT"/>
+		<result property="favcount" column="FAVCOUNT"/>
+		<result property="rating" column="RATING"/>
+		<result property="status" column="STATUS"/>
+	</resultMap>
+	
+
+	<select id="selectPharmacyList" parameterType="PharmacyParam" resultMap="PharmacyResultMap">
+		SELECT  phNO, phNAME, phTEL, phADDRESS, 
+				phOP1s, phOP2s, phOP3s, phOP4s, phOP5s, phOP6s, phOP7s, phOP8s, 
+				phOP1e, phOP2e, phOP3e, phOP4e, phOP5e, phOP6e, phOP7e, phOP8e, 
+				phLATI, phLONG,
+		 		REVIEWCOUNT, FAVCOUNT, RATING
+		FROM PHARMACY P
+		WHERE 
+			P.STATUS = 'Y' 	
+			<if test="holidayck != null">
+				AND P.phop8s IS NOT NULL 
+			</if>
+			<if test="nightck != null">
+				AND (P.phop1e >= 2200 OR P.phop2e >= 2200 OR P.phOP3e >= 2200 
+						OR P.phop4e >= 2200 OR P.phop5e >= 2200 OR P.phop6e >= 2200 OR P.phop7e >= 2200) 
+			</if>
+			<if test="name != null">
+			    AND P.phNAME LIKE '%${name}%' 
+			</if>
+			<if test="gugun1 != null">
+			    AND P.phADDRESS LIKE '%${gugun1}%' 
+			</if>
+		ORDER BY P.phNO DESC LIMIT ${limit} OFFSET ${offset};
+	</select>
+	
+	
+	<select id="selectPharmacyCount" parameterType="PharmacyParam" resultType="int">
+		SELECT COUNT(*)
+		FROM PHARMACY P
+		WHERE 
+			P.STATUS = 'Y' <!-- 1=1을 사용해도 무관  -->
+			<if test="holidayck != null">
+				AND P.phop8s IS NOT NULL 
+			</if>
+			<if test="nightck != null">
+				AND (P.phop1e >= 2200 OR P.phop2e >= 2200 OR P.phOP3e >= 2200 
+						OR P.phop4e >= 2200 OR P.phop5e >= 2200 OR P.phop6e >= 2200 OR P.phop7e >= 2200) 
+			</if>
+			<if test="name != null">
+			    AND P.phNAME LIKE '%${name}%' 
+			</if>
+			<if test="gugun1 != null">
+			    AND P.phADDRESS LIKE '%${gugun1}%' 
+			</if>
+	</select>
+	
+	<!-- 상세보기 용도, 모든 인자를 가져와야한다. -->
+	<select id="selectPharmacyByNo" parameterType="int" resultMap="PharmacyResultMap">
+		SELECT  phNO, phNAME, phTEL, phADDRESS, 
+			phOP1s, phOP2s, phOP3s, phOP4s, phOP5s, phOP6s, phOP7s, phOP8s, 
+			phOP1e, phOP2e, phOP3e, phOP4e, phOP5e, phOP6e, phOP7e, phOP8e, 
+			phLATI, phLONG,
+	 		REVIEWCOUNT, FAVCOUNT, RATING
+		FROM PHARMACY P
+		WHERE P.STATUS = 'Y' AND P.phNO = #{phno}
+	</select>
+	
+	<insert id="insertPharmacy" parameterType="Pharmacy">
+		INSERT INTO PHARMACY (
+			phNO, phNAME, phTEL, phADDRESS,
+			phOP1s, phOP2s, phOP3s, phOP4s, phOP5s, phOP6s, phOP7s, phOP8s, 
+			phOP1e, phOP2e, phOP3e, phOP4e, phOP5e, phOP6e, phOP7e, phOP8e, 
+			phLATI, phLONG, REVIEWCOUNT, FAVCOUNT,
+		    RATING, STATUS
+		) VALUES(
+			0, #{phname}, #{phtel}, #{phaddress},
+		    #{phop1s}, #{phop2s}, #{phop3s}, #{phop4s}, #{phop5s},#{phop6s}, #{phop7s}, #{phop8s}, 
+		    #{phop1e}, #{phop2e}, #{phop3e}, #{phop4e}, #{phop5e},#{phop6e}, #{phop7e}, #{phop8e}, 
+		    #{phlati}, ${phlong}, DEFAULT, DEFAULT,
+		    DEFAULT, DEFAULT
+		)
+	</insert>
+	
+	<insert id="insertPharmacyReply" parameterType="com.multi.semipjt.pharmacy.model.vo.PharmacyReply">
+		insert into PharmacyReply (rNo, mNo, phNo, content, rating, createDate) 
+		values (0, #{mno}, #{phno}, #{content}, #{rating}, default)
+	</insert>
+	
+	<delete id="deletePharmacyReply" parameterType="int">
+		delete from PharmacyReply where rno = #{rno}
+	</delete>
+	
+	
+	<select id="selectPharmacyReplyList" resultType="PharmacyReply" parameterType="int">
+		SELECT * FROM PharmacyReply 
+		INNER JOIN Member ON PharmacyReply.mNo = Member.mNo
+		WHERE phno = #{phno}
+	</select>
+	
+	<select id="countPharmacyReply" resultType="int" parameterType="int">
+		SELECT COUNT(*) FROM PharmacyReply
+		WHERE phno = #{phno}
+	</select>
+	
+	<update id="updatePharmacyAVG"  parameterType="int">
+		UPDATE product set rating = (SELECT AVG(rating) FROM PharmacyReply where phno = #{phno}) where phNo = #{phno}
+	</update>
+	
+	<select id="countPharmacyReply5" resultType="int" parameterType="int">
+		SELECT COUNT(*) FROM PharmacyReply
+		WHERE phno = #{phno} AND rating = 5
+	</select>
+	<select id="countPharmacyReply4" resultType="int" parameterType="int">
+		SELECT COUNT(*) FROM PharmacyReply
+		WHERE phno = #{phno} AND rating = 4
+	</select>
+	<select id="countPharmacyReply3" resultType="int" parameterType="int">
+		SELECT COUNT(*) FROM PharmacyReply
+		WHERE phno = #{phno} AND rating = 3
+	</select>
+	<select id="countPharmacyReply2" resultType="int" parameterType="int">
+		SELECT COUNT(*) FROM PharmacyReply
+		WHERE phno = #{phno} AND rating = 2
+	</select>
+	<select id="countPharmacyReply1" resultType="int" parameterType="int">
+		SELECT COUNT(*) FROM PharmacyReply
+		WHERE phno = #{phno} AND rating = 1
+	</select>
+	
+</mapper>
+
+
+
+
