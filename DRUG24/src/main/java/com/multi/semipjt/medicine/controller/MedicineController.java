@@ -17,17 +17,11 @@ import com.multi.semipjt.common.util.PageInfo;
 import com.multi.semipjt.medicine.model.service.MedicineService;
 import com.multi.semipjt.medicine.model.vo.Medicine;
 import com.multi.semipjt.medicine.model.vo.MedicineParam;
-<<<<<<< HEAD
 
-=======
->>>>>>> branch 'master' of https://github.com/loveymiracle/mulProject.git
 import com.multi.semipjt.member.model.vo.Member;
 import com.multi.semipjt.shop.model.service.ShopService;
 import com.multi.semipjt.shop.model.vo.Product;
-<<<<<<< HEAD
 
-=======
->>>>>>> branch 'master' of https://github.com/loveymiracle/mulProject.git
 import com.multi.semipjt.medicine.model.vo.MedicineReply;
 import com.multi.semipjt.member.model.vo.Member;
 import com.multi.semipjt.pharmacy.model.vo.PharmacyReply;
