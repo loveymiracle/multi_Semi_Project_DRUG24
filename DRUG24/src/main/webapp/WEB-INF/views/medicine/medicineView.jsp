@@ -68,8 +68,7 @@
                       <label class="form-check-label fw-medium text-dark" for="license-std">${medicine.dname}</label>
                     </div>
                   </div>
-=======
->>>>>>> branch 'master' of https://github.com/loveymiracle/mulProject.git
+
 
 
                   <ul class="list-unstyled fs-sm">
@@ -80,15 +79,14 @@
                     <li class="d-flex justify-content-between mb-3 pb-3 border-bottom"><span class="text-dark fw-medium">유통기간</span><span class="text-muted">제조일로부터 24개월</span></li>
                     <li class="d-flex justify-content-between mb-3 pb-3 border-bottom"><span class="text-dark fw-medium">제형</span><span class="text-muted">타블렛</span></li>
 
-<<<<<<< HEAD
+
                     <li class="d-flex justify-content-between mb-3 pb-3 border-bottom"><span class="text-dark fw-medium fs-5">판매처</span><span class="text-muted">${medicine.dcompany}</span></li>
                     <li class="d-flex justify-content-between mb-3 pb-3 border-bottom"><span class="text-dark fw-medium fs-5">분류</span><span class="text-muted">${medicine.dotc_code}</span></li>
                     <li class="d-flex justify-content-between mb-3 pb-3 border-bottom"><span class="text-dark fw-medium fs-5">주요성분</span><a class="product-meta" href="#">건조수산화알루미늄겔</a></li>
                     <li class="d-flex justify-content-between mb-3 pb-3 border-bottom"><span class="text-dark fw-medium fs-5">유통기간</span><span class="text-muted">제조일로부터 36개월</span></li>
                     <li class="d-flex justify-content-between mb-3 pb-3 border-bottom"><span class="text-dark fw-medium fs-5">제형</span><span class="text-muted">밀폐용기</span></li>
 
-=======
->>>>>>> branch 'master' of https://github.com/loveymiracle/mulProject.git
+
                   </ul>
                 </div>
               </div>
